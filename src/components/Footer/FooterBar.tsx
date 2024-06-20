@@ -1,0 +1,226 @@
+import FooterIcon from "./FooterIcon";
+import { useMediaQuery } from "react-responsive";
+
+const socialIcons = [
+  {
+    id: 1,
+    icon: "mdi:twitter",
+    link: "https://twitter.com/",
+  },
+
+  {
+    id: 2,
+    icon: "mdi:facebook",
+    link: "https://facebook.com",
+  },
+  {
+    id: 3,
+    icon: "mdi:instagram",
+    link: "https://instagram.com",
+  },
+  {
+    id: 4,
+    icon: "mdi:youtube",
+    link: "https://youtube.com",
+  },
+  {
+    id: 5,
+    icon: "mdi:linkedin",
+    link: "https://linkedin.com",
+  },
+];
+const FooterBar = () => {
+  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  return (
+    <>
+      {!isMobile ? (
+        <div className="bg-black text-white font-Syne py-10">
+          <div className="grid grid-flow-col grid-rows-1 mx-10 py-10 gap-4">
+            <div className="row-span-1">
+              <div className="grid grid-rows-1 grid-flow-col">
+                <div className="col-span-3 row-span-1">
+                  <ul className="mx-10">
+                    <li>
+                      <a href="/">Home</a>
+                    </li>
+                    <li>
+                      <a href="/">About </a>
+                    </li>
+                    <li>
+                      <a href="/">Contact</a>
+                    </li>
+                  </ul>
+                </div>
+                <div className="col-span-3 row-span-1">
+                  <ul className="mx-10">
+                    <li>
+                      <a href="/">Our Programs</a>
+                    </li>
+                    <li>
+                      <a href="/">Individual Program </a>
+                    </li>
+                    <li>
+                      <a href="/">Corporate Program</a>
+                    </li>
+                    <li>
+                      <a href="/">Institute Program</a>
+                    </li>
+                    <li>
+                      <a href="/">School Program</a>
+                    </li>
+                  </ul>
+                </div>
+                <div className="col-span-3 row-span-1">
+                  <ul className="mx-10">
+                    <li>
+                      <a href="/">Our Services</a>
+                    </li>
+                    <li>
+                      <a href="/">Talent Acquistion</a>
+                    </li>
+                    <li>
+                      <a href="/">Talent Development</a>
+                    </li>
+                    <li>
+                      <a href="/">Services</a>
+                    </li>
+                    <li>
+                      <a href="/">Talent Management</a>
+                    </li>
+                  </ul>
+                </div>
+                <div className="col-span-3 row-span-1">
+                  <ul className="mx-10">
+                    <li>
+                      <a href="/">Testimonials</a>
+                    </li>
+                    <li>
+                      <a href="/">Blog</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div className="row-span-1 place-items-end">
+              <h3 className="text-3xl">
+                Sign up to receive <br /> latest news.
+              </h3>
+              <input
+                className="rounded p-2 mt-2 bg-transparent border-[#CAF0F8]-400 border"
+                placeholder="Enter your email"
+              />
+              <button className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-2 rounded font-bold mx-5 ">
+                Subscribe
+              </button>
+            </div>
+          </div>
+          <div className="grid grid-flow-col grid-rows-1">
+            <div className="flex items-center row-span-1 justify-center md:flex mx-20 mt-10 md:justify-start">
+              <p>@rareminds 2024</p>
+            </div>
+            <div className="flex items-end row-span-1 justify-center md:flex md:justify-end mr-10">
+              <a className="underline mx-10 text">Terms & Conditions</a>
+              <a className="underline">Privacy</a>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="bg-black text-white min-h-screen font-Syne pt-10">
+          <p className="text-md mx-10">
+            Rareminds works to identify the gaps in employability & learning and
+            over the years provide solutions to schools, colleges & corporates
+            through various curated programs.
+          </p>
+
+          <div className="row-span-1 mx-10 my-5">
+            <h3 className="text-3xl">
+              Sign up to receive the <br /> latest news.
+            </h3>
+            <input
+              className="rounded p-2 mt-3 bg-transparent border-[#CAF0F8]-400 border"
+              placeholder="Enter your email"
+            />
+            <button className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-3 rounded font-bold mx-5 ">
+              Subscribe
+            </button>
+          </div>
+
+          <div className="grid grid-flow-col grid-rows-2 mx-10 py-10 gap-4">
+            <div className="row-span-2">
+              <div className="grid grid-rows-1 grid-flow-col">
+                <div className="col-span-6 row-span-1">
+                  <ul>
+                    <li>
+                      <a href="/">Home</a>
+                    </li>
+                    <li>
+                      <a href="/">About </a>
+                    </li>
+                    <li>
+                      <a href="/">Contact</a>
+                    </li>
+
+                    <li>
+                      <a href="/">Individual Program </a>
+                    </li>
+                    <li>
+                      <a href="/">Corporate Program</a>
+                    </li>
+                    <li>
+                      <a href="/">Institute Program</a>
+                    </li>
+                    <li>
+                      <a href="/">School Program</a>
+                    </li>
+                  </ul>
+                </div>
+                <div className="col-span-6 row-span-1">
+                  <ul>
+                    <li>
+                      <a href="/">Our Services</a>
+                    </li>
+                    <li>
+                      <a href="/">Talent Acquistion</a>
+                    </li>
+                    <li>
+                      <a href="/">Talent Development</a>
+                    </li>
+                    <li>
+                      <a href="/">Services</a>
+                    </li>
+                    <li>
+                      <a href="/">Talent Management</a>
+                    </li>
+                    <li>
+                      <a href="/">Testimonials</a>
+                    </li>
+                    <li>
+                      <a href="/">Blog</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-flow-col grid-rows-1">
+            <div className="flex items-center row-span-1 justify-center md:flex md:justify-start">
+              {socialIcons.map((socialIcon) => {
+                const { icon, id, link } = socialIcon;
+                return (
+                  <div key={id}>
+                    <FooterIcon key={id} icon={icon} link={link} />
+                  </div>
+                );
+              })}
+            </div>
+            <div className="flex items-end row-span-1 justify-center md:flex md:justify-end mr-10">
+              <p>@rareminds 2024</p>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default FooterBar;

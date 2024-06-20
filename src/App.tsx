@@ -1,0 +1,28 @@
+import { Suspense } from "react";
+import LoaderComponent from "@/components/LoaderComponent";
+import DefaultLayout from "./layouts/DefaultLayout";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Index from "./pages/Index";
+import Name from "./pages/[name]";
+import ServiceName from "./pages/services/[name]";
+
+const App = () => {
+  return (
+    <>
+      <DefaultLayout>
+        <Suspense fallback={<LoaderComponent />}>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/:name" element={<Name />} />
+            <Route
+              path="services/:userType/:serviceName"
+              element={<ServiceName />}
+            />
+          </Routes>
+        </Suspense>
+      </DefaultLayout>
+    </>
+  );
+};
+
+export default App;

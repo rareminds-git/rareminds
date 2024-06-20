@@ -1,0 +1,113 @@
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+import { useMediaQuery } from "react-responsive";
+import { useNavigate } from "react-router-dom";
+import CTA from "@/common/CTA";
+
+const Services = ({ content, services, ctaContent }) => {
+  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const [hoveredDivs, setHoveredDivs] = useState<any>(null);
+
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <section className="md:px-20 px-10 py-10 md:mt-64 bg-[#cabe9e1f]">
+        <h3 className="mb-4 mt-20 text-3xl text-left font-semibold md:text-4xl text-black">
+          {content?.Heading1}
+        </h3>
+
+        <>
+          {!isMobile ? (
+            <div className="flex">
+              {services.map((ele: any) => {
+                return (
+                  <div
+                    className="item mx-2 cursor-pointer"
+                    onMouseEnter={() => setHoveredDivs(ele.ContentAcronym)}
+                    onMouseLeave={() => setHoveredDivs(undefined)}
+                    onClick={() => navigate(`/services/${ele.ContentSlug}`)}
+                    style={{
+                      width:
+                        hoveredDivs === ele.ContentAcronym
+                          ? "auto"
+                          : hoveredDivs === ""
+                            ? "30px"
+                            : "auto",
+                    }}
+                  >
+                    <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
+                      {hoveredDivs === ele.ContentAcronym ||
+                      hoveredDivs === undefined ? (
+                        <h4 className="text-5xl font-semibold my-10">
+                          {ele.Heading1}
+                        </h4>
+                      ) : (
+                        ""
+                      )}
+                      {hoveredDivs === ele.ContentAcronym ? (
+                        <p
+                          className="text-sm my-5"
+                          dangerouslySetInnerHTML={{
+                            __html: ele?.Description,
+                          }}
+                        ></p>
+                      ) : hoveredDivs === null || hoveredDivs === undefined ? (
+                        <p
+                          className="text-sm my-5"
+                          dangerouslySetInnerHTML={{
+                            __html: ele?.SubHeading1,
+                          }}
+                        ></p>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            services.map((ele: any) => {
+              return (
+                <div
+                  className="item my-4 cursor-pointer"
+                  onMouseEnter={() => setHoveredDivs(ele.ServiceShortForm)}
+                  onMouseLeave={() => setHoveredDivs(undefined)}
+                  onClick={() => navigate(`/services/${ele.ServiceUrlSlug}`)}
+                  style={{
+                    height:
+                      hoveredDivs === ele.ServiceShortForm
+                        ? "auto"
+                        : hoveredDivs === ""
+                          ? "150px"
+                          : "auto",
+                  }}
+                >
+                  <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
+                    <h4 className="text-4xl font-semibold my-10">
+                      {ele.ServiceTitle}
+                    </h4>
+
+                    {hoveredDivs === ele.ServiceShortForm ? (
+                      <p className="text-sm my-5">{ele.ServiceDescription}</p>
+                    ) : (
+                      <p className="text-sm my-5">
+                        {ele.ServiceShortDescription}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              );
+            })
+          )}
+        </>
+      </section>
+
+      <CTA content={ctaContent} />
+    </>
+  );
+};
+
+export default Services;
