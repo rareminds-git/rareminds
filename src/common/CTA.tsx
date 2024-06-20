@@ -1,5 +1,4 @@
 const CTA = ({ content }) => {
-  // console.log("content", content);
   return (
     <>
       <section className="md:px-5 px-10">

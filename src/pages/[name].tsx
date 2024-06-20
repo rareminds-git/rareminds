@@ -30,10 +30,7 @@ const Name = () => {
     }
 
     getPageData();
-  }, []);
-
-  console.log("sections", sections);
-  console.log("contact us", sections.includes("contact"));
+  }, [name]);
 
   return pageData.sectionData !== undefined ? (
     <>

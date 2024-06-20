@@ -2,7 +2,6 @@ import CTA from "@/common/CTA";
 import WhyUsImg from "../../assets/images/whyus.svg";
 
 const ContactUs = ({ content, ctaContent, pageData }) => {
-  console.log("page data", pageData);
   return (
     <>
       <section className="px-10 md:mt-24 mt-12 py-20 font-Inter">

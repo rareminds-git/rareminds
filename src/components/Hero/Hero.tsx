@@ -3,7 +3,6 @@ import HeroIlls from "../../assets/images/HeroIlls.svg";
 import { useMediaQuery } from "react-responsive";
 
 const Hero = ({ content }) => {
-  console.log("hero content", content);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>

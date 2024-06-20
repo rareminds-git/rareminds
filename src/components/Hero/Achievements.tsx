@@ -1,7 +1,6 @@
 import { useMediaQuery } from "react-responsive";
 
 const Achievements = ({ content, achievements }) => {
-  console.log("content", content);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>

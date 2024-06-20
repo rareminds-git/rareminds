@@ -12,7 +12,6 @@ var con = mysql.createConnection({
 
 con.connect(function (err) {
   if (err) throw err;
-  console.log("Connected!");
 });
 
 const mysqlQuery = async (connection, queryConfig) => {
@@ -106,7 +105,8 @@ app.get("/pages/:pageSlug", async function (req, res) {
     pageData: pageData[0],
     sectionData,
     serviceData,
-    achievementsData: achievementsData[0] && achievementsData[0]["achievements"],
+    achievementsData:
+      achievementsData[0] && achievementsData[0]["achievements"],
   });
 });
 
