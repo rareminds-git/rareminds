@@ -3,7 +3,7 @@ import WhyUsImg from "../../assets/images/whyus.svg";
 const WhyUs = ({ content }) => {
   return (
     <>
-      <section className="px-10 md:mt-24 mt-12 bg-[#cabe9e1f] py-20 why-us-block font-Inter">
+      <section className="px-10 md:mt-24 mt-12 bg-[#cabe9e1f] py-10 why-us-block font-Inter">
         <div className="flex items-start">
           <div className="grid space-y-10 place-items-start">
             <h2 className="font-bold text-5xl">{content?.Heading1}</h2>, <br />

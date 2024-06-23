@@ -10,9 +10,9 @@ const Testimonials = ({ content }) => {
   return (
     <>
       {!isMobile ? (
-        <>
-          <h3 className="font-Inter my-8 place-items-start mx-20 text-red-600 font-bold text-3xl">
-            {content?.Title}
+        <div className="py-20">
+          <h3 className="font-Syne text-center my-8 place-items-center mx-20 text-red-500 font-bold text-4xl">
+            Testimonials
           </h3>
           <OwlCarousel
             className="owl-theme"
@@ -59,11 +59,11 @@ const Testimonials = ({ content }) => {
               </div>
             </div>
           </OwlCarousel>
-        </>
+        </div>
       ) : (
         <>
-          <h3 className="font-Inter my-8 place-items-center text-center mx-auto text-red-600 font-bold text-xl">
-            {content?.Title}
+          <h3 className="font-Syne my-8 place-items-center text-center mx-auto text-red-400 font-bold text-xl">
+            Testimonials
           </h3>
           <OwlCarousel
             className="owl-theme"

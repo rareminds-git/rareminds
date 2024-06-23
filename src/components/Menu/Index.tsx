@@ -30,7 +30,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   </li>
                   <li className="nav-li py-5">
                     <a
-                      href="/"
+                      href="/services"
                       className="nav-link text-5xl font-Syne text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
@@ -39,9 +39,9 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       Our Services
                     </a>
                   </li>
-                  <li className="nav-li py-5">
+                  {/* <li className="nav-li py-5">
                     <a
-                      href="/"
+                      href="/about-us"
                       className="nav-link text-5xl font-Syne text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
@@ -49,10 +49,10 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                     >
                       About
                     </a>
-                  </li>
+                  </li> */}
                   <li className="nav-li py-5">
                     <a
-                      href="/"
+                      href="/case-studies"
                       className="nav-link text-5xl font-Syne text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
@@ -63,7 +63,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   </li>
                   <li className="nav-li py-5">
                     <a
-                      href="/"
+                      href="/contact-us"
                       className="nav-link text-5xl font-Syne text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
@@ -83,7 +83,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
             <div className="grid">
               <div className="col-span-4">
                 <ul className="w-full flex flex-col items-start px-10 py-10">
-                  <li className="nav-li py-5">
+                  {/* <li className="nav-li py-5">
                     <a
                       href="/"
                       className="nav-link text-3xl font-Syne text-white"
@@ -93,10 +93,10 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                     >
                       Testimonials
                     </a>
-                  </li>
+                  </li> */}
                   <li className="nav-li py-5">
                     <a
-                      href="/"
+                      href="/blogs"
                       className="nav-link text-3xl font-Syne text-white"
                       onClick={() => {
                         setNavbarOpen(false);

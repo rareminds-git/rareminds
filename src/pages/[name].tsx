@@ -10,6 +10,8 @@ import axios from "axios";
 
 import Services from "@/components/Program/Services";
 import ContactUs from "@/components/Hero/ContactUs";
+import CaseStudies from "@/components/Program/CaseStudies";
+import Blogs from "@/components/Program/Blogs";
 
 const Name = () => {
   const { name } = useParams();
@@ -91,19 +93,15 @@ const Name = () => {
           achievements={pageData.achievementsData}
         />
       )}
-      {sections.includes("testimonials") && (
+      {pageData.pageData.PageType === 1 && (
         <Testimonials
           content={pageData.sectionData.filter(
             (ele: any) => ele.ContentSlug === "testimonials" && ele
           )}
         />
       )}
-      {sections.includes("blog") && (
-        <Blog
-          content={pageData.sectionData.filter(
-            (ele: any) => ele.ContentSlug === "blog" && ele
-          )}
-        />
+      {pageData.blogsData.length > 0 && pageData.pageData.PageType === 1 && (
+        <Blog content={pageData.blogsData} />
       )}
 
       {sections.includes("contactus") && (
@@ -114,6 +112,26 @@ const Name = () => {
           )}
           ctaContent={pageData.sectionData.filter(
             (ele: any) => ele.ContentSlug === "cta" && ele
+          )}
+        />
+      )}
+      {sections.includes("casestudies") && (
+        <CaseStudies
+          pageData={pageData.pageData}
+          content={pageData.sectionData.filter(
+            (ele: any) => ele.ContentSlug === "casestudies" && ele
+          )}
+          ctaContent={pageData.sectionData.filter(
+            (ele: any) => ele.ContentSlug === "cta" && ele
+          )}
+        />
+      )}
+
+      {sections.includes("blogs") && (
+        <Blogs
+          pageData={pageData.pageData}
+          content={pageData.sectionData.filter(
+            (ele: any) => ele.ContentSlug === "blogs" && ele
           )}
         />
       )}

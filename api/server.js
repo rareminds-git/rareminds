@@ -1,6 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mysql = require("mysql");
+const e = require("express");
 var app = express();
 
 var con = mysql.createConnection({
@@ -73,7 +74,9 @@ app.get("/pages/:pageSlug", async function (req, res) {
         "SELECT ContentSlug from rm_content_types WHERE ContentTypeId = " +
         ele.ContentTypeId,
     });
-
+    if (ele.ContentTypeId === 40 || ele.ContentTypeId === 41) {
+      ele.PageSlug = ele.ContentSlug;
+    }
     ele.ContentSlug = contentData[0].ContentSlug;
   });
 
@@ -82,6 +85,10 @@ app.get("/pages/:pageSlug", async function (req, res) {
       "SELECT * FROM rm_content WHERE PageId = " +
       pageData[0].PageId +
       " AND ContentTypeId = 38",
+  });
+
+  let blogsData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = 41",
   });
 
   let achievementsData = await mysqlQuery(con, {
@@ -105,6 +112,7 @@ app.get("/pages/:pageSlug", async function (req, res) {
     pageData: pageData[0],
     sectionData,
     serviceData,
+    blogsData,
     achievementsData:
       achievementsData[0] && achievementsData[0]["achievements"],
   });
@@ -128,6 +136,44 @@ app.get("/services/:userType/:serviceName", async function (req, res) {
   res.send({
     serviceData: serviceData[0],
     servicePrograms,
+  });
+});
+
+app.get("/case-studies/:slug", async function (req, res) {
+  const { slug } = req.params;
+
+  let studyData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + slug + "'",
+  });
+
+  let studyDetails = await mysqlQuery(con, {
+    sql:
+      "SELECT * FROM rm_content_details WHERE ContentId = " +
+      studyData[0].ContentId,
+  });
+
+  res.send({
+    studyData: studyData[0],
+    studyDetails,
+  });
+});
+
+app.get("/blogs/:slug", async function (req, res) {
+  const { slug } = req.params;
+
+  let blogData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + slug + "'",
+  });
+
+  let blogDetails = await mysqlQuery(con, {
+    sql:
+      "SELECT * FROM rm_content_details WHERE ContentId = " +
+      blogData[0].ContentId,
+  });
+
+  res.send({
+    blogData: blogData[0],
+    blogDetails,
   });
 });
 

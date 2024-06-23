@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Name from "./pages/[name]";
 import ServiceName from "./pages/services/[name]";
+import CaseStudyDetail from "./pages/case-studies/[name]";
+import BlogDetail from "./pages/blogs/[name]";
 
 const App = () => {
   return (
@@ -18,6 +20,8 @@ const App = () => {
               path="services/:userType/:serviceName"
               element={<ServiceName />}
             />
+            <Route path="case-studies/:slug" element={<CaseStudyDetail />} />
+            <Route path="blogs/:slug" element={<BlogDetail />} />
           </Routes>
         </Suspense>
       </DefaultLayout>

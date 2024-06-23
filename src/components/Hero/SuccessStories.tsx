@@ -13,7 +13,7 @@ const SuccessStories = ({ content }) => {
         <div className="flex">
           <div className="grid space-y-10">
             <h1 className="mb-4 mt-20 text-3xl text-left font-bold md:text-5xl text-red-500">
-              {content?.Title}
+              Case Studies
             </h1>
             <p className="text-2xl mb-20">{content?.Description}</p>
           </div>

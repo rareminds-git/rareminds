@@ -1,24 +1,25 @@
 import CTA from "@/common/CTA";
-import WhyUsImg from "../../assets/images/whyus.svg";
+import { useMediaQuery } from "react-responsive";
 
 const ContactUs = ({ content, ctaContent, pageData }) => {
+  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>
-      <section className="px-10 md:mt-24 mt-12 py-20 font-Inter">
-        <div className="flex items-start px-32">
+      <section className="px-10 md:mt-24 mt-12 md:py-20 font-Inter mb-10">
+        <div className="flex items-start md:px-32">
           <div className="grid space-y-10 place-items-start">
             <h2 className="font-bold text-5xl">{pageData?.PageSubTitle}</h2>
           </div>
         </div>
 
-        <CTA content={ctaContent} />
+        {!isMobile && <CTA content={ctaContent} />}
 
         <div className="flex">
           <div className="my-4 place-items-start">
-            {content.map((ele) => {
+            {content.map((ele, index) => {
               return (
                 <>
-                  <div className="px-64">
+                  <div className="md:px-64 my-10">
                     <h3 className="text-red-400 font-bold text-2xl">
                       {ele.Heading1}
                     </h3>
@@ -37,7 +38,7 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
                           </h3>
                         </div>
                       </div>
-                      <div className="grid place-items-end">
+                      <div className="grid place-items-end my-5">
                         <div className="md-col-span-6 col-span-3 place-items-end">
                           <h3 className=" md:text-xl text-xl text-black-400 font-Syne">
                             {ele.Address1 || ele.Contact1}
@@ -50,14 +51,14 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
                     </div>
                     <hr />
                     <div className="grid grid-cols-2 gap-4 md:py-12">
-                      <div className="grid">
+                      <div className="grid my-5">
                         <div className="md:col-span-6 col-span-9">
                           <h3 className=" md:text-xl text-xl font-bold">
                             {ele.SubHeading2}
                           </h3>
                         </div>
                       </div>
-                      <div className="grid place-items-end">
+                      <div className="grid place-items-end my-5">
                         <div className="md-col-span-6 col-span-3 place-items-end">
                           <h3 className=" md:text-xl text-xl text-black-400 font-Syne">
                             {ele.Address2 || ele.EmailAddress}
@@ -66,13 +67,14 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
                       </div>
                     </div>
                   </div>
+                  {index === 0 && isMobile && <CTA content={ctaContent} />}
                 </>
               );
             })}
           </div>
         </div>
         <div>
-          <h3 className="text-2xl font-bold text-red-400 py-8">
+          <h3 className="text-2xl font-bold text-red-400 md:py-8">
             Spot us on the map
           </h3>
           <iframe

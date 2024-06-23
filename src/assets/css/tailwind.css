@@ -33,18 +33,13 @@
 
   .why-us-block {
     position: relative;
-    padding-bottom: 25rem !important;
     @media (max-width: 640px) {
       padding-bottom: 5rem !important;
     }
   }
 
   .why-us-img img {
-    position: absolute;
-    top: 25%;
-    /* width: 100%; */
-    /* height: 100%; */
-    right: 0;
+    margin-top: -10%;
     @media (max-width: 640px) {
       position: relative;
       width: 100%;
@@ -133,6 +128,18 @@
     ul {
       list-style: disc;
       margin-left: 40px;
+    }
+  }
+
+  .caseStudyDetail {
+    ul {
+      list-style: none;
+      margin-left: 40px;
+    }
+
+    li {
+      margin: 20px 0;
+      font-weight: 800;
     }
   }
 

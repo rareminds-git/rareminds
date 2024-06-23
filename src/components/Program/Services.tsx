@@ -13,7 +13,7 @@ const Services = ({ content, services, ctaContent }) => {
 
   return (
     <>
-      <section className="md:px-20 px-10 py-10 md:mt-64 bg-[#cabe9e1f]">
+      <section className="md:px-20 px-10 py-10">
         <h3 className="mb-4 mt-20 text-3xl text-left font-semibold md:text-4xl text-black">
           {content?.Heading1}
         </h3>
