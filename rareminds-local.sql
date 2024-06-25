@@ -135,9 +135,9 @@ CREATE TABLE IF NOT EXISTS `rm_content` (
   `CreatedOn` datetime DEFAULT (curdate()),
   `ModifiedOn` timestamp NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ContentId`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table rareminds.rm_content: ~43 rows (approximately)
+-- Dumping data for table rareminds.rm_content: ~44 rows (approximately)
 DELETE FROM `rm_content`;
 INSERT INTO `rm_content` (`ContentId`, `PageId`, `ContentTypeId`, `Heading1`, `Heading2`, `SubHeading1`, `SubHeading2`, `Image1`, `Image2`, `Image3`, `Description`, `ContentDetails`, `ContentSlug`, `ContentAcronym`, `Address1`, `Address2`, `Contact1`, `Contact2`, `EmailAddress`, `CreatedOn`, `ModifiedOn`) VALUES
 	(1, 1, 1, 'Unlock your company\'s full potential with Rareminds - Your ultimate ally in corporate domination.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:10:57'),
@@ -182,7 +182,8 @@ INSERT INTO `rm_content` (`ContentId`, `PageId`, `ContentTypeId`, `Heading1`, `H
 	(40, 9, 41, 'The Never – Ending Journey of Learning: Path to Engineering Excellence', 'In the world of engineering, you’ve dedicated years to pursuing your college degree, immersing yourself in complex concepts and emerging as a capable graduate. As you step into the real world, it’s natural to believe that the days of relentless studying and learning are behind you', NULL, NULL, 'https://rareminds.in/wp-content/uploads/2023/07/Continuous-learning.jpg', NULL, NULL, NULL, NULL, 'the-never-ending-journey-of-learning-path-to-engineering-excellence', NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-04 00:00:00', '2024-06-23 21:39:09'),
 	(41, 9, 41, 'From #MeToo to Action: The Importance of POSH Awareness Training in workplace ', 'In the wake of the #MeToo movement, workplace harassment has emerged as a critical issue that organizations can no longer ignore. In today’s world, where education and awareness are highly valued, one might question the necessity of POSH (Prevention of Sexual Harassment) training', NULL, NULL, 'https://rareminds.in/wp-content/uploads/2023/06/Posh-awarness-training.jpg', NULL, NULL, NULL, NULL, 'importance-posh-awareness-training-in-workplace', NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-24 00:00:00', '2024-06-23 21:38:57'),
 	(42, 9, 41, 'Can school-pass out students rewrite their story from dropout to success? Explore the opportunities.', 'School dropout rates in India paint a stark reality, limiting the potential of countless students. According to recent statistics, the dropout rate for secondary-level students in India stood at 14.6% in 2020-21, only slightly decreasing to 12.6% in 2021-22 (as per UDISE+ data). ', NULL, NULL, 'https://rareminds.in/wp-content/uploads/2023/06/Untitled-design-3.jpg', NULL, NULL, NULL, NULL, 'story-from-school-dropout-to-success', NULL, NULL, NULL, NULL, NULL, NULL, '2024-06-14 00:00:00', '2024-06-23 21:39:14'),
-	(43, 9, 41, 'Boosting Employee Development: The Benefits of Corporate Outbound Activities', 'As globalization and technological advancements continue to accelerate, corporate houses and start-ups are mushrooming rapidly. These organizations are in a race to maximize their channels of income and profitability, which often leads to a situation where employees are caught between', NULL, NULL, 'https://rareminds.in/wp-content/uploads/2023/05/Outbound-training-1.jpg', NULL, NULL, NULL, NULL, 'boosting-employee-development-the-benefits-of-corporate-outbound-activities', NULL, NULL, NULL, NULL, NULL, NULL, '2024-06-24 00:00:00', '2024-06-23 21:38:43');
+	(43, 9, 41, 'Boosting Employee Development: The Benefits of Corporate Outbound Activities', 'As globalization and technological advancements continue to accelerate, corporate houses and start-ups are mushrooming rapidly. These organizations are in a race to maximize their channels of income and profitability, which often leads to a situation where employees are caught between', NULL, NULL, 'https://rareminds.in/wp-content/uploads/2023/05/Outbound-training-1.jpg', NULL, NULL, NULL, NULL, 'boosting-employee-development-the-benefits-of-corporate-outbound-activities', NULL, NULL, NULL, NULL, NULL, NULL, '2024-06-24 00:00:00', '2024-06-23 21:38:43'),
+	(44, 10, 42, 'Greetings, Trailblazers!', 'Are you ready to embark on a journey of unparalleled success? You are at your destination! Rareminds is your gateway to tailor-made talent solutions that elevate your game. Let\'s join forces and craft the path to greatness together!', 'Ready to make waves? Let\'s dive in and unlock your full potential!', 'Let\'s Connect!', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-06-26 00:00:00', '2024-06-25 21:28:48');
 
 -- Dumping structure for table rareminds.rm_content_details
 DROP TABLE IF EXISTS `rm_content_details`;
@@ -266,9 +267,9 @@ CREATE TABLE IF NOT EXISTS `rm_content_types` (
   `CreatedOn` datetime DEFAULT NULL,
   `ModifiedOn` timestamp NOT NULL,
   PRIMARY KEY (`ContentTypeId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=latin1 ROW_FORMAT=DYNAMIC;
 
--- Dumping data for table rareminds.rm_content_types: ~12 rows (approximately)
+-- Dumping data for table rareminds.rm_content_types: ~13 rows (approximately)
 DELETE FROM `rm_content_types`;
 INSERT INTO `rm_content_types` (`ContentTypeId`, `ContentName`, `ContentSlug`, `Status`, `CreatedOn`, `ModifiedOn`) VALUES
 	(1, 'Hero', 'hero', '1', NULL, '2024-05-10 21:44:45'),
@@ -282,7 +283,8 @@ INSERT INTO `rm_content_types` (`ContentTypeId`, `ContentName`, `ContentSlug`, `
 	(38, 'ServiceDetails', 'servicedetails', '1', NULL, '2024-05-10 21:59:53'),
 	(39, 'ContactUs', 'contactus', '1', '2024-06-17 03:28:42', '2024-06-16 21:58:47'),
 	(40, 'CaseStudies', 'casestudies', '1', '2024-06-24 01:51:29', '2024-06-23 20:21:30'),
-	(41, 'Blogs', 'blogs', '`1', '2024-06-24 02:58:40', '2024-06-23 21:28:42');
+	(41, 'Blogs', 'blogs', '1', '2024-06-24 02:58:40', '2024-06-23 21:28:42'),
+	(42, 'QueryForm', 'queryform', '1', '2024-06-26 02:56:54', '2024-06-25 21:26:57');
 
 -- Dumping structure for table rareminds.rm_countries
 DROP TABLE IF EXISTS `rm_countries`;
@@ -366,19 +368,20 @@ CREATE TABLE IF NOT EXISTS `rm_pages` (
   `ModifiedOn` timestamp NULL DEFAULT NULL,
   `PageType` int DEFAULT NULL,
   PRIMARY KEY (`PageId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table rareminds.rm_pages: ~8 rows (approximately)
+-- Dumping data for table rareminds.rm_pages: ~9 rows (approximately)
 DELETE FROM `rm_pages`;
 INSERT INTO `rm_pages` (`PageId`, `PageSlug`, `PageName`, `PageSubTitle`, `MetaKeywords`, `MetaDescription`, `Status`, `CreatedOn`, `ModifiedOn`, `PageType`) VALUES
 	(1, '/corporate', 'Corporate', 'Where giants excel and aspirations become a reality', '0', '0', 1, NULL, NULL, 1),
 	(2, '/government', 'Government', 'Where innovation meets bureaucracy head-on', '0', '0', 1, NULL, NULL, 1),
 	(3, '/institutions', 'Institutions', 'Liberating the minds of tomorrow\'s leaders', '0', '0', 1, NULL, NULL, 1),
 	(4, '/schools', 'Schools', 'Empowering young minds for a brighter future', '0', '0', 1, NULL, NULL, 1),
-	(6, '/services', 'Services', '', '0', '0', NULL, NULL, NULL, 2),
-	(7, '/contact-us', 'Contact Us', 'Contact Us', '0', '0', NULL, NULL, NULL, 2),
+	(6, '/services', 'Services', '', '0', '0', 1, NULL, NULL, 2),
+	(7, '/contact-us', 'Contact Us', 'Contact Us', '0', '0', 1, NULL, NULL, 2),
 	(8, '/case-studies', 'Case Studies', 'Case Studies', '0', '0', 1, NULL, NULL, 2),
-	(9, '/blogs', 'Blogs', 'Blogs', '0', '0', NULL, NULL, NULL, 2);
+	(9, '/blogs', 'Blogs', 'Blogs', '0', '0', 1, NULL, NULL, 2),
+	(10, '/unlock-your-potential', 'Unlock Your Potential', 'Unlock Your Potential', '0', '0', 1, NULL, NULL, 2);
 
 -- Dumping structure for table rareminds.rm_page_sections
 DROP TABLE IF EXISTS `rm_page_sections`;
@@ -393,7 +396,7 @@ CREATE TABLE IF NOT EXISTS `rm_page_sections` (
   PRIMARY KEY (`SectionId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 
--- Dumping data for table rareminds.rm_page_sections: ~37 rows (approximately)
+-- Dumping data for table rareminds.rm_page_sections: ~35 rows (approximately)
 DELETE FROM `rm_page_sections`;
 INSERT INTO `rm_page_sections` (`SectionId`, `PageId`, `SectionName`, `SectionFileName`, `Status`, `CreatedOn`, `ModifiedOn`) VALUES
 	(1, 1, 'Hero', 'hero', '1', NULL, '2024-05-10 21:44:45'),
@@ -488,7 +491,7 @@ CREATE TABLE IF NOT EXISTS `rm_section_to_data` (
   PRIMARY KEY (`SectionDataId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table rareminds.rm_section_to_data: ~5 rows (approximately)
+-- Dumping data for table rareminds.rm_section_to_data: ~4 rows (approximately)
 DELETE FROM `rm_section_to_data`;
 INSERT INTO `rm_section_to_data` (`SectionDataId`, `SectionId`, `Title`, `SubHeading1`, `SubHeading2`, `Description`, `Icon`, `MainImage`, `Year`, `StatsNumber`, `Category`, `Icon1`, `IconTitle1`, `IconDesc1`, `IconTitle3`, `Icon2`, `IconDesc2`, `IconTitle2`, `Icon3`, `IconDesc3`, `Icon4`, `IconTitle4`, `IconDesc4`, `Icon5`, `IconTitle5`, `IconDesc5`, `YoutubeLink`, `Location`, `LocationName`, `LocationAddress`, `LocationEmail`, `CreatedOn`, `ModifiedOn`) VALUES
 	(1, 1, 'Unlock your company\'s full potential with Rareminds - Your ultimate ally in corporate domination.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-10 21:42:04'),
@@ -532,7 +535,7 @@ CREATE TABLE IF NOT EXISTS `rm_service_programs` (
   PRIMARY KEY (`ProgramId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table rareminds.rm_service_programs: ~10 rows (approximately)
+-- Dumping data for table rareminds.rm_service_programs: ~9 rows (approximately)
 DELETE FROM `rm_service_programs`;
 INSERT INTO `rm_service_programs` (`ProgramId`, `ServiceId`, `ProgramTitle`, `ProgramDescription`, `Status`, `CreatedOn`, `ModifiedOn`) VALUES
 	(1, 1, 'Performance Management', 'Effective performance management ensures that employees are aligned with company objectives. We help you design and implement performance evaluation systems, including goal setting, performance reviews and feedback mechanisms, to drive productivity and engagement.', 1, '2024-05-12 04:32:43', '2024-05-11 23:02:57'),
