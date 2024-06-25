@@ -11,7 +11,7 @@ const CaseStudyDetail = () => {
   useEffect(() => {
     async function getData() {
       await axios
-        .get(`http://localhost:6069/case-studies/${slug}`)
+        .get(`http://13.126.41.32/api/case-studies/${slug}`)
         .then((res) => {
           setData(res.data);
         });
