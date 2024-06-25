@@ -12,6 +12,7 @@ import Services from "@/components/Program/Services";
 import ContactUs from "@/components/Hero/ContactUs";
 import CaseStudies from "@/components/Program/CaseStudies";
 import Blogs from "@/components/Program/Blogs";
+import QueryForm from "@/components/Program/QueryForm";
 
 const Name = () => {
   const { name } = useParams();
@@ -21,7 +22,7 @@ const Name = () => {
 
   useEffect(() => {
     async function getPageData() {
-      await axios.get(`http://13.126.41.32/api/pages/${name}`).then((res) => {
+      await axios.get(`http://localhost:6069/pages/${name}`).then((res) => {
         setPageData(res.data);
         const sectionKeys = res.data.sectionData.map(
           (ele: any) => ele.ContentSlug
@@ -132,6 +133,15 @@ const Name = () => {
           pageData={pageData.pageData}
           content={pageData.sectionData.filter(
             (ele: any) => ele.ContentSlug === "blogs" && ele
+          )}
+        />
+      )}
+
+      {sections.includes("queryform") && (
+        <QueryForm
+          pageData={pageData.pageData}
+          content={pageData.sectionData.filter(
+            (ele: any) => ele.ContentSlug === "queryform" && ele
           )}
         />
       )}

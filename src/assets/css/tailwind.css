@@ -157,6 +157,47 @@
     box-shadow: 0 0 10px 100px #a81837 inset;
   }
 
+  textarea:focus,
+  input:focus {
+    outline: none;
+  }
+
+  input[type="checkbox"] {
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(1.5); /* IE */
+    -moz-transform: scale(1.5); /* FF */
+    -webkit-transform: scale(1.5); /* Safari and Chrome */
+    -o-transform: scale(1.5); /* Opera */
+    transform: scale(1.5);
+    padding: 20px;
+    accent-color: transparent;
+  }
+
+  input[type="radio"] {
+    /* Double-sized Checkboxes */
+    -ms-transform: scale(1.5); /* IE */
+    -moz-transform: scale(1.5); /* FF */
+    -webkit-transform: scale(1.5); /* Safari and Chrome */
+    -o-transform: scale(1.5); /* Opera */
+    transform: scale(1.5);
+    padding: 20px;
+    accent-color: red;
+  }
+
+  input[type="checkbox"]:checked,
+  input[type="radio"]:checked {
+    background-color: transparent;
+  }
+
+  input[type="checkbox"]:focus {
+    outline: 0;
+  }
+
+  .checkbox label,
+  .radio label {
+    margin-left: 10px;
+  }
+
   @keyframes logo-spin {
     from {
       transform: rotate(0deg);
