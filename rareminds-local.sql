@@ -16,7 +16,6 @@
 
 
 -- Dumping database structure for rareminds
-DROP DATABASE IF EXISTS `rareminds`;
 CREATE DATABASE IF NOT EXISTS `rareminds` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `rareminds`;
 
@@ -143,22 +142,22 @@ INSERT INTO `rm_content` (`ContentId`, `PageId`, `ContentTypeId`, `Heading1`, `H
 	(1, 1, 1, 'Unlock your company\'s full potential with Rareminds - Your ultimate ally in corporate domination.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:10:57'),
 	(2, 1, 2, 'Form Fill: Unlock Your Potential!', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:10:57'),
 	(3, 1, 3, 'Why Us?', NULL, NULL, NULL, NULL, NULL, NULL, '<p><span style="font-weight: 400;">Are you tired of battling the same old "adulting" dilemmas at work? Sick of drowning in corporate lingo and desperate for a team that\'s as diverse as it is dynamic? And setting goals only to watch your team swat them away like flies? Look no further than Rareminds!</span></p>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:26:38'),
-	(4, 1, 4, 'Our Services', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:15:34'),
+	(4, 1, 4, 'Our Services', NULL, NULL, NULL, NULL, NULL, NULL, '<p>Tired of watching top talent slip through your fingers like sand in an hourglass? Fed up with trying to balance diversity like a wire walker on a tightrope? Sick of setting goals only to watch your team dismiss them like confetti at a parade? Well, folks, we\'ve been there, done that and come out shining like diamonds.<br /><br />Introducing RareMinds, the ultimate talent management game-changer. We\'re not just another vendor; we\'re your secret ingredient for success.</p>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-07-07 20:29:33'),
 	(5, 1, 6, 'Case Studies', NULL, NULL, NULL, NULL, NULL, NULL, 'Prepare to be blown away! Our success stories showcase one dazzling case study from each industry we\'ve partnered with. Dive deep into the functionality and evolution of these triumphs, meticulously curated to resonate with businesses like yours. Stay tuned as we unleash the power of these narratives to inspire and elevate your journey to success.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-06-23 20:02:52'),
 	(6, 2, 1, 'Don\'t settle for mediocrity when greatness is within reach.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:19:16'),
 	(7, 2, 2, 'Form Fill: Unlock Your Potential!', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:10:57'),
 	(8, 3, 3, 'Why Us?', NULL, NULL, NULL, NULL, NULL, NULL, '<p><span style="font-weight: 400;">Are your students ready to conquer the real world beyond grades and vivas? Do they possess the skills to shine as top-notch candidates with exceptional communication and emotional intelligence? It\'s not just about academic prowess anymore; developing soft skills is equally vital for students to thrive in today\'s workforce. But how can you ensure your students have the right skills to excel in their careers?</span></p>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:39:37'),
-	(9, 2, 4, 'Our Services', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:15:34'),
+	(9, 2, 4, 'Our Services', NULL, NULL, NULL, NULL, NULL, NULL, '<p>Tired of watching top talent slip through your fingers like sand in an hourglass? Fed up with trying to balance diversity like a wire walker on a tightrope? Sick of setting goals only to watch your team dismiss them like confetti at a parade? Well, folks, we\'ve been there, done that and come out shining like diamonds.<br /><br />Introducing RareMinds, the ultimate talent management game-changer. We\'re not just another vendor; we\'re your secret ingredient for success.</p>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-07-07 20:29:42'),
 	(10, 2, 6, 'Case Studies', NULL, NULL, NULL, NULL, NULL, NULL, 'Prepare to be blown away! Our success stories showcase one dazzling case study from each industry we\'ve partnered with. Dive deep into the functionality and evolution of these triumphs, meticulously curated to resonate with businesses like yours. Stay tuned as we unleash the power of these narratives to inspire and elevate your journey to success.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-06-23 20:02:47'),
 	(11, 3, 1, 'Rareminds: Empowering Students to Reach New Heights', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:21:39'),
 	(12, 3, 2, 'Form Fill: Unlock Your Potential!', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:10:57'),
 	(13, 2, 3, 'Why Us?', NULL, NULL, NULL, NULL, NULL, NULL, '<h2><span style="font-weight: 400;">Are you dedicated to enhancing facilities in your jurisdiction? Do you aspire to transform your region into a thriving center of growth and opportunity? At Rareminds, we\'re committed to supporting your vision.</span></h2>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:45:49'),
-	(14, 3, 4, 'Our Services', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:15:34'),
+	(14, 3, 4, 'Our Services', NULL, NULL, NULL, NULL, NULL, NULL, '<p>Tired of watching top talent slip through your fingers like sand in an hourglass? Fed up with trying to balance diversity like a wire walker on a tightrope? Sick of setting goals only to watch your team dismiss them like confetti at a parade? Well, folks, we\'ve been there, done that and come out shining like diamonds.<br /><br />Introducing RareMinds, the ultimate talent management game-changer. We\'re not just another vendor; we\'re your secret ingredient for success.</p>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-07-07 20:29:49'),
 	(15, 3, 6, 'Case Studies', NULL, NULL, NULL, NULL, NULL, NULL, 'Prepare to be blown away! Our success stories showcase one dazzling case study from each industry we\'ve partnered with. Dive deep into the functionality and evolution of these triumphs, meticulously curated to resonate with businesses like yours. Stay tuned as we unleash the power of these narratives to inspire and elevate your journey to success.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-06-23 20:02:58'),
 	(16, 4, 1, 'Get ready to unleash the boundless potential of our nation\'s future.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:23:47'),
 	(17, 4, 2, 'Form Fill: Unlock Your Potential!', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:10:57'),
 	(18, 4, 3, 'Why Us?', NULL, NULL, NULL, NULL, NULL, NULL, '<h2><span style="font-weight: 400;">Are critical thinking, decision-making and problem-solving your top three priorities to ensure your students stand out? Want them to be more than just book-smart? Well, buckle up because Rareminds is here to turn your students into tomorrow\'s leaders! We offer an annual program and summer camp activities to help your students navigate technology-ridden evenings and foster the attention and emotional strength needed to conquer the world.</span></h2>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:47:01'),
-	(19, 4, 4, 'Our Services', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 22:15:34'),
+	(19, 4, 4, 'Our Services', NULL, NULL, NULL, NULL, NULL, NULL, '<p>Tired of watching top talent slip through your fingers like sand in an hourglass? Fed up with trying to balance diversity like a wire walker on a tightrope? Sick of setting goals only to watch your team dismiss them like confetti at a parade? Well, folks, we\'ve been there, done that and come out shining like diamonds.<br /><br />Introducing RareMinds, the ultimate talent management game-changer. We\'re not just another vendor; we\'re your secret ingredient for success.</p>', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-07-07 20:30:01'),
 	(20, 4, 6, 'Case Studies', NULL, NULL, NULL, NULL, NULL, NULL, 'Prepare to be blown away! Our success stories showcase one dazzling case study from each industry we\'ve partnered with. Dive deep into the functionality and evolution of these triumphs, meticulously curated to resonate with businesses like yours. Stay tuned as we unleash the power of these narratives to inspire and elevate your journey to success.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-06-23 20:02:11'),
 	(21, 1, 38, 'Talent Acquisition', NULL, 'Ready to turn the corporate gibberish into action-packed outcomes? Our talent acquisition solutions are…', NULL, NULL, NULL, NULL, 'Ready to turn the corporate gibberish into action-packed outcomes? Our talent acquisition solutions are laser-focused on meeting your unique business goals and requirements. We\'ll dive deep into your needs, crafting a personalised recruitment strategy that hits the bullseye. Our streamlined process ensures access to the cream of the crop candidates, saving you precious time and resources. Elevate your recruitment game with our targeted talent acquisition solutions, designed to deliver top-tier candidates efficiently and cost-effectively. Let\'s transform your talent acquisition dreams into reality today!', NULL, 'corporate/talent-acquisition', 'TA', NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 23:34:35'),
 	(22, 1, 38, 'Talent Development', NULL, 'Are you facing a high attrition rate? Unsure of how to retain talent and create a high performing team? We\'ve got…', NULL, NULL, NULL, NULL, '<p><span style="font-weight: 400;">Are you facing a high attrition rate? Unsure of how to retain talent and create a high performing team? We\'ve got our ears to the ground, listening keenly to the pulse of organisations like yours. If you are finding yourself in the middle of the ocean with challenges like - How to cover the skills gap? What should we do about leadership development? How to retain resources with budget constraints? How to integrate technology into processes without hampering productivity? And of all, how to measure the impact of all these? Then, our meticulously crafted training programs for Talent Development Programs like Leadership Building, Communication Skills Enhancement, Upskilling and Reskilling will help your organisation reach on the right trajectory.&nbsp;</span></p>', NULL, 'corporate/talent-development', 'TD', NULL, NULL, NULL, NULL, NULL, '2024-05-25 00:00:00', '2024-05-24 23:35:19'),
@@ -368,9 +367,9 @@ CREATE TABLE IF NOT EXISTS `rm_pages` (
   `ModifiedOn` timestamp NULL DEFAULT NULL,
   `PageType` int DEFAULT NULL,
   PRIMARY KEY (`PageId`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table rareminds.rm_pages: ~9 rows (approximately)
+-- Dumping data for table rareminds.rm_pages: ~11 rows (approximately)
 DELETE FROM `rm_pages`;
 INSERT INTO `rm_pages` (`PageId`, `PageSlug`, `PageName`, `PageSubTitle`, `MetaKeywords`, `MetaDescription`, `Status`, `CreatedOn`, `ModifiedOn`, `PageType`) VALUES
 	(1, '/corporate', 'Corporate', 'Where giants excel and aspirations become a reality', '0', '0', 1, NULL, NULL, 1),
@@ -381,7 +380,9 @@ INSERT INTO `rm_pages` (`PageId`, `PageSlug`, `PageName`, `PageSubTitle`, `MetaK
 	(7, '/contact-us', 'Contact Us', 'Contact Us', '0', '0', 1, NULL, NULL, 2),
 	(8, '/case-studies', 'Case Studies', 'Case Studies', '0', '0', 1, NULL, NULL, 2),
 	(9, '/blogs', 'Blogs', 'Blogs', '0', '0', 1, NULL, NULL, 2),
-	(10, '/unlock-your-potential', 'Unlock Your Potential', 'Unlock Your Potential', '0', '0', 1, NULL, NULL, 2);
+	(10, '/unlock-your-potential', 'Unlock Your Potential', 'Unlock Your Potential', '0', '0', 1, NULL, NULL, 2),
+	(11, '/terms-&-conditions', 'Terms & Conditions', 'Terms & Conditions', '0', '0', 1, NULL, NULL, 2),
+	(12, '/privacy-policy', 'Privacy Policy', 'Privacy Policy', '0', '0', 1, NULL, NULL, 2);
 
 -- Dumping structure for table rareminds.rm_page_sections
 DROP TABLE IF EXISTS `rm_page_sections`;
@@ -396,7 +397,7 @@ CREATE TABLE IF NOT EXISTS `rm_page_sections` (
   PRIMARY KEY (`SectionId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 
--- Dumping data for table rareminds.rm_page_sections: ~35 rows (approximately)
+-- Dumping data for table rareminds.rm_page_sections: ~37 rows (approximately)
 DELETE FROM `rm_page_sections`;
 INSERT INTO `rm_page_sections` (`SectionId`, `PageId`, `SectionName`, `SectionFileName`, `Status`, `CreatedOn`, `ModifiedOn`) VALUES
 	(1, 1, 'Hero', 'hero', '1', NULL, '2024-05-10 21:44:45'),
@@ -491,7 +492,7 @@ CREATE TABLE IF NOT EXISTS `rm_section_to_data` (
   PRIMARY KEY (`SectionDataId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table rareminds.rm_section_to_data: ~4 rows (approximately)
+-- Dumping data for table rareminds.rm_section_to_data: ~5 rows (approximately)
 DELETE FROM `rm_section_to_data`;
 INSERT INTO `rm_section_to_data` (`SectionDataId`, `SectionId`, `Title`, `SubHeading1`, `SubHeading2`, `Description`, `Icon`, `MainImage`, `Year`, `StatsNumber`, `Category`, `Icon1`, `IconTitle1`, `IconDesc1`, `IconTitle3`, `Icon2`, `IconDesc2`, `IconTitle2`, `Icon3`, `IconDesc3`, `Icon4`, `IconTitle4`, `IconDesc4`, `Icon5`, `IconTitle5`, `IconDesc5`, `YoutubeLink`, `Location`, `LocationName`, `LocationAddress`, `LocationEmail`, `CreatedOn`, `ModifiedOn`) VALUES
 	(1, 1, 'Unlock your company\'s full potential with Rareminds - Your ultimate ally in corporate domination.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-10 21:42:04'),
@@ -535,7 +536,7 @@ CREATE TABLE IF NOT EXISTS `rm_service_programs` (
   PRIMARY KEY (`ProgramId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table rareminds.rm_service_programs: ~9 rows (approximately)
+-- Dumping data for table rareminds.rm_service_programs: ~10 rows (approximately)
 DELETE FROM `rm_service_programs`;
 INSERT INTO `rm_service_programs` (`ProgramId`, `ServiceId`, `ProgramTitle`, `ProgramDescription`, `Status`, `CreatedOn`, `ModifiedOn`) VALUES
 	(1, 1, 'Performance Management', 'Effective performance management ensures that employees are aligned with company objectives. We help you design and implement performance evaluation systems, including goal setting, performance reviews and feedback mechanisms, to drive productivity and engagement.', 1, '2024-05-12 04:32:43', '2024-05-11 23:02:57'),
