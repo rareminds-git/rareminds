@@ -33,6 +33,7 @@ const Index = () => {
 
   const redirectToPage = (slug: string) => {
     setTimeout(() => {
+      localStorage.setItem("currentUserType", slug);
       navigate(`/${slug}`);
     }, 200);
   };

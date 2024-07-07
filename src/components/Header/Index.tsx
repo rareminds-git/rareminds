@@ -22,18 +22,19 @@ const Header = ({ navbarOpen, setNavbarOpen }) => {
   }, []);
 
   const redirectToPage = (slug: string) => {
+    localStorage.setItem("currentUserType", slug);
     navigate(`/${slug}`);
   };
 
   return (
-    <header className="md:w-full md:fixed top-0 left-0 p-4 flex z-20 bg-white">
+    <header className="w-full fixed top-0 left-0 p-4 flex z-20 bg-white">
       <div className="text-white flex-grow z-20">
         <a href="/">
           <img src={Logo} />
         </a>
       </div>
       <select
-        className="top-nav-dropdown font-Syne font-light"
+        className="top-nav-dropdown hidden sm:block font-Syne font-light"
         onChange={(e) => redirectToPage(e.target.value)}
       >
         {pages.map((ele: any) => {

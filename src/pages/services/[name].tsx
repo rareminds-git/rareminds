@@ -72,12 +72,15 @@ const ServiceName = () => {
         <div className="grid min-h-screen md:py-16">
           <section className="md:px-20 px-5 md:py-10">
             <h1 className="md:text-8xl text-2xl row-span-1 md:py-12 py-6 col-span-5 mr-96 place-items-start border-b-2 border-black text-[#FF2C2C] font-bold capitalize">
-              {serviceData?.serviceData?.ServiceTitle}
+              {serviceData?.serviceData?.Heading1}
             </h1>
 
-            <p className="text-md row-span-1 capitalize mr-36 mb-12 mt-12">
-              {serviceData?.serviceData?.ServiceDescription}
-            </p>
+            <p
+              className="text-md row-span-1 capitalize mr-36 mb-12 mt-12"
+              dangerouslySetInnerHTML={{
+                __html: serviceData?.serviceData?.Description,
+              }}
+            ></p>
 
             <div className="rounded-md row-span-1">
               <img
@@ -92,11 +95,11 @@ const ServiceName = () => {
               return (
                 <div className="mt-6">
                   <h3 className="md:text-4xl text-2xl font-bold font-Syne">
-                    {ele.ProgramTitle}
+                    {ele.ContentTitle}
                   </h3>
                   <p
                     className="mt-4 mr-32"
-                    dangerouslySetInnerHTML={{ __html: ele.ProgramDescription }}
+                    dangerouslySetInnerHTML={{ __html: ele.ContentDescription }}
                   ></p>
                 </div>
               );

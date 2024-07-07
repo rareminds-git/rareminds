@@ -119,8 +119,12 @@ const FooterBar = () => {
               <p>@rareminds 2024</p>
             </div>
             <div className="flex items-end row-span-1 justify-center md:flex md:justify-end mr-10">
-              <a className="underline mx-10 text">Terms & Conditions</a>
-              <a className="underline">Privacy</a>
+              <a href="/terms-&-conditions" className="underline mx-10 text">
+                Terms & Conditions
+              </a>
+              <a href="/privacy-policy" className="underline">
+                Privacy
+              </a>
             </div>
           </div>
         </div>

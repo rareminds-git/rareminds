@@ -75,7 +75,7 @@ const Services = ({ content, services, ctaContent }) => {
                   className="item my-4 cursor-pointer"
                   onMouseEnter={() => setHoveredDivs(ele.ServiceShortForm)}
                   onMouseLeave={() => setHoveredDivs(undefined)}
-                  onClick={() => navigate(`/services/${ele.ServiceUrlSlug}`)}
+                  onClick={() => navigate(`/services/${ele.ContentSlug}`)}
                   style={{
                     height:
                       hoveredDivs === ele.ServiceShortForm
@@ -87,15 +87,23 @@ const Services = ({ content, services, ctaContent }) => {
                 >
                   <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
                     <h4 className="text-4xl font-semibold my-10">
-                      {ele.ServiceTitle}
+                      {ele.Heading1}
                     </h4>
 
                     {hoveredDivs === ele.ServiceShortForm ? (
-                      <p className="text-sm my-5">{ele.ServiceDescription}</p>
+                      <p
+                        className="text-sm my-5"
+                        dangerouslySetInnerHTML={{
+                          __html: ele?.Description,
+                        }}
+                      ></p>
                     ) : (
-                      <p className="text-sm my-5">
-                        {ele.ServiceShortDescription}
-                      </p>
+                      <p
+                        className="text-sm my-5"
+                        dangerouslySetInnerHTML={{
+                          __html: ele?.SubHeading1,
+                        }}
+                      ></p>
                     )}
                   </div>
                 </div>

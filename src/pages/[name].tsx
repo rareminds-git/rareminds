@@ -25,7 +25,7 @@ const Name = () => {
       await axios.get(`http://13.126.41.32/api/pages/${name}`).then((res) => {
         setPageData(res.data);
         const sectionKeys = res.data.sectionData.map(
-          (ele: any) => ele.ContentSlug
+          (ele: any) => ele.ContentSlug || ele.PageSlug
         );
 
         setSections(sectionKeys);
@@ -34,6 +34,8 @@ const Name = () => {
 
     getPageData();
   }, [name]);
+
+  console.log("sections", sections);
 
   return pageData.sectionData !== undefined ? (
     <>
@@ -80,11 +82,7 @@ const Name = () => {
         />
       )}
       {sections.includes("successstories") && (
-        <SuccessStories
-          content={pageData.sectionData.filter(
-            (ele: any) => ele.ContentSlug === "successstories" && ele
-          )}
-        />
+        <SuccessStories content={pageData.studyData} />
       )}
       {sections.includes("achievements") && (
         <Achievements
@@ -144,6 +142,19 @@ const Name = () => {
             (ele: any) => ele.ContentSlug === "queryform" && ele
           )}
         />
+      )}
+
+      {sections.length === 0 && (
+        <section className="md:px-20 px-10 py-10">
+          <div className="flex">
+            <div className="grid space-y-10">
+              <h1 className="mb-20 mt-20 text-3xl text-left font-bold md:text-5xl">
+                {pageData?.pageData?.PageName}
+              </h1>
+              {/* <p className="text-2xl mb-20">{content?.Description}</p> */}
+            </div>
+          </div>
+        </section>
       )}
     </>
   ) : (

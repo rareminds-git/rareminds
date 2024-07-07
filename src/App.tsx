@@ -7,6 +7,7 @@ import Name from "./pages/[name]";
 import ServiceName from "./pages/services/[name]";
 import CaseStudyDetail from "./pages/case-studies/[name]";
 import BlogDetail from "./pages/blogs/[name]";
+import Services from "./pages/services";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/:name" element={<Name />} />
+            <Route path="services/:userType" element={<Services />} />
             <Route
               path="services/:userType/:serviceName"
               element={<ServiceName />}

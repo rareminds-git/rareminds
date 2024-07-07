@@ -61,15 +61,15 @@
 
   .illsImg {
     @media (max-width: 640px) {
-      height: 500px;
-      margin: 0 auto;
+      height: 300px;
+      margin: 10px auto;
     }
   }
 
   .heroIlls {
-    height: 75%;
+    height: 250px;
+    margin: 10% auto;
     @media (max-width: 640px) {
-      height: 75%;
       margin: 0 auto;
     }
   }
@@ -204,6 +204,28 @@
     }
     to {
       transform: rotate(360deg);
+    }
+  }
+
+  .float .absolute {
+    /* position: relative; */
+    -webkit-animation: floatBubble 5s 1 ease-out;
+    animation: floatBubble 5s 1 ease-out;
+  }
+  @-webkit-keyframes floatBubble {
+    0% {
+      top: 180px;
+    }
+    100% {
+      top: 0px;
+    }
+  }
+  @keyframes floatBubble {
+    0% {
+      top: 180px;
+    }
+    100% {
+      top: 0px;
     }
   }
 

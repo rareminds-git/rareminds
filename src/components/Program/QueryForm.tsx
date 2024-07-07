@@ -27,7 +27,7 @@ const QueryForm = ({ pageData, content }) => {
         <Form className="mt-20 pr-10 md:pl-40">
           <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
             <Form.Group
-              className="w-full"
+              className="w-full grid md:grid-rows-2"
               controlId="exampleForm.ControlInput1"
             >
               <Form.Label className="text-3xl text-black-500 font-Syne">
@@ -40,7 +40,10 @@ const QueryForm = ({ pageData, content }) => {
               />
             </Form.Group>
 
-            <Form.Group className="" controlId="exampleForm.ControlInput1">
+            <Form.Group
+              className="grid md:grid-rows-2 w-full"
+              controlId="exampleForm.ControlInput1"
+            >
               <Form.Label className="text-3xl text-black-500 font-Syne">
                 Company Name*
               </Form.Label>
@@ -51,7 +54,10 @@ const QueryForm = ({ pageData, content }) => {
               />
             </Form.Group>
 
-            <Form.Group className="" controlId="exampleForm.ControlInput1">
+            <Form.Group
+              className="grid md:grid-rows-2 w-full"
+              controlId="exampleForm.ControlInput1"
+            >
               <Form.Label className="text-3xl text-black-500 font-Syne">
                 Email address*
               </Form.Label>
@@ -62,7 +68,7 @@ const QueryForm = ({ pageData, content }) => {
               />
             </Form.Group>
             <Form.Group
-              className="md:mt-16"
+              className="md:mt-16 grid md:grid-rows-2 w-full"
               controlId="exampleForm.ControlInput1"
             >
               <Form.Label className="text-3xl text-black-500 font-Syne">
@@ -75,7 +81,7 @@ const QueryForm = ({ pageData, content }) => {
               />
             </Form.Group>
             <Form.Group
-              className="md:mt-16"
+              className="md:mt-16 grid md:grid-rows-2 w-full"
               controlId="exampleForm.ControlInput1"
             >
               <Form.Label className="text-3xl text-black-500 font-Syne">

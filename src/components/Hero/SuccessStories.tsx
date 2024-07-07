@@ -1,12 +1,12 @@
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import SS1 from "../../assets/images/ss1.svg";
-import SS2 from "../../assets/images/ss2.svg";
+import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 const SuccessStories = ({ content }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const navigate = useNavigate();
   return (
     <>
       <section className="md:px-20 px-10 py-10 bg-hero-gradient">
@@ -30,39 +30,26 @@ const SuccessStories = ({ content }) => {
               dots={false}
               nav={false}
             >
-              <div className="item">
-                <img src={SS1} width={"300px"} />
+              {content.map((ele: any) => {
+                console.log("element", ele);
+                return (
+                  <div
+                    className="cursor-pointer item"
+                    onClick={() =>
+                      navigate(
+                        `/case-studies/${ele.PageSlug || ele.ContentSlug}`
+                      )
+                    }
+                  >
+                    <img src={`/images/${ele.Image1}`} width={"100%"} />
 
-                <h4 className="font-bold font-Syne md:text-2xl  text-red-500">
-                  Transforming Talent at a Leading Global Alco-bev Organization:
-                </h4>
-                <p>
-                  At Rareminds, our commitment to transforming workplaces
-                  through innovative talent solutions is exemplified
-                </p>
-              </div>
-              <div className="item">
-                <img src={SS2} />
-
-                <h4 className="font-bold font-Syne md:text-2xl  text-red-500">
-                  Institutional Case Study
-                </h4>
-                <p>
-                  Rareminds' commitment to talent development and placement
-                  has...Read More
-                </p>
-              </div>
-              <div className="item">
-                <img src={SS1} />
-
-                <h4 className="font-bold font-Syne md:text-2xl text-red-500">
-                  Transforming Talent at a Leading Global Alco-bev Organization:
-                </h4>
-                <p>
-                  At Rareminds, our commitment to transforming workplaces
-                  through innovative talent solutions is exemplified
-                </p>
-              </div>
+                    <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
+                      {ele.Heading1}
+                    </h4>
+                    <p className="text-sm">{ele.Heading2}</p>
+                  </div>
+                );
+              })}
             </OwlCarousel>
           ) : (
             <OwlCarousel
@@ -75,39 +62,25 @@ const SuccessStories = ({ content }) => {
               dots={false}
               nav={false}
             >
-              <div className="item">
-                <img src={SS1} width={"300px"} />
+              {content.map((ele: any) => {
+                return (
+                  <div
+                    className="cursor-pointer item"
+                    onClick={() =>
+                      navigate(
+                        `/case-studies/${ele.PageSlug || ele.ContentSlug}`
+                      )
+                    }
+                  >
+                    <img src={`/images/${ele.Image1}`} width={"100%"} />
 
-                <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
-                  Transforming Talent at a Leading Global Alco-bev Organization:
-                </h4>
-                <p className="text-sm">
-                  At Rareminds, our commitment to transforming workplaces
-                  through innovative talent solutions is exemplified
-                </p>
-              </div>
-              <div className="item">
-                <img src={SS2} />
-
-                <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
-                  Institutional Case Study
-                </h4>
-                <p className="text-sm">
-                  Rareminds' commitment to talent development and placement
-                  has...Read More
-                </p>
-              </div>
-              <div className="item">
-                <img src={SS1} />
-
-                <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
-                  Transforming Talent at a Leading Global Alco-bev Organization:
-                </h4>
-                <p className="text-sm">
-                  At Rareminds, our commitment to transforming workplaces
-                  through innovative talent solutions is exemplified
-                </p>
-              </div>
+                    <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
+                      {ele.Heading1}
+                    </h4>
+                    <p className="text-sm">{ele.Heading2}</p>
+                  </div>
+                );
+              })}
             </OwlCarousel>
           )}
         </div>

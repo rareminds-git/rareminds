@@ -98,6 +98,10 @@ app.get("/pages/:pageSlug", async function (req, res) {
       " AND ContentTypeId = 7",
   });
 
+  let studyData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = 40",
+  });
+
   if (achievementsData.length > 0) {
     let achievements = await mysqlQuery(con, {
       sql:
@@ -112,9 +116,36 @@ app.get("/pages/:pageSlug", async function (req, res) {
     pageData: pageData[0],
     sectionData,
     serviceData,
+    studyData,
     blogsData,
     achievementsData:
       achievementsData[0] && achievementsData[0]["achievements"],
+  });
+});
+
+app.get("/services/:slug", async function (req, res) {
+  const pageSlug = req.params.slug;
+  let pageData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_pages WHERE PageSlug = '/" + pageSlug + "'",
+  });
+
+  let servicePageData = await mysqlQuery(con, {
+    sql:
+      "SELECT * FROM rm_content WHERE PageId = " +
+      pageData[0].PageId +
+      " AND ContentTypeId = 4",
+  });
+
+  let serviceData = await mysqlQuery(con, {
+    sql:
+      "SELECT * FROM rm_content WHERE PageId = " +
+      pageData[0].PageId +
+      " AND ContentTypeId = 38",
+  });
+
+  res.send({
+    serviceData: serviceData,
+    servicePageData: servicePageData[0],
   });
 });
 
