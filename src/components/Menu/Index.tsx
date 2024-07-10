@@ -39,7 +39,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       Our Services
                     </a>
                   </li>
-                  {/* <li className="nav-li py-5">
+                  <li className="nav-li py-5">
                     <a
                       href="/about-us"
                       className="nav-link text-5xl font-Inter text-white font-bold"
@@ -49,7 +49,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                     >
                       About
                     </a>
-                  </li> */}
+                  </li>
                   <li className="nav-li py-5">
                     <a
                       href="/case-studies"
