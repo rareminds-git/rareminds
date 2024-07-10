@@ -30,7 +30,7 @@ const SuccessStories = ({ content }) => {
               dots={false}
               nav={false}
             >
-              {content.map((ele: any) => {
+              {content?.map((ele: any) => {
                 console.log("element", ele);
                 return (
                   <div

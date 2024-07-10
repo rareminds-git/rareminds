@@ -69,7 +69,7 @@ const Blog = ({ content }) => {
           </OwlCarousel>
         </div>
       ) : (
-        <div className="bg-[#cabe9e1f]">
+        <div className="bg-[#cabe9e1f] py-8">
           <h3 className="font-Syne my-8 mx-auto text-red-400 text-center font-bold text-3xl">
             Blog
           </h3>

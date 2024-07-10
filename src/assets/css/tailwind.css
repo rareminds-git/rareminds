@@ -75,8 +75,19 @@
   }
 
   .testimonyImg img {
-    height: 105px;
-    width: 105px !important;
+    height: 205px;
+    width: 205px !important;
+  }
+
+  .testimonyAuthor {
+    @media (max-width: 640px) {
+      width: 300px !important;
+    }
+  }
+  .testimonyIlls {
+    @media (max-width: 640px) {
+      width: 100% !important;
+    }
   }
 
   .owl-item.cloned {

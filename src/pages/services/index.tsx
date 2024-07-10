@@ -112,28 +112,51 @@ const Services = () => {
               }}
             ></p>
 
-            <div className="rounded-md row-span-1">
-              <img
-                src={ProgramImg}
-                className="col-span-5"
-                width={"350px"}
-                height={"400px"}
-              />
-            </div>
+            {serviceData &&
+              serviceData?.serviceData?.map((ele: any) => {
+                return (
+                  <div
+                    className="item my-4 cursor-pointer"
+                    onMouseEnter={() => setHoveredDivs(ele.ServiceShortForm)}
+                    onMouseLeave={() => setHoveredDivs(undefined)}
+                    onClick={() => navigate(`/services/${ele.ContentSlug}`)}
+                    style={{
+                      height:
+                        hoveredDivs === ele.ServiceShortForm
+                          ? "auto"
+                          : hoveredDivs === ""
+                            ? "150px"
+                            : "auto",
+                    }}
+                  >
+                    <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
+                      <h4 className="text-4xl font-semibold my-10">
+                        {ele.Heading1}
+                      </h4>
 
-            {serviceData?.servicePrograms?.map((ele: any) => {
-              return (
-                <div className="mt-6">
-                  <h3 className="md:text-4xl text-2xl font-bold font-Syne">
-                    {ele.ContentTitle}
-                  </h3>
-                  <p
-                    className="mt-4 mr-32"
-                    dangerouslySetInnerHTML={{ __html: ele.ContentDescription }}
-                  ></p>
-                </div>
-              );
-            })}
+                      {hoveredDivs === ele.ServiceShortForm ? (
+                        <p
+                          className="text-sm my-5"
+                          dangerouslySetInnerHTML={{
+                            __html: ele?.Description,
+                          }}
+                        ></p>
+                      ) : (
+                        <p
+                          className="text-sm my-5"
+                          dangerouslySetInnerHTML={{
+                            __html: ele?.SubHeading1,
+                          }}
+                        ></p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+
+            <div className="flex justify-center mt-40">
+              <img src={ServicesImg} />
+            </div>
           </section>
         </div>
       )}

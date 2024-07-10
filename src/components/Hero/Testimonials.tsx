@@ -40,21 +40,21 @@ const Testimonials = ({ content }) => {
           >
             <div className="item mx-20">
               <div className="grid grid-flow-col place-items-start">
-                <div className="col-span-6 row-span-3 my-4 mx-4 place-items-start testimonyImg">
-                  <img src={TestimonialImg} width="280px" />
-                  <p className="font-Inter text-xl pb-5 mr-4">
-                    Rareminds puts forward only those candidates who closely
-                    match your requirements and ace their services in both
-                    recruiting and training. It has been the most rewarding to
-                    work with the team.
-                  </p>
-                  <p className="font-Inter text-sm">
+                <div className="col-span-4 row-span-3 my-4 mx-4 place-items-start testimonyImg">
+                  <img src={TestimonialImg} width="480px" />
+                  <p className="font-Inter text-4xl font-bold my-8">
                     Santosh Kumar G, HR, Shriram Properties, Management Trainee,
                     Product Vertical
                   </p>
+                  <p className="font-Inter text-xl pb-5 mr-4 font-thin">
+                    "Rareminds puts forward only those candidates who closely
+                    match your requirements and ace their services in both
+                    recruiting and training. It has been the most rewarding to
+                    work with the team."
+                  </p>
                 </div>
-                <div className="col-span-6 row-span-1 my-4 place-items-start">
-                  <img src={TestimonialIlls} width="280px" />
+                <div className="col-span-8 row-span-1 my-4 place-items-start">
+                  <img src={TestimonialIlls} width="380px" />
                 </div>
               </div>
             </div>
@@ -75,6 +75,38 @@ const Testimonials = ({ content }) => {
             nav={false}
           >
             <div className="item mx-5">
+              <div className=" grid-flow-col place-items-start">
+                <div className="row-span-1 grid grid-rows-1 grid-cols-2 mx-4 place-items-start testimonyImg">
+                  <div className="col-span-6 place-items-start">
+                    <img
+                      src={TestimonialImg}
+                      className="mt-20 testimonyAuthor"
+                      width="380px"
+                    />
+                  </div>
+                  <div className="col-span-8 grid-rows-3">
+                    <p className="font-Inter text-4xl font-bold my-8">
+                      Santosh Kumar G, HR, Shriram Properties, Management
+                      Trainee, Product Vertical
+                    </p>
+                    <p className="font-Inter text-xl pb-5 mr-4 font-thin">
+                      "Rareminds puts forward only those candidates who closely
+                      match your requirements and ace their services in both
+                      recruiting and training. It has been the most rewarding to
+                      work with the team."
+                    </p>
+                    <div className="col-span-4 row-span-1 my-4 place-items-start">
+                      <img
+                        className="testimonyIlls"
+                        src={TestimonialIlls}
+                        width="100%"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* <div className="item mx-5">
               <div className="grid grid-rows-2 grid-flow-col place-items-start">
                 <div className="col-span-12 row-span-1 my-4 place-items-start">
                   <img src={TestimonialIlls} width="280px" />
@@ -101,35 +133,7 @@ const Testimonials = ({ content }) => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="item mx-5">
-              <div className="grid grid-rows-2 grid-flow-col place-items-start">
-                <div className="col-span-12 row-span-1 my-4 place-items-start">
-                  <img src={TestimonialIlls} width="280px" />
-                </div>
-                <div className="row-span-1 grid grid-rows-1 grid-flow-col mx-4 place-items-start testimonyImg">
-                  <div className="col-span-6 place-items-start">
-                    <img
-                      src={TestimonialImg}
-                      className="mt-20 mr-20"
-                      width="280px"
-                    />
-                  </div>
-                  <div className="col-span-6">
-                    <p className="font-Inter text-sm pb-5">
-                      Rareminds puts forward only those candidates who closely
-                      match your requirements and ace their services in both
-                      recruiting and training. It has been the most rewarding to
-                      work with the team.
-                    </p>
-                    <p className="font-Inter text-xs">
-                      Santosh Kumar G, HR, Shriram Properties, Management
-                      Trainee, Product Vertical
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </div> */}
           </OwlCarousel>
         </>
       )}
