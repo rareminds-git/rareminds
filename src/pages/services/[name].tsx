@@ -69,14 +69,14 @@ const ServiceName = () => {
           </section>
         </div>
       ) : (
-        <div className="grid min-h-screen md:py-16">
+        <div className="md:py-16">
           <section className="md:px-20 px-5 md:py-10">
-            <h1 className="md:text-8xl text-2xl row-span-1 md:py-12 py-6 col-span-5 mr-96 place-items-start border-b-2 border-black text-[#FF2C2C] font-bold capitalize">
+            <h1 className="md:text-8xl text-4xl row-span-1 md:py-12 pt-20 pb-4 mt-8 col-span-5 mr-36 place-items-start border-b-2 border-black text-[#FF2C2C] font-bold capitalize">
               {serviceData?.serviceData?.Heading1}
             </h1>
 
             <p
-              className="text-md row-span-1 capitalize mr-36 mb-12 mt-12"
+              className="text-md row-span-1 capitalize mb-12 mt-12"
               dangerouslySetInnerHTML={{
                 __html: serviceData?.serviceData?.Description,
               }}
@@ -91,14 +91,18 @@ const ServiceName = () => {
               />
             </div>
 
+            <h3 className="text-[#FF2C2C] font-bold capitalize text-3xl mt-8 font-Syne">
+              Program Details
+            </h3>
+
             {serviceData?.servicePrograms?.map((ele: any) => {
               return (
-                <div className="mt-6">
-                  <h3 className="md:text-4xl text-2xl font-bold font-Syne">
+                <div className="mt-6 px-8 ml-8">
+                  <h3 className="md:text-4xl text-xl font-bold font-Syne">
                     {ele.ContentTitle}
                   </h3>
                   <p
-                    className="mt-4 mr-32"
+                    className="mt-4"
                     dangerouslySetInnerHTML={{ __html: ele.ContentDescription }}
                   ></p>
                 </div>
