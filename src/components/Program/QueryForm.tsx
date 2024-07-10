@@ -1,16 +1,99 @@
+import React, { useEffect, useState } from "react";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import { useNavigate } from "react-router-dom";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import Form from "react-bootstrap/Form";
 import { useMediaQuery } from "react-responsive";
 import Button from "react-bootstrap/Button";
+import axios from "axios";
 
 const QueryForm = ({ pageData, content }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const [formData, setFormData] = useState({});
+  const [successMessage, setSuccessMsg] = useState(null);
+  const [errorMessage, setErrorMsg] = useState(null);
   const navigate = useNavigate();
 
-  console.log("content", content);
-  return (
+  const submitQueryForm = () => {
+    console.log(formData);
+    if (formData === null) {
+      setErrorMsg(
+        "Please fill all the required(*) fields and agree to the terms and conditions to submit your details ."
+      );
+      return false;
+    } else {
+      if (formData && Object.keys(formData).length < 5) {
+        setErrorMsg(
+          "Please fill all the required(*) fields and agree to the terms and conditions to submit your details ."
+        );
+        return false;
+      }
+    }
+
+    formData.Services = formData.Services.join(", ");
+
+    let config = {
+      method: "post",
+      maxBodyLength: Infinity,
+      url: "http://13.126.41.32/api/submit-query-form",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: JSON.stringify(formData),
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        if (response.data.status === 200) {
+          setSuccessMsg(response.data.message);
+        }
+        if (response.data.status === 500) {
+          setErrorMsg(response.data.message);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const setCheckBoxValue = (e) => {
+    let services = formData.Services;
+
+    if (services && services.length > 0) {
+      if (e.target.checked) {
+        services.push(e.target.value);
+      } else {
+        services = services.filter((el: any) => el !== e.target.value);
+      }
+
+      setFormData({ ...formData, Services: services });
+    } else {
+      let servicesArray = [];
+      servicesArray.push(e.target.value);
+      setFormData({ ...formData, Services: servicesArray });
+    }
+  };
+
+  console.log("content", errorMessage);
+
+  return successMessage ? (
+    <section className="md:px-20 px-10 py-10">
+      <div className="flex">
+        <div className="grid space-y-10 text-center font-Syne">
+          <h1 className="mt-20 text-3xl md:text-center text-left font-bold md:text-5xl">
+            {content[0]?.Heading1}
+          </h1>
+          <p className="text-xl mb-20 md:px-44 md:text-center text-left">
+            {content[0]?.Heading2}
+          </p>
+          <h3 className="mt-20 text-3xl md:text-center text-left font-bold md:text-5xl">
+            {successMessage}
+          </h3>
+        </div>
+      </div>
+    </section>
+  ) : (
     <>
       <section className="md:px-20 px-10 py-10">
         <div className="flex">
@@ -21,76 +104,80 @@ const QueryForm = ({ pageData, content }) => {
             <p className="text-xl mb-20 md:px-44 md:text-center text-left">
               {content[0]?.Heading2}
             </p>
+
+            <h3 className="text-xl mt-8 px-24 md:text-center text-left text-red-500 font-bold font-Syne">
+              {errorMessage}
+            </h3>
           </div>
         </div>
 
-        <Form className="mt-20 pr-10 md:pl-40">
+        <Form className="mt-20 pr-10 md:pl-20">
           <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
-            <Form.Group
-              className="w-full grid md:grid-rows-2"
-              controlId="exampleForm.ControlInput1"
-            >
+            <Form.Group className="w-full grid md:grid-rows-2">
               <Form.Label className="text-3xl text-black-500 font-Syne">
                 Full Name*
               </Form.Label>
               <Form.Control
                 className="my-6 border-b-2 border-black"
-                type="email"
+                type="text"
                 placeholder="Type your name"
+                onChange={(e) =>
+                  setFormData({ ...formData, FullName: e.target.value })
+                }
               />
             </Form.Group>
 
-            <Form.Group
-              className="grid md:grid-rows-2 w-full"
-              controlId="exampleForm.ControlInput1"
-            >
+            <Form.Group className="grid md:grid-rows-2 w-full">
               <Form.Label className="text-3xl text-black-500 font-Syne">
                 Company Name*
               </Form.Label>
               <Form.Control
                 className="my-6 border-b-2 border-black"
-                type="email"
+                type="text"
                 placeholder="Type your company"
+                onChange={(e) =>
+                  setFormData({ ...formData, CompanyName: e.target.value })
+                }
               />
             </Form.Group>
 
-            <Form.Group
-              className="grid md:grid-rows-2 w-full"
-              controlId="exampleForm.ControlInput1"
-            >
+            <Form.Group className="grid md:grid-rows-2 w-full">
               <Form.Label className="text-3xl text-black-500 font-Syne">
                 Email address*
               </Form.Label>
               <Form.Control
                 className="my-6 border-b-2 border-black"
-                type="email"
+                type="text"
                 placeholder="Type your email"
+                onChange={(e) =>
+                  setFormData({ ...formData, Email: e.target.value })
+                }
               />
             </Form.Group>
-            <Form.Group
-              className="md:mt-16 grid md:grid-rows-2 w-full"
-              controlId="exampleForm.ControlInput1"
-            >
+            <Form.Group className="md:mt-16 grid md:grid-rows-2 w-full">
               <Form.Label className="text-3xl text-black-500 font-Syne">
                 Phone Number*
               </Form.Label>
               <Form.Control
                 className="my-6 border-b-2 border-black"
-                type="email"
+                type="text"
                 placeholder="Type your number"
+                onChange={(e) =>
+                  setFormData({ ...formData, PhoneNumber: e.target.value })
+                }
               />
             </Form.Group>
-            <Form.Group
-              className="md:mt-16 grid md:grid-rows-2 w-full"
-              controlId="exampleForm.ControlInput1"
-            >
+            <Form.Group className="md:mt-16 grid md:grid-rows-2 w-full">
               <Form.Label className="text-3xl text-black-500 font-Syne">
                 Job Title*
               </Form.Label>
               <Form.Control
                 className="my-6 border-b-2 border-black"
-                type="email"
+                type="text"
                 placeholder="Type your job title"
+                onChange={(e) =>
+                  setFormData({ ...formData, JobTitle: e.target.value })
+                }
               />
             </Form.Group>
           </div>
@@ -105,16 +192,28 @@ const QueryForm = ({ pageData, content }) => {
               type="checkbox"
               label="Talent Acquisition"
               className="text-2xl checkbox"
+              value={"TA"}
+              onChange={(e) => {
+                setCheckBoxValue(e);
+              }}
             />
             <Form.Check // prettier-ignore
               type="checkbox"
               label="Talent Management"
               className="text-2xl checkbox"
+              value={"TM"}
+              onChange={(e) => {
+                setCheckBoxValue(e);
+              }}
             />
             <Form.Check // prettier-ignore
               type="checkbox"
               label="Talent Development"
               className="text-2xl checkbox"
+              value={"TD"}
+              onChange={(e) => {
+                setCheckBoxValue(e);
+              }}
             />
           </div>
 
@@ -127,16 +226,25 @@ const QueryForm = ({ pageData, content }) => {
               type="radio"
               label="Website"
               className="text-2xl radio"
+              onChange={(e) =>
+                setFormData({ ...formData, ReferralSource: "Website" })
+              }
             />
             <Form.Check // prettier-ignore
               type="radio"
               label="Referral"
               className="text-2xl radio"
+              onChange={(e) =>
+                setFormData({ ...formData, ReferralSource: "Referral" })
+              }
             />
             <Form.Check // prettier-ignore
               type="radio"
               label="Social Media"
               className="text-2xl radio"
+              onChange={(e) =>
+                setFormData({ ...formData, ReferralSource: "Social Media" })
+              }
             />
           </div>
 
@@ -150,6 +258,9 @@ const QueryForm = ({ pageData, content }) => {
             className="mt-10 border-2 w-full p-5 rounded-xl"
             rows={5}
             placeholder="Type here"
+            onChange={(e) =>
+              setFormData({ ...formData, Comment: e.target.value })
+            }
           />
 
           <Form.Check // prettier-ignore
@@ -171,6 +282,7 @@ const QueryForm = ({ pageData, content }) => {
                 className=" bg-blue-100 px-10 py-2 font-Syne text-xl rounded-md"
                 variant="primary"
                 size="lg"
+                onClick={() => submitQueryForm()}
               >
                 Submit
               </Button>

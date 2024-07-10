@@ -189,6 +189,45 @@ app.get("/case-studies/:slug", async function (req, res) {
   });
 });
 
+app.post("/submit-query-form", async function (req, res) {
+  const formData = req.body;
+
+  let insertData = await mysqlQuery(con, {
+    sql:
+      "INSERT INTO `rm_queries` (`FullName`, `CompanyName`, `Email`, `PhoneNumber`, `Jobtitle`, `Services`, `ReferralSource`, `Comment`) VALUES ('" +
+      formData.FullName +
+      "', '" +
+      formData.CompanyName +
+      "', '" +
+      formData.Email +
+      "', '" +
+      formData.PhoneNumber +
+      "', '" +
+      formData.JobTitle +
+      "', '" +
+      formData.Services +
+      "', '" +
+      formData.ReferralSource +
+      "', '" +
+      formData.Comment +
+      "')",
+  });
+
+  if (insertData) {
+    res.send({
+      status: 200,
+      message:
+        "Thank you for submitting your details. We will contact your shortly.",
+    });
+  } else {
+    res.send({
+      status: 500,
+      message:
+        "Details could not be submitted at this time. Please try again after sometime.",
+    });
+  }
+});
+
 app.get("/blogs/:slug", async function (req, res) {
   const { slug } = req.params;
 
