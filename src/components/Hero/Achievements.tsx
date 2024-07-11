@@ -17,7 +17,7 @@ const Achievements = ({ content, achievements }) => {
           <>
             {achievements?.map((ele: any) => {
               return (
-                <div className="container md:px-12">
+                <div className="container-fluid md:px-12">
                   <div className="grid grid-cols-2 gap-4 md:px-12 md:py-12 px-10 border-y-blue-400 border-2 border-x-0">
                     <div className="grid">
                       <div className="md:col-span-6 col-span-9">

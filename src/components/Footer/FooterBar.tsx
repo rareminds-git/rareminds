@@ -44,60 +44,38 @@ const FooterBar = () => {
                       <a href="/">Home</a>
                     </li>
                     <li>
-                      <a href="/">About </a>
+                      <a href="/about-us">About </a>
                     </li>
                     <li>
-                      <a href="/">Contact</a>
+                      <a href="/contact-us">Contact</a>
+                    </li>
+                    <li>
+                      <a href="/case-studies">Case Study</a>
+                    </li>
+                    <li>
+                      <a href="/blogs">Blog</a>
                     </li>
                   </ul>
                 </div>
                 <div className="col-span-3 row-span-1">
                   <ul className="mx-10">
                     <li>
-                      <a href="/">Our Programs</a>
+                      <a href="/corporate">Corporate Program </a>
                     </li>
                     <li>
-                      <a href="/">Individual Program </a>
+                      <a href="/institutions">Institutions Program</a>
                     </li>
                     <li>
-                      <a href="/">Corporate Program</a>
+                      <a href="/government">Government Program</a>
                     </li>
                     <li>
-                      <a href="/">Institute Program</a>
-                    </li>
-                    <li>
-                      <a href="/">School Program</a>
+                      <a href="/schools">School Program</a>
                     </li>
                   </ul>
                 </div>
+
                 <div className="col-span-3 row-span-1">
-                  <ul className="mx-10">
-                    <li>
-                      <a href="/">Our Services</a>
-                    </li>
-                    <li>
-                      <a href="/">Talent Acquistion</a>
-                    </li>
-                    <li>
-                      <a href="/">Talent Development</a>
-                    </li>
-                    <li>
-                      <a href="/">Services</a>
-                    </li>
-                    <li>
-                      <a href="/">Talent Management</a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="col-span-3 row-span-1">
-                  <ul className="mx-10">
-                    <li>
-                      <a href="/">Testimonials</a>
-                    </li>
-                    <li>
-                      <a href="/">Blog</a>
-                    </li>
-                  </ul>
+                  <ul className="mx-10"></ul>
                 </div>
               </div>
             </div>
@@ -158,48 +136,29 @@ const FooterBar = () => {
                       <a href="/">Home</a>
                     </li>
                     <li>
-                      <a href="/">About </a>
+                      <a href="/about-us">About </a>
                     </li>
                     <li>
-                      <a href="/">Contact</a>
+                      <a href="/contact-us">Contact</a>
+                    </li>
+                    <li>
+                      <a href="/case-studies">Case Study</a>
+                    </li>
+                    <li>
+                      <a href="/blogs">Blog</a>
                     </li>
 
                     <li>
-                      <a href="/">Individual Program </a>
+                      <a href="/corporate">Corporate Program </a>
                     </li>
                     <li>
-                      <a href="/">Corporate Program</a>
+                      <a href="/institutions">Institutions Program</a>
                     </li>
                     <li>
-                      <a href="/">Institute Program</a>
+                      <a href="/government">Government Program</a>
                     </li>
                     <li>
-                      <a href="/">School Program</a>
-                    </li>
-                  </ul>
-                </div>
-                <div className="col-span-6 row-span-1">
-                  <ul>
-                    <li>
-                      <a href="/">Our Services</a>
-                    </li>
-                    <li>
-                      <a href="/">Talent Acquistion</a>
-                    </li>
-                    <li>
-                      <a href="/">Talent Development</a>
-                    </li>
-                    <li>
-                      <a href="/">Services</a>
-                    </li>
-                    <li>
-                      <a href="/">Talent Management</a>
-                    </li>
-                    <li>
-                      <a href="/">Testimonials</a>
-                    </li>
-                    <li>
-                      <a href="/">Blog</a>
+                      <a href="/schools">School Program</a>
                     </li>
                   </ul>
                 </div>
