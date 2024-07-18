@@ -9,52 +9,80 @@ import axios from "axios";
 
 const QueryForm = ({ pageData, content }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({
+    FullName: "",
+    CompanyName: "",
+    Email: "",
+    PhoneNumber: "",
+    JobTitle: "",
+  });
   const [successMessage, setSuccessMsg] = useState(null);
+  const [errors, setErrors] = useState({});
   const [errorMessage, setErrorMsg] = useState(null);
   const navigate = useNavigate();
 
+  const validateForm = (data) => {
+    const errors = {};
+
+    if (!data.FullName.trim()) {
+      errors.FullName = "Full Name is required";
+    }
+    if (!data.CompanyName.trim()) {
+      errors.CompanyName = "Company Name is required";
+    }
+    if (!data.JobTitle.trim()) {
+      errors.JobTitle = "Job Title is required";
+    }
+
+    if (!data.Email.trim()) {
+      errors.Email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(data.Email)) {
+      errors.Email = "Email is invalid";
+    }
+
+    if (!data.PhoneNumber.trim()) {
+      errors.PhoneNumber = "Phone Number is required";
+    }
+
+    return errors;
+  };
+
   const submitQueryForm = () => {
     console.log(formData);
-    if (formData === null) {
+    const newErrors = validateForm(formData);
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length === 0) {
+      formData.Services = formData.Services.join(", ");
+
+      let config = {
+        method: "post",
+        maxBodyLength: Infinity,
+        url: "http://13.126.41.32/api/submit-query-form",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        data: JSON.stringify(formData),
+      };
+
+      axios
+        .request(config)
+        .then((response) => {
+          if (response.data.status === 200) {
+            setSuccessMsg(response.data.message);
+          }
+          if (response.data.status === 500) {
+            setErrorMsg(response.data.message);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
       setErrorMsg(
         "Please fill all the required(*) fields and agree to the terms and conditions to submit your details ."
       );
       return false;
-    } else {
-      if (formData && Object.keys(formData).length < 5) {
-        setErrorMsg(
-          "Please fill all the required(*) fields and agree to the terms and conditions to submit your details ."
-        );
-        return false;
-      }
     }
-
-    formData.Services = formData.Services.join(", ");
-
-    let config = {
-      method: "post",
-      maxBodyLength: Infinity,
-      url: "http://13.126.41.32/api/submit-query-form",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: JSON.stringify(formData),
-    };
-
-    axios
-      .request(config)
-      .then((response) => {
-        if (response.data.status === 200) {
-          setSuccessMsg(response.data.message);
-        }
-        if (response.data.status === 500) {
-          setErrorMsg(response.data.message);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   };
 
   const setCheckBoxValue = (e) => {
@@ -105,7 +133,9 @@ const QueryForm = ({ pageData, content }) => {
               {content[0]?.Heading2}
             </p>
 
-            <h3 className="text-xl mt-8 px-24 md:text-center text-left text-red-500 font-bold font-Syne">
+            <h3
+              className={`text-xl mt-8 px-24 md:text-center text-left text-red-500 font-bold font-Syne fixed ${errorMessage ? "bg-gray-300" : "bg-white"} top-10 left-0 w-full p-5 z-50`}
+            >
               {errorMessage}
             </h3>
           </div>
@@ -118,13 +148,18 @@ const QueryForm = ({ pageData, content }) => {
                 Full Name*
               </Form.Label>
               <Form.Control
-                className="my-6 border-b-2 border-black"
+                className={`my-6 border-b-2 ${errors.FullName ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your name"
                 onChange={(e) =>
                   setFormData({ ...formData, FullName: e.target.value })
                 }
               />
+              {errors.FullName && (
+                <span className="error-message text-red-500 font-bold">
+                  {errors.FullName}
+                </span>
+              )}
             </Form.Group>
 
             <Form.Group className="grid md:grid-rows-2 w-full">
@@ -132,13 +167,18 @@ const QueryForm = ({ pageData, content }) => {
                 Company Name*
               </Form.Label>
               <Form.Control
-                className="my-6 border-b-2 border-black"
+                className={`my-6 border-b-2 ${errors.CompanyName ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your company"
                 onChange={(e) =>
                   setFormData({ ...formData, CompanyName: e.target.value })
                 }
               />
+              {errors.CompanyName && (
+                <span className="error-message text-red-500 font-bold">
+                  {errors.CompanyName}
+                </span>
+              )}
             </Form.Group>
 
             <Form.Group className="grid md:grid-rows-2 w-full">
@@ -146,39 +186,54 @@ const QueryForm = ({ pageData, content }) => {
                 Email address*
               </Form.Label>
               <Form.Control
-                className="my-6 border-b-2 border-black"
+                className={`my-6 border-b-2 ${errors.Email ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your email"
                 onChange={(e) =>
                   setFormData({ ...formData, Email: e.target.value })
                 }
               />
+              {errors.Email && (
+                <span className="error-message text-red-500 font-bold">
+                  {errors.Email}
+                </span>
+              )}
             </Form.Group>
             <Form.Group className="md:mt-16 grid md:grid-rows-2 w-full">
               <Form.Label className="text-3xl text-black-500 font-Syne">
                 Phone Number*
               </Form.Label>
               <Form.Control
-                className="my-6 border-b-2 border-black"
+                className={`my-6 border-b-2 ${errors.PhoneNumber ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your number"
                 onChange={(e) =>
                   setFormData({ ...formData, PhoneNumber: e.target.value })
                 }
               />
+              {errors.PhoneNumber && (
+                <span className="error-message text-red-500 font-bold">
+                  {errors.PhoneNumber}
+                </span>
+              )}
             </Form.Group>
             <Form.Group className="md:mt-16 grid md:grid-rows-2 w-full">
               <Form.Label className="text-3xl text-black-500 font-Syne">
                 Job Title*
               </Form.Label>
               <Form.Control
-                className="my-6 border-b-2 border-black"
+                className={`my-6 border-b-2 ${errors.JobTitle ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your job title"
                 onChange={(e) =>
                   setFormData({ ...formData, JobTitle: e.target.value })
                 }
               />
+              {errors.JobTitle && (
+                <span className="error-message text-red-500 font-bold">
+                  {errors.JobTitle}
+                </span>
+              )}
             </Form.Group>
           </div>
 
