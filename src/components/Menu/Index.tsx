@@ -303,6 +303,29 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                     </a>
                   </li>
                 </ul>
+
+                <p className="text-white font-Syne text-xl mt-32">
+                  info@rareminds.com
+                </p>
+                <p className="text-2xl font-Syne text-white">
+                  Follow us:{" "}
+                  {socialIcons.map((socialIcon) => {
+                    const { icon, id, link } = socialIcon;
+                    return (
+                      <div
+                        className="text-white text-2xl rounded inline-block"
+                        key={id}
+                      >
+                        <FooterIcon
+                          key={id}
+                          icon={icon}
+                          link={link}
+                          type="header"
+                        />
+                      </div>
+                    );
+                  })}
+                </p>
               </div>
             </div>
           </div>

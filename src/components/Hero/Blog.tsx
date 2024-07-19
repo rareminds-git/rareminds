@@ -14,11 +14,11 @@ const Blog = ({ content }) => {
     <>
       {!isMobile ? (
         <div className="bg-[#cabe9e1f] py-20 mt-10">
-          <h3 className="font-Syne my-8 mx-auto text-black font-bold text-4xl text-center">
+          <h3 className="font-Syne my-8 mx-auto text-black font-bold mb-20 text-4xl text-center">
             Blog
           </h3>
           <OwlCarousel
-            className="owl-theme"
+            className="owl-theme pl-24"
             autoplay
             responsive={{
               0: {
@@ -69,12 +69,12 @@ const Blog = ({ content }) => {
           </OwlCarousel>
         </div>
       ) : (
-        <div className="bg-[#cabe9e1f] py-8">
+        <div className="bg-[#cabe9e1f] py-12">
           <h3 className="font-Syne my-8 mx-auto text-red-400 text-center font-bold text-3xl">
             Blog
           </h3>
           <OwlCarousel
-            className="owl-theme"
+            className="owl-theme pl-2"
             // autoplay
             loop
             margin={20}

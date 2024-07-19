@@ -5,7 +5,7 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>
-      <section className="px-10 md:mt-24 mt-12 md:py-20 font-Inter mb-10">
+      <section className="px-10 md:mt-24 mt-12 md:py-20 font-Syne mb-10">
         <div className="flex items-start md:px-32">
           <div className="grid space-y-10 place-items-start">
             <h2 className="font-bold text-5xl">{pageData?.PageSubTitle}</h2>

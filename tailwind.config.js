@@ -11,7 +11,7 @@ export default {
       },
       backgroundImage: {
         "hero-gradient":
-          "linear-gradient(179.38deg, rgba(194, 251, 255, 0.203) 28.57%, rgba(255, 99, 99, 0.077) 57.93%, rgba(48, 119, 225, 0.21) 113.51%)",
+          "linear-gradient(179.38deg, rgba(194, 251, 255, 0.203) 8.57%, rgba(255, 99, 99, 0.077) 57.93%, rgba(160, 248, 184, 0.182) 113.51%)",
       },
       transitionProperty: {
         width: "width",

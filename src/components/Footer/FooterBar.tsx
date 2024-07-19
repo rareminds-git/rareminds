@@ -107,13 +107,7 @@ const FooterBar = () => {
           </div>
         </div>
       ) : (
-        <div className="bg-black text-white min-h-screen font-Syne pt-10">
-          <p className="text-md mx-10">
-            Rareminds works to identify the gaps in employability & learning and
-            over the years provide solutions to schools, colleges & corporates
-            through various curated programs.
-          </p>
-
+        <div className="bg-black text-white py-12 font-Syne pt-10">
           <div className="row-span-1 mx-10 my-5">
             <h3 className="text-3xl">
               Sign up to receive the <br /> latest news.
@@ -122,7 +116,7 @@ const FooterBar = () => {
               className="rounded p-2 mt-3 bg-transparent border-[#CAF0F8]-400 border"
               placeholder="Enter your email"
             />
-            <button className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-3 rounded font-bold mx-5 ">
+            <button className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-3 rounded font-bold">
               Subscribe
             </button>
           </div>

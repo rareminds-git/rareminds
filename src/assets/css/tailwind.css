@@ -9,6 +9,22 @@
   }
 
   @font-face {
+    font-family: "Poppins-Regular";
+    src: url("../../../fonts/Poppins-Regular.ttf") format("truetype");
+    font-weight: 200;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Poppins-Medium";
+    src: url("../../../fonts/Poppins-Medium.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+  }
+
+  @font-face {
     font-family: "Sentient-Variable";
     src:
       url("../../../fonts/Sentient-Variable.woff2") format("woff2"),
@@ -212,7 +228,6 @@
   }
 
   .heroIlls {
-    height: 250px;
     margin: 10% auto;
     @media (max-width: 640px) {
       margin: 0 auto;

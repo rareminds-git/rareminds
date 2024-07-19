@@ -31,18 +31,17 @@ const Services = () => {
       {!isMobile ? (
         <div className="grid w-full min-h-screen md:py-16">
           <section className="md:px-20 px-10 md:py-10">
-            <div className="grid grid-cols-1 grid-rows-2">
-              <h1 className="md:text-8xl text-5xl row-span-1 col-span-5 mr-100 place-items-start text-[#000000] font-bold capitalize">
-                {serviceData?.servicePageData?.Heading1}
-              </h1>
+            <h1 className="md:text-7xl text-5xl font-Syne  place-items-start text-[#000000] capitalize">
+              {serviceData?.servicePageData?.Heading1}
+            </h1>
 
-              <p
-                className="text-md row-span-1 font-Syne ml-60 mb-12"
-                dangerouslySetInnerHTML={{
-                  __html: serviceData?.servicePageData?.Description,
-                }}
-              ></p>
-            </div>
+            <p
+              className="text-2xl row-span-1 mt-12 font-[Sentient-Regular] ml-60 mb-12"
+              dangerouslySetInnerHTML={{
+                __html: serviceData?.servicePageData?.Description,
+              }}
+            ></p>
+
             <div className="flex">
               {serviceData &&
                 serviceData?.serviceData?.map((ele: any) => {

@@ -3,17 +3,20 @@ import WhyUsImg from "../../assets/images/whyus.svg";
 const WhyUs = ({ content }) => {
   return (
     <>
-      <section className="px-10 md:mt-24 mt-12 bg-[#cabe9e1f] py-10 why-us-block font-Inter">
+      <section className="md:px-28 px-8 bg-[#cabe9e1f] py-10 why-us-block font-Inter">
         <div className="flex items-start">
-          <div className="grid space-y-10 place-items-start">
-            <h2 className="font-bold text-5xl">{content?.Heading1}</h2>, <br />
+          <div className="grid md:space-y-10 place-items-start">
+            <h2 className="font-bold md:text-5xl text-2xl font-[Sentient-Bold]">
+              {content?.Heading1}
+            </h2>
+
             <p
-              className="mb-4 mt-0 text-2xl md:mx-20 md:mr-64 ml-0 md:text-2xl text-black-300"
+              className="mb-4 mt-0 ml-0 md:text-4xl text-black-300 text-2xl font-[Sentient-Regular]"
               dangerouslySetInnerHTML={{
                 __html: content?.Description,
               }}
             ></p>
-            <p className="mb-4 mt-0 md:text-3xl text-xl md:mx-20 md:mr-64 ml-0 font-bold text-black-200">
+            <p className="mb-4 mt-0 md:text-2xl font-Syne text-xl ml-0 font-bold text-black-200">
               Read more about What we do
             </p>
           </div>

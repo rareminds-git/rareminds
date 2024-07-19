@@ -34,7 +34,7 @@ const Header = ({ navbarOpen, setNavbarOpen }) => {
         </a>
       </div>
       <select
-        className="top-nav-dropdown hidden sm:block font-Poppins font-light"
+        className="top-nav-dropdown hidden sm:block font-[Poppins-Regular] font-light"
         onChange={(e) => redirectToPage(e.target.value)}
       >
         {pages.map((ele: any) => {

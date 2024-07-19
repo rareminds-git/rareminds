@@ -26,41 +26,41 @@ const ServiceName = () => {
       {!isMobile ? (
         <div className="grid w-full min-h-screen md:py-16">
           <section className="md:px-20 px-10 md:py-10">
-            <div className="grid grid-cols-1 grid-rows-2">
+            <div className="grid grid-cols-6">
               <h1
-                className="md:text-8xl text-5xl row-span-1 py-12 col-span-5 mr-100 place-items-start border-b-2 border-black text-[#FF2C2C] font-bold capitalize"
+                className="md:text-7xl text-5xl grid-cols-1 py-12 col-span-2 font-[Sentient-Regular] mr-100 place-items-start border-b-2 border-black text-[#FF2C2C] font-bold capitalize"
                 style={{ wordSpacing: "9999px" }}
               >
                 {serviceData?.serviceData?.Heading1}
               </h1>
-
-              <p
-                className="text-md row-span-1 capitalize ml-72 mt-12 mb-12"
-                dangerouslySetInnerHTML={{
-                  __html: serviceData?.serviceData?.Description,
-                }}
-              ></p>
             </div>
-            <div className="grid grid-cols-2">
-              <div className="rounded-md">
-                <img src={ProgramImg} className="col-span-5" width={"400px"} />
+            <p
+              className="text-md font-[Sentient-Regular] capitalize ml-72 mr-16 mt-12 mb-12"
+              dangerouslySetInnerHTML={{
+                __html: serviceData?.serviceData?.Description,
+              }}
+            ></p>
+
+            <div className="grid grid-cols-4">
+              <div className="rounded col-span-2">
+                <img src={ProgramImg} />
               </div>
-              <div className="grid grid-flow-row gap-2">
+              <div className="grid grid-flow-row gap-2 col-span-2">
                 <h3 className="text-[#FF2C2C] font-bold capitalize text-3xl mt-36 font-Syne">
                   Program Details
                 </h3>
                 {serviceData?.servicePrograms?.map((ele: any) => {
                   return (
-                    <div className="row-span-1 mt-16">
-                      <h3 className="text-4xl font-bold font-Syne">
+                    <div className="row-span-1">
+                      <p className="text-xl font-[Sentient-Bold]">
                         {ele.ContentTitle}
-                      </h3>
-                      <p
+                      </p>
+                      <span
                         className="mt-4 mr-20 serviceProgramList"
                         dangerouslySetInnerHTML={{
                           __html: ele.ContentDescription,
                         }}
-                      ></p>
+                      ></span>
                     </div>
                   );
                 })}
