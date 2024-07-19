@@ -79,10 +79,10 @@ const Index = () => {
                       setActiveBanner(ele.PageSlug.replace("/", ""));
                     }}
                   >
-                    <h3 className="text-white font-extrabold">
+                    <h3 className="text-white font-extrabold font-[Poppins-Medium] text-3xl">
                       For {ele.PageName}
                     </h3>
-                    <p className="mt-32 text-white font-normal">
+                    <p className="mt-60 text-white font-[Poppins-Medium] text-2xl">
                       {ele.PageSubTitle}
                     </p>
                   </div>
@@ -110,10 +110,10 @@ const Index = () => {
                         redirectToPage(ele.PageSlug.replace("/", ""));
                       }}
                     >
-                      <h3 className="text-white font-extrabold">
+                      <h3 className="text-white font-extrabold font-[Poppins-Medium] text-2xl">
                         For {ele.PageName}
                       </h3>
-                      <p className="mt-24 text-white font-normal">
+                      <p className="mt-24 text-white font-[Poppins-Medium]">
                         {ele.PageSubTitle}
                       </p>
                     </div>
