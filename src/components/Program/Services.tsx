@@ -20,7 +20,7 @@ const Services = ({ content, services, ctaContent }) => {
 
         <>
           {!isMobile ? (
-            <div className="flex">
+            <div className="flex service-list">
               {services.map((ele: any) => {
                 return (
                   <div
@@ -28,16 +28,19 @@ const Services = ({ content, services, ctaContent }) => {
                     onMouseEnter={() => setHoveredDivs(ele.ContentAcronym)}
                     onMouseLeave={() => setHoveredDivs(undefined)}
                     onClick={() => navigate(`/services/${ele.ContentSlug}`)}
-                    style={{
-                      width:
-                        hoveredDivs === ele.ContentAcronym
-                          ? "auto"
-                          : hoveredDivs === ""
-                            ? "30px"
-                            : "auto",
-                    }}
                   >
-                    <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
+                    <div
+                      className="bg-red-400 text-white p-10 rounded-lg item-bg"
+                      style={{
+                        maxWidth:
+                          hoveredDivs === ele.ContentAcronym
+                            ? "auto"
+                            : hoveredDivs === ""
+                              ? "30px"
+                              : "auto",
+                        transition: "all 120s ease-in-out 5s",
+                      }}
+                    >
                       {hoveredDivs === ele.ContentAcronym ||
                       hoveredDivs === undefined ? (
                         <h4 className="text-5xl font-Syne my-10">
