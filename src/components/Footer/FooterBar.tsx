@@ -70,7 +70,7 @@ const FooterBar = () => {
                   </ul>
                 </div>
                 <div className="row-span-1">
-                  <ul className="mx-10">
+                  <ul className="mx-10 text-[20px] leading-[24px] font-Syne">
                     <li>
                       <a href="/corporate">Corporate Program </a>
                     </li>
@@ -87,7 +87,7 @@ const FooterBar = () => {
                 </div>
 
                 <div className="row-span-1">
-                  <ul className="mx-10">
+                  <ul className="mx-10 text-[20px] leading-[24px] font-Syne">
                     <li>
                       <a
                         href={`/services/${localStorage.getItem("currentUserType")}`}
@@ -108,7 +108,7 @@ const FooterBar = () => {
                   </ul>
                 </div>
                 <div className="row-span-1">
-                  <ul className="mx-10">
+                  <ul className="mx-10 text-[20px] leading-[24px] font-Syne">
                     <li>
                       <a href="/case-studies">Case Study</a>
                     </li>
@@ -120,7 +120,7 @@ const FooterBar = () => {
               </div>
             </div>
             <div className="row-span-1 place-items-end text-right">
-              <h3 className="text-[30px] leading-[40.8px] font-[Sentinent-Regular] text-left pl-[12rem]">
+              <h3 className="text-[30px] leading-[40.8px] font-[Sentinent-Regular] text-left pl-[7rem]">
                 Sign up to receive <br /> latest news.
               </h3>
               <input
