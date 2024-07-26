@@ -48,7 +48,6 @@ const QueryForm = ({ pageData, content }) => {
   };
 
   const submitQueryForm = () => {
-    console.log(formData);
     const newErrors = validateForm(formData);
     setErrors(newErrors);
     if (Object.keys(newErrors).length === 0) {
@@ -102,8 +101,6 @@ const QueryForm = ({ pageData, content }) => {
       setFormData({ ...formData, Services: servicesArray });
     }
   };
-
-  console.log("content", errorMessage);
 
   return successMessage ? (
     <section className="md:px-20 px-10 py-10">

@@ -24,26 +24,23 @@ const CaseStudyDetail = () => {
   return (
     <>
       {!isMobile ? (
-        <div className="grid w-full min-h-screen md:py-16">
-          <section className="md:px-20 px-10 md:py-10">
+        <div className="grid w-full min-h-screen lg:py-16">
+          <section className="lg:px-20 px-10 lg:py-10">
             <div className="grid grid-cols-1 grid-rows-2">
-              <h1 className="md:text-6xl text-4xl row-span-1 place-items-start text-[#FF2C2C] font-Syne font-bold capitalize">
+              <h1 className="lg:text-[48px] lg:leading-[55.2px] lg:mr-[20rem] text-4xl row-span-1 place-items-start text-[#FF2C2C] font-Syne font-bold capitalize">
                 {studyData?.studyData?.Heading1}
               </h1>
             </div>
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-2 gap-4">
               <div className="rounded-md">
-                <img
-                  src={`../images/${studyData?.studyData?.Image1}`}
-                  width={"550px"}
-                />
+                <img src={`../images/${studyData?.studyData?.Image1}`} />
               </div>
               <div className="grid grid-flow-row gap-4">
                 {studyData?.studyDetails?.map((ele: any) => {
                   return (
-                    <div className="row-span-1 mt-16">
+                    <div className="row-span-1">
                       <p
-                        className="mt-4 mr-20 caseStudyDetail"
+                        className="mr-20 caseStudyDetail lg:text-[18px] lg:leading-[24.48px]"
                         dangerouslySetInnerHTML={{
                           __html: ele.ContentDescription,
                         }}
@@ -56,10 +53,10 @@ const CaseStudyDetail = () => {
           </section>
         </div>
       ) : (
-        <div className="grid w-full min-h-screen md:py-16">
-          <section className="md:px-20 px-8 md:py-10">
+        <div className="grid w-full min-h-screen lg:py-16">
+          <section className="lg:px-20 px-8 lg:py-10">
             <div className="grid grid-cols-1 grid-rows-2">
-              <h1 className="md:text-6xl text-4xl row-span-1 place-items-start text-[#FF2C2C] font-Syne font-bold capitalize">
+              <h1 className="lg:text-6xl text-4xl row-span-1 place-items-start text-[#FF2C2C] font-Syne font-bold capitalize">
                 {studyData?.studyData?.Heading1}
               </h1>
             </div>

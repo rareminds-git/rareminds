@@ -22,13 +22,11 @@ const BlogDetail = () => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>
-      <div className="grid w-full min-h-screen md:py-12">
-        <section className="md:px-20 px-10 md:py-10 font-Syne">
-          <div className="grid grid-cols-1 grid-rows-2">
-            <h1 className="md:text-4xl text-4xl row-span-1 place-items-start font-bold capitalize">
-              {blogData?.blogData?.Heading1}
-            </h1>
-          </div>
+      <div className="grid w-full min-h-screen lg:py-12">
+        <section className="lg:px-20 px-10 font-Syne">
+          <h1 className="lg:text-[48px] lg:leading-[62px] text-4xl row-span-1 place-items-start font-bold capitalize">
+            {blogData?.blogData?.Heading1}
+          </h1>
 
           <div className="grid grid-cols-3 grid-rows-1 border-b-2 border-black mb-10 p-5">
             <div className="col-span-1 inline-block">
@@ -52,7 +50,10 @@ const BlogDetail = () => {
           </div>
 
           <div className="rounded-md">
-            <img src={`${blogData?.blogData?.Image1}`} />
+            <img
+              src={`${blogData?.blogData?.Image1}`}
+              className="rounded-lg text-center align-middle justify-center h-96 w-full"
+            />
           </div>
           <div className="grid grid-cols-1">
             <div className="grid grid-flow-row gap-4">

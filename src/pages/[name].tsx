@@ -35,8 +35,6 @@ const Name = () => {
     getPageData();
   }, [name]);
 
-  console.log("sections", sections);
-
   return pageData.sectionData !== undefined ? (
     <>
       {sections.includes("hero") && (

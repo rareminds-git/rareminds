@@ -8,24 +8,26 @@ const Hero = ({ content }) => {
   return (
     <>
       {!isMobile ? (
-        <section className="md:px-16 md:pt-44 md:pb-44 bg-hero-gradient">
+        <section className="lg:px-16 lg:pt-16 lg:pb-16 pb-8 bg-hero-gradient">
           <div className="flex items-center justify-center">
             <div className="grid space-y-10 place-items-center">
-              <h1 className="mb-4 text-4xl text-center md:mx-12 font-[Sentient-Medium] md:text-6xl text-[#ff2c2c]">
+              <h1 className="mb-4 mt-8 text-[32px] leading-10 mx-[3rem] text-center lg:mx-[8rem] font-[Sentient-Medium] lg:text-[60px] lg:leading-[74px] text-[#ff2c2c]">
                 {content?.Heading1}
               </h1>
             </div>
           </div>
 
-          <div className="grid space-y-10 place-items-start md:grid-cols-5">
+          <div className="grid space-y-10 place-items-start grid-cols-5">
             <div className="place-items-start col-span-2">
-              <h5 className="mb-4 font-Syne mt-36 font-bold md:text-5xl text-black-400 mx-2 text-xs pl-8">
+              <h5 className="mb-4 font-Syne lg:mt-36 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px] pl-8">
                 "Hiring for our Sales & Marketing teams became more accessible."
               </h5>
-              <p className="mt-8 font-Syne text-3xl pl-8">
+              <p className="mt-8 lg:text-[32px] text-[20px] lg:leading-[53.06px] font-medium pl-8">
                 Jaguar, GMT Manager,
               </p>
-              <p className="mt-2 font-Syne text-3xl pl-8">Abhilash. P</p>
+              <p className="mt-2 font-Syne lg:text-[32px] text-[20px] lg:leading-[53.06px] font-mediumn pl-8">
+                Abhilash. P
+              </p>
             </div>
 
             <div className="w-full col-span-1">
@@ -40,30 +42,34 @@ const Hero = ({ content }) => {
           </div>
         </section>
       ) : (
-        <section className="py-24 bg-hero-gradient">
+        <section className="py-2 bg-hero-gradient">
           <div className="flex items-center justify-center">
-            <div className="grid space-y-10 place-items-center">
-              <h1 className="mb-4 mt-20 text-2xl text-center md:mx-64 mx-4 font-[Sentient-Medium] text-[#ff2c2c]">
+            <div className="grid place-items-center">
+              <h1 className="mb-4 mt-10 text-[22px] leading-[28px] font-medium text-center mx-12 font-[Sentient-Medium] text-[#ff2c2c]">
                 {content.Heading1}
               </h1>
             </div>
           </div>
 
           <div className="flex">
-            <div className="mt-8">
+            <div className="mt-8 mb-8">
               <div className="place-items-center illsImg h-44">
                 <img src={HeroIlls} className="heroIlls h-full" />
               </div>
               <div className="grid place-items-center">
-                <p className="mb-4 font-Syne mt-8 text-3xl text-black-400 text-center">
+                <p className="mb-4 font-Syne mt-8 text-[28px] leading-[33.6px] font-medium text-black-400 text-center">
                   "Hiring for our Sales & Marketing teams became more
                   accessible."
                 </p>
-                <p className="mt-2 font-Syne text-2xl">Jaguar, GMT Manager,</p>
-                <p className="mt-2 font-Syne text-2xl">Abhilash. P</p>
+                <p className="mt-2 font-Syne text-[20px] leading-[33.16px] font-semibold">
+                  Jaguar, GMT Manager,
+                </p>
+                <p className="mt-2 font-Syne text-[20px] leading-[33.16px] font-semibold">
+                  Abhilash. P
+                </p>
               </div>
               <div className="my-4 place-items-center mx-8">
-                <div className="md:col-span-6 place-items-start hero-img relative float">
+                <div className="lg:col-span-6 place-items-start hero-img relative float">
                   <img src={HeroImg1} />
 
                   <img src={HeroSun} className="absolute top-0 -z-10 right-0" />

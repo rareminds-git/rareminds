@@ -200,7 +200,7 @@
   }
 
   .why-us-img img {
-    margin-top: -10%;
+    margin-top: -20%;
     @media (max-width: 640px) {
       position: relative;
       width: 100%;
@@ -231,6 +231,10 @@
     margin: 10% auto;
     @media (max-width: 640px) {
       margin: 0 auto;
+    }
+    @media (max-width: 1080px) {
+      margin: 0 auto;
+      height: 275px;
     }
   }
 

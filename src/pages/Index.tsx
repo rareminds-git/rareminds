@@ -9,9 +9,12 @@ import { selectBanner } from "@/redux/features/appSlice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useMediaQuery } from "react-responsive";
+import LoaderComponent from "@/components/LoaderComponent";
 
 const Index = () => {
   const [activeBanner, setActiveBanner] = useState("corporate");
+
+  const [showLoader, setShowLoader] = useState(true);
 
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
@@ -46,12 +49,17 @@ const Index = () => {
         });
         setPages(homePages);
       });
+      setTimeout(() => {
+        setShowLoader(false);
+      }, 1000);
     }
 
     getPages();
   }, []);
 
-  return (
+  return showLoader ? (
+    <LoaderComponent />
+  ) : (
     <>
       {!isMobile ? (
         <div className="banner" style={{ backgroundImage: `url(${Baner})` }}>
@@ -69,7 +77,7 @@ const Index = () => {
               {pages.map((ele: any) => {
                 return (
                   <div
-                    className={`p-12 cursor-pointer ${activeBanner === ele.PageSlug.replace("/", "") && "bannerSelected"} border-white border border-t-0 border-r-0`}
+                    className={`p-8 cursor-pointer relative ${activeBanner === ele.PageSlug.replace("/", "") && "bannerSelected"} border-white border border-t-0 border-r-0`}
                     onClick={() => {
                       setActiveBanner(ele.PageSlug.replace("/", "")),
                         dispatch(selectBanner(ele.PageSlug.replace("/", "")));
@@ -79,10 +87,10 @@ const Index = () => {
                       setActiveBanner(ele.PageSlug.replace("/", ""));
                     }}
                   >
-                    <h3 className="text-white font-extrabold font-[Poppins-Medium] text-3xl">
+                    <h3 className="text-white font-bold font-[Poppins-Medium] text-[36px] leading-[38px]">
                       For {ele.PageName}
                     </h3>
-                    <p className="mt-60 text-white font-[Poppins-Medium] text-2xl">
+                    <p className="mt-60 text-white font-[Poppins-Medium] text-[20px] leading-[26px] font-semibold absolute bottom-10">
                       {ele.PageSubTitle}
                     </p>
                   </div>

@@ -1,5 +1,7 @@
+import React, { useEffect, useState } from "react";
 import FooterIcon from "./FooterIcon";
 import { useMediaQuery } from "react-responsive";
+import axios from "axios";
 
 const socialIcons = [
   {
@@ -31,6 +33,22 @@ const socialIcons = [
 ];
 const FooterBar = () => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const [serviceData, setData] = useState<any>({});
+
+  useEffect(() => {
+    async function getData() {
+      await axios
+        .get(
+          `http://13.126.41.32/api/services/${localStorage.getItem("currentUserType")}`
+        )
+        .then((res) => {
+          setData(res.data);
+        });
+    }
+
+    getData();
+  }, []);
+
   return (
     <>
       {!isMobile ? (
@@ -38,8 +56,8 @@ const FooterBar = () => {
           <div className="grid grid-flow-col grid-rows-1 mx-10 py-10 gap-4">
             <div className="row-span-1">
               <div className="grid grid-rows-1 grid-flow-col">
-                <div className="col-span-3 row-span-1">
-                  <ul className="mx-10">
+                <div className="row-span-1">
+                  <ul className="mx-10 text-[20px] leading-[24px] font-Syne">
                     <li>
                       <a href="/">Home</a>
                     </li>
@@ -49,15 +67,9 @@ const FooterBar = () => {
                     <li>
                       <a href="/contact-us">Contact</a>
                     </li>
-                    <li>
-                      <a href="/case-studies">Case Study</a>
-                    </li>
-                    <li>
-                      <a href="/blogs">Blog</a>
-                    </li>
                   </ul>
                 </div>
-                <div className="col-span-3 row-span-1">
+                <div className="row-span-1">
                   <ul className="mx-10">
                     <li>
                       <a href="/corporate">Corporate Program </a>
@@ -74,13 +86,41 @@ const FooterBar = () => {
                   </ul>
                 </div>
 
-                <div className="col-span-3 row-span-1">
-                  <ul className="mx-10"></ul>
+                <div className="row-span-1">
+                  <ul className="mx-10">
+                    <li>
+                      <a
+                        href={`/services/${localStorage.getItem("currentUserType")}`}
+                      >
+                        Our Services
+                      </a>
+                    </li>
+                    {serviceData &&
+                      serviceData?.serviceData?.map((ele: any) => {
+                        return (
+                          <li>
+                            <a href={`/services/${ele.ContentSlug}`}>
+                              {ele.Heading1}
+                            </a>
+                          </li>
+                        );
+                      })}
+                  </ul>
+                </div>
+                <div className="row-span-1">
+                  <ul className="mx-10">
+                    <li>
+                      <a href="/case-studies">Case Study</a>
+                    </li>
+                    <li>
+                      <a href="/blogs">Blog</a>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
-            <div className="row-span-1 place-items-end">
-              <h3 className="text-3xl">
+            <div className="row-span-1 place-items-end text-right">
+              <h3 className="text-[30px] leading-[40.8px] font-[Sentinent-Regular] text-left pl-[12rem]">
                 Sign up to receive <br /> latest news.
               </h3>
               <input

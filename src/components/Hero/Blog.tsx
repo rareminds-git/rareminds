@@ -13,12 +13,12 @@ const Blog = ({ content }) => {
   return (
     <>
       {!isMobile ? (
-        <div className="bg-[#cabe9e1f] py-20 mt-10">
-          <h3 className="font-Syne my-8 mx-auto text-black font-bold mb-20 text-4xl text-center">
+        <div className="bg-[#cabe9e1f] lg:py-20 mt-10">
+          <h3 className="font-Syne py-12 mx-auto text-black font-bold mb-20 text-[59px] leading-[70.8px] text-center">
             Blog
           </h3>
           <OwlCarousel
-            className="owl-theme pl-24"
+            className="owl-theme lg:pl-24"
             autoplay
             responsive={{
               0: {
@@ -27,38 +27,45 @@ const Blog = ({ content }) => {
                 dots: false,
               },
               600: {
-                items: 1,
+                items: 2,
                 nav: false,
+                dots: false,
+                stagePadding: 20,
               },
               1000: {
-                items: 3,
+                items: 4,
                 loop: true,
                 dots: false,
               },
             }}
             loop
-            margin={20}
-            stagePadding={120}
-            items={1}
+            margin={10}
+            stagePadding={100}
+            items={3}
           >
             {content.map((ele, index) => {
               return (
                 <div
-                  className="item cursor-pointer"
+                  className="item cursor-pointer w-[320px]"
                   onClick={() => navigate(`/blogs/${ele.ContentSlug}`)}
                 >
                   <div className="grid grid-flow-col place-items-start">
                     <div className="row-span-3 my-4 mx-4 place-items-start">
                       <img
                         src={ele.Image1}
-                        width="280px"
-                        className={`rounded ${index % 2 === 0 ? "rounded-tr-full" : "rounded-tl-full"}`}
+                        style={{
+                          width: "318px",
+                          height: `${index % 2 === 0 ? "445px" : "575px"}`,
+                        }}
+                        className={`${index % 2 === 0 ? "rounded-tl-[20px] rounded-tr-[180px] rounded-bl-[20px] rounded-br-[20px]" : "rounded-tl-[80px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]"}`}
                       />
-                      <p className="font-Inter text-sm pb-5 mr-4 font-bold">
+                      <p className="font-Syne text-[16px] mt-4 leading-[18px] pb-5 mr-4 font-bold">
                         {ele.Heading1}
                       </p>
-                      <p className="font-Inter text-xs">{ele.Heading2}</p>
-                      <p className="font-Inter text-xs font-bold mt-3">
+                      <p className="font-Syne font-normal text-[16px] leading-[18px] text-ellipsis overflow-hidden">
+                        {ele.Heading2}
+                      </p>
+                      <p className="font-Syne font-normal text-[16px] leading-[18px] mt-3">
                         {moment(ele.CreatedOn).format("MMM Do YYYY")}
                       </p>
                     </div>
@@ -93,14 +100,19 @@ const Blog = ({ content }) => {
                     <div className="row-span-3 my-4 mx-4 place-items-start">
                       <img
                         src={ele.Image1}
-                        width="280px"
-                        className={`rounded ${index % 2 === 0 ? "rounded-tr-full" : "rounded-tl-full"}`}
+                        style={{
+                          width: "159px",
+                          height: `${index % 2 === 0 ? "186px" : "295px"}`,
+                        }}
+                        className={`${index % 2 === 0 ? "rounded-tl-[20px] rounded-tr-[180px] rounded-bl-[20px] rounded-br-[20px]" : "rounded-tl-[80px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]"}`}
                       />
-                      <p className="font-Inter text-sm pb-5 mr-4 font-bold">
+                      <p className="font-Syne text-[16px] leading-[18px] pb-5 mr-4 mt-4 font-bold">
                         {ele.Heading1}
                       </p>
-                      <p className="font-Inter text-xs">{ele.Heading2}</p>
-                      <p className="font-Inter text-xs font-bold mt-3">
+                      <p className="font-Syne font-normal text-[16px] leading-[18px] text-clip overflow-hidden">
+                        {ele.Heading2}
+                      </p>
+                      <p className="font-Syne font-normal text-[16px] leading-[18px] mt-3">
                         {moment(ele.CreatedOn).format("MMM Do YYYY")}
                       </p>
                     </div>

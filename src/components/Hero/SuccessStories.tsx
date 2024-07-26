@@ -12,10 +12,12 @@ const SuccessStories = ({ content }) => {
       <section className="md:px-20 px-10 py-10 bg-hero-gradient">
         <div className="flex">
           <div className="grid space-y-10">
-            <h1 className="mb-4 mt-20 text-3xl text-left font-bold md:text-5xl text-red-500">
+            <h1 className="mb-4 md:mt-20 mt-10 md:text-[70px] md:leading-[115.2px] text-[28px] leading-[30px] text-left font-normal text-[#FF2C2C]">
               Case Studies
             </h1>
-            <p className="text-2xl mb-20">{content?.Description}</p>
+            <p className="text-[22px] leading-[33px] mb-10 font-Poppins">
+              {content?.Description}
+            </p>
           </div>
         </div>
 
@@ -31,7 +33,6 @@ const SuccessStories = ({ content }) => {
               nav={false}
             >
               {content?.map((ele: any) => {
-                console.log("element", ele);
                 return (
                   <div
                     className="cursor-pointer item"
@@ -41,7 +42,10 @@ const SuccessStories = ({ content }) => {
                       )
                     }
                   >
-                    <img src={`/images/${ele.Image1}`} width={"100%"} />
+                    <img
+                      src={`/images/${ele.Image1}`}
+                      style={{ width: "975px", height: "575px" }}
+                    />
 
                     <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
                       {ele.Heading1}

@@ -27,7 +27,7 @@ const Header = ({ navbarOpen, setNavbarOpen }) => {
   };
 
   return (
-    <header className="w-full fixed top-0 left-0 p-4 flex z-20 bg-white">
+    <header className="w-full top-0 left-0 p-4 flex z-20 bg-white">
       <div className="text-white flex-grow z-20">
         <a href="/">
           <img src={Logo} />
