@@ -1,10 +1,23 @@
 import HeroImg1 from "../../assets/images/hero.svg";
 import HeroSun from "../../assets/images/hero-sun.svg";
 import HeroIlls from "../../assets/images/HeroIlls.svg";
+import Line from "../../assets/images/line.svg";
+import Ellipsis from "../../assets/images/ellipse.svg";
 import { useMediaQuery } from "react-responsive";
 
 const Hero = ({ content }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const [lineHeight, setLineHeight] = useState(0);
+  const [elipsPos, setElipsPos] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (lineHeight < 500) {
+        setLineHeight(lineHeight + 125);
+      }
+    }, 1000);
+  }, [lineHeight]);
+
   return (
     <>
       {!isMobile ? (
@@ -30,8 +43,22 @@ const Hero = ({ content }) => {
               </p>
             </div>
 
-            <div className="w-full col-span-1">
-              <img src={HeroIlls} className="heroIlls" />
+            <div className="w-full col-span-1 relative items-center flex justify-center">
+              <img src={Ellipsis} className="absolute top-0" />
+              <img
+                src={Line}
+                className="absolute top-0"
+                style={{
+                  height: `${lineHeight}px`,
+                  width: "15px",
+                  transition: "height 1s linear",
+                }}
+              />
+              <img
+                src={Ellipsis}
+                className="absolute"
+                style={{ top: `${lineHeight}px`, transition: "top 1s linear" }}
+              />
             </div>
 
             <div className="place-items-start hero-img relative float col-span-2">
