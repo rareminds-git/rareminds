@@ -36,7 +36,7 @@ const Services = () => {
             </h1>
 
             <p
-              className="text-2xl row-span-1 mt-12 font-[Sentient-Regular] ml-60 mb-12"
+              className="text-2xl row-span-1 mt-12 font-[Sentient] font-normal ml-60 mb-12"
               dangerouslySetInnerHTML={{
                 __html: serviceData?.servicePageData?.Description,
               }}

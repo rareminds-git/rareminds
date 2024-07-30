@@ -64,11 +64,11 @@ const Index = () => {
       {!isMobile ? (
         <div className="banner" style={{ backgroundImage: `url(${Baner})` }}>
           <div className="banner-grid h-screen">
-            <div className="grid grid-rows-2 grid-cols-3 grid-flow-col gap-0 h-screen">
-              <div className="mt-8 mx-4">
+            <div className="grid grid-rows-2 grid-flow-col gap-0 h-screen">
+              <div className="mt-8 mx-4 row-span-2">
                 <img src={Logo} />
               </div>
-              <div className="p-12 cursor-pointer">
+              <div className="p-12 cursor-pointer row-span-2">
                 <h3 className="text-white hidden">For Government</h3>
                 <p className="mt-24 text-white hidden">
                   Where giants excel and aspirations become a reality
@@ -90,7 +90,7 @@ const Index = () => {
                     <h3 className="text-white font-bold font-[Poppins-Medium] text-[36px] leading-[38px]">
                       For {ele.PageName}
                     </h3>
-                    <p className="mt-60 text-white font-[Poppins-Medium] text-[20px] leading-[26px] font-semibold absolute bottom-10">
+                    <p className="mt-60 mr-8 text-white font-[Poppins-Medium] text-[20px] leading-[26px] font-semibold absolute bottom-10">
                       {ele.PageSubTitle}
                     </p>
                   </div>

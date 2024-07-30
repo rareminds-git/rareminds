@@ -11,7 +11,7 @@ const Hero = ({ content }) => {
         <section className="lg:px-16 lg:pt-16 lg:pb-16 pb-8 bg-hero-gradient">
           <div className="flex items-center justify-center">
             <div className="grid space-y-10 place-items-center">
-              <h1 className="mb-4 mt-8 text-[32px] leading-10 mx-[3rem] text-center lg:mx-[8rem] font-[Sentient-Medium] lg:text-[60px] lg:leading-[74px] text-[#ff2c2c]">
+              <h1 className="mb-4 mt-8 text-[32px] leading-10 mx-[3rem] text-center lg:mx-[8rem] font-[Sentient] font-medium lg:text-[60px] lg:leading-[74px] text-[#ff2c2c]">
                 {content?.Heading1}
               </h1>
             </div>
@@ -45,7 +45,7 @@ const Hero = ({ content }) => {
         <section className="py-2 bg-hero-gradient">
           <div className="flex items-center justify-center">
             <div className="grid place-items-center">
-              <h1 className="mb-4 mt-10 text-[22px] leading-[28px] font-medium text-center mx-12 font-[Sentient-Medium] text-[#ff2c2c]">
+              <h1 className="mb-4 mt-10 text-[22px] leading-[28px] font-medium text-center mx-12 font-[Sentient] text-[#ff2c2c]">
                 {content.Heading1}
               </h1>
             </div>

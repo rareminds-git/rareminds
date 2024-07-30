@@ -19,12 +19,12 @@ const Achievements = ({ content, achievements }) => {
             {achievements?.map((ele: any) => {
               return (
                 <div className="container-fluid lg:px-12">
-                  <div className="grid grid-cols-3 gap-4 lg:px-12 lg:py-12 py-10 px-10 border-y-black border-2 border-x-0">
-                    <div className="lg:col-span-1 col-span-2">
+                  <div className="grid grid-cols-4 gap-4 lg:px-12 lg:py-12 py-10 px-10 border-y-black border-2 border-x-0">
+                    <div className="lg:col-span-2 col-span-2">
                       <h3 className="text-[52px] leading-[58px] font-Syne font-bold">
                         {ele.ContentTitle}
                       </h3>
-                      <p className="text-[16px] leading-[21.76px] mt-5 font-[Sentinent-Regular]">
+                      <p className="text-[16px] leading-[21.76px] mt-5 font-[Sentient] font-light">
                         {ele.ContentDescription}
                       </p>
                     </div>
@@ -64,7 +64,7 @@ const Achievements = ({ content, achievements }) => {
                       </div>
                     </div>
                     <div className="row-span-1">
-                      <p className="text-[13px] leading-[17.66px] mb-4 font-[Sentinent-Regular]">
+                      <p className="text-[13px] leading-[17.66px] mb-4 font-[Sentient] font-light">
                         {ele.ContentDescription}
                       </p>
                     </div>

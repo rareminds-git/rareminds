@@ -6,12 +6,12 @@ const WhyUs = ({ content }) => {
       <section className="lg:px-28 px-8 bg-[#cabe9e1f] py-10 why-us-block">
         <div className="flex items-start">
           <div className="grid place-items-start">
-            <h2 className="lg:font-bold lg:text-[50px] lg:leading-[68px] text-[22px] leading-[28px] font-medium font-[Sentient-Bold]">
+            <h2 className="lg:font-bold lg:text-[50px] lg:leading-[68px] text-[22px] leading-[28px] font-bold font-[Sentient]">
               {content?.Heading1}
             </h2>
 
             <p
-              className="mb-2 mt-0 ml-0 lg:text-[50px] lg:leading-[83.5px] text-[22px] leading-[28px] font-medium text-black lg:font-normal text-2xl font-[Sentient-Regular]"
+              className="mb-2 mt-0 ml-0 lg:text-[50px] lg:leading-[83.5px] text-[22px] leading-[28px] font-normal text-black lg:font-normal text-2xl font-[Sentient]"
               dangerouslySetInnerHTML={{
                 __html: content?.Description,
               }}

@@ -42,11 +42,11 @@ const Testimonials = ({ content }) => {
               <div className="grid grid-cols-2 place-items-start">
                 <div className="col-span-1 row-span-3 my-4 mx-4 place-items-start testimonyImg">
                   <img src={TestimonialImg} width="480px" />
-                  <p className="font-[Sentient-Regular] font-normal lg:text-[30px] text-[20px] lg:leading-[40.8px] my-8 lg:pr-44">
+                  <p className="font-[Sentient] font-normal lg:text-[30px] text-[20px] lg:leading-[40.8px] my-8 lg:pr-44">
                     Santosh Kumar G, HR, Shriram Properties, Management Trainee,
                     Product Vertical
                   </p>
-                  <p className="font-[Sentient-Regular] font-normal text-[18px] leading-[24.48px] pb-5 lg:pr-44 Hero">
+                  <p className="font-[Sentient] font-normal text-[18px] leading-[24.48px] pb-5 lg:pr-44 Hero">
                     "Rareminds puts forward only those candidates who closely
                     match your requirements and ace their services in both
                     recruiting and training. It has been the most rewarding to
@@ -82,11 +82,11 @@ const Testimonials = ({ content }) => {
                   </div>
                 </div>
                 <div className="col-span-2">
-                  <p className="font-[Sentient-Regular] text-[18px] leading-[24.48px] font-normal my-8">
+                  <p className="font-[Sentient] text-[18px] leading-[24.48px] font-normal my-8">
                     Santosh Kumar G, HR, Shriram Properties, Management Trainee,
                     Product Vertical
                   </p>
-                  <p className="font-[Sentient-Regular] text-[14px] leading-[19.04px] pb-5 mr-4 font-normal">
+                  <p className="font-[Sentient] text-[14px] leading-[19.04px] pb-5 mr-4 font-normal">
                     "Rareminds puts forward only those candidates who closely
                     match your requirements and ace their services in both
                     recruiting and training. It has been the most rewarding to

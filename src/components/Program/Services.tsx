@@ -14,7 +14,7 @@ const Services = ({ content, services, ctaContent }) => {
   return (
     <>
       <section className="md:px-20 px-10 py-10">
-        <h3 className="md:mb-20 md:mt-20 text-5xl text-left md:font-semibold font-[Sentient-Regular] text-black">
+        <h3 className="md:mb-20 md:mt-20 text-5xl text-left md:font-semibold font-[Sentient] font-semibold text-black">
           {content?.Heading1}
         </h3>
 
@@ -51,14 +51,14 @@ const Services = ({ content, services, ctaContent }) => {
                       )}
                       {hoveredDivs === ele.ContentAcronym ? (
                         <p
-                          className="text-sm my-5 font-[Sentient-Regular]"
+                          className="text-sm my-5 font-[Sentient] font-normal"
                           dangerouslySetInnerHTML={{
                             __html: ele?.Description,
                           }}
                         ></p>
                       ) : hoveredDivs === null || hoveredDivs === undefined ? (
                         <p
-                          className="text-sm my-5 font-[Sentient-Regular]"
+                          className="text-sm my-5 font-[Sentient] font-normal"
                           dangerouslySetInnerHTML={{
                             __html: ele?.SubHeading1,
                           }}

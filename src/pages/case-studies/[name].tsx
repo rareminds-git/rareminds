@@ -69,7 +69,7 @@ const CaseStudyDetail = () => {
                   return (
                     <div className="row-span-1 mt-4">
                       <p
-                        className="mt-4 caseStudyDetail font-[Sentient-Regular] text-2xl"
+                        className="mt-4 caseStudyDetail font-[Sentient] font-normal text-2xl"
                         dangerouslySetInnerHTML={{
                           __html: ele.ContentDescription,
                         }}

@@ -29,14 +29,14 @@ const ServiceName = () => {
           <section className="lg:px-20 px-10 lg:py-10">
             <div className="grid grid-cols-6 gap-0">
               <h1
-                className="lg:text-[70px] leading-[74px] text-5xl grid-cols-1 py-12 col-span-2 font-[Sentient-Regular] mr-100 place-items-start border-b-2 border-black text-[#FF2C2C] font-bold capitalize"
+                className="lg:text-[70px] leading-[74px] text-5xl grid-cols-1 py-12 col-span-2 font-[Sentient] mr-100 place-items-start border-b-2 border-black text-[#FF2C2C] font-bold capitalize"
                 style={{ wordSpacing: "9999px" }}
               >
                 {serviceData?.serviceData?.Heading1}
               </h1>
             </div>
             <p
-              className="text-md font-[Sentient-Regular] text-[24px] leading-[32.84px] font-light capitalize ml-72 mr-16 mt-12 mb-12"
+              className="text-md font-[Sentient] text-[24px] leading-[32.84px] font-light capitalize ml-72 mr-16 mt-12 mb-12"
               dangerouslySetInnerHTML={{
                 __html: serviceData?.serviceData?.Description,
               }}
@@ -62,7 +62,7 @@ const ServiceName = () => {
                         {ele.ContentTitle}
                       </p>
                       <span
-                        className="mt-4 mr-20 lg:text-[16px] lg:leading-[21.76px] font-[Sentinent-Regular] serviceProgramList"
+                        className="mt-4 mr-20 lg:text-[16px] lg:leading-[21.76px] font-[Sentient] font-normal serviceProgramList"
                         dangerouslySetInnerHTML={{
                           __html: ele.ContentDescription,
                         }}

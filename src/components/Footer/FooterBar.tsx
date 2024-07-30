@@ -120,14 +120,14 @@ const FooterBar = () => {
               </div>
             </div>
             <div className="row-span-1 place-items-end text-right">
-              <h3 className="text-[30px] leading-[40.8px] font-[Sentinent-Regular] text-left pl-[7rem]">
+              <h3 className="text-[30px] leading-[40.8px] font-light font-[Sentient] text-left pl-[9rem]">
                 Sign up to receive <br /> latest news.
               </h3>
               <input
-                className="rounded p-2 mt-2 bg-transparent border-[#CAF0F8]-400 border"
+                className="rounded p-2 mt-5 bg-transparent border-[#CAF0F8]-400 border"
                 placeholder="Enter your email"
               />
-              <button className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-2 rounded font-bold mx-5 ">
+              <button className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-5 rounded font-bold mx-5 ">
                 Subscribe
               </button>
             </div>

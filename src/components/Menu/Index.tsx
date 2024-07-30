@@ -50,7 +50,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href="/"
-                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient-Bold] text-white font-bold"
+                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -61,7 +61,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href={`/services/${localStorage.getItem("currentUserType")}`}
-                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient-Bold] text-white font-bold"
+                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -72,7 +72,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href="/about-us"
-                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient-Bold] text-white font-bold"
+                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -94,7 +94,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href="/contact-us"
-                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient-Bold] text-white font-bold"
+                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -105,7 +105,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href="/blogs"
-                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient-Bold] font-bold text-white"
+                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient] font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -126,7 +126,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href="/"
-                      className="nav-link text-6xl font-[Sentient-Bold] text-white font-bold"
+                      className="nav-link text-6xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -137,7 +137,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href={`/services/${localStorage.getItem("currentUserType")}`}
-                      className="nav-link text-6xl font-[Sentient-Bold] text-white font-bold"
+                      className="nav-link text-6xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -148,7 +148,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href="/about-us"
-                      className="nav-link text-6xl font-[Sentient-Bold] text-white font-bold"
+                      className="nav-link text-6xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -159,7 +159,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href="/case-studies"
-                      className="nav-link text-6xl font-[Sentient-Bold] text-white font-bold"
+                      className="nav-link text-6xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -170,7 +170,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href="/contact-us"
-                      className="nav-link text-6xl font-[Sentient-Bold] text-white font-bold"
+                      className="nav-link text-6xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -181,7 +181,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href="/blogs"
-                      className="nav-link text-6xl font-[Sentient-Bold] font-bold text-white"
+                      className="nav-link text-6xl font-[Sentient] font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -228,7 +228,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href="/"
-                      className="nav-link text-3xl md:text-4xl font-[Sentient-Bold] text-white font-bold"
+                      className="nav-link text-3xl md:text-4xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -239,7 +239,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href={`/services/${localStorage.getItem("currentUserType")}`}
-                      className="nav-link text-4xl font-[Sentient-Bold] text-white font-bold"
+                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -250,7 +250,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href="/services"
-                      className="nav-link text-4xl font-[Sentient-Bold] text-white font-bold"
+                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -261,7 +261,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href="/case-studies"
-                      className="nav-link text-4xl font-[Sentient-Bold] text-white font-bold"
+                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -272,7 +272,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href="/contact-us"
-                      className="nav-link text-4xl font-[Sentient-Bold] text-white font-bold"
+                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -283,7 +283,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href="/testimonials"
-                      className="nav-link text-4xl font-[Sentient-Bold] text-white font-bold"
+                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -294,7 +294,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href="/blogs"
-                      className="nav-link text-4xl font-[Sentient-Bold] text-white font-bold"
+                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
