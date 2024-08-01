@@ -35,6 +35,11 @@ const ServiceName = () => {
           name="keywords"
           content={serviceData?.serviceData?.MetaKeywords}
         />
+        <meta property="og:title" content={serviceData?.serviceData?.OGTitle} />
+        <meta
+          property="og:description"
+          content={serviceData?.serviceData?.OGDescription}
+        />
       </Helmet>
       {!isMobile ? (
         <div className="grid w-full min-h-screen lg:py-4">

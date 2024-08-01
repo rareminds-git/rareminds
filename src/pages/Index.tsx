@@ -75,6 +75,14 @@ const Index = () => {
           name="keywords"
           content="tailored solutions, corporate, government, institutional, school, talent acquisition, talent management, talent development"
         />
+        <meta
+          property="og:title"
+          content="Rareminds - Empowering Growth Through Innovative Solutions"
+        />
+        <meta
+          property="og:description"
+          content="Rareminds offers tailored solutions for corporate, government, institutional and school sectors. Specializing in talent acquisition, management and development."
+        />
       </Helmet>
       {!isMobile ? (
         <div className="banner" style={{ backgroundImage: `url(${Baner})` }}>

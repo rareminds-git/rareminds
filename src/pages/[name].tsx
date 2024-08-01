@@ -39,9 +39,17 @@ const Name = () => {
   return pageData.sectionData !== undefined ? (
     <>
       <Helmet>
-        <title>{pageData.pageData.MetaTitle}</title>
-        <meta name="description" content={pageData.pageData.MetaDescription} />
-        <meta name="keywords" content={pageData.pageData.MetaKeywords} />
+        <title>{pageData?.pageData?.MetaTitle}</title>
+        <meta
+          name="description"
+          content={pageData?.pageData?.MetaDescription}
+        />
+        <meta name="keywords" content={pageData?.pageData?.MetaKeywords} />
+        <meta property="og:title" content={pageData?.pageData?.OGTitle} />
+        <meta
+          property="og:description"
+          content={pageData?.pageData?.OGDescription}
+        />
       </Helmet>
       {sections.includes("hero") && (
         <Hero

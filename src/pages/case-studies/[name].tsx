@@ -31,6 +31,11 @@ const CaseStudyDetail = () => {
           content={studyData?.studyData?.MetaDescription}
         />
         <meta name="keywords" content={studyData?.studyData?.MetaKeywords} />
+        <meta property="og:title" content={studyData?.studyData?.OGTitle} />
+        <meta
+          property="og:description"
+          content={studyData?.studyData?.OGDescription}
+        />
       </Helmet>
       {!isMobile ? (
         <div className="grid w-full min-h-screen lg:py-16">

@@ -36,6 +36,11 @@ const Services = () => {
           content={serviceData?.pageData?.MetaDescription}
         />
         <meta name="keywords" content={serviceData?.pageData?.MetaKeywords} />
+        <meta property="og:title" content={serviceData?.pageData?.OGTitle} />
+        <meta
+          property="og:description"
+          content={serviceData?.pageData?.OGDescription}
+        />
       </Helmet>
       {!isMobile ? (
         <div className="grid w-full min-h-screen md:py-16">

@@ -30,6 +30,11 @@ const BlogDetail = () => {
           content={blogData?.blogData?.MetaDescription}
         />
         <meta name="keywords" content={blogData?.blogData?.MetaKeywords} />
+        <meta property="og:title" content={blogData?.blogData?.OGTitle} />
+        <meta
+          property="og:description"
+          content={blogData?.blogData?.OGDescription}
+        />
       </Helmet>
       <div className="grid w-full min-h-screen lg:py-12">
         <section className="lg:px-20 px-10 font-Syne">
