@@ -62,7 +62,7 @@ const Blog = ({ content }) => {
                       <p className="font-Syne text-[16px] mt-4 leading-[18px] pb-5 mr-4 font-bold">
                         {ele.Heading1}
                       </p>
-                      <p className="font-Syne font-normal text-[16px] leading-[18px] text-ellipsis overflow-hidden">
+                      <p className="font-Syne font-normal text-[16px] leading-[18px] line-clamp-3">
                         {ele.Heading2}
                       </p>
                       <p className="font-Syne font-normal text-[16px] leading-[18px] mt-3">
@@ -109,7 +109,7 @@ const Blog = ({ content }) => {
                       <p className="font-Syne text-[16px] leading-[18px] pb-5 mr-4 mt-4 font-bold">
                         {ele.Heading1}
                       </p>
-                      <p className="font-Syne font-normal text-[16px] leading-[18px] text-clip overflow-hidden">
+                      <p className="font-Syne font-normal text-[16px] leading-[18px] line-clamp-3">
                         {ele.Heading2}
                       </p>
                       <p className="font-Syne font-normal text-[16px] leading-[18px] mt-3">

@@ -124,10 +124,10 @@ const FooterBar = () => {
                 Sign up to receive <br /> latest news.
               </h3>
               <input
-                className="rounded p-2 mt-5 bg-transparent border-[#CAF0F8]-400 border"
+                className="rounded p-2 mt-5 bg-transparent border-[#CAF0F8]-400 border mr-10"
                 placeholder="Enter your email"
               />
-              <button className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-5 rounded font-bold mx-5 ">
+              <button className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-5 rounded font-bold mr-0">
                 Subscribe
               </button>
             </div>

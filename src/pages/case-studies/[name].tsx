@@ -3,6 +3,7 @@ import ProgramImg from "../../assets/images/programImg.svg";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import CTA from "@/common/CTA";
+import { Helmet } from "react-helmet";
 
 const CaseStudyDetail = () => {
   const { slug } = useParams();
@@ -23,6 +24,14 @@ const CaseStudyDetail = () => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>
+      <Helmet>
+        <title>{studyData?.studyData?.MetaTitle}</title>
+        <meta
+          name="description"
+          content={studyData?.studyData?.MetaDescription}
+        />
+        <meta name="keywords" content={studyData?.studyData?.MetaKeywords} />
+      </Helmet>
       {!isMobile ? (
         <div className="grid w-full min-h-screen lg:py-16">
           <section className="lg:px-20 px-10 lg:py-10">

@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useMediaQuery } from "react-responsive";
 import LoaderComponent from "@/components/LoaderComponent";
+import { Helmet } from "react-helmet";
 
 const Index = () => {
   const [activeBanner, setActiveBanner] = useState("corporate");
@@ -61,6 +62,20 @@ const Index = () => {
     <LoaderComponent />
   ) : (
     <>
+      <Helmet>
+        <title>
+          Rareminds | Empowering Growth Through Innovation Solutions, Applied
+          Learning, Redefining Work Experience
+        </title>
+        <meta
+          name="description"
+          content="Discover tailored solutions for corporate, government, institutional and school sectors. Rareminds specializes in talent acquisition, management and development."
+        />
+        <meta
+          name="keywords"
+          content="tailored solutions, corporate, government, institutional, school, talent acquisition, talent management, talent development"
+        />
+      </Helmet>
       {!isMobile ? (
         <div className="banner" style={{ backgroundImage: `url(${Baner})` }}>
           <div className="banner-grid h-screen">
@@ -87,10 +102,10 @@ const Index = () => {
                       setActiveBanner(ele.PageSlug.replace("/", ""));
                     }}
                   >
-                    <h3 className="text-white font-bold font-[Poppins-Medium] text-[36px] leading-[38px]">
+                    <h3 className="text-white font-bold font-[Poppins-Regular] text-[36px] leading-[38px]">
                       For {ele.PageName}
                     </h3>
-                    <p className="mt-60 mr-8 text-white font-[Poppins-Medium] text-[20px] leading-[26px] font-semibold absolute bottom-10">
+                    <p className="mt-60 mr-16 text-white font-[Urbanist] text-[20px] leading-[26px] font-semibold absolute bottom-10">
                       {ele.PageSubTitle}
                     </p>
                   </div>

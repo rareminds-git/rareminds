@@ -13,6 +13,7 @@ import ContactUs from "@/components/Hero/ContactUs";
 import CaseStudies from "@/components/Program/CaseStudies";
 import Blogs from "@/components/Program/Blogs";
 import QueryForm from "@/components/Program/QueryForm";
+import { Helmet } from "react-helmet";
 
 const Name = () => {
   const { name } = useParams();
@@ -37,6 +38,11 @@ const Name = () => {
 
   return pageData.sectionData !== undefined ? (
     <>
+      <Helmet>
+        <title>{pageData.pageData.MetaTitle}</title>
+        <meta name="description" content={pageData.pageData.MetaDescription} />
+        <meta name="keywords" content={pageData.pageData.MetaKeywords} />
+      </Helmet>
       {sections.includes("hero") && (
         <Hero
           content={

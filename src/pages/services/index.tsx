@@ -5,6 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import CTA from "@/common/CTA";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Services = () => {
   const { userType, serviceName } = useParams();
@@ -28,6 +29,14 @@ const Services = () => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>
+      <Helmet>
+        <title>{serviceData?.pageData?.MetaTitle}</title>
+        <meta
+          name="description"
+          content={serviceData?.pageData?.MetaDescription}
+        />
+        <meta name="keywords" content={serviceData?.pageData?.MetaKeywords} />
+      </Helmet>
       {!isMobile ? (
         <div className="grid w-full min-h-screen md:py-16">
           <section className="md:px-20 px-10 md:py-10">
@@ -42,50 +51,32 @@ const Services = () => {
               }}
             ></p>
 
-            <div className="flex">
+            <div className="flex service-list">
               {serviceData &&
                 serviceData?.serviceData?.map((ele: any) => {
                   return (
                     <div
-                      className="item mx-2 cursor-pointer"
+                      className={`item mx-2 rounded-lg bg-red-400 cursor-pointer`}
                       onMouseEnter={() => setHoveredDivs(ele.ContentAcronym)}
                       onMouseLeave={() => setHoveredDivs(undefined)}
                       onClick={() => navigate(`/services/${ele.ContentSlug}`)}
-                      style={{
-                        width:
-                          hoveredDivs === ele.ContentAcronym
-                            ? "auto"
-                            : hoveredDivs === ""
-                              ? "30px"
-                              : "auto",
-                      }}
                     >
-                      <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
-                        {hoveredDivs === ele.ContentAcronym ||
-                        hoveredDivs === undefined ? (
-                          <h4 className="text-5xl font-semibold my-10">
-                            {ele.Heading1}
-                          </h4>
-                        ) : (
-                          ""
-                        )}
-                        {hoveredDivs === ele.ContentAcronym ? (
-                          <p
-                            className="text-sm my-5"
-                            dangerouslySetInnerHTML={{
-                              __html: ele?.Description,
-                            }}
-                          ></p>
-                        ) : hoveredDivs === null ||
-                          hoveredDivs === undefined ? (
-                          <p
-                            className="text-sm my-5"
-                            dangerouslySetInnerHTML={{
-                              __html: ele?.SubHeading1,
-                            }}
-                          ></p>
-                        ) : (
-                          ""
+                      <div
+                        className={` text-white p-10 rounded-lg item-bg ${hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym && "active"}`}
+                      >
+                        <h4 className="text-5xl font-Syne">{ele.Heading1}</h4>
+
+                        <p
+                          className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === undefined && "line-clamp-4"}`}
+                          dangerouslySetInnerHTML={{
+                            __html: ele?.Description,
+                          }}
+                        ></p>
+
+                        {hoveredDivs === undefined && (
+                          <p className="font-[Sentient] font-bold text-[16px] leading-[21.76px]">
+                            ...Read More
+                          </p>
                         )}
                       </div>
                     </div>

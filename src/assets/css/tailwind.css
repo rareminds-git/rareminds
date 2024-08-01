@@ -35,6 +35,14 @@
     font-style: normal;
   }
 
+  @font-face {
+    font-family: "Urbanist";
+    src: url("../../../fonts/Urbanist-VariableFont_wght.ttf") format("truetype");
+    font-weight: 200 700;
+    font-display: swap;
+    font-style: normal;
+  }
+
   /**
   * This is a variable font
   * You can controll variable axes as shown below:
@@ -289,7 +297,7 @@
     z-index: 100;
   }
 
-  .item-bg {
+  .service-list .item {
     min-height: 350px;
     max-height: 350px;
 
@@ -411,18 +419,30 @@
   }
   @-webkit-keyframes floatBubble {
     0% {
-      top: 180px;
+      top: 270px;
+      right: 120px;
+    }
+    50% {
+      top: 225px;
+      right: 90px;
     }
     100% {
-      top: 0px;
+      top: 180px;
+      right: 60px;
     }
   }
   @keyframes floatBubble {
     0% {
-      top: 180px;
+      top: 270px;
+      right: 120px;
+    }
+    50% {
+      top: 225px;
+      right: 90px;
     }
     100% {
-      top: 0px;
+      top: 180px;
+      right: 60px;
     }
   }
 
@@ -430,5 +450,22 @@
     .logo {
       animation: logo-spin infinite 10s linear;
     }
+  }
+
+  .service-list .item {
+    /* height: 80vh; */
+    cursor: pointer;
+    flex: 0.5;
+    margin: 8px;
+    position: relative;
+    transition: all 0.7s ease-out;
+  }
+
+  .service-list .item:hover {
+    flex: 3;
+  }
+
+  .service-list .item .item-bg.active {
+    display: none;
   }
 }

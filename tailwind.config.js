@@ -8,6 +8,8 @@ export default {
         Inter: "Inter",
         Syne: "Syne",
         Poppins: "Poppins",
+        Sentient: "Sentient",
+        Urbanist: "Urbanist",
       },
       backgroundImage: {
         "hero-gradient":

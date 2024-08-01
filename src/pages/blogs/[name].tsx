@@ -4,6 +4,7 @@ import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import CTA from "@/common/CTA";
 import moment from "moment";
+import { Helmet } from "react-helmet";
 
 const BlogDetail = () => {
   const { slug } = useParams();
@@ -22,6 +23,14 @@ const BlogDetail = () => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>
+      <Helmet>
+        <title>{blogData?.blogData?.MetaTitle}</title>
+        <meta
+          name="description"
+          content={blogData?.blogData?.MetaDescription}
+        />
+        <meta name="keywords" content={blogData?.blogData?.MetaKeywords} />
+      </Helmet>
       <div className="grid w-full min-h-screen lg:py-12">
         <section className="lg:px-20 px-10 font-Syne">
           <h1 className="lg:text-[48px] lg:leading-[62px] text-4xl row-span-1 place-items-start font-bold capitalize">

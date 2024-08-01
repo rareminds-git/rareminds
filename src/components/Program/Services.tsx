@@ -7,14 +7,14 @@ import CTA from "@/common/CTA";
 
 const Services = ({ content, services, ctaContent }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
-  const [hoveredDivs, setHoveredDivs] = useState<any>(null);
+  const [hoveredDivs, setHoveredDivs] = useState<any>("TA");
 
   const navigate = useNavigate();
 
   return (
     <>
-      <section className="md:px-20 px-10 py-10">
-        <h3 className="md:mb-20 md:mt-20 text-5xl text-left md:font-semibold font-[Sentient] font-semibold text-black">
+      <section className="md:px-20 px-10 pt-20">
+        <h3 className="md:mb-20 text-5xl text-left md:font-semibold font-[Sentient] font-semibold text-black">
           {content?.Heading1}
         </h3>
 
@@ -24,47 +24,27 @@ const Services = ({ content, services, ctaContent }) => {
               {services.map((ele: any) => {
                 return (
                   <div
-                    className="item mx-2 cursor-pointer"
+                    className={`item mx-2 rounded-lg bg-red-400 cursor-pointer`}
                     onMouseEnter={() => setHoveredDivs(ele.ContentAcronym)}
                     onMouseLeave={() => setHoveredDivs(undefined)}
                     onClick={() => navigate(`/services/${ele.ContentSlug}`)}
                   >
                     <div
-                      className="bg-red-400 text-white p-10 rounded-lg item-bg"
-                      style={{
-                        maxWidth:
-                          hoveredDivs === ele.ContentAcronym
-                            ? "auto"
-                            : hoveredDivs === ""
-                              ? "30px"
-                              : "auto",
-                        transition: "all 120s ease-in-out 5s",
-                      }}
+                      className={` text-white p-10 rounded-lg item-bg ${hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym && "active"}`}
                     >
-                      {hoveredDivs === ele.ContentAcronym ||
-                      hoveredDivs === undefined ? (
-                        <h4 className="text-5xl font-Syne my-10">
-                          {ele.Heading1}
-                        </h4>
-                      ) : (
-                        ""
-                      )}
-                      {hoveredDivs === ele.ContentAcronym ? (
-                        <p
-                          className="text-sm my-5 font-[Sentient] font-normal"
-                          dangerouslySetInnerHTML={{
-                            __html: ele?.Description,
-                          }}
-                        ></p>
-                      ) : hoveredDivs === null || hoveredDivs === undefined ? (
-                        <p
-                          className="text-sm my-5 font-[Sentient] font-normal"
-                          dangerouslySetInnerHTML={{
-                            __html: ele?.SubHeading1,
-                          }}
-                        ></p>
-                      ) : (
-                        ""
+                      <h4 className="text-5xl font-Syne">{ele.Heading1}</h4>
+
+                      <p
+                        className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === undefined && "line-clamp-4"}`}
+                        dangerouslySetInnerHTML={{
+                          __html: ele?.Description,
+                        }}
+                      ></p>
+
+                      {hoveredDivs === undefined && (
+                        <p className="font-[Sentient] font-bold text-[16px] leading-[21.76px]">
+                          ...Read More
+                        </p>
                       )}
                     </div>
                   </div>

@@ -1,7 +1,9 @@
 import { useMediaQuery } from "react-responsive";
 import CountUp from "react-countup";
+import { useInViewport } from "../useInViewPort";
 
 const Achievements = ({ content, achievements }) => {
+  const { isInViewport, ref } = useInViewport();
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>
@@ -18,7 +20,7 @@ const Achievements = ({ content, achievements }) => {
           <>
             {achievements?.map((ele: any) => {
               return (
-                <div className="container-fluid lg:px-12">
+                <div className="container-fluid lg:px-12" ref={ref}>
                   <div className="grid grid-cols-4 gap-4 lg:px-12 lg:py-12 py-10 px-10 border-y-black border-2 border-x-0">
                     <div className="lg:col-span-2 col-span-2">
                       <h3 className="text-[52px] leading-[58px] font-Syne font-bold">
@@ -31,10 +33,12 @@ const Achievements = ({ content, achievements }) => {
                     <div className="grid place-items-end lg:col-span-2 col-span-1">
                       <div className="place-items-end">
                         <h3 className=" lg:text-[162px] leading-[171px] text-[60px] text-blue-400 font-[Poppins-Regular]">
-                          <CountUp
-                            start={0}
-                            end={ele.ContentSubDescription.replace(",", "")}
-                          />
+                          {isInViewport && (
+                            <CountUp
+                              start={0}
+                              end={ele.ContentSubDescription.replace(",", "")}
+                            />
+                          )}
                         </h3>
                       </div>
                     </div>

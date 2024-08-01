@@ -4,11 +4,13 @@ import HeroIlls from "../../assets/images/HeroIlls.svg";
 import Line from "../../assets/images/line.svg";
 import Ellipsis from "../../assets/images/ellipse.svg";
 import { useMediaQuery } from "react-responsive";
+import { useInViewport } from "../useInViewPort";
 
 const Hero = ({ content }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const [lineHeight, setLineHeight] = useState(0);
-  const [elipsPos, setElipsPos] = useState(0);
+
+  const { isInViewport, ref } = useInViewport();
 
   useEffect(() => {
     setTimeout(() => {
@@ -43,28 +45,47 @@ const Hero = ({ content }) => {
               </p>
             </div>
 
-            <div className="w-full col-span-1 relative items-center flex justify-center">
-              <img src={Ellipsis} className="absolute top-0" />
-              <img
-                src={Line}
-                className="absolute top-0"
-                style={{
-                  height: `${lineHeight}px`,
-                  width: "15px",
-                  transition: "height 1s linear",
-                }}
-              />
-              <img
-                src={Ellipsis}
-                className="absolute"
-                style={{ top: `${lineHeight}px`, transition: "top 1s linear" }}
-              />
+            <div
+              className="w-full col-span-1 relative items-center flex justify-center"
+              ref={ref}
+            >
+              {isInViewport && (
+                <>
+                  <img src={Ellipsis} className="absolute top-0" />
+                  <img
+                    src={Line}
+                    className="absolute top-0"
+                    style={{
+                      height: `${lineHeight}px`,
+                      width: "15px",
+                      transition: "height 1s linear",
+                    }}
+                  />
+                  <img
+                    src={Ellipsis}
+                    className="absolute"
+                    style={{
+                      top: `${lineHeight}px`,
+                      transition: "top 1s linear",
+                    }}
+                  />
+                </>
+              )}
             </div>
 
-            <div className="place-items-start hero-img relative float col-span-2">
-              <img src={HeroImg1} />
-
-              <img src={HeroSun} className="absolute top-0 -z-10 right-0" />
+            <div
+              ref={ref}
+              className="place-items-start hero-img relative float col-span-2"
+            >
+              {isInViewport && (
+                <>
+                  <img src={HeroImg1} />
+                  <img
+                    src={HeroSun}
+                    className="absolute top-[180px] -z-10 right-[60px] scale-150"
+                  />
+                </>
+              )}
             </div>
           </div>
         </section>
