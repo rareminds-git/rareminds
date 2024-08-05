@@ -12,9 +12,11 @@ const About = () => {
 
   useEffect(() => {
     async function getPageData() {
-      await axios.get(`http://localhost:6069/${userType}/about`).then((res) => {
-        setPageData(res.data);
-      });
+      await axios
+        .get(`http://13.126.41.32/api/${userType}/about`)
+        .then((res) => {
+          setPageData(res.data);
+        });
     }
 
     getPageData();

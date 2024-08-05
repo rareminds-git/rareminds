@@ -39,7 +39,7 @@ const FooterBar = () => {
     async function getData() {
       await axios
         .get(
-          `http://localhost:6069/services/${localStorage.getItem("currentUserType")}`
+          `http://13.126.41.32/api/services/${localStorage.getItem("currentUserType")}`
         )
         .then((res) => {
           setData(res.data);

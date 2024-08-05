@@ -13,7 +13,7 @@ const ServiceName = () => {
   useEffect(() => {
     async function getData() {
       await axios
-        .get(`http://localhost:6069/services/${userType}/${serviceName}`)
+        .get(`http://13.126.41.32/api/services/${userType}/${serviceName}`)
         .then((res) => {
           setData(res.data);
         });

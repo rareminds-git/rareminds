@@ -13,7 +13,7 @@ const CaseStudyDetail = () => {
     async function getData() {
       await axios
         .get(
-          `http://localhost:6069/case-studies/${userType}/case-studies/${slug}`
+          `http://13.126.41.32/api/case-studies/${userType}/case-studies/${slug}`
         )
         .then((res) => {
           setData(res.data);

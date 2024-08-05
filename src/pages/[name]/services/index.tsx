@@ -17,7 +17,7 @@ const Services = () => {
   useEffect(() => {
     async function getData() {
       await axios
-        .get(`http://localhost:6069/services/${userType}`)
+        .get(`http://13.126.41.32/api/services/${userType}`)
         .then((res) => {
           setData(res.data);
         });
