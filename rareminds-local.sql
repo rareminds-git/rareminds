@@ -20,6 +20,7 @@ CREATE DATABASE IF NOT EXISTS `rareminds` /*!40100 DEFAULT CHARACTER SET utf8mb4
 USE `rareminds`;
 
 -- Dumping structure for table rareminds.ci_sessions
+DROP TABLE IF EXISTS `ci_sessions`;
 CREATE TABLE IF NOT EXISTS `ci_sessions` (
   `id` varchar(40) NOT NULL,
   `ip_address` varchar(45) NOT NULL,
@@ -33,6 +34,7 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
 DELETE FROM `ci_sessions`;
 
 -- Dumping structure for table rareminds.rm_admin_users
+DROP TABLE IF EXISTS `rm_admin_users`;
 CREATE TABLE IF NOT EXISTS `rm_admin_users` (
   `AdminUserId` int NOT NULL AUTO_INCREMENT,
   `AdminLoginId` varchar(255) NOT NULL,
@@ -52,6 +54,7 @@ CREATE TABLE IF NOT EXISTS `rm_admin_users` (
 DELETE FROM `rm_admin_users`;
 
 -- Dumping structure for table rareminds.rm_blogs
+DROP TABLE IF EXISTS `rm_blogs`;
 CREATE TABLE IF NOT EXISTS `rm_blogs` (
   `ServiceId` int NOT NULL AUTO_INCREMENT,
   `ServiceTitle` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0',
@@ -68,6 +71,7 @@ CREATE TABLE IF NOT EXISTS `rm_blogs` (
 DELETE FROM `rm_blogs`;
 
 -- Dumping structure for table rareminds.rm_cities
+DROP TABLE IF EXISTS `rm_cities`;
 CREATE TABLE IF NOT EXISTS `rm_cities` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(30) NOT NULL,
@@ -79,6 +83,7 @@ CREATE TABLE IF NOT EXISTS `rm_cities` (
 DELETE FROM `rm_cities`;
 
 -- Dumping structure for table rareminds.rm_contacts
+DROP TABLE IF EXISTS `rm_contacts`;
 CREATE TABLE IF NOT EXISTS `rm_contacts` (
   `ContactId` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(250) NOT NULL,
@@ -105,6 +110,7 @@ DELETE FROM `rm_contacts`;
 /*!40000 ALTER TABLE `rm_contacts` ENABLE KEYS */;
 
 -- Dumping structure for table rareminds.rm_content
+DROP TABLE IF EXISTS `rm_content`;
 CREATE TABLE IF NOT EXISTS `rm_content` (
   `ContentId` int NOT NULL AUTO_INCREMENT,
   `PageId` int DEFAULT NULL,
@@ -200,6 +206,7 @@ INSERT INTO `rm_content` (`ContentId`, `PageId`, `ContentTypeId`, `Heading1`, `H
 	(60, 4, 43, 'About Rareminds - School', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'schools/about', NULL, NULL, NULL, NULL, NULL, NULL, '2024-08-06 00:00:00', '2024-08-05 21:14:52', 'About Rareminds - School', 'Discover Rareminds commitment to supporting educational institutions with tailored solutions for success.', 'about, school, commitment', 'About Rareminds - School', 'Explore Rareminds commitment to supporting educational institutions with tailored solutions for success.');
 
 -- Dumping structure for table rareminds.rm_content_details
+DROP TABLE IF EXISTS `rm_content_details`;
 CREATE TABLE IF NOT EXISTS `rm_content_details` (
   `ContentDetailId` int NOT NULL AUTO_INCREMENT,
   `ContentId` int DEFAULT NULL,
@@ -271,6 +278,7 @@ INSERT INTO `rm_content_details` (`ContentDetailId`, `ContentId`, `ContentTitle`
 	(54, 43, 'Boosting Employee Development: The Benefits of Corporate Outbound Activities', '<div class="blog-description">\r\n        <p>As globalization and technological advancements continue to accelerate, corporate houses and start-ups are mushrooming rapidly. These organizations are in a race to maximize their channels of income and profitability, which often leads to a situation where employees are caught between their personal and professional lives. In order to meet this problem, businesses have turned to outbound programs, which use experiential learning in a foreign, outdoor setting to help employees develop their skills and talents. Through off-site training, outbound training focuses on soft skills like leadership, teamwork, and communication.</p><p>Organisations can use a variety of outbound activities to energize staff members and raise productivity levels. Among these activities are:</p><div class="wp-block-group"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained"><p>Multidirectional Tug of War: A competitive team exercise that requires strength, strategy, and communication to succeed.</p>\r\n\r\n<p>Phoenix : A team-building activity that requires communication to complete.</p>\r\n\r\n<p>Treasure Hunt :&nbsp; A game that involves using clues to locate hidden objects and needs teamwork and mental agility.</p>\r\n\r\n<p>Sheep and Shepherd: A task based on communication that requires planning and strategy to perform as quickly and accurately as possible.</p></div></div><figure class="wp-block-image size-large"><img decoding="async" width="1024" height="538" src="https://rareminds.in/wp-content/uploads/2023/05/outbound-activities-1024x538.jpg" alt="Outbound activities teamwork" class="wp-image-2949" srcset="https://rareminds.in/wp-content/uploads/2023/05/outbound-activities-1024x538.jpg 1024w, https://rareminds.in/wp-content/uploads/2023/05/outbound-activities-300x158.jpg 300w, https://rareminds.in/wp-content/uploads/2023/05/outbound-activities-768x403.jpg 768w, https://rareminds.in/wp-content/uploads/2023/05/outbound-activities-590x310.jpg 590w, https://rareminds.in/wp-content/uploads/2023/05/outbound-activities.jpg 1200w" sizes="(max-width: 1024px) 100vw, 1024px"><figcaption class="wp-element-caption">Boost teamwork and employee growth with corporate outbound activities. Encourage the success of your team. \r\n</figcaption></figure><p>The benefits of outbound activities for employees are manifold. These welfare programs and outbound activities help staff members develop their skills and work more effectively. Some of the benefits include:</p><ul><li>Proper assessment: Outbound training allows the company to supervise every employee and assess them better than they could be evaluated by their work in the office.</li>\r\n\r\n<li>Trust: Completing a given activity requires each team member to depend on the other, which creates a mentality of trust and comfort among team members.</li>\r\n\r\n<li>Talent check: Outbound activities give staff members a chance to showcase their talent to their supervisors and team members.</li>\r\n\r\n<li>Accelerates team performance: Offsite activities help the workforce gain a better perspective about teamwork and the goals that can be achieved by working together.</li>\r\n\r\n<li>Personality development: These corporate offsite activities help build confidence within an employee when they achieve a target or complete an assigned task.</li></ul><p>Looking to create a contented, effective, and successful workforce?&nbsp;</p><p>Try our proven outbound activities program, which is intended to improve teamwork, leadership, and communication skills.&nbsp;Our program is customized to your organization’s specific requirements, ensuring maximum involvement and outcomes. Get in touch with us right away to find out more and start building a more effective team!</p>    </div>', NULL, '2024-06-24 00:00:00', '2024-06-23 21:37:30', NULL);
 
 -- Dumping structure for table rareminds.rm_content_types
+DROP TABLE IF EXISTS `rm_content_types`;
 CREATE TABLE IF NOT EXISTS `rm_content_types` (
   `ContentTypeId` int NOT NULL AUTO_INCREMENT,
   `ContentName` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
@@ -300,6 +308,7 @@ INSERT INTO `rm_content_types` (`ContentTypeId`, `ContentName`, `ContentSlug`, `
 	(43, 'About', 'about', '1', '2024-08-06 02:31:07', '2024-08-05 21:01:15');
 
 -- Dumping structure for table rareminds.rm_countries
+DROP TABLE IF EXISTS `rm_countries`;
 CREATE TABLE IF NOT EXISTS `rm_countries` (
   `id` int NOT NULL AUTO_INCREMENT,
   `sortname` varchar(3) NOT NULL,
@@ -312,6 +321,7 @@ CREATE TABLE IF NOT EXISTS `rm_countries` (
 DELETE FROM `rm_countries`;
 
 -- Dumping structure for table rareminds.rm_custom_settings
+DROP TABLE IF EXISTS `rm_custom_settings`;
 CREATE TABLE IF NOT EXISTS `rm_custom_settings` (
   `CustomSettingId` int NOT NULL AUTO_INCREMENT,
   `SiteName` varchar(255) NOT NULL,
@@ -351,6 +361,7 @@ DELETE FROM `rm_custom_settings`;
 /*!40000 ALTER TABLE `rm_custom_settings` ENABLE KEYS */;
 
 -- Dumping structure for table rareminds.rm_journey
+DROP TABLE IF EXISTS `rm_journey`;
 CREATE TABLE IF NOT EXISTS `rm_journey` (
   `JourneyId` int NOT NULL AUTO_INCREMENT,
   `Image` varchar(50) NOT NULL,
@@ -365,6 +376,7 @@ CREATE TABLE IF NOT EXISTS `rm_journey` (
 DELETE FROM `rm_journey`;
 
 -- Dumping structure for table rareminds.rm_pages
+DROP TABLE IF EXISTS `rm_pages`;
 CREATE TABLE IF NOT EXISTS `rm_pages` (
   `PageId` int NOT NULL AUTO_INCREMENT,
   `PageSlug` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0',
@@ -399,6 +411,7 @@ INSERT INTO `rm_pages` (`PageId`, `PageSlug`, `PageName`, `PageSubTitle`, `MetaK
 	(13, '/about-us', 'About Us', 'About Us', '0', '0', '0', '0', '0', 1, NULL, NULL, 2);
 
 -- Dumping structure for table rareminds.rm_page_sections
+DROP TABLE IF EXISTS `rm_page_sections`;
 CREATE TABLE IF NOT EXISTS `rm_page_sections` (
   `SectionId` int NOT NULL AUTO_INCREMENT,
   `PageId` int NOT NULL DEFAULT '0',
@@ -410,7 +423,7 @@ CREATE TABLE IF NOT EXISTS `rm_page_sections` (
   PRIMARY KEY (`SectionId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
 
--- Dumping data for table rareminds.rm_page_sections: ~35 rows (approximately)
+-- Dumping data for table rareminds.rm_page_sections: ~37 rows (approximately)
 DELETE FROM `rm_page_sections`;
 INSERT INTO `rm_page_sections` (`SectionId`, `PageId`, `SectionName`, `SectionFileName`, `Status`, `CreatedOn`, `ModifiedOn`) VALUES
 	(1, 1, 'Hero', 'hero', '1', NULL, '2024-05-10 21:44:45'),
@@ -452,6 +465,7 @@ INSERT INTO `rm_page_sections` (`SectionId`, `PageId`, `SectionName`, `SectionFi
 	(37, 6, 'ProgramDetails', 'ProgramDetails', '1', NULL, '2024-05-11 22:40:45');
 
 -- Dumping structure for table rareminds.rm_podcast_spotify
+DROP TABLE IF EXISTS `rm_podcast_spotify`;
 CREATE TABLE IF NOT EXISTS `rm_podcast_spotify` (
   `id` int NOT NULL AUTO_INCREMENT,
   `ContentId` int DEFAULT NULL,
@@ -466,6 +480,7 @@ CREATE TABLE IF NOT EXISTS `rm_podcast_spotify` (
 DELETE FROM `rm_podcast_spotify`;
 
 -- Dumping structure for table rareminds.rm_queries
+DROP TABLE IF EXISTS `rm_queries`;
 CREATE TABLE IF NOT EXISTS `rm_queries` (
   `id` int NOT NULL AUTO_INCREMENT,
   `FullName` varchar(50) DEFAULT NULL,
@@ -481,7 +496,7 @@ CREATE TABLE IF NOT EXISTS `rm_queries` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table rareminds.rm_queries: ~4 rows (approximately)
+-- Dumping data for table rareminds.rm_queries: ~5 rows (approximately)
 DELETE FROM `rm_queries`;
 INSERT INTO `rm_queries` (`id`, `FullName`, `CompanyName`, `Email`, `PhoneNumber`, `Jobtitle`, `Services`, `ReferralSource`, `Comment`, `CreatedAt`, `UpdatedAt`) VALUES
 	(1, 'Gaurav Girdhar', 'Tecvolo Labs', 'gauravgirdhar1994@gmail.com', '8527504198', 'Developer', 'TA, TM', 'Website', 'Comments', '2024-07-10 13:36:52', '2024-07-10 08:06:54'),
@@ -491,6 +506,7 @@ INSERT INTO `rm_queries` (`id`, `FullName`, `CompanyName`, `Email`, `PhoneNumber
 	(5, 'Gaurav Girdhar', 'Tecvolo Labs', 'gauravgirdhar1994@gmail.com', '8527504198', 'Developer', 'TA, TM', 'Website', 'Comment', '2024-07-10 14:21:12', '2024-07-10 08:51:12');
 
 -- Dumping structure for table rareminds.rm_section_to_data
+DROP TABLE IF EXISTS `rm_section_to_data`;
 CREATE TABLE IF NOT EXISTS `rm_section_to_data` (
   `SectionDataId` int NOT NULL AUTO_INCREMENT,
   `SectionId` int NOT NULL DEFAULT '0',
@@ -528,7 +544,7 @@ CREATE TABLE IF NOT EXISTS `rm_section_to_data` (
   PRIMARY KEY (`SectionDataId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Dumping data for table rareminds.rm_section_to_data: ~4 rows (approximately)
+-- Dumping data for table rareminds.rm_section_to_data: ~5 rows (approximately)
 DELETE FROM `rm_section_to_data`;
 INSERT INTO `rm_section_to_data` (`SectionDataId`, `SectionId`, `Title`, `SubHeading1`, `SubHeading2`, `Description`, `Icon`, `MainImage`, `Year`, `StatsNumber`, `Category`, `Icon1`, `IconTitle1`, `IconDesc1`, `IconTitle3`, `Icon2`, `IconDesc2`, `IconTitle2`, `Icon3`, `IconDesc3`, `Icon4`, `IconTitle4`, `IconDesc4`, `Icon5`, `IconTitle5`, `IconDesc5`, `YoutubeLink`, `Location`, `LocationName`, `LocationAddress`, `LocationEmail`, `CreatedOn`, `ModifiedOn`) VALUES
 	(1, 1, 'Unlock your company\'s full potential with Rareminds - Your ultimate ally in corporate domination.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-10 21:42:04'),
@@ -538,6 +554,7 @@ INSERT INTO `rm_section_to_data` (`SectionDataId`, `SectionId`, `Title`, `SubHea
 	(5, 6, 'Success Stories so far', NULL, NULL, 'Prepare to be blown away! Our success stories showcase one dazzling case study from each industry we\'ve partnered with. Dive deep into the functionality and evolution of these triumphs, meticulously curated to resonate with businesses like yours. Stay tuned as we unleash the power of these narratives to inspire and elevate your journey to success.', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-05-11 19:02:33');
 
 -- Dumping structure for table rareminds.rm_services
+DROP TABLE IF EXISTS `rm_services`;
 CREATE TABLE IF NOT EXISTS `rm_services` (
   `ServiceId` int NOT NULL AUTO_INCREMENT,
   `ServiceTitle` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT '0',
@@ -559,6 +576,7 @@ INSERT INTO `rm_services` (`ServiceId`, `ServiceTitle`, `ServiceUrlSlug`, `Servi
 	(3, 'Talent Management', 'corporate/talent-management', 1, 'TM', 'Ready to turn the corporate gibberish into action-packed outcomes? Our talent development solutions are…', 'Crafting bespoke solutions to address your organization\'s talent needs, we specialize in talent management, ensuring every employee feels valued and heard. With our arsenal of tools and years of research, we empower leaders to drive growth and success.', '2024-05-11 03:21:19', '2024-05-11 21:49:41');
 
 -- Dumping structure for table rareminds.rm_service_programs
+DROP TABLE IF EXISTS `rm_service_programs`;
 CREATE TABLE IF NOT EXISTS `rm_service_programs` (
   `ProgramId` int NOT NULL AUTO_INCREMENT,
   `ServiceId` int DEFAULT NULL,
@@ -570,7 +588,7 @@ CREATE TABLE IF NOT EXISTS `rm_service_programs` (
   PRIMARY KEY (`ProgramId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Dumping data for table rareminds.rm_service_programs: ~9 rows (approximately)
+-- Dumping data for table rareminds.rm_service_programs: ~10 rows (approximately)
 DELETE FROM `rm_service_programs`;
 INSERT INTO `rm_service_programs` (`ProgramId`, `ServiceId`, `ProgramTitle`, `ProgramDescription`, `Status`, `CreatedOn`, `ModifiedOn`) VALUES
 	(1, 1, 'Performance Management', 'Effective performance management ensures that employees are aligned with company objectives. We help you design and implement performance evaluation systems, including goal setting, performance reviews and feedback mechanisms, to drive productivity and engagement.', 1, '2024-05-12 04:32:43', '2024-05-11 23:02:57'),
@@ -585,6 +603,7 @@ INSERT INTO `rm_service_programs` (`ProgramId`, `ServiceId`, `ProgramTitle`, `Pr
 	(10, 2, 'Customized Training Solutions', '<ul><li aria-level=2><span>We work hand-in-hand with you to develop customized programs that hit the bullseye of your objectives and align seamlessly with your organization\'s culture. </span><li aria-level=2><span>With RareMinds, the sky – and beyond – is the limit!</span></ul>', 1, '2024-05-12 04:32:43', '2024-05-11 23:37:34');
 
 -- Dumping structure for table rareminds.rm_subscribers
+DROP TABLE IF EXISTS `rm_subscribers`;
 CREATE TABLE IF NOT EXISTS `rm_subscribers` (
   `SubscriberId` int NOT NULL AUTO_INCREMENT,
   `SubscriberEmail` varchar(255) NOT NULL,
@@ -598,6 +617,7 @@ DELETE FROM `rm_subscribers`;
 /*!40000 ALTER TABLE `rm_subscribers` ENABLE KEYS */;
 
 -- Dumping structure for table rareminds.rm_testimonials
+DROP TABLE IF EXISTS `rm_testimonials`;
 CREATE TABLE IF NOT EXISTS `rm_testimonials` (
   `TestimonialId` int NOT NULL AUTO_INCREMENT,
   `Testimonials` text,
