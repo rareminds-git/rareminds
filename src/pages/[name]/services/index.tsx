@@ -95,7 +95,7 @@ const Services = () => {
                 })}
             </div>
             <div className="flex justify-center mt-40">
-              <img src={ServicesImg} />
+              <img src={ServicesImg} alt="Services" />
             </div>
           </section>
         </div>
@@ -156,7 +156,7 @@ const Services = () => {
               })}
 
             <div className="flex justify-center mt-40">
-              <img src={ServicesImg} />
+              <img src={ServicesImg} alt="Services" />
             </div>
           </section>
         </div>

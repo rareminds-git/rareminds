@@ -22,7 +22,12 @@ const Program = ({ showCTA }) => {
           <div className="item">
             <div className="grid space-y-10 place-items-center grid-cols-2">
               <div className="grid my-4 place-items-center">
-                <img className="col-span-8" src={ProgramImg} width="300px" />
+                <img
+                  className="col-span-8"
+                  src={ProgramImg}
+                  width="300px"
+                  alt="individual-program"
+                />
               </div>
               <div className="grid my-4 place-items-center">
                 <h2 className="font-bold font-Syne md:text-5xl col-span-4 text-red-500">
@@ -34,7 +39,12 @@ const Program = ({ showCTA }) => {
           <div className="item">
             <div className="grid space-y-10 place-items-center grid-cols-2">
               <div className="grid my-4 place-items-center">
-                <img className="col-span-8" src={ProgramImg} width="300px" />
+                <img
+                  className="col-span-8"
+                  src={ProgramImg}
+                  width="300px"
+                  alt="school-program"
+                />
               </div>
               <div className="grid my-4 place-items-center">
                 <h2 className="font-bold font-Syne md:text-5xl col-span-4 text-red-500">
@@ -46,7 +56,12 @@ const Program = ({ showCTA }) => {
           <div className="item">
             <div className="grid space-y-10 place-items-center grid-cols-2">
               <div className="grid my-4 place-items-center">
-                <img className="col-span-8" src={ProgramImg} width="300px" />
+                <img
+                  className="col-span-8"
+                  src={ProgramImg}
+                  width="300px"
+                  alt="institute-program"
+                />
               </div>
               <div className="grid my-4 place-items-center">
                 <h2 className="font-bold font-Syne md:text-5xl col-span-4 text-red-500">
@@ -68,7 +83,11 @@ const Program = ({ showCTA }) => {
           <div className="item mx-2">
             <div className="grid space-y-10 place-items-center grid-cols-2">
               <div className="grid my-4 place-items-center">
-                <img className="col-span-8" src={ProgramImg} />
+                <img
+                  className="col-span-8"
+                  src={ProgramImg}
+                  alt="individual-program"
+                />
               </div>
               <div className="grid my-4 place-items-center">
                 <h2 className="font-bold font-Syne md:text-5xl col-span-4 text-red-500">
@@ -80,7 +99,11 @@ const Program = ({ showCTA }) => {
           <div className="item">
             <div className="grid space-y-10 place-items-center grid-cols-2">
               <div className="grid my-4 place-items-center">
-                <img className="col-span-8" src={ProgramImg} />
+                <img
+                  className="col-span-8"
+                  src={ProgramImg}
+                  alt="school-program"
+                />
               </div>
               <div className="grid my-4 place-items-center">
                 <h2 className="font-bold font-Syne md:text-5xl col-span-4 text-red-500">
@@ -92,7 +115,11 @@ const Program = ({ showCTA }) => {
           <div className="item">
             <div className="grid space-y-10 place-items-center grid-cols-2">
               <div className="grid my-4 place-items-center">
-                <img className="col-span-8" src={ProgramImg} />
+                <img
+                  className="col-span-8"
+                  src={ProgramImg}
+                  alt="institute-program"
+                />
               </div>
               <div className="grid my-4 place-items-center">
                 <h2 className="font-bold font-Syne md:text-5xl col-span-4 text-red-500">

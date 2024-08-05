@@ -68,7 +68,11 @@ const SuccessStories = ({ content }) => {
                     className="cursor-pointer item"
                     onClick={() => navigate(`/${ele.ContentSlug}`)}
                   >
-                    <img src={`/images/${ele.Image1}`} width={"100%"} />
+                    <img
+                      src={`/images/${ele.Image1}`}
+                      width={"100%"}
+                      alt={ele.Heading1}
+                    />
 
                     <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
                       {ele.Heading1}

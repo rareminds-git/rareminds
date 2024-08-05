@@ -61,14 +61,23 @@ const ServiceName = () => {
 
             <div className="grid grid-cols-4 gap-4">
               <div className="rounded col-span-2">
-                <img src={ProgramImg} className="w-full" />
+                <img
+                  src={ProgramImg}
+                  className="w-full"
+                  alt={serviceData?.serviceData?.Heading1}
+                />
                 <img
                   src={ServiceIllsImg}
                   className="mt-10 transform -scale-x-100"
+                  alt={serviceData?.serviceData?.Heading1}
                 />
               </div>
               <div className="grid grid-flow-row col-span-2 relative">
-                <img src={ServiceIllsImg} className="absolute -left-5 top-10" />
+                <img
+                  src={ServiceIllsImg}
+                  className="absolute -left-5 top-10"
+                  alt="Line"
+                />
                 <h2 className="text-[#FF2C2C] font-bold mb-10 capitalize lg:text-[36px] lg:leading-[42px] text-3xl mt-36 font-Syne">
                   Program Details
                 </h2>
@@ -111,6 +120,7 @@ const ServiceName = () => {
                 className="col-span-5"
                 width={"350px"}
                 height={"400px"}
+                alt={serviceData?.serviceData?.Heading1}
               />
             </div>
 

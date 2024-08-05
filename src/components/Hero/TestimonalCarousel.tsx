@@ -50,7 +50,7 @@ const TestimonialCarousel = () => {
             </p>
           </div>
           <div className="col-span-1 row-span-1 my-4 place-items-start">
-            <img src={TestimonialIlls} width="380px" />
+            <img src={TestimonialIlls} width="380px" alt="Testimonial-Ills" />
           </div>
         </div>
       </div>

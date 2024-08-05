@@ -49,7 +49,10 @@ const CaseStudyDetail = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-md">
-                <img src={`../../images/${studyData?.studyData?.Image1}`} />
+                <img
+                  src={`../../images/${studyData?.studyData?.Image1}`}
+                  alt={studyData?.studyData?.Heading1}
+                />
               </div>
               <div className="grid grid-flow-row gap-4">
                 {studyData?.studyDetails?.map((ele: any) => {
@@ -78,7 +81,10 @@ const CaseStudyDetail = () => {
             </div>
             <div className="grid grid-cols-1">
               <div className="rounded-md">
-                <img src={`../../images/${studyData?.studyData?.Image1}`} />
+                <img
+                  src={`../../images/${studyData?.studyData?.Image1}`}
+                  alt={studyData?.studyData?.Heading1}
+                />
               </div>
               <div className="grid grid-flow-row gap-4">
                 {studyData?.studyDetails?.map((ele: any) => {

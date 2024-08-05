@@ -22,7 +22,12 @@ const Hero = ({ name }) => {
             </div>
             <div className="grid grid-cols-2">
               <div className="rounded-md">
-                <img src={ProgramImg} className="col-span-5" width={"400px"} />
+                <img
+                  src={ProgramImg}
+                  className="col-span-5"
+                  width={"400px"}
+                  alt="Program Hero"
+                />
               </div>
 
               <div className="grid grid-flow-row gap-8">

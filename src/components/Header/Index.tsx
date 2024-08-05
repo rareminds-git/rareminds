@@ -30,7 +30,7 @@ const Header = ({ navbarOpen, setNavbarOpen }) => {
     <header className="w-full top-0 left-0 p-4 flex z-20 bg-white">
       <div className="text-white flex-grow z-20">
         <a href="/">
-          <img src={Logo} />
+          <img src={Logo} alt="Rareminds" width={211} height={52} />
         </a>
       </div>
       <select

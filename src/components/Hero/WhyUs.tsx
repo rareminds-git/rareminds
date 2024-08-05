@@ -26,7 +26,7 @@ const WhyUs = ({ content }) => {
             <div className="my-4 place-items-start"></div>
 
             <div className="my-4 place-items-start why-us-img">
-              <img src={WhyUsImg} className="lg:col-span-8" />
+              <img src={WhyUsImg} className="lg:col-span-8" alt="Why Us" />
             </div>
           </div>
         </div>

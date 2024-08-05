@@ -89,7 +89,7 @@ const Index = () => {
           <div className="banner-grid h-screen">
             <div className="grid grid-rows-2 grid-flow-col gap-0 h-screen">
               <div className="mt-8 mx-4 row-span-2">
-                <img src={Logo} />
+                <img src={Logo} alt="Rareminds" />
               </div>
               <div className="p-12 cursor-pointer row-span-2">
                 <h3 className="text-white hidden">For Government</h3>
@@ -125,7 +125,7 @@ const Index = () => {
       ) : (
         <>
           <div className="mt-8 mx-auto flex justify-center items-center">
-            <img src={Logo} />
+            <img src={Logo} alt="Rareminds" />
           </div>
           <div className="banner">
             <div className="banner-grid h-screen">

@@ -25,7 +25,11 @@ const CaseStudies = ({ pageData, ctaContent, content }) => {
                 className="cursor-pointer"
                 onClick={() => navigate(`/case-studies/${ele.PageSlug}`)}
               >
-                <img src={`/images/${ele.Image1}`} width={"100%"} />
+                <img
+                  src={`/images/${ele.Image1}`}
+                  width={"100%"}
+                  alt={ele.Heading1}
+                />
 
                 <h4 className="font-bold font-Syne lg:text-2xl mt-5 text-sm text-red-500">
                   {ele.Heading1}

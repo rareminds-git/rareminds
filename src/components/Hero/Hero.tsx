@@ -51,7 +51,11 @@ const Hero = ({ content }) => {
             >
               {isInViewport && (
                 <>
-                  <img src={Ellipsis} className="absolute top-0" />
+                  <img
+                    src={Ellipsis}
+                    className="absolute top-0"
+                    alt="elipsis"
+                  />
                   <img
                     src={Line}
                     className="absolute top-0"
@@ -60,6 +64,7 @@ const Hero = ({ content }) => {
                       width: "15px",
                       transition: "height 1s linear",
                     }}
+                    alt="line"
                   />
                   <img
                     src={Ellipsis}
@@ -68,6 +73,7 @@ const Hero = ({ content }) => {
                       top: `${lineHeight}px`,
                       transition: "top 1s linear",
                     }}
+                    alt="elipsis"
                   />
                 </>
               )}
@@ -79,10 +85,11 @@ const Hero = ({ content }) => {
             >
               {isInViewport && (
                 <>
-                  <img src={HeroImg1} />
+                  <img src={HeroImg1} alt="hero-user-img" />
                   <img
                     src={HeroSun}
                     className="absolute top-[180px] -z-10 right-[60px] scale-150"
+                    alt="hero-sun"
                   />
                 </>
               )}
@@ -102,7 +109,11 @@ const Hero = ({ content }) => {
           <div className="flex">
             <div className="mt-8 mb-8">
               <div className="place-items-center illsImg h-44">
-                <img src={HeroIlls} className="heroIlls h-full" />
+                <img
+                  src={HeroIlls}
+                  className="heroIlls h-full"
+                  alt="hero-ills"
+                />
               </div>
               <div className="grid place-items-center">
                 <p className="mb-4 font-Syne mt-8 text-[28px] leading-[33.6px] font-medium text-black-400 text-center">
@@ -118,9 +129,13 @@ const Hero = ({ content }) => {
               </div>
               <div className="my-4 place-items-center mx-8">
                 <div className="lg:col-span-6 place-items-start hero-img relative float">
-                  <img src={HeroImg1} />
+                  <img src={HeroImg1} alt="hero-user-img" />
 
-                  <img src={HeroSun} className="absolute top-0 -z-10 right-0" />
+                  <img
+                    src={HeroSun}
+                    className="absolute top-0 -z-10 right-0"
+                    alt="hero-sun"
+                  />
                 </div>
               </div>
             </div>

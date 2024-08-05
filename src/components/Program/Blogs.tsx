@@ -43,7 +43,12 @@ const Blogs = ({ pageData, content }) => {
                 className="cursor-pointer"
                 onClick={() => navigate(`/blogs/${ele.PageSlug}`)}
               >
-                <img src={`${ele.Image1}`} width={"100%"} className="rounded" />
+                <img
+                  src={`${ele.Image1}`}
+                  width={"100%"}
+                  className="rounded"
+                  alt={ele.Heading1}
+                />
 
                 <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
                   {ele.Heading1}
