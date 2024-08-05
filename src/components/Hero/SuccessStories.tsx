@@ -12,9 +12,9 @@ const SuccessStories = ({ content }) => {
       <section className="md:px-20 px-10 py-10 bg-hero-gradient">
         <div className="flex">
           <div className="grid space-y-10">
-            <h1 className="mb-4 md:mt-20 mt-10 md:text-[70px] md:leading-[115.2px] text-[28px] leading-[30px] text-left font-normal text-[#FF2C2C]">
-              Case Studies
-            </h1>
+            <h4 className="mb-4 md:mt-20 mt-10 md:text-[70px] md:leading-[115.2px] text-[28px] leading-[30px] text-left font-normal text-[#FF2C2C]">
+              Success Stories so far
+            </h4>
             <p className="text-[22px] leading-[33px] mb-10 font-Poppins">
               {content?.Description}
             </p>
@@ -36,11 +36,7 @@ const SuccessStories = ({ content }) => {
                 return (
                   <div
                     className="cursor-pointer item"
-                    onClick={() =>
-                      navigate(
-                        `/case-studies/${ele.PageSlug || ele.ContentSlug}`
-                      )
-                    }
+                    onClick={() => navigate(`/${ele.ContentSlug}`)}
                   >
                     <img
                       src={`/images/${ele.Image1}`}
@@ -70,11 +66,7 @@ const SuccessStories = ({ content }) => {
                 return (
                   <div
                     className="cursor-pointer item"
-                    onClick={() =>
-                      navigate(
-                        `/case-studies/${ele.PageSlug || ele.ContentSlug}`
-                      )
-                    }
+                    onClick={() => navigate(`/${ele.ContentSlug}`)}
                   >
                     <img src={`/images/${ele.Image1}`} width={"100%"} />
 

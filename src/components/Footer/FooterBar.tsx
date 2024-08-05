@@ -39,7 +39,7 @@ const FooterBar = () => {
     async function getData() {
       await axios
         .get(
-          `http://13.126.41.32/api/services/${localStorage.getItem("currentUserType")}`
+          `http://localhost:6069/services/${localStorage.getItem("currentUserType")}`
         )
         .then((res) => {
           setData(res.data);
@@ -62,7 +62,11 @@ const FooterBar = () => {
                       <a href="/">Home</a>
                     </li>
                     <li>
-                      <a href="/about-us">About </a>
+                      <a
+                        href={`/${localStorage.getItem("currentUserType")}/about`}
+                      >
+                        About{" "}
+                      </a>
                     </li>
                     <li>
                       <a href="/contact-us">Contact</a>
@@ -90,7 +94,7 @@ const FooterBar = () => {
                   <ul className="mx-10 text-[20px] leading-[24px] font-Syne">
                     <li>
                       <a
-                        href={`/services/${localStorage.getItem("currentUserType")}`}
+                        href={`/${localStorage.getItem("currentUserType")}/services`}
                       >
                         Our Services
                       </a>
@@ -99,9 +103,7 @@ const FooterBar = () => {
                       serviceData?.serviceData?.map((ele: any) => {
                         return (
                           <li>
-                            <a href={`/services/${ele.ContentSlug}`}>
-                              {ele.Heading1}
-                            </a>
+                            <a href={`/${ele.ContentSlug}`}>{ele.Heading1}</a>
                           </li>
                         );
                       })}
@@ -110,7 +112,11 @@ const FooterBar = () => {
                 <div className="row-span-1">
                   <ul className="mx-10 text-[20px] leading-[24px] font-Syne">
                     <li>
-                      <a href="/case-studies">Case Study</a>
+                      <a
+                        href={`/${localStorage.getItem("currentUserType")}/case-studies`}
+                      >
+                        Case Study
+                      </a>
                     </li>
                     <li>
                       <a href="/blogs">Blog</a>
@@ -170,13 +176,21 @@ const FooterBar = () => {
                       <a href="/">Home</a>
                     </li>
                     <li>
-                      <a href="/about-us">About </a>
+                      <a
+                        href={`/${localStorage.getItem("currentUserType")}/about`}
+                      >
+                        About{" "}
+                      </a>
                     </li>
                     <li>
                       <a href="/contact-us">Contact</a>
                     </li>
                     <li>
-                      <a href="/case-studies">Case Study</a>
+                      <a
+                        href={`/${localStorage.getItem("currentUserType")}/case-studies`}
+                      >
+                        Case Study
+                      </a>
                     </li>
                     <li>
                       <a href="/blogs">Blog</a>

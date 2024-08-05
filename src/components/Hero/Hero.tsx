@@ -34,9 +34,9 @@ const Hero = ({ content }) => {
 
           <div className="grid space-y-10 place-items-start grid-cols-5">
             <div className="place-items-start col-span-2">
-              <h5 className="mb-4 font-Syne lg:mt-36 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px] pl-8">
+              <p className="mb-4 font-Syne lg:mt-36 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px] pl-8">
                 "Hiring for our Sales & Marketing teams became more accessible."
-              </h5>
+              </p>
               <p className="mt-8 lg:text-[32px] text-[20px] lg:leading-[53.06px] font-medium pl-8">
                 Jaguar, GMT Manager,
               </p>

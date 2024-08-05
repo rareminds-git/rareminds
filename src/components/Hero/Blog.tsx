@@ -14,9 +14,9 @@ const Blog = ({ content }) => {
     <>
       {!isMobile ? (
         <div className="bg-[#cabe9e1f] lg:py-20 mt-10">
-          <h3 className="font-Syne py-12 mx-auto text-black font-bold mb-20 text-[59px] leading-[70.8px] text-center">
+          <h5 className="font-Syne py-12 mx-auto text-black font-bold mb-20 text-[59px] leading-[70.8px] text-center">
             Blog
-          </h3>
+          </h5>
           <OwlCarousel
             className="owl-theme lg:pl-24"
             autoplay
@@ -77,9 +77,9 @@ const Blog = ({ content }) => {
         </div>
       ) : (
         <div className="bg-[#cabe9e1f] py-12">
-          <h3 className="font-Syne my-8 mx-auto text-red-400 text-center font-bold text-3xl">
+          <h5 className="font-Syne my-8 mx-auto text-red-400 text-center font-bold text-3xl">
             Blog
-          </h3>
+          </h5>
           <OwlCarousel
             className="owl-theme pl-2"
             // autoplay

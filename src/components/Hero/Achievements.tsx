@@ -23,23 +23,23 @@ const Achievements = ({ content, achievements }) => {
                 <div className="container-fluid lg:px-12" ref={ref}>
                   <div className="grid grid-cols-4 gap-4 lg:px-12 lg:py-12 py-10 px-10 border-y-black border-2 border-x-0">
                     <div className="lg:col-span-2 col-span-2">
-                      <h3 className="text-[52px] leading-[58px] font-Syne font-bold">
+                      <h5 className="text-[52px] leading-[58px] font-Syne font-bold">
                         {ele.ContentTitle}
-                      </h3>
+                      </h5>
                       <p className="text-[16px] leading-[21.76px] mt-5 font-[Sentient] font-light">
                         {ele.ContentDescription}
                       </p>
                     </div>
                     <div className="grid place-items-end lg:col-span-2 col-span-1">
                       <div className="place-items-end">
-                        <h3 className=" lg:text-[162px] leading-[171px] text-[60px] text-blue-400 font-[Poppins-Regular]">
+                        <h5 className=" lg:text-[162px] leading-[171px] text-[60px] text-blue-400 font-[Poppins-Regular]">
                           {isInViewport && (
                             <CountUp
                               start={0}
                               end={ele.ContentSubDescription.replace(",", "")}
                             />
                           )}
-                        </h3>
+                        </h5>
                       </div>
                     </div>
                   </div>
@@ -55,16 +55,16 @@ const Achievements = ({ content, achievements }) => {
                   <div className="grid grid-rows-2 gap-4 lg:px-12 lg:py-12 px-4 border-y-black border-2 border-x-0">
                     <div className="row-span-1 grid grid-cols-3">
                       <div className="col-span-1 mt-4">
-                        <h3 className="text-[16px] leading-[18px] font-Syne font-bold">
+                        <h5 className="text-[16px] leading-[18px] font-Syne font-bold">
                           {ele.ContentTitle}
-                        </h3>
+                        </h5>
                       </div>
                       <div className="col-span-2 mt-4">
-                        <h3 className="text-right lg:text-[40px] leading-[42px] text-blue-400 font-Poppins}">
+                        <h5 className="text-right lg:text-[40px] leading-[42px] text-blue-400 font-Poppins}">
                           <CountUp
                             end={ele.ContentSubDescription.replace(",", "")}
                           />
-                        </h3>
+                        </h5>
                       </div>
                     </div>
                     <div className="row-span-1">

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ServiceIllsImg from "../../assets/images/serviceIlls.svg";
-import ProgramImg from "../../assets/images/programImg.svg";
+import ServiceIllsImg from "../../../assets/images/serviceIlls.svg";
+import ProgramImg from "../../../assets/images/programImg.svg";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import CTA from "@/common/CTA";
@@ -13,7 +13,7 @@ const ServiceName = () => {
   useEffect(() => {
     async function getData() {
       await axios
-        .get(`http://13.126.41.32/api/services/${userType}/${serviceName}`)
+        .get(`http://localhost:6069/services/${userType}/${serviceName}`)
         .then((res) => {
           setData(res.data);
         });
@@ -69,9 +69,9 @@ const ServiceName = () => {
               </div>
               <div className="grid grid-flow-row col-span-2 relative">
                 <img src={ServiceIllsImg} className="absolute -left-5 top-10" />
-                <h3 className="text-[#FF2C2C] font-bold mb-10 capitalize lg:text-[36px] lg:leading-[42px] text-3xl mt-36 font-Syne">
+                <h2 className="text-[#FF2C2C] font-bold mb-10 capitalize lg:text-[36px] lg:leading-[42px] text-3xl mt-36 font-Syne">
                   Program Details
-                </h3>
+                </h2>
                 {serviceData?.servicePrograms?.map((ele: any) => {
                   return (
                     <div className="row-span-1">
@@ -114,9 +114,9 @@ const ServiceName = () => {
               />
             </div>
 
-            <h3 className="text-[#FF2C2C] font-bold capitalize text-3xl mt-8 font-Syne">
+            <h2 className="text-[#FF2C2C] font-bold capitalize text-3xl mt-8 font-Syne">
               Program Details
-            </h3>
+            </h2>
 
             {serviceData?.servicePrograms?.map((ele: any) => {
               return (

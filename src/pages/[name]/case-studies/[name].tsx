@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
-import ProgramImg from "../../assets/images/programImg.svg";
+import ProgramImg from "../../../assets/images/programImg.svg";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import CTA from "@/common/CTA";
 import { Helmet } from "react-helmet";
 
 const CaseStudyDetail = () => {
-  const { slug } = useParams();
+  const { slug, userType } = useParams();
   const [studyData, setData] = useState<any>({});
 
   useEffect(() => {
     async function getData() {
       await axios
-        .get(`http://13.126.41.32/api/case-studies/${slug}`)
+        .get(
+          `http://localhost:6069/case-studies/${userType}/case-studies/${slug}`
+        )
         .then((res) => {
           setData(res.data);
         });
@@ -47,7 +49,7 @@ const CaseStudyDetail = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-md">
-                <img src={`../images/${studyData?.studyData?.Image1}`} />
+                <img src={`../../images/${studyData?.studyData?.Image1}`} />
               </div>
               <div className="grid grid-flow-row gap-4">
                 {studyData?.studyDetails?.map((ele: any) => {
@@ -76,7 +78,7 @@ const CaseStudyDetail = () => {
             </div>
             <div className="grid grid-cols-1">
               <div className="rounded-md">
-                <img src={`../images/${studyData?.studyData?.Image1}`} />
+                <img src={`../../images/${studyData?.studyData?.Image1}`} />
               </div>
               <div className="grid grid-flow-row gap-4">
                 {studyData?.studyDetails?.map((ele: any) => {

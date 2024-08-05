@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import ProgramImg from "../../assets/images/programImg.svg";
-import ServicesImg from "../../assets/images/servicesImg.svg";
+import ProgramImg from "../../../assets/images/programImg.svg";
+import ServicesImg from "../../../assets/images/servicesImg.svg";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import CTA from "@/common/CTA";
@@ -17,7 +17,7 @@ const Services = () => {
   useEffect(() => {
     async function getData() {
       await axios
-        .get(`http://13.126.41.32/api/services/${userType}`)
+        .get(`http://localhost:6069/services/${userType}`)
         .then((res) => {
           setData(res.data);
         });
@@ -30,16 +30,22 @@ const Services = () => {
   return (
     <>
       <Helmet>
-        <title>{serviceData?.pageData?.MetaTitle}</title>
+        <title>{serviceData?.servicePageData?.MetaTitle}</title>
         <meta
           name="description"
-          content={serviceData?.pageData?.MetaDescription}
+          content={serviceData?.servicePageData?.MetaDescription}
         />
-        <meta name="keywords" content={serviceData?.pageData?.MetaKeywords} />
-        <meta property="og:title" content={serviceData?.pageData?.OGTitle} />
+        <meta
+          name="keywords"
+          content={serviceData?.servicePageData?.MetaKeywords}
+        />
+        <meta
+          property="og:title"
+          content={serviceData?.servicePageData?.OGTitle}
+        />
         <meta
           property="og:description"
-          content={serviceData?.pageData?.OGDescription}
+          content={serviceData?.servicePageData?.OGDescription}
         />
       </Helmet>
       {!isMobile ? (
@@ -64,12 +70,12 @@ const Services = () => {
                       className={`item mx-2 rounded-lg bg-red-400 cursor-pointer`}
                       onMouseEnter={() => setHoveredDivs(ele.ContentAcronym)}
                       onMouseLeave={() => setHoveredDivs(undefined)}
-                      onClick={() => navigate(`/services/${ele.ContentSlug}`)}
+                      onClick={() => navigate(`/${ele.ContentSlug}`)}
                     >
                       <div
                         className={` text-white p-10 rounded-lg item-bg ${hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym && "active"}`}
                       >
-                        <h4 className="text-5xl font-Syne">{ele.Heading1}</h4>
+                        <p className="text-5xl font-Syne">{ele.Heading1}</p>
 
                         <p
                           className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === undefined && "line-clamp-4"}`}
@@ -114,7 +120,7 @@ const Services = () => {
                     className="item my-4 cursor-pointer"
                     onMouseEnter={() => setHoveredDivs(ele.ServiceShortForm)}
                     onMouseLeave={() => setHoveredDivs(undefined)}
-                    onClick={() => navigate(`/services/${ele.ContentSlug}`)}
+                    onClick={() => navigate(`/${ele.ContentSlug}`)}
                     style={{
                       height:
                         hoveredDivs === ele.ServiceShortForm
@@ -125,9 +131,9 @@ const Services = () => {
                     }}
                   >
                     <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
-                      <h4 className="text-4xl font-semibold my-10">
+                      <p className="text-4xl font-semibold my-10">
                         {ele.Heading1}
-                      </h4>
+                      </p>
 
                       {hoveredDivs === ele.ServiceShortForm ? (
                         <p

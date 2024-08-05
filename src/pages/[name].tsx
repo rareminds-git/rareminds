@@ -23,7 +23,7 @@ const Name = () => {
 
   useEffect(() => {
     async function getPageData() {
-      await axios.get(`http://13.126.41.32/api/pages/${name}`).then((res) => {
+      await axios.get(`http://localhost:6069/pages/${name}`).then((res) => {
         setPageData(res.data);
         const sectionKeys = res.data.sectionData.map(
           (ele: any) => ele.ContentSlug || ele.PageSlug
@@ -126,7 +126,7 @@ const Name = () => {
           )}
         />
       )}
-      {sections.includes("casestudies") && (
+      {/* {sections.includes("casestudies") && (
         <CaseStudies
           pageData={pageData.pageData}
           content={pageData.sectionData.filter(
@@ -136,7 +136,7 @@ const Name = () => {
             (ele: any) => ele.ContentSlug === "cta" && ele
           )}
         />
-      )}
+      )} */}
 
       {sections.includes("blogs") && (
         <Blogs

@@ -10,7 +10,7 @@ const Header = ({ navbarOpen, setNavbarOpen }) => {
 
   useEffect(() => {
     async function getPages() {
-      await axios.get("http://13.126.41.32/api/pages").then((res) => {
+      await axios.get("http://localhost:6069/pages").then((res) => {
         let homePages = res.data.filter((el: any) => {
           return el.PageType === 1;
         });

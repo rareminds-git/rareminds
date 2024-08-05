@@ -27,7 +27,7 @@ const Services = ({ content, services, ctaContent }) => {
                     className={`item mx-2 rounded-lg bg-red-400 cursor-pointer`}
                     onMouseEnter={() => setHoveredDivs(ele.ContentAcronym)}
                     onMouseLeave={() => setHoveredDivs(undefined)}
-                    onClick={() => navigate(`/services/${ele.ContentSlug}`)}
+                    onClick={() => navigate(`/${ele.ContentSlug}`)}
                   >
                     <div
                       className={` text-white p-10 rounded-lg item-bg ${hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym && "active"}`}
@@ -58,7 +58,7 @@ const Services = ({ content, services, ctaContent }) => {
                   className="item my-4 cursor-pointer"
                   onMouseEnter={() => setHoveredDivs(ele.ServiceShortForm)}
                   onMouseLeave={() => setHoveredDivs(undefined)}
-                  onClick={() => navigate(`/services/${ele.ContentSlug}`)}
+                  onClick={() => navigate(`/${ele.ContentSlug}`)}
                   style={{
                     height:
                       hoveredDivs === ele.ServiceShortForm
@@ -69,9 +69,9 @@ const Services = ({ content, services, ctaContent }) => {
                   }}
                 >
                   <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
-                    <h4 className="text-4xl font-semibold my-10">
+                    <h3 className="text-4xl font-semibold my-10">
                       {ele.Heading1}
-                    </h4>
+                    </h3>
 
                     {hoveredDivs === ele.ServiceShortForm ? (
                       <p

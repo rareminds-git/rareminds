@@ -152,7 +152,7 @@ app.get("/services/:slug", async function (req, res) {
 app.get("/services/:userType/:serviceName", async function (req, res) {
   const { userType, serviceName } = req.params;
 
-  let serviceSlug = userType + "/" + serviceName;
+  let serviceSlug = userType + "/services/" + serviceName;
 
   let serviceData = await mysqlQuery(con, {
     sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + serviceSlug + "'",
@@ -170,24 +170,115 @@ app.get("/services/:userType/:serviceName", async function (req, res) {
   });
 });
 
-app.get("/case-studies/:slug", async function (req, res) {
-  const { slug } = req.params;
+app.get("/services/:slug", async function (req, res) {
+  const pageSlug = req.params.slug;
+  let pageData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_pages WHERE PageSlug = '/" + pageSlug + "'",
+  });
 
-  let studyData = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + slug + "'",
+  let servicePageData = await mysqlQuery(con, {
+    sql:
+      "SELECT * FROM rm_content WHERE PageId = " +
+      pageData[0].PageId +
+      " AND ContentTypeId = 4",
+  });
+
+  let serviceData = await mysqlQuery(con, {
+    sql:
+      "SELECT * FROM rm_content WHERE PageId = " +
+      pageData[0].PageId +
+      " AND ContentTypeId = 38",
+  });
+
+  res.send({
+    serviceData: serviceData,
+    servicePageData: servicePageData[0],
+  });
+});
+
+app.get("/:userType/about", async function (req, res) {
+  const pageSlug = req.params.userType + "/about";
+
+  let pageData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + pageSlug + "'",
+  });
+
+  res.send({
+    pageData: pageData[0],
+  });
+});
+
+app.get("/:slug/case-studies", async function (req, res) {
+  const pageSlug = req.params.slug;
+  let pageData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_pages WHERE PageSlug = '/" + pageSlug + "'",
+  });
+
+  let StudyPageData = await mysqlQuery(con, {
+    sql:
+      "SELECT * FROM rm_content WHERE PageId = " +
+      pageData[0].PageId +
+      " AND ContentTypeId = 6",
   });
 
   let studyDetails = await mysqlQuery(con, {
     sql:
-      "SELECT * FROM rm_content_details WHERE ContentId = " +
-      studyData[0].ContentId,
+      "SELECT * FROM rm_content WHERE ContentTypeId = 40 AND PageId = " +
+      pageData[0].PageId,
   });
 
   res.send({
-    studyData: studyData[0],
-    studyDetails,
+    studyData: studyDetails,
+    pageData: StudyPageData[0],
   });
 });
+
+app.get("/:slug/case-studies", async function (req, res) {
+  const pageSlug = req.params.slug;
+  let pageData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_pages WHERE PageSlug = '/" + pageSlug + "'",
+  });
+
+  let StudyPageData = await mysqlQuery(con, {
+    sql:
+      "SELECT * FROM rm_content WHERE PageId = " +
+      pageData[0].PageId +
+      " AND ContentTypeId = 6",
+  });
+
+  let studyDetails = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = 40",
+  });
+
+  res.send({
+    studyData: studyDetails,
+    pageData: StudyPageData[0],
+  });
+});
+
+app.get(
+  "/case-studies/:userType/case-studies/:slug",
+  async function (req, res) {
+    const { slug, userType } = req.params;
+
+    const searchSlug = userType + "/case-studies/" + slug;
+
+    let studyData = await mysqlQuery(con, {
+      sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + searchSlug + "'",
+    });
+
+    let studyDetails = await mysqlQuery(con, {
+      sql:
+        "SELECT * FROM rm_content_details WHERE ContentId = " +
+        studyData[0].ContentId,
+    });
+
+    res.send({
+      studyData: studyData[0],
+      studyDetails,
+    });
+  }
+);
 
 app.post("/submit-query-form", async function (req, res) {
   const formData = req.body;

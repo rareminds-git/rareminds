@@ -12,7 +12,7 @@ const BlogDetail = () => {
 
   useEffect(() => {
     async function getData() {
-      await axios.get(`http://13.126.41.32/api/blogs/${slug}`).then((res) => {
+      await axios.get(`http://localhost:6069/blogs/${slug}`).then((res) => {
         setData(res.data);
       });
     }

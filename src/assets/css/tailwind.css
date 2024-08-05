@@ -468,4 +468,31 @@
   .service-list .item .item-bg.active {
     display: none;
   }
+
+  .custom-tabs .react-tabs__tab {
+    display: inline-block;
+    position: relative;
+    list-style: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin: 20px;
+    font-family: "Syne";
+    font-size: 24px;
+    line-height: 28.8px;
+    font-weight: 600;
+    border: none;
+  }
+
+  .custom-tabs .react-tabs__tab--selected {
+    background: #fff;
+    border: 1px solid #ff6363;
+    color: #ff6363;
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+  }
+
+  .react-tabs__tab-list {
+    border-bottom: none;
+  }
 }

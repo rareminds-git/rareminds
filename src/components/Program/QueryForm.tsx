@@ -56,7 +56,7 @@ const QueryForm = ({ pageData, content }) => {
       let config = {
         method: "post",
         maxBodyLength: Infinity,
-        url: "http://13.126.41.32/api/submit-query-form",
+        url: "http://localhost:6069/submit-query-form",
         headers: {
           "Content-Type": "application/json",
         },

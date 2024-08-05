@@ -1,14 +1,22 @@
 import CTA from "@/common/CTA";
+import { Helmet } from "react-helmet";
 import { useMediaQuery } from "react-responsive";
 
 const ContactUs = ({ content, ctaContent, pageData }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>
+      <Helmet>
+        <title>{pageData?.MetaTitle}</title>
+        <meta name="description" content={pageData?.MetaDescription} />
+        <meta name="keywords" content={pageData?.MetaKeywords} />
+        <meta property="og:title" content={pageData?.OGTitle} />
+        <meta property="og:description" content={pageData?.OGDescription} />
+      </Helmet>
       <section className="px-10 md:mt-24 mt-12 md:py-20 font-Syne mb-10">
         <div className="flex items-start md:px-32">
           <div className="grid space-y-10 place-items-start">
-            <h2 className="font-bold text-5xl">{pageData?.PageSubTitle}</h2>
+            <h1 className="font-bold text-5xl">{pageData?.PageSubTitle}</h1>
           </div>
         </div>
 
@@ -20,9 +28,9 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
               return (
                 <>
                   <div className="md:px-64 my-10">
-                    <h3 className="text-red-400 font-bold text-2xl">
+                    <p className="text-red-400 font-bold text-2xl">
                       {ele.Heading1}
-                    </h3>
+                    </p>
                     <p className="text-black-400 font-light">{ele.Heading2}</p>
                   </div>
 
@@ -30,22 +38,22 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
                     <div className="grid grid-cols-2 gap-4 md:py-12">
                       <div className="grid">
                         <div className="md:col-span-6 col-span-9">
-                          <h3 className=" md:text-xl text-xl font-bold">
+                          <p className=" md:text-xl text-xl font-bold">
                             {ele.SubHeading1}
-                          </h3>
-                          <h3 className=" md:text-xl text-xl font-light">
+                          </p>
+                          <p className=" md:text-xl text-xl font-light">
                             {ele.Description}
-                          </h3>
+                          </p>
                         </div>
                       </div>
                       <div className="grid place-items-end my-5">
                         <div className="md-col-span-6 col-span-3 place-items-end">
-                          <h3 className=" md:text-xl text-xl text-black-400 font-Syne">
+                          <p className=" md:text-xl text-xl text-black-400 font-Syne">
                             {ele.Address1 || ele.Contact1}
-                          </h3>
-                          <h3 className=" md:text-xl text-xl text-black-400 font-Syne">
+                          </p>
+                          <p className=" md:text-xl text-xl text-black-400 font-Syne">
                             {ele.Contact2}
-                          </h3>
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -53,16 +61,16 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
                     <div className="grid grid-cols-2 gap-4 md:py-12">
                       <div className="grid my-5">
                         <div className="md:col-span-6 col-span-9">
-                          <h3 className=" md:text-xl text-xl font-bold">
+                          <p className=" md:text-xl text-xl font-bold">
                             {ele.SubHeading2}
-                          </h3>
+                          </p>
                         </div>
                       </div>
                       <div className="grid place-items-end my-5">
                         <div className="md-col-span-6 col-span-3 place-items-end">
-                          <h3 className=" md:text-xl text-xl text-black-400 font-Syne">
+                          <p className=" md:text-xl text-xl text-black-400 font-Syne">
                             {ele.Address2 || ele.EmailAddress}
-                          </h3>
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -74,9 +82,9 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
           </div>
         </div>
         <div>
-          <h3 className="text-2xl font-bold text-red-400 md:py-8">
+          <h2 className="text-2xl font-bold text-red-400 md:py-8">
             Spot us on the map
-          </h3>
+          </h2>
           <iframe
             width="100%"
             height="600"
