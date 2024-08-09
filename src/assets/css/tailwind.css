@@ -249,6 +249,10 @@
   .testimonyImg img {
     height: 205px;
     width: 205px !important;
+    @media (max-width: 640px) {
+      height: auto;
+      width: auto;
+    }
   }
 
   .testimonyAuthor {
@@ -469,11 +473,19 @@
     display: none;
   }
 
+  .custom-tabs {
+    @media (max-width: 640px) {
+      width: 100%;
+      overflow: scroll;
+      display: inline-flex;
+    }
+  }
+
   .custom-tabs .react-tabs__tab {
     display: inline-block;
     position: relative;
     list-style: none;
-    padding: 6px 12px;
+    padding: 6px 8px;
     cursor: pointer;
     margin: 20px;
     font-family: "Syne";

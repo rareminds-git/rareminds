@@ -7,7 +7,7 @@ import CTA from "@/common/CTA";
 
 const Services = ({ content, services, ctaContent }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
-  const [hoveredDivs, setHoveredDivs] = useState<any>("TA");
+  const [hoveredDivs, setHoveredDivs] = useState<any>(null);
 
   const navigate = useNavigate();
 
@@ -30,22 +30,23 @@ const Services = ({ content, services, ctaContent }) => {
                     onClick={() => navigate(`/${ele.ContentSlug}`)}
                   >
                     <div
-                      className={` text-white p-10 rounded-lg item-bg ${hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym && "active"}`}
+                      className={` text-white p-10 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
                     >
                       <h4 className="text-5xl font-Syne">{ele.Heading1}</h4>
 
                       <p
-                        className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === undefined && "line-clamp-4"}`}
+                        className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
                         dangerouslySetInnerHTML={{
                           __html: ele?.Description,
                         }}
                       ></p>
 
-                      {hoveredDivs === undefined && (
-                        <p className="font-[Sentient] font-bold text-[16px] leading-[21.76px]">
-                          ...Read More
-                        </p>
-                      )}
+                      <p
+                        onClick={() => navigate(`/${ele.ContentSlug}`)}
+                        className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
+                      >
+                        ...Read More
+                      </p>
                     </div>
                   </div>
                 );

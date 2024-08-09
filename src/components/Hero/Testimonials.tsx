@@ -1,6 +1,11 @@
 import { useMediaQuery } from "react-responsive";
 import TestimonialCarousel from "./TestimonalCarousel";
 import CustomTabs from "../Tabs";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+import TestimonialImg from "../../assets/images/testimonial.svg";
+import TestimonialIlls from "../../assets/images/testimonialIlls.svg";
 
 const tabs = [
   "Healthcare",
@@ -17,17 +22,9 @@ const Testimonials = () => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>
-      {!isMobile ? (
-        <div className="lg:py-20">
-          <CustomTabs content={<TestimonialCarousel />} tabs={tabs} />
-        </div>
-      ) : (
-        <>
-          <h3 className="font-Syne my-8 place-items-center text-center mx-auto text-red-400 font-bold text-2xl">
-            Testimonials
-          </h3>
-        </>
-      )}
+      <div className="lg:py-20">
+        <CustomTabs content={<TestimonialCarousel />} tabs={tabs} />
+      </div>
     </>
   );
 };

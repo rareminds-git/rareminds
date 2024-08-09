@@ -8,7 +8,7 @@ const CustomTabs = ({ content, tabs }) => {
       {tabs.map((title: any) => {
         return (
           <TabPanel>
-            <h5 className="font-Syne text-center my-12 lg:mb-20 place-items-center lg:mx-20 text-[#ff2c2c] text-[70px] leading-[115.2px]">
+            <h5 className="font-Syne text-center my-12 lg:mb-20 place-items-center lg:mx-20 text-[#ff2c2c] lg:text-[70px] lg:leading-[115.2px] text-[28px] leading-[30px] ">
               Testimonials - {title}
             </h5>
             <TestimonialCarousel />

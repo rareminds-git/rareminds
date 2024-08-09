@@ -63,6 +63,7 @@ const Achievements = ({ content, achievements }) => {
                         <h5 className="text-right lg:text-[40px] leading-[42px] text-blue-400 font-Poppins}">
                           <CountUp
                             end={ele.ContentSubDescription.replace(",", "")}
+                            duration={5}
                           />
                         </h5>
                       </div>

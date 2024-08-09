@@ -33,14 +33,14 @@ const Blog = ({ content }) => {
                 stagePadding: 20,
               },
               1000: {
-                items: 4,
+                items: 3,
                 loop: true,
                 dots: false,
               },
             }}
             loop
             margin={10}
-            stagePadding={100}
+            stagePadding={150}
             items={3}
           >
             {content.map((ele, index) => {
@@ -82,13 +82,13 @@ const Blog = ({ content }) => {
           </h5>
           <OwlCarousel
             className="owl-theme pl-2"
-            // autoplay
+            autoplay
             loop
             margin={20}
             stagePadding={0}
             nav={false}
             dots={false}
-            items={2}
+            items={1}
           >
             {content.map((ele, index) => {
               return (
