@@ -1,8 +1,29 @@
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 var express = require("express");
 var bodyParser = require("body-parser");
 var mysql = require("mysql");
 const e = require("express");
 var app = express();
+const multer = require("multer");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./public/images/testimonials");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "_" + file.originalname);
+  },
+});
+
+const upload = multer({
+  storage: storage,
+  limits: {
+    fieldSize: 1024 * 1024 * 3,
+  },
+});
 
 var con = mysql.createConnection({
   host: "localhost",
@@ -16,10 +37,12 @@ con.connect(function (err) {
 });
 
 const mysqlQuery = async (connection, queryConfig) => {
+  console.log("query config", queryConfig);
   const config = { ...queryConfig, timeout: 4000 };
 
   return new Promise((resolve, reject) => {
     return connection.query(config, function (error, results, fields) {
+      console.log("query results", results);
       if (error) {
         reject(error);
       }
@@ -32,6 +55,27 @@ async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
     await callback(array[index], index, array);
   }
+}
+
+function encodeHTML(str) {
+  console.log("str", str);
+  const code = {
+    " ": "&nbsp;",
+    "¢": "&cent;",
+    "£": "&pound;",
+    "¥": "&yen;",
+    "€": "&euro;",
+    "©": "&copy;",
+    "®": "&reg;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "&": "&amp;",
+    "'": "&apos;",
+  };
+  return typeof str === "string"
+    ? str.replace(/[\u00A0-\u9999<>\&''""]/gm, (i) => code[i])
+    : str;
 }
 
 //Allow all requests from all domains & localhost
@@ -47,6 +91,69 @@ app.all("/*", function (req, res, next) {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+const generateAccessToken = (userId) => {
+  return jwt.sign(
+    { userId },
+    "1e43ec24f7ddefb1a824fe6dba87cfb8e387924d8126262bc38b2978c06dddb7",
+    { expiresIn: "7d" }
+  );
+};
+
+const checkRecordExists = async (tableName, column, value) => {
+  let result = await mysqlQuery(con, {
+    sql: `SELECT * FROM ${tableName} WHERE ${column} = "${value}"`,
+  });
+  if (result) {
+    return result[0];
+  } else {
+    return false;
+  }
+};
+
+app.post("/login", async function (req, res) {
+  const { email, password } = req.body;
+  if (!email || !password) {
+    res
+      .status(400)
+      .json({ error: "Email or Password fields cannot be empty!" });
+    return;
+  }
+
+  try {
+    const existingUser = await checkRecordExists(
+      "rm_admin_users",
+      "AdminLoginId",
+      email
+    );
+
+    if (existingUser) {
+      if (!existingUser.AdminLoginPassword) {
+        res.status(401).json({ error: "Invalid credentials" });
+        return;
+      }
+
+      const passwordMatch = await bcrypt.compare(
+        password,
+        existingUser.AdminLoginPassword
+      );
+
+      if (passwordMatch) {
+        res.status(200).json({
+          userId: existingUser.AdminUserId,
+          email: existingUser.AdminLoginId,
+          access_token: generateAccessToken(existingUser.AdminUserId),
+        });
+      } else {
+        res.status(401).json({ error: "Invalid credentials" });
+      }
+    } else {
+      res.status(401).json({ error: "Invalid credentials" });
+    }
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 app.get("/pages", function (req, res) {
   con.query("SELECT * FROM rm_pages", function (err, result, fields) {
@@ -170,6 +277,159 @@ app.get("/services/:userType/:serviceName", async function (req, res) {
   });
 });
 
+app.post("/services/edit/:slug", async function (req, res) {
+  const { slug } = req.params;
+
+  const formData = req.body;
+
+  let serviceSlug = "/services/" + slug;
+
+  let serviceData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + serviceSlug + "'",
+  });
+
+  const contentSlug = formData.ContentSlug;
+
+  delete formData.ContentSlug;
+
+  let updateString = Object.keys(formData).map((key) => {
+    return `${key} = "${encodeHTML(formData[key])}"`;
+  });
+
+  updateData = await mysqlQuery(con, {
+    sql: `UPDATE rm_content SET ${updateString} WHERE ContentId = "${serviceData[0].ContentId}"`,
+  });
+
+  console.log(updateData);
+
+  res.send({
+    status: 200,
+    message: "Data updated successfully",
+  });
+});
+
+app.post(
+  "/editService/:userType/:slug/:contentSlug",
+  async function (req, res) {
+    const { userType, slug } = req.params;
+
+    const formData = req.body;
+
+    let serviceSlug = userType + "/services/" + slug;
+
+    let serviceData = await mysqlQuery(con, {
+      sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + serviceSlug + "'",
+    });
+
+    const contentSlug = formData.ContentSlug;
+
+    delete formData.ContentSlug;
+
+    let updateData = "";
+    if (contentSlug === "servicePrograms") {
+      let contentData = Object.keys(formData).map((key) => {
+        let data = {};
+        data.ContentDetailId = key;
+        if (formData[key].ContentTitle) {
+          data.ContentTitle = formData[key].ContentTitle;
+        }
+        if (formData[key].ContentDescription) {
+          data.ContentDescription = formData[key].ContentDescription;
+        }
+
+        return data;
+      });
+
+      contentData.map(async (ele) => {
+        let updateString = Object.keys(ele).map((key) => {
+          return `${key} = "${encodeHTML(ele[key])}"`;
+        });
+        updateData = await mysqlQuery(con, {
+          sql: `UPDATE rm_content_details SET ${updateString} WHERE ContentDetailId = "${ele.ContentDetailId}"`,
+        });
+      });
+    } else {
+      let updateString = Object.keys(formData).map((key) => {
+        return `${key} = "${encodeHTML(formData[key])}"`;
+      });
+
+      updateData = await mysqlQuery(con, {
+        sql: `UPDATE rm_content SET ${updateString} WHERE ContentId = "${serviceData[0].ContentId}"`,
+      });
+    }
+
+    console.log(updateData);
+
+    res.send({
+      status: 200,
+      message: "Data updated successfully",
+    });
+  }
+);
+
+app.post(
+  "/editStudy/:userType/:slug/:contentSlug",
+  upload.single("ContentImage"),
+  async function (req, res) {
+    const { userType, slug } = req.params;
+
+    const { body, file } = req;
+
+    console.log({ body, file });
+
+    const formData = req.body;
+
+    let serviceSlug = userType + "/case-studies/" + slug;
+
+    let serviceData = await mysqlQuery(con, {
+      sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + serviceSlug + "'",
+    });
+
+    const contentSlug = formData.ContentSlug;
+
+    delete formData.ContentSlug;
+
+    let updateData = "";
+    if (contentSlug === "studyDetails") {
+      console.log("form data", formData);
+      let data = {};
+      let contentData = Object.keys(formData).map((key) => {
+        data[key] = formData[key];
+        data.ContentImage = req?.file?.filename;
+        return data;
+      });
+      console.log("content data", contentData);
+
+      let updateString = Object.keys(contentData[0]).map((key) => {
+        console.log("data key", contentData[0][key]);
+        if (contentData[0][key] !== undefined) {
+          return `${key} = "${encodeHTML(contentData[0][key])}"`;
+        }
+      });
+      console.log("update string", updateString);
+      updateData = await mysqlQuery(con, {
+        sql: `UPDATE rm_content_details SET ${updateString.filter(Boolean)} WHERE ContentDetailId = "${contentData[0].ContentDetailId}"`,
+      });
+    } else {
+      console.log("form data", formData);
+      let updateString = Object.keys(formData).map((key) => {
+        return `${key} = "${encodeHTML(formData[key])}"`;
+      });
+
+      updateData = await mysqlQuery(con, {
+        sql: `UPDATE rm_content SET ${updateString} WHERE ContentId = "${serviceData[0].ContentId}"`,
+      });
+    }
+
+    console.log(updateData);
+
+    res.send({
+      status: 200,
+      message: "Data updated successfully",
+    });
+  }
+);
+
 app.get("/services/:slug", async function (req, res) {
   const pageSlug = req.params.slug;
   let pageData = await mysqlQuery(con, {
@@ -279,6 +539,85 @@ app.get(
     });
   }
 );
+
+app.post("/case-studies/edit/:slug", async function (req, res) {
+  const { slug } = req.params;
+
+  const formData = req.body;
+
+  let serviceSlug = "/caseStudies/" + slug;
+
+  let serviceData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + serviceSlug + "'",
+  });
+
+  const contentSlug = formData.ContentSlug;
+
+  delete formData.ContentSlug;
+
+  let updateString = Object.keys(formData).map((key) => {
+    return `${key} = "${encodeHTML(formData[key])}"`;
+  });
+
+  updateData = await mysqlQuery(con, {
+    sql: `UPDATE rm_content SET ${updateString} WHERE ContentId = "${serviceData[0].ContentId}"`,
+  });
+
+  console.log(updateData);
+
+  res.send({
+    status: 200,
+    message: "Data updated successfully",
+  });
+});
+
+app.post("/editPage/:slug", async function (req, res) {
+  let formData = req.body;
+  const ContentSlug = formData.ContentSlug;
+  const pageSlug = req.params.slug;
+  let pageData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_pages WHERE PageSlug = '/" + pageSlug + "'",
+  });
+
+  if (formData.ContentSlug === "/metadata") {
+    delete formData.ContentSlug;
+  }
+
+  let updateString = Object.keys(formData).map((key) => {
+    return `${key} = "${encodeHTML(formData[key])}"`;
+  });
+
+  let updateData = "";
+
+  if (ContentSlug === "/metadata") {
+    updateData = await mysqlQuery(con, {
+      sql: `UPDATE rm_pages SET ${updateString} WHERE PageSlug = "/${pageSlug}"`,
+    });
+  } else if (pageSlug === "contact-us") {
+    updateData = await mysqlQuery(con, {
+      sql: `UPDATE rm_content SET ${updateString} WHERE ContentId = "${formData.ContentId}"`,
+    });
+  } else {
+    updateData = await mysqlQuery(con, {
+      sql: `UPDATE rm_content SET ${updateString} WHERE ContentSlug = "${formData.ContentSlug}" AND PageId = ${pageData[0].PageId}`,
+    });
+  }
+
+  console.log(updateData);
+
+  if (updateData) {
+    res.send({
+      status: 200,
+      message: "Data updated successfully",
+    });
+  } else {
+    res.send({
+      status: 500,
+      message:
+        "Details could not be submitted at this time. Please try again after sometime.",
+    });
+  }
+});
 
 app.post("/submit-query-form", async function (req, res) {
   const formData = req.body;
