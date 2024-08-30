@@ -10,7 +10,6 @@ import axios from "axios";
 
 import Services from "@/components/Program/Services";
 import ContactUs from "@/components/Hero/ContactUs";
-import CaseStudies from "@/components/Program/CaseStudies";
 import Blogs from "@/components/Program/Blogs";
 import QueryForm from "@/components/Program/QueryForm";
 import { Helmet } from "react-helmet";
@@ -94,7 +93,14 @@ const Name = () => {
         />
       )}
       {sections.includes("successstories") && (
-        <SuccessStories content={pageData.studyData} />
+        <SuccessStories
+          content={pageData.studyData}
+          pageData={
+            pageData.sectionData.filter(
+              (ele: any) => ele.ContentSlug === "successstories" && ele
+            )[0]
+          }
+        />
       )}
       {sections.includes("achievements") && (
         <Achievements

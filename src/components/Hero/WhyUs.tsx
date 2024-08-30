@@ -1,5 +1,6 @@
 import WhyUsImg from "../../assets/images/whyus.svg";
 import { useNavigate } from "react-router-dom";
+import parse from "html-react-parser";
 
 const WhyUs = ({ content }) => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const WhyUs = ({ content }) => {
             <p
               className="mb-2 mt-0 ml-0 lg:text-[50px] lg:leading-[68px] text-[22px] leading-[28px] font-normal text-black lg:font-normal text-2xl font-[Sentient]"
               dangerouslySetInnerHTML={{
-                __html: content?.Description,
+                __html: parse(content?.Description),
               }}
             ></p>
             <p

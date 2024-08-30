@@ -4,7 +4,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
-const SuccessStories = ({ content }) => {
+const SuccessStories = ({ content, pageData }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const navigate = useNavigate();
   return (
@@ -15,8 +15,8 @@ const SuccessStories = ({ content }) => {
             <h4 className="mb-4 md:mt-20 mt-10 md:text-[70px] md:leading-[115.2px] text-[28px] leading-[30px] text-left font-normal text-[#FF2C2C]">
               Success Stories so far
             </h4>
-            <p className="text-[22px] leading-[33px] mb-10 font-Poppins">
-              {content?.Description}
+            <p className="text-[22px] leading-[33px] mb-10 font-[Poppins-Regular]">
+              {pageData?.Description}
             </p>
           </div>
         </div>

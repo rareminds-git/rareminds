@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import LoaderComponent from "@/components/LoaderComponent";
 import DefaultLayout from "./layouts/DefaultLayout";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Name from "./pages/[name]";
 import ServiceName from "./pages/[name]/services/[name]";

@@ -15,7 +15,7 @@ const CustomTabs = ({ content, tabs }) => {
           </TabPanel>
         );
       })}
-      <TabList className="border-0 border-r-0 custom-tabs">
+      <TabList className="border-0 border-r-0 custom-tabs md:mx-20">
         {tabs.map((title: any) => {
           return <Tab>{title}</Tab>;
         })}

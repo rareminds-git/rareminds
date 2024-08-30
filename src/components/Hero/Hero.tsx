@@ -35,13 +35,13 @@ const Hero = ({ content }) => {
           <div className="grid space-y-10 place-items-start grid-cols-5">
             <div className="place-items-start col-span-2">
               <p className="mb-4 font-Syne lg:mt-36 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px] pl-8">
-                "Hiring for our Sales & Marketing teams became more accessible."
+                "{content?.Heading2}"
               </p>
               <p className="mt-8 lg:text-[32px] text-[20px] lg:leading-[53.06px] font-medium pl-8">
-                Jaguar, GMT Manager,
+                {content?.SubHeading1},
               </p>
               <p className="mt-2 font-Syne lg:text-[32px] text-[20px] lg:leading-[53.06px] font-mediumn pl-8">
-                Abhilash. P
+                {content?.SubHeading2}
               </p>
             </div>
 
@@ -117,14 +117,13 @@ const Hero = ({ content }) => {
               </div>
               <div className="grid place-items-center">
                 <p className="mb-4 font-Syne mt-8 text-[28px] leading-[33.6px] font-medium text-black-400 text-center">
-                  "Hiring for our Sales & Marketing teams became more
-                  accessible."
+                  "{content?.Heading2}"
                 </p>
                 <p className="mt-2 font-Syne text-[20px] leading-[33.16px] font-semibold">
-                  Jaguar, GMT Manager,
+                  {content?.SubHeading1}
                 </p>
                 <p className="mt-2 font-Syne text-[20px] leading-[33.16px] font-semibold">
-                  Abhilash. P
+                  {content?.SubHeading2}
                 </p>
               </div>
               <div className="my-4 place-items-center mx-8">

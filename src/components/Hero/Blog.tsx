@@ -33,15 +33,15 @@ const Blog = ({ content }) => {
                 stagePadding: 20,
               },
               1000: {
-                items: 3,
+                items: 5,
                 loop: true,
                 dots: false,
               },
             }}
             loop
             margin={10}
-            stagePadding={150}
-            items={3}
+            stagePadding={100}
+            items={4}
           >
             {content.map((ele, index) => {
               return (

@@ -6,6 +6,7 @@ import axios from "axios";
 import CTA from "@/common/CTA";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import parse from "html-react-parser";
 
 const Services = () => {
   const { userType, serviceName } = useParams();
@@ -58,7 +59,9 @@ const Services = () => {
             <p
               className="text-2xl row-span-1 mt-12 font-[Sentient] font-normal ml-60 mb-12"
               dangerouslySetInnerHTML={{
-                __html: serviceData?.servicePageData?.Description,
+                __html:
+                  serviceData?.servicePageData?.Description &&
+                  parse(serviceData?.servicePageData?.Description),
               }}
             ></p>
 
@@ -73,27 +76,29 @@ const Services = () => {
                       onClick={() => navigate(`/${ele.ContentSlug}`)}
                     >
                       <div
-                        className={` text-white p-10 rounded-lg item-bg ${hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym && "active"}`}
+                        className={` text-white p-10 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
                       >
-                        <p className="text-5xl font-Syne">{ele.Heading1}</p>
+                        <h4 className="text-5xl font-Syne">{ele.Heading1}</h4>
 
                         <p
-                          className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === undefined && "line-clamp-4"}`}
+                          className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
                           dangerouslySetInnerHTML={{
                             __html: ele?.Description,
                           }}
                         ></p>
 
-                        {hoveredDivs === undefined && (
-                          <p className="font-[Sentient] font-bold text-[16px] leading-[21.76px]">
-                            ...Read More
-                          </p>
-                        )}
+                        <p
+                          onClick={() => navigate(`/${ele.ContentSlug}`)}
+                          className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
+                        >
+                          ...Read More
+                        </p>
                       </div>
                     </div>
                   );
                 })}
             </div>
+
             <div className="flex justify-center mt-40">
               <img src={ServicesImg} alt="Services" />
             </div>
@@ -131,9 +136,9 @@ const Services = () => {
                     }}
                   >
                     <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
-                      <p className="text-4xl font-semibold my-10">
+                      <h3 className="text-4xl font-semibold my-10">
                         {ele.Heading1}
-                      </p>
+                      </h3>
 
                       {hoveredDivs === ele.ServiceShortForm ? (
                         <p
