@@ -49,7 +49,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
           <div className="grid grid-cols-2">
             <div className="grid">
               <div className="col-span-6">
-                <ul className="w-full flex flex-col items-start pl-56 pt-48 xl:pt-32">
+                <ul className="w-full flex flex-col items-start pl-56 pt-48 xl:pt-20">
                   <li className="nav-li">
                     <a
                       href="/"
@@ -125,7 +125,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
 
             <div className="grid">
               <div className="col-span-6">
-                <ul className="w-full flex flex-col items-start pl-16 pt-48 xl:pt-32">
+                <ul className="w-full flex flex-col items-start pl-16 pt-48 xl:pt-20">
                   <li className="nav-li opacity-0">
                     <a
                       href="/"

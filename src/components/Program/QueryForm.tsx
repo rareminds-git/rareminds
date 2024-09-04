@@ -132,7 +132,7 @@ const QueryForm = ({ pageData, content }) => {
             </p>
 
             <h3
-              className={`text-xl mt-8 px-24 md:text-center text-left text-red-500 font-bold font-Syne fixed ${errorMessage ? "bg-gray-300" : "bg-white"} top-10 left-0 w-full p-5 z-50`}
+              className={`text-xl mt-8 px-24 md:text-center text-left text-red-500 font-bold font-Syne fixed ${errorMessage ? "bg-gray-300" : "bg-white"} top-10 left-0 w-full p-5 xl:p-0 z-50`}
             >
               {errorMessage}
             </h3>

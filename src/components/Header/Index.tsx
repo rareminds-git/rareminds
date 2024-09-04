@@ -27,7 +27,7 @@ const Header = ({ navbarOpen, setNavbarOpen }) => {
   };
 
   return (
-    <header className="w-full fixed top-0 left-0 px-8 py-4 flex z-20 bg-white overflow-hidden">
+    <header className="w-full fixed top-0 left-0 px-8 py-4 xl:py-[0.5rem] flex z-20 bg-white overflow-hidden">
       <div className="text-white flex-grow z-20">
         <a href="/">
           <img src={Logo} alt="Rareminds" width={211} height={52} />
