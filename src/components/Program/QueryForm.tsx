@@ -121,13 +121,13 @@ const QueryForm = ({ pageData, content }) => {
     </section>
   ) : (
     <>
-      <section className="md:px-60 px-10 md:pt-32 md:pb-48">
+      <section className="md:px-60 xl:px-40 px-10 md:pt-32 md:pb-48">
         <div className="flex">
           <div className="grid space-y-10 text-center font-Syne">
             <h1 className="mt-20 text-3xl md:text-center text-left font-bold md:text-5xl">
               {content[0]?.Heading1}
             </h1>
-            <p className="text-xl mb-20 md:px-72 md:text-center text-left">
+            <p className="text-xl mb-20 md:px-72 xl:px-40 md:text-center text-left">
               {content[0]?.Heading2}
             </p>
 
@@ -365,7 +365,7 @@ const QueryForm = ({ pageData, content }) => {
             className="text-[18px] leading-[24px] font-normal md:w-[75%] font-Syne checkbox mt-10"
           />
 
-          <h2 className="text-[26px] leading-[29px] md:w-[60%] mt-24 pr-56 font-Syne font-bold">
+          <h2 className="text-[26px] leading-[29px] md:w-[60%] xl:w-[75%] mt-24 pr-56 font-Syne font-bold">
             {content[0]?.SubHeading1}
           </h2>
 
