@@ -7,12 +7,12 @@ const Achievements = ({ content, achievements }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>
-      <section className="lg:px-10 lg:py-20 place-items-center font-Syne">
+      <section className="lg:px-10 xl:px-20 lg:py-20 place-items-center font-Syne">
         <div className="items-center px-5 py-5">
           <p className="mt-0 font-bold text-center ml-0 text-[24px] leading-[28.8px] lg:text-[49px] lg:leading-[73.5px] py-10 text-black-500 font-[Poppins-Regular]">
             {content[0]?.Heading1}
           </p>
-          <p className="lg:text-[22px] lg:leading-[33px] text-[14px] leading-[21px] lg:mt-2 lg:px-[10rem] lg:mb-20 lg:text-center font-[Poppins-Regular]">
+          <p className="lg:text-[22px] lg:leading-[33px] text-[14px] leading-[21px] lg:mt-2 lg:px-[10rem] xl:px-[4rem] lg:mb-20 lg:text-center font-[Poppins-Regular]">
             {content[0]?.Description}
           </p>
         </div>
@@ -20,7 +20,7 @@ const Achievements = ({ content, achievements }) => {
           <>
             {achievements?.map((ele: any) => {
               return (
-                <div className="container-fluid lg:px-12" ref={ref}>
+                <div className="container-fluid lg:px-12 xl:px-4" ref={ref}>
                   <div className="grid grid-cols-4 gap-4 lg:px-12 lg:py-12 py-10 px-10 border-y-black border-2 border-x-0">
                     <div className="lg:col-span-2 col-span-2">
                       <h5 className="text-[52px] leading-[58px] font-Syne font-bold">

@@ -42,7 +42,7 @@ const ServiceName = () => {
         />
       </Helmet>
       {!isMobile ? (
-        <div className="grid w-full min-h-screen lg:py-4">
+        <div className="grid w-full min-h-screen lg:py-4 xl:pt-20 xl:pb-0 xl:px-12">
           <section className="lg:px-20 px-10 lg:py-10">
             <div className="grid grid-cols-6 gap-0">
               <h1
@@ -59,7 +59,7 @@ const ServiceName = () => {
               }}
             ></p>
 
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-4 xl:gap-24 gap-4">
               <div className="rounded col-span-2">
                 <img
                   src={ProgramImg}
@@ -75,7 +75,7 @@ const ServiceName = () => {
               <div className="grid grid-flow-row col-span-2 relative">
                 <img
                   src={ServiceIllsImg}
-                  className="absolute -left-5 top-10"
+                  className="absolute -left-24 top-10"
                   alt="Line"
                 />
                 <h2 className="text-[#FF2C2C] font-bold mb-10 capitalize lg:text-[36px] lg:leading-[42px] text-3xl mt-36 font-Syne">

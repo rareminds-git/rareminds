@@ -146,7 +146,7 @@ const QueryForm = ({ pageData, content }) => {
                 Full Name*
               </Form.Label>
               <Form.Control
-                className={`my-2 w-72 border-b-2 ${errors.FullName ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-60 border-b-2 ${errors.FullName ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your name"
                 onChange={(e) =>
@@ -165,7 +165,7 @@ const QueryForm = ({ pageData, content }) => {
                 Company Name*
               </Form.Label>
               <Form.Control
-                className={`my-2 w-72 border-b-2 ${errors.CompanyName ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-60 border-b-2 ${errors.CompanyName ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your company"
                 onChange={(e) =>
@@ -184,7 +184,7 @@ const QueryForm = ({ pageData, content }) => {
                 Email address*
               </Form.Label>
               <Form.Control
-                className={`my-2 w-72 border-b-2 ${errors.Email ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-60 border-b-2 ${errors.Email ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your email"
                 onChange={(e) =>
@@ -202,7 +202,7 @@ const QueryForm = ({ pageData, content }) => {
                 Phone Number*
               </Form.Label>
               <Form.Control
-                className={`my-2 w-72 border-b-2 ${errors.PhoneNumber ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-60 border-b-2 ${errors.PhoneNumber ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your number"
                 onChange={(e) =>
@@ -220,7 +220,7 @@ const QueryForm = ({ pageData, content }) => {
                 Job Title*
               </Form.Label>
               <Form.Control
-                className={`my-2 w-72 border-b-2 ${errors.JobTitle ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-60 border-b-2 ${errors.JobTitle ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your job title"
                 onChange={(e) =>

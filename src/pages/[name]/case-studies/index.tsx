@@ -34,7 +34,7 @@ const CaseStudies = () => {
         <meta property="og:title" content={pageData?.OGTitle} />
         <meta property="og:description" content={pageData?.OGDescription} />
       </Helmet>
-      <section className="lg:px-20 px-10 py-10">
+      <section className="lg:px-20 px-10 py-10 xl:px-32">
         <div className="flex">
           <div className="grid">
             <h1 className="lg:mb-20 lg:mt-20 mt-10 text-3xl text-left font-bold lg:text-5xl">

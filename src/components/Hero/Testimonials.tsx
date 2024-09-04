@@ -22,7 +22,7 @@ const Testimonials = () => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>
-      <div className="lg:py-20">
+      <div className="lg:py-20 xl:px-8">
         <CustomTabs content={<TestimonialCarousel />} tabs={tabs} />
       </div>
     </>

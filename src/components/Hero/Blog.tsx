@@ -18,7 +18,7 @@ const Blog = ({ content }) => {
             Blog
           </h5>
           <OwlCarousel
-            className="owl-theme lg:pl-64"
+            className="owl-theme lg:pl-64 xl:pl-40"
             autoplay
             responsive={{
               0: {

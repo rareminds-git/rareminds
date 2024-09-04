@@ -476,6 +476,16 @@
     line-height: 28.8px;
     font-weight: 600;
     border: none;
+
+    @media (min-width: 1280px) {
+      padding: 2px;
+      margin: 0.75rem;
+    }
+
+    @media (min-width: 1536px) {
+      padding: 5px;
+      margin: 2rem;
+    }
   }
 
   .custom-tabs .react-tabs__tab--selected {

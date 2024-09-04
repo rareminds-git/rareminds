@@ -5,7 +5,7 @@ const CTA = ({ content }) => {
   const navigate = useNavigate();
   return (
     <>
-      <section className="cursor-pointer">
+      <section className="cursor-pointer xl:pt-0 xl:pb-16">
         <div
           onClick={() => navigate("/unlock-your-potential")}
           className="grid space-y-10 lg:grid-cols-3 my-20 lg:mx-32 mx-12 place-items-center border-y-[#FF2C2C] border-2 border-x-0"
