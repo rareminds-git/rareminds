@@ -13,12 +13,12 @@ const Blog = ({ content }) => {
   return (
     <>
       {!isMobile ? (
-        <div className="bg-[#cabe9e1f] lg:py-20 mt-10">
+        <div className="bg-[#cabe9e1f] lg:py-32 mt-10">
           <h5 className="font-Syne py-12 mx-auto text-black font-bold mb-20 text-[59px] leading-[70.8px] text-center">
             Blog
           </h5>
           <OwlCarousel
-            className="owl-theme lg:pl-24"
+            className="owl-theme lg:pl-64"
             autoplay
             responsive={{
               0: {
@@ -33,20 +33,20 @@ const Blog = ({ content }) => {
                 stagePadding: 20,
               },
               1000: {
-                items: 5,
+                items: 3.5,
                 loop: true,
                 dots: false,
               },
             }}
             loop
-            margin={10}
-            stagePadding={100}
+            margin={40}
+            // stagePadding={150}
             items={4}
           >
             {content.map((ele, index) => {
               return (
                 <div
-                  className="item cursor-pointer w-[320px]"
+                  className="item cursor-pointer"
                   onClick={() => navigate(`/blogs/${ele.ContentSlug}`)}
                 >
                   <div className="grid grid-flow-col place-items-start">
@@ -54,7 +54,7 @@ const Blog = ({ content }) => {
                       <img
                         src={ele.Image1}
                         style={{
-                          width: "318px",
+                          width: "100%",
                           height: `${index % 2 === 0 ? "445px" : "575px"}`,
                         }}
                         className={`${index % 2 === 0 ? "rounded-tl-[20px] rounded-tr-[180px] rounded-bl-[20px] rounded-br-[20px]" : "rounded-tl-[80px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]"}`}
@@ -76,7 +76,7 @@ const Blog = ({ content }) => {
           </OwlCarousel>
         </div>
       ) : (
-        <div className="bg-[#cabe9e1f] py-12">
+        <div className="bg-[#cabe9e1f] pl-24">
           <h5 className="font-Syne my-8 mx-auto text-red-400 text-center font-bold text-3xl">
             Blog
           </h5>
