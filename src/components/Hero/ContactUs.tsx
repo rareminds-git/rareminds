@@ -22,26 +22,28 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
 
         {!isMobile && <CTA content={ctaContent} />}
 
-        <div className="flex">
+        <div className="flex px-60">
           <div className="my-4 place-items-start">
             {content.map((ele, index) => {
               return (
                 <>
                   <div className="md:px-64 my-10">
-                    <p className="text-red-400 font-bold text-2xl">
+                    <p className="text-red-400 font-bold font-Syne text-[36px] leading-[43.2px] ">
                       {ele.Heading1}
                     </p>
-                    <p className="text-black-400 font-light">{ele.Heading2}</p>
+                    <p className="text-black-400 py-2 font-normal font-Syne text-[18px] leading-[21.6px]">
+                      {ele.Heading2}
+                    </p>
                   </div>
 
                   <div className="container md:px-64">
                     <div className="grid grid-cols-2 gap-4 md:py-12">
                       <div className="grid">
                         <div className="md:col-span-6 col-span-9">
-                          <p className=" md:text-xl text-xl font-bold">
+                          <p className="md:text-[20px] md:leading-[24px] text-xl font-semibold">
                             {ele.SubHeading1}
                           </p>
-                          <p className=" md:text-xl text-xl font-light">
+                          <p className=" md:text-[20px] md:leading-[24px] text-xl font-normal">
                             {ele.Description}
                           </p>
                         </div>
@@ -81,7 +83,7 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
             })}
           </div>
         </div>
-        <div>
+        <div className="md:px-32">
           <h2 className="text-2xl font-bold text-red-400 md:py-8">
             Spot us on the map
           </h2>

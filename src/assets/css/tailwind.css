@@ -302,8 +302,8 @@
   }
 
   .service-list .item {
-    min-height: 350px;
-    max-height: 350px;
+    /* min-height: 350px;
+    max-height: 350px; */
 
     @media (max-width: 640px) {
       min-height: 100%;
@@ -372,34 +372,17 @@
   }
 
   input[type="checkbox"] {
-    /* Double-sized Checkboxes */
-    -ms-transform: scale(1.5); /* IE */
-    -moz-transform: scale(1.5); /* FF */
-    -webkit-transform: scale(1.5); /* Safari and Chrome */
-    -o-transform: scale(1.5); /* Opera */
-    transform: scale(1.5);
-    padding: 20px;
     accent-color: transparent;
+    outline: 1px solid #000;
   }
 
-  input[type="radio"] {
-    /* Double-sized Checkboxes */
-    -ms-transform: scale(1.5); /* IE */
-    -moz-transform: scale(1.5); /* FF */
-    -webkit-transform: scale(1.5); /* Safari and Chrome */
-    -o-transform: scale(1.5); /* Opera */
-    transform: scale(1.5);
-    padding: 20px;
-    accent-color: red;
-  }
-
-  input[type="checkbox"]:checked,
-  input[type="radio"]:checked {
-    background-color: transparent;
+  input[type="checkbox"]:checked {
+    accent-color: white;
+    /* outline: 1px solid #000; */
   }
 
   input[type="checkbox"]:focus {
-    outline: 0;
+    /* outline: 1px solid #000; */
   }
 
   .checkbox label,
@@ -506,5 +489,61 @@
 
   .react-tabs__tab-list {
     border-bottom: none;
+  }
+
+  .radio-button {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 10px;
+    position: relative;
+    color: black;
+    font-family: Syne;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 36px;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .radio-button input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .radio {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 5px solid salmon;
+    /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); */
+    transform: translateZ(-25px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .radio::before {
+    position: absolute;
+    content: "";
+    width: 0px;
+    height: 0px;
+    top: 5px;
+    left: 5px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .radio-button input[type="radio"]:checked + .radio {
+    border-color: salmon;
+    transform: translateZ(0px);
+    background-color: #000;
+  }
+
+  .radio-button input[type="radio"]:checked + .radio::before {
+    opacity: 1;
   }
 }

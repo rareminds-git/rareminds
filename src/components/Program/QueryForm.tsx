@@ -6,6 +6,7 @@ import Form from "react-bootstrap/Form";
 import { useMediaQuery } from "react-responsive";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
+import BackArrow from "../../assets/images/back-arrow.svg";
 
 const QueryForm = ({ pageData, content }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
@@ -53,7 +54,7 @@ const QueryForm = ({ pageData, content }) => {
     if (Object.keys(newErrors).length === 0) {
       formData.Services = formData.Services.join(", ");
 
-      let config = {
+      const config = {
         method: "post",
         maxBodyLength: Infinity,
         url: "http://13.126.41.32/api/submit-query-form",
@@ -96,14 +97,14 @@ const QueryForm = ({ pageData, content }) => {
 
       setFormData({ ...formData, Services: services });
     } else {
-      let servicesArray = [];
+      const servicesArray = [];
       servicesArray.push(e.target.value);
       setFormData({ ...formData, Services: servicesArray });
     }
   };
 
   return successMessage ? (
-    <section className="md:px-20 px-10 py-10">
+    <section className="md:px-20 px-10 md:pt-32 md:pb-48">
       <div className="flex">
         <div className="grid space-y-10 text-center font-Syne">
           <h1 className="mt-20 text-3xl md:text-center text-left font-bold md:text-5xl">
@@ -120,13 +121,13 @@ const QueryForm = ({ pageData, content }) => {
     </section>
   ) : (
     <>
-      <section className="md:px-20 px-10 py-10">
+      <section className="md:px-60 px-10 md:pt-32 md:pb-48">
         <div className="flex">
           <div className="grid space-y-10 text-center font-Syne">
             <h1 className="mt-20 text-3xl md:text-center text-left font-bold md:text-5xl">
               {content[0]?.Heading1}
             </h1>
-            <p className="text-xl mb-20 md:px-44 md:text-center text-left">
+            <p className="text-xl mb-20 md:px-72 md:text-center text-left">
               {content[0]?.Heading2}
             </p>
 
@@ -138,14 +139,14 @@ const QueryForm = ({ pageData, content }) => {
           </div>
         </div>
 
-        <Form className="mt-20 pr-10 md:pl-20">
+        <Form className="mt-20 pr-10 md:px-20">
           <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
             <Form.Group className="w-full grid md:grid-rows-2">
-              <Form.Label className="text-3xl text-black-500 font-Syne">
+              <Form.Label className="text-[26px] leading-[31.2px] text-black-500 font-medium">
                 Full Name*
               </Form.Label>
               <Form.Control
-                className={`my-6 border-b-2 ${errors.FullName ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-72 border-b-2 ${errors.FullName ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your name"
                 onChange={(e) =>
@@ -160,11 +161,11 @@ const QueryForm = ({ pageData, content }) => {
             </Form.Group>
 
             <Form.Group className="grid md:grid-rows-2 w-full">
-              <Form.Label className="text-3xl text-black-500 font-Syne">
+              <Form.Label className="text-[26px] leading-[31.2px] text-black-500 font-medium">
                 Company Name*
               </Form.Label>
               <Form.Control
-                className={`my-6 border-b-2 ${errors.CompanyName ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-72 border-b-2 ${errors.CompanyName ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your company"
                 onChange={(e) =>
@@ -179,11 +180,11 @@ const QueryForm = ({ pageData, content }) => {
             </Form.Group>
 
             <Form.Group className="grid md:grid-rows-2 w-full">
-              <Form.Label className="text-3xl text-black-500 font-Syne">
+              <Form.Label className="text-[26px] leading-[31.2px] text-black-500 font-medium">
                 Email address*
               </Form.Label>
               <Form.Control
-                className={`my-6 border-b-2 ${errors.Email ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-72 border-b-2 ${errors.Email ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your email"
                 onChange={(e) =>
@@ -197,11 +198,11 @@ const QueryForm = ({ pageData, content }) => {
               )}
             </Form.Group>
             <Form.Group className="md:mt-16 grid md:grid-rows-2 w-full">
-              <Form.Label className="text-3xl text-black-500 font-Syne">
+              <Form.Label className="text-[26px] leading-[31.2px] text-black-500 font-medium">
                 Phone Number*
               </Form.Label>
               <Form.Control
-                className={`my-6 border-b-2 ${errors.PhoneNumber ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-72 border-b-2 ${errors.PhoneNumber ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your number"
                 onChange={(e) =>
@@ -215,11 +216,11 @@ const QueryForm = ({ pageData, content }) => {
               )}
             </Form.Group>
             <Form.Group className="md:mt-16 grid md:grid-rows-2 w-full">
-              <Form.Label className="text-3xl text-black-500 font-Syne">
+              <Form.Label className="text-[26px] leading-[31.2px] text-black-500 font-medium">
                 Job Title*
               </Form.Label>
               <Form.Control
-                className={`my-6 border-b-2 ${errors.JobTitle ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-72 border-b-2 ${errors.JobTitle ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your job title"
                 onChange={(e) =>
@@ -234,16 +235,18 @@ const QueryForm = ({ pageData, content }) => {
             </Form.Group>
           </div>
 
-          <h3 className="text-2xl mt-24 font-Syne">
+          <h3 className="text-[26px] leading-[42.12px] font-medium mt-24 font-Syne">
             Which of Rareminds' services are you most interested in? <br />
-            <span className="text-xl font-Syne">(Select all that apply)</span>
+            <span className="text-[20px] leading-[32.4px] font-normal font-Syne">
+              (Select all that apply)
+            </span>
           </h3>
 
           <div className="grid md:grid-cols-3 grid-cols-1 gap-4 mt-10">
             <Form.Check // prettier-ignore
               type="checkbox"
               label="Talent Acquisition"
-              className="text-2xl checkbox"
+              className="text-[30px] leading-[36px] font-normal checkbox font-Syne"
               value={"TA"}
               onChange={(e) => {
                 setCheckBoxValue(e);
@@ -252,7 +255,7 @@ const QueryForm = ({ pageData, content }) => {
             <Form.Check // prettier-ignore
               type="checkbox"
               label="Talent Management"
-              className="text-2xl checkbox"
+              className="text-[30px] leading-[36px] font-normal checkbox font-Syne"
               value={"TM"}
               onChange={(e) => {
                 setCheckBoxValue(e);
@@ -261,7 +264,7 @@ const QueryForm = ({ pageData, content }) => {
             <Form.Check // prettier-ignore
               type="checkbox"
               label="Talent Development"
-              className="text-2xl checkbox"
+              className="text-[30px] leading-[36px] font-normal checkbox font-Syne"
               value={"TD"}
               onChange={(e) => {
                 setCheckBoxValue(e);
@@ -269,45 +272,86 @@ const QueryForm = ({ pageData, content }) => {
             />
           </div>
 
-          <h3 className="text-2xl mt-24 font-Syne">
+          <h3 className="text-[26px] leading-[42.12px] font-medium mt-24 font-Syne">
             How did you hear about Rareminds?
           </h3>
 
           <div className="grid md:grid-cols-3 grid-cols-1 gap-4 mt-10">
-            <Form.Check // prettier-ignore
-              type="radio"
-              label="Website"
-              className="text-2xl radio"
-              onChange={(e) =>
-                setFormData({ ...formData, ReferralSource: "Website" })
-              }
-            />
-            <Form.Check // prettier-ignore
-              type="radio"
-              label="Referral"
-              className="text-2xl radio"
-              onChange={(e) =>
-                setFormData({ ...formData, ReferralSource: "Referral" })
-              }
-            />
-            <Form.Check // prettier-ignore
-              type="radio"
-              label="Social Media"
-              className="text-2xl radio"
-              onChange={(e) =>
-                setFormData({ ...formData, ReferralSource: "Social Media" })
-              }
-            />
+            <label className="radio-button">
+              <input
+                type="radio"
+                onChange={() =>
+                  setFormData({ ...formData, ReferralSource: "Website" })
+                }
+                name="example-radio"
+                value="option1"
+                className="text-[30px] leading-[36px] font-normal radio text-black font-Syne"
+              />
+              <span className="radio"></span>
+              Website
+            </label>
+            <label className="radio-button">
+              <input
+                type="radio"
+                onChange={() =>
+                  setFormData({ ...formData, ReferralSource: "Referral" })
+                }
+                name="example-radio"
+                value="option1"
+                className="text-[30px] leading-[36px] font-normal radio text-black font-Syne"
+              />
+              <span className="radio"></span>
+              Referral
+            </label>
+            <label className="radio-button">
+              <input
+                type="radio"
+                onChange={() =>
+                  setFormData({ ...formData, ReferralSource: "Social Media" })
+                }
+                name="example-radio"
+                value="option1"
+                className="text-[30px] leading-[36px] font-normal radio text-black font-Syne"
+              />
+              <span className="radio"></span>
+              Social Media
+            </label>
+            <label className="radio-button">
+              <input
+                type="radio"
+                onChange={() =>
+                  setFormData({ ...formData, ReferralSource: "Industry Event" })
+                }
+                name="example-radio"
+                value="option1"
+                className="text-[30px] leading-[36px] font-normal radio text-black font-Syne"
+              />
+              <span className="radio"></span>
+              Industry Event
+            </label>
+            <label className="radio-button">
+              <input
+                type="radio"
+                onChange={() =>
+                  setFormData({ ...formData, ReferralSource: "Other" })
+                }
+                name="example-radio"
+                value="option1"
+                className="text-[30px] leading-[36px] font-normal radio text-black font-Syne"
+              />
+              <span className="radio"></span>
+              Other
+            </label>
           </div>
 
-          <h3 className="text-xl mt-24 font-Syne">
+          <h3 className="text-[18px] leading-[24px] font-medium mt-24 font-Syne">
             Feel free to share any additional information or questions you have
             for the Rareminds team:
           </h3>
 
           <Form.Control
             as="textarea"
-            className="mt-10 border-2 w-full p-5 rounded-xl"
+            className="mt-10 border-2 w-[70%] p-5 rounded-xl"
             rows={5}
             placeholder="Type here"
             onChange={(e) =>
@@ -318,20 +362,21 @@ const QueryForm = ({ pageData, content }) => {
           <Form.Check // prettier-ignore
             type="checkbox"
             label="By submitting this form, you agree to be contacted by our team representative to discuss a customised talent solution for your organisation. Rest assured, your information will be kept confidential."
-            className="text-xl font-Syne checkbox mt-10"
+            className="text-[18px] leading-[24px] font-normal md:w-[75%] font-Syne checkbox mt-10"
           />
-          <h2 className="text-2xl mt-20 font-Syne font-bold">
+
+          <h2 className="text-[26px] leading-[29px] md:w-[60%] mt-24 pr-56 font-Syne font-bold">
             {content[0]?.SubHeading1}
           </h2>
 
-          <h2 className="text-xl mt-20 pr-56 font-Syne font-bold">
+          <h2 className="text-[26px] leading-[42.12px] font-medium mt-12 font-Syne">
             {content[0]?.SubHeading2}
           </h2>
 
-          <div className="grid grid-cols-4 gap-4 mt-20">
+          <div className="grid grid-cols-4 gap-4 mt-8">
             <div>
               <Button
-                className=" bg-blue-100 px-10 py-2 font-Syne text-xl rounded-md"
+                className=" bg-[#CAF0F8] px-10 py-2 font-bold font-Syne text-xl rounded-md"
                 variant="primary"
                 size="lg"
                 onClick={() => submitQueryForm()}
@@ -342,7 +387,15 @@ const QueryForm = ({ pageData, content }) => {
 
             <div></div>
             <div></div>
-            <div className="text-2cl font-Syne">Back</div>
+            <div className="text-[16px] leading-[20px] font-bold font-Syne flex items-center">
+              <img
+                className="flex-inline mr-2"
+                src={BackArrow}
+                alt="back"
+                width="12px"
+              />
+              <span className="flex-inline">Back</span>
+            </div>
           </div>
         </Form>
       </section>

@@ -51,13 +51,12 @@ const Services = () => {
       </Helmet>
       {!isMobile ? (
         <div className="grid w-full min-h-screen md:py-16">
-          <section className="md:px-20 px-10 md:py-10">
-            <h1 className="md:text-7xl text-5xl font-Syne  place-items-start text-[#000000] capitalize">
+          <section className="md:px-44 px-10 md:py-32">
+            <h1 className="text-xl md:text-[70px] leading-[74px] font-Syne font-medium place-items-start text-[#000000] capitalize">
               {serviceData?.servicePageData?.Heading1}
             </h1>
-
             <p
-              className="text-2xl row-span-1 mt-12 font-[Sentient] font-normal ml-60 mb-12"
+              className="text-[24px] leading-[32.6px] row-span-1 mt-12 font-[Sentient] font-light ml-60 mb-12 px-52"
               dangerouslySetInnerHTML={{
                 __html:
                   serviceData?.servicePageData?.Description &&
@@ -76,12 +75,12 @@ const Services = () => {
                       onClick={() => navigate(`/${ele.ContentSlug}`)}
                     >
                       <div
-                        className={` text-white p-10 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
+                        className={` text-white pt-32 pb-12 px-20 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
                       >
                         <h4 className="text-5xl font-Syne">{ele.Heading1}</h4>
 
                         <p
-                          className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
+                          className={`text-sm my-12 font-[Sentient] font-normal ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
                           dangerouslySetInnerHTML={{
                             __html: ele?.Description,
                           }}
