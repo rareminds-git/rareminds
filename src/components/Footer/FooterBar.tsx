@@ -126,7 +126,7 @@ const FooterBar = () => {
               </div>
             </div>
             <div className="row-span-1 place-items-end text-right">
-              <h3 className="text-[30px] leading-[40.8px] font-light font-[Sentient] text-left ml-[37rem]">
+              <h3 className="text-[30px] leading-[40.8px] font-light font-[Sentient] text-left ml-[32rem]">
                 Sign up to receive <br /> latest news.
               </h3>
               <input

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CorporateBanner from "../assets/images/banners/CorporateBanner.png";
+import CorporateBanner from "../assets/images/banners/corporate-landing.webp";
 import GovernmentBanner from "../assets/images/banners/GovernmentBanner.png";
 import InstitutionsBanner from "../assets/images/banners/InstitutionBanner.png";
 import SchoolsBanner from "../assets/images/banners/SchoolsBanner.png";
@@ -88,7 +88,7 @@ const Index = () => {
         <div className="banner" style={{ backgroundImage: `url(${Baner})` }}>
           <div className="banner-grid h-screen">
             <div className="grid grid-rows-2 grid-flow-col gap-0 h-screen">
-              <div className="mt-8 mx-4 row-span-2">
+              <div className="mt-8 mx-8 row-span-2">
                 <img src={Logo} alt="Rareminds" />
               </div>
               <div className="p-12 cursor-pointer row-span-2">
@@ -113,9 +113,11 @@ const Index = () => {
                     <h3 className="text-white font-bold font-[Poppins-Regular] text-[36px] leading-[38px]">
                       For {ele.PageName}
                     </h3>
-                    <p className="mt-60 mr-16 text-white font-[Urbanist] text-[20px] leading-[26px] font-semibold absolute bottom-10">
-                      {ele.PageSubTitle}
-                    </p>
+                    {activeBanner === ele.PageSlug.replace("/", "") && (
+                      <p className="mt-60 mr-16 text-white font-[Urbanist] text-[20px] leading-[26px] font-semibold absolute bottom-10">
+                        {ele.PageSubTitle}
+                      </p>
+                    )}
                   </div>
                 );
               })}

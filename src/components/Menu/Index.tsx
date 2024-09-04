@@ -1,32 +1,35 @@
-import MenuIlls from "../../assets/images/MenuIlls.svg";
 import { useMediaQuery } from "react-responsive";
 import FooterIcon from "../Footer/FooterIcon";
+import FaceBookIcon from "../../assets/images/fb-icon.svg";
+import TwitterIcon from "../../assets/images/twitter-icon.svg";
+import LinkedInIcon from "../../assets/images/linkedin-icon.svg";
+import YoutubeIcon from "../../assets/images/youtube-icon.svg";
+import InstagramIcon from "../../assets/images/instagram-icon.svg";
 
 const socialIcons = [
   {
     id: 1,
-    icon: "mdi:twitter",
-    link: "https://twitter.com/",
-  },
-
-  {
-    id: 2,
-    icon: "mdi:facebook",
+    icon: FaceBookIcon,
     link: "https://facebook.com",
   },
   {
+    id: 2,
+    icon: TwitterIcon,
+    link: "https://twitter.com/",
+  },
+  {
     id: 3,
-    icon: "mdi:instagram",
+    icon: InstagramIcon,
     link: "https://instagram.com",
   },
   {
     id: 4,
-    icon: "mdi:youtube",
+    icon: YoutubeIcon,
     link: "https://youtube.com",
   },
   {
     id: 5,
-    icon: "mdi:linkedin",
+    icon: LinkedInIcon,
     link: "https://linkedin.com",
   },
 ];
@@ -37,7 +40,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
     <>
       {!isMobile ? (
         <nav
-          className={`fixed flex top-0 left-0 w-full px-10 z-10 md:h-screen pt-12 bg-red-400 transform delay-100 transition-all duration-300 ${
+          className={`fixed flex top-0 left-0 w-full px-10 z-10 md:h-screen pt-12 bg-[#FF6363] transform delay-100 transition-all duration-300 ${
             navbarOpen
               ? "opacity-100 translate-x-0"
               : "opacity-0 -translate-x-full"
@@ -113,8 +116,8 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       Blog
                     </a>
                   </li>
-                  <li className="nav-li text-2xl pt-12 font-Syne text-white">
-                    info@rareminds.com
+                  <li className="nav-li text-[22px] leading-[20px] font-semibold pt-12 font-Syne text-white">
+                    info@rareminds.in
                   </li>
                 </ul>
               </div>
@@ -122,7 +125,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
 
             <div className="grid">
               <div className="col-span-6">
-                <ul className="w-full flex flex-col items-start pl-28 pt-20">
+                <ul className="w-full flex flex-col items-start pl-16 pt-20">
                   <li className="nav-li opacity-0">
                     <a
                       href="/"
@@ -189,22 +192,17 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       Blog
                     </a>
                   </li>
-                  <li className="nav-li text-2xl pt-24 font-Syne text-white">
-                    Follow us:{" "}
+                  <li className="nav-li text-[20px] leading-[20px] flex items-center font-semibold pt-24 text-white font-Syne">
+                    <span className="inline-flex mr-1">Follow us:</span>
                     {socialIcons.map((socialIcon) => {
                       const { icon, id, link } = socialIcon;
                       return (
-                        <div
-                          className="text-white text-2xl rounded inline-block"
+                        <FooterIcon
                           key={id}
-                        >
-                          <FooterIcon
-                            key={id}
-                            icon={icon}
-                            link={link}
-                            type="header"
-                          />
-                        </div>
+                          icon={icon}
+                          link={link}
+                          type="header"
+                        />
                       );
                     })}
                   </li>
@@ -215,7 +213,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
         </nav>
       ) : (
         <nav
-          className={`fixed flex h-full w-full top-0 left-0 px-4 z-10 md:h-screen pt-24 bg-red-400 transform delay-100 transition-all duration-300 ${
+          className={`fixed flex h-full w-full top-0 left-0 px-4 z-10 md:h-screen pt-24 bg-[#FF6363] transform delay-100 transition-all duration-300 ${
             navbarOpen
               ? "opacity-100 translate-x-0"
               : "opacity-0 -translate-x-full"
@@ -305,14 +303,14 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                 </ul>
 
                 <p className="text-white font-Syne text-xl mt-32">
-                  info@rareminds.com
+                  info@rareminds.in
                 </p>
                 <p className="text-2xl font-Syne text-white">
                   Follow us:{" "}
                   {socialIcons.map((socialIcon) => {
                     const { icon, id, link } = socialIcon;
                     return (
-                      <div
+                      <span
                         className="text-white text-2xl rounded inline-block"
                         key={id}
                       >
@@ -322,7 +320,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                           link={link}
                           type="header"
                         />
-                      </div>
+                      </span>
                     );
                   })}
                 </p>

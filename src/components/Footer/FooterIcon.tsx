@@ -9,11 +9,17 @@ const FooterIcon = ({
 }) => {
   return (
     <>
-      <a href={link} target="_blank" className="flex md:px-2" rel="noreferrer">
-        <Icon
+      <a
+        href={link}
+        target="_blank"
+        className="inline-flex text-white text-2xl mr-2 rounded"
+        rel="noreferrer"
+      >
+        <img src={icon} />
+        {/* <Icon
           icon={icon}
-          className={`${type === "header" ? "text-white md:text-2xl text-xl rounded" : "text-gray-400 text-xl"} transition-all duration-200 ease-in hover:text-white`}
-        />
+          className={`${type === "header" ? "text-red-400 md:text-3xl text-xl rounded-full" : "text-red-400 text-xl"} transition-all duration-200 ease-in hover:text-red-400`}
+        /> */}
       </a>
     </>
   );
