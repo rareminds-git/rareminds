@@ -183,7 +183,7 @@ const About = () => {
                 <>
                   <div className="mt-4 col-span-2 px-2 py-3 rounded overflow-hidden shadow-xl mx-3">
                     <img
-                      src={`/src/assets/images/${ele.Image1}`}
+                      src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
                       width="180px"
                       className="rounded-full
             border-[#CAF0F8] border-[17px] mx-auto my-6"
@@ -217,7 +217,7 @@ const About = () => {
                         return (
                           <a target="_blank">
                             <img
-                              src={`/src/assets/images/${ele.Image1}`}
+                              src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
                               title=""
                               className="marqueelogo"
                               alt="Rareminds"
@@ -244,7 +244,7 @@ const About = () => {
                       return (
                         <a target="_blank">
                           <img
-                            src={`/src/assets/images/${ele.Image1}`}
+                            src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
                             title=""
                             className="marqueelogo my-8"
                             alt="Rareminds"
