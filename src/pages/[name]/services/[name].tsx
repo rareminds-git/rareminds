@@ -64,7 +64,7 @@ const ServiceName = () => {
             <div className="grid grid-cols-4 xl:gap-24 gap-4">
               <div className="rounded col-span-2">
                 <img
-                  src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${serviceData?.serviceData?.Image1}`}
+                  src={`/images/uploads/${serviceData?.serviceData?.Image1}`}
                   className="w-full rounded-xl"
                   alt={serviceData?.serviceData?.Heading1}
                 />
