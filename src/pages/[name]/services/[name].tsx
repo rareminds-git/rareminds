@@ -64,7 +64,7 @@ const ServiceName = () => {
             <div className="grid grid-cols-4 xl:gap-24 gap-4">
               <div className="rounded col-span-2">
                 <img
-                  src={`/src/assets/images/${serviceData?.serviceData?.Image1}`}
+                  src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${serviceData?.serviceData?.Image1}`}
                   className="w-full rounded-xl"
                   alt={serviceData?.serviceData?.Heading1}
                 />
@@ -86,11 +86,11 @@ const ServiceName = () => {
                 {serviceData?.servicePrograms?.map((ele: any) => {
                   return (
                     <div className="row-span-1">
-                      <p className="text-xl lg:text-[36px] lg:leading-[42px] font-[Syne]">
+                      <p className="text-xl lg:text-[36px] lg:leading-[42px] font-[Syne] font-semibold">
                         {ele.ContentTitle}
                       </p>
                       <span
-                        className="mt-4 mr-20 lg:text-[16px] lg:leading-[21.76px] font-[Sentient] font-normal serviceProgramList"
+                        className="mt-4 mr-20 lg:text-[16px] lg:leading-[21.76px] font-[Sentient] font-light serviceProgramList"
                         dangerouslySetInnerHTML={{
                           __html: ele.ContentDescription,
                         }}
