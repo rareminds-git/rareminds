@@ -33,7 +33,9 @@ const Index = () => {
         ? GovernmentBanner
         : activeBanner === "institutions"
           ? InstitutionsBanner
-          : SchoolsBanner;
+          : activeBanner === "school"
+            ? SchoolsBanner
+            : GovernmentBanner;
 
   const redirectToPage = (slug: string) => {
     setTimeout(() => {
@@ -57,6 +59,8 @@ const Index = () => {
 
     getPages();
   }, []);
+
+  console.log("active banner", activeBanner);
 
   return showLoader ? (
     <LoaderComponent />
@@ -88,16 +92,28 @@ const Index = () => {
         <div className="banner" style={{ backgroundImage: `url(${Baner})` }}>
           <div className="banner-grid h-screen">
             <div className="grid grid-rows-2 grid-flow-col gap-0 h-screen">
-              <div className="mt-8 mx-8 row-span-2">
+              <div
+                className="mt-8 mx-8 row-span-2"
+                onMouseOver={() => {
+                  console.log("mouse over");
+                  setActiveBanner("home");
+                }}
+              >
                 <img src={Logo} alt="Rareminds" />
               </div>
-              <div className="p-12 cursor-pointer row-span-2">
+              <div
+                className="p-12 cursor-pointer row-span-2"
+                onMouseOver={() => {
+                  console.log("mouse over");
+                  setActiveBanner("home");
+                }}
+              >
                 <h3 className="text-white hidden">For Government</h3>
                 <p className="mt-24 text-white hidden">
                   Where giants excel and aspirations become a reality
                 </p>
               </div>
-              {pages.map((ele: any) => {
+              {pages.map((ele: any, index: any) => {
                 return (
                   <div
                     className={`p-8 cursor-pointer relative ${activeBanner === ele.PageSlug.replace("/", "") && "bannerSelected"} border-white border border-t-0 border-r-0`}
@@ -113,10 +129,12 @@ const Index = () => {
                     <h3 className="text-white font-bold font-[Poppins-Regular] text-[36px] leading-[38px]">
                       For {ele.PageName}
                     </h3>
-                    {activeBanner === ele.PageSlug.replace("/", "") && (
+                    {activeBanner === ele.PageSlug.replace("/", "") ? (
                       <p className="mt-60 mr-16 text-white font-[Urbanist] text-[20px] leading-[26px] font-semibold absolute bottom-10">
                         {ele.PageSubTitle}
                       </p>
+                    ) : (
+                      ""
                     )}
                   </div>
                 );

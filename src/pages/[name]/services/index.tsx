@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import ProgramImg from "../../../assets/images/programImg.svg";
 import ServicesImg from "../../../assets/images/servicesImg.svg";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
@@ -18,7 +17,7 @@ const Services = () => {
   useEffect(() => {
     async function getData() {
       await axios
-        .get(`http://13.126.41.32/api/services/${userType}`)
+        .get(`${import.meta.env.VITE_API_URL}services/${userType}`)
         .then((res) => {
           setData(res.data);
         });

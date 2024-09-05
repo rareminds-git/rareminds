@@ -13,7 +13,9 @@ const ServiceName = () => {
   useEffect(() => {
     async function getData() {
       await axios
-        .get(`http://13.126.41.32/api/services/${userType}/${serviceName}`)
+        .get(
+          `${import.meta.env.VITE_API_URL}services/${userType}/${serviceName}`
+        )
         .then((res) => {
           setData(res.data);
         });
@@ -46,14 +48,14 @@ const ServiceName = () => {
           <section className="lg:px-20 px-10 lg:py-10">
             <div className="grid grid-cols-6 gap-0">
               <h1
-                className="lg:text-[70px] leading-[74px] text-5xl grid-cols-1 py-4 col-span-2 font-[Sentient] mr-100 place-items-start border-b-[1px] border-black text-[#FF2C2C] font-bold capitalize"
+                className="lg:text-[70px] leading-[74px] text-5xl grid-cols-1 py-4 col-span-2 font-[Sentient] mr-100 place-items-start border-b-[1px] border-black text-[#FF2C2C] font-medium capitalize"
                 style={{ wordSpacing: "9999px" }}
               >
                 {serviceData?.serviceData?.Heading1}
               </h1>
             </div>
             <p
-              className="text-md font-[Sentient] text-[24px] leading-[32.84px] font-normal capitalize ml-72 mr-16 mt-12 mb-12"
+              className="text-md font-[Sentient] text-[24px] leading-[32.84px] font-light capitalize ml-72 mr-16 mt-12 mb-12"
               dangerouslySetInnerHTML={{
                 __html: serviceData?.serviceData?.Description,
               }}
@@ -62,8 +64,8 @@ const ServiceName = () => {
             <div className="grid grid-cols-4 xl:gap-24 gap-4">
               <div className="rounded col-span-2">
                 <img
-                  src={ProgramImg}
-                  className="w-full"
+                  src={`/src/assets/images/${serviceData?.serviceData?.Image1}`}
+                  className="w-full rounded-xl"
                   alt={serviceData?.serviceData?.Heading1}
                 />
                 <img
