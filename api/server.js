@@ -700,6 +700,16 @@ app.post("/editPage/:slug", async function (req, res) {
   }
 });
 
+app.get("/queries", async function (req, res) {
+  let queries = await mysqlQuery(con, {
+    sql: "SELECT * from `rm_queries` ORDER BY CreatedAt DESC",
+  });
+
+  res.send({
+    queries,
+  });
+});
+
 app.post("/submit-query-form", async function (req, res) {
   const formData = req.body;
 
