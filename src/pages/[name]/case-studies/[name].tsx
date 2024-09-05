@@ -73,10 +73,10 @@ const CaseStudyDetail = () => {
           </section>
         </div>
       ) : (
-        <div className="grid w-full min-h-screen lg:py-16">
+        <div className="grid w-full min-h-screen py-24">
           <section className="lg:px-20 px-8 lg:py-10">
-            <div className="grid grid-cols-1 grid-rows-2">
-              <h1 className="lg:text-6xl text-4xl row-span-1 place-items-start text-[#FF2C2C] font-Syne font-bold capitalize">
+            <div className="grid grid-cols-1 grid-rows-1">
+              <h1 className="lg:text-6xl text-2xl row-span-1 place-items-start text-[#FF2C2C] font-Syne font-bold capitalize">
                 {studyData?.studyData?.Heading1}
               </h1>
             </div>
@@ -85,6 +85,7 @@ const CaseStudyDetail = () => {
                 <img
                   src={`../../images/${studyData?.studyData?.Image1}`}
                   alt={studyData?.studyData?.Heading1}
+                  className="my-8"
                 />
               </div>
               <div className="grid grid-flow-row gap-4">
@@ -94,7 +95,7 @@ const CaseStudyDetail = () => {
                       <p
                         className="mt-4 caseStudyDetail font-[Sentient] font-normal text-2xl"
                         dangerouslySetInnerHTML={{
-                          __html: ele.ContentDescription,
+                          __html: parse(ele.ContentDescription),
                         }}
                       ></p>
                     </div>

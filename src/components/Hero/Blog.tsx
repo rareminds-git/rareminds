@@ -76,7 +76,7 @@ const Blog = ({ content }) => {
           </OwlCarousel>
         </div>
       ) : (
-        <div className="bg-[#cabe9e1f] pl-24">
+        <div className="bg-[#cabe9e1f] pl-2">
           <h5 className="font-Syne my-8 mx-auto text-red-400 text-center font-bold text-3xl">
             Blog
           </h5>
@@ -88,7 +88,7 @@ const Blog = ({ content }) => {
             stagePadding={0}
             nav={false}
             dots={false}
-            items={1}
+            items={1.5}
           >
             {content.map((ele, index) => {
               return (

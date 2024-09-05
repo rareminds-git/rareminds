@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import Logo from "../../assets/images/logo.svg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 const Header = ({ navbarOpen, setNavbarOpen }) => {
   const [pages, setPages] = useState<any[]>([]);
 
   const navigate = useNavigate();
+
+  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   useEffect(() => {
     async function getPages() {
@@ -27,10 +30,16 @@ const Header = ({ navbarOpen, setNavbarOpen }) => {
   };
 
   return (
-    <header className="w-full fixed top-0 left-0 px-8 py-4 xl:py-[0.5rem] flex z-20 bg-white overflow-hidden">
-      <div className="text-white flex-grow z-20">
+    <header className="w-full fixed top-0 left-0 px-2 py-4 sm:py-0 xl:py-[0.5rem] flex z-20 bg-white overflow-hidden">
+      <div className="text-white align-middle items-center flex-grow z-20 ">
         <a href="/">
-          <img src={Logo} alt="Rareminds" width={211} height={52} />
+          <img
+            src={Logo}
+            alt="Rareminds"
+            className="sm:mt-4"
+            width={!isMobile ? 211 : 104}
+            height={!isMobile ? 52 : 27}
+          />
         </a>
       </div>
       {!navbarOpen && (

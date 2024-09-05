@@ -103,16 +103,18 @@ const Services = () => {
           </section>
         </div>
       ) : (
-        <div className="grid min-h-screen md:py-16">
-          <section className="md:px-20 px-5 md:py-10">
-            <h1 className="md:text-8xl text-2xl row-span-1 md:py-12 py-6 col-span-5 mr-96 place-items-start border-b-2 border-black text-[#FF2C2C] font-bold capitalize">
-              {serviceData?.serviceData?.Heading1}
+        <div className="grid min-h-screen pt-24 pb-8">
+          <section className="px-8">
+            <h1 className="text-[30px] leading-[74px] font-Syne font-medium place-items-start text-[#000000] capitalize">
+              {serviceData?.servicePageData?.Heading1}
             </h1>
 
             <p
-              className="text-md row-span-1 capitalize mr-36 mb-12 mt-12"
+              className="text-[14px] leading-[21px] row-span-1 mt-12 font-[Poppins-Regular] font-light mb-12"
               dangerouslySetInnerHTML={{
-                __html: serviceData?.serviceData?.Description,
+                __html:
+                  serviceData?.servicePageData?.Description &&
+                  parse(serviceData?.servicePageData?.Description),
               }}
             ></p>
 
@@ -158,7 +160,7 @@ const Services = () => {
                 );
               })}
 
-            <div className="flex justify-center mt-40">
+            <div className="flex justify-center mt-10">
               <img src={ServicesImg} alt="Services" />
             </div>
           </section>

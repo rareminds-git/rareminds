@@ -2,35 +2,40 @@ import React, { useEffect, useState } from "react";
 import FooterIcon from "./FooterIcon";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
+import FaceBookIcon from "../../assets/images/fb-icon.svg";
+import TwitterIcon from "../../assets/images/twitter-icon.svg";
+import LinkedInIcon from "../../assets/images/linkedin-icon.svg";
+import YoutubeIcon from "../../assets/images/youtube-icon.svg";
+import InstagramIcon from "../../assets/images/instagram-icon.svg";
 
 const socialIcons = [
   {
     id: 1,
-    icon: "mdi:twitter",
-    link: "https://twitter.com/",
-  },
-
-  {
-    id: 2,
-    icon: "mdi:facebook",
+    icon: FaceBookIcon,
     link: "https://facebook.com",
   },
   {
+    id: 2,
+    icon: TwitterIcon,
+    link: "https://twitter.com/",
+  },
+  {
     id: 3,
-    icon: "mdi:instagram",
+    icon: InstagramIcon,
     link: "https://instagram.com",
   },
   {
     id: 4,
-    icon: "mdi:youtube",
+    icon: YoutubeIcon,
     link: "https://youtube.com",
   },
   {
     id: 5,
-    icon: "mdi:linkedin",
+    icon: LinkedInIcon,
     link: "https://linkedin.com",
   },
 ];
+
 const FooterBar = () => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const [serviceData, setData] = useState<any>({});

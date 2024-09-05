@@ -3,6 +3,7 @@ import CountUp from "react-countup";
 import { useInViewport } from "../useInViewPort";
 
 const Achievements = ({ content, achievements }) => {
+  console.log("achievements", achievements);
   const { isInViewport, ref } = useInViewport();
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
@@ -10,10 +11,10 @@ const Achievements = ({ content, achievements }) => {
       <section className="lg:px-10 xl:px-20 xxl:px-60 lg:py-20 place-items-center font-Syne">
         <div className="items-center px-5 py-5">
           <p className="mt-0 font-bold text-center ml-0 text-[24px] leading-[28.8px] lg:text-[49px] lg:leading-[73.5px] py-10 text-black-500 font-[Poppins-Regular]">
-            {content[0]?.Heading1}
+            {content && content[0]?.Heading1}
           </p>
           <p className="lg:text-[22px] lg:leading-[33px] text-[14px] leading-[21px] lg:mt-2 lg:px-[10rem] xl:px-[4rem] lg:mb-20 lg:text-center font-[Poppins-Regular]">
-            {content[0]?.Description}
+            {content && content[0]?.Description}
           </p>
         </div>
         {!isMobile ? (
@@ -64,6 +65,7 @@ const Achievements = ({ content, achievements }) => {
                           <CountUp
                             end={ele.ContentSubDescription.replace(",", "")}
                             duration={5}
+                            className="text-[40px]"
                           />
                         </h5>
                       </div>

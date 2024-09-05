@@ -121,7 +121,7 @@ const QueryForm = ({ pageData, content }) => {
     </section>
   ) : (
     <>
-      <section className="md:px-60 xl:px-40 px-10 md:pt-32 md:pb-48">
+      <section className="md:px-60 xl:px-40 px-10 md:pt-32 md:pb-48 py-16">
         <div className="flex">
           <div className="grid space-y-10 text-center font-Syne">
             <h1 className="mt-20 text-3xl md:text-center text-left font-bold md:text-5xl">
@@ -139,19 +139,20 @@ const QueryForm = ({ pageData, content }) => {
           </div>
         </div>
 
-        <Form className="mt-20 pr-10 md:px-20">
+        <Form className="mt-20 pr-10 sm:pr-0 md:px-20">
           <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
             <Form.Group className="w-full grid md:grid-rows-2">
-              <Form.Label className="text-[26px] leading-[31.2px] text-black-500 font-medium">
+              <Form.Label className="sm:text-[18px] md:text-[26px] leading-[31.2px] text-black-500 font-medium">
                 Full Name*
               </Form.Label>
               <Form.Control
                 className={`my-2 w-60 border-b-2 ${errors.FullName ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your name"
-                onChange={(e) =>
-                  setFormData({ ...formData, FullName: e.target.value })
-                }
+                onChange={(e) => {
+                  setFormData({ ...formData, FullName: e.target.value });
+                  setErrors({ ...errors, FullName: "" });
+                }}
               />
               {errors.FullName && (
                 <span className="error-message text-red-500 font-bold">
@@ -161,16 +162,17 @@ const QueryForm = ({ pageData, content }) => {
             </Form.Group>
 
             <Form.Group className="grid md:grid-rows-2 w-full">
-              <Form.Label className="text-[26px] leading-[31.2px] text-black-500 font-medium">
+              <Form.Label className="sm:text-[18px] md:text-[26px] leading-[31.2px] text-black-500 font-medium">
                 Company Name*
               </Form.Label>
               <Form.Control
                 className={`my-2 w-60 border-b-2 ${errors.CompanyName ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your company"
-                onChange={(e) =>
-                  setFormData({ ...formData, CompanyName: e.target.value })
-                }
+                onChange={(e) => {
+                  setFormData({ ...formData, CompanyName: e.target.value });
+                  setErrors({ ...errors, CompanyName: "" });
+                }}
               />
               {errors.CompanyName && (
                 <span className="error-message text-red-500 font-bold">
@@ -180,16 +182,17 @@ const QueryForm = ({ pageData, content }) => {
             </Form.Group>
 
             <Form.Group className="grid md:grid-rows-2 w-full">
-              <Form.Label className="text-[26px] leading-[31.2px] text-black-500 font-medium">
+              <Form.Label className="sm:text-[18px] md:text-[26px] leading-[31.2px] text-black-500 font-medium">
                 Email address*
               </Form.Label>
               <Form.Control
                 className={`my-2 w-60 border-b-2 ${errors.Email ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your email"
-                onChange={(e) =>
-                  setFormData({ ...formData, Email: e.target.value })
-                }
+                onChange={(e) => {
+                  setFormData({ ...formData, Email: e.target.value });
+                  setErrors({ ...errors, Email: "" });
+                }}
               />
               {errors.Email && (
                 <span className="error-message text-red-500 font-bold">
@@ -198,16 +201,17 @@ const QueryForm = ({ pageData, content }) => {
               )}
             </Form.Group>
             <Form.Group className="md:mt-16 grid md:grid-rows-2 w-full">
-              <Form.Label className="text-[26px] leading-[31.2px] text-black-500 font-medium">
+              <Form.Label className="sm:text-[18px] md:text-[26px] leading-[31.2px] text-black-500 font-medium">
                 Phone Number*
               </Form.Label>
               <Form.Control
                 className={`my-2 w-60 border-b-2 ${errors.PhoneNumber ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your number"
-                onChange={(e) =>
-                  setFormData({ ...formData, PhoneNumber: e.target.value })
-                }
+                onChange={(e) => {
+                  setFormData({ ...formData, PhoneNumber: e.target.value });
+                  setErrors({ ...errors, PhoneNumber: "" });
+                }}
               />
               {errors.PhoneNumber && (
                 <span className="error-message text-red-500 font-bold">
@@ -216,16 +220,17 @@ const QueryForm = ({ pageData, content }) => {
               )}
             </Form.Group>
             <Form.Group className="md:mt-16 grid md:grid-rows-2 w-full">
-              <Form.Label className="text-[26px] leading-[31.2px] text-black-500 font-medium">
+              <Form.Label className="sm:text-[18px] md:text-[26px] leading-[31.2px] text-black-500 font-medium">
                 Job Title*
               </Form.Label>
               <Form.Control
                 className={`my-2 w-60 border-b-2 ${errors.JobTitle ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your job title"
-                onChange={(e) =>
-                  setFormData({ ...formData, JobTitle: e.target.value })
-                }
+                onChange={(e) => {
+                  setFormData({ ...formData, JobTitle: e.target.value });
+                  setErrors({ ...errors, JobTitle: "" });
+                }}
               />
               {errors.JobTitle && (
                 <span className="error-message text-red-500 font-bold">
@@ -235,7 +240,7 @@ const QueryForm = ({ pageData, content }) => {
             </Form.Group>
           </div>
 
-          <h3 className="text-[26px] leading-[42.12px] font-medium mt-24 font-Syne">
+          <h3 className="sm:text-[22px] md:text-[26px] leading-[42.12px] font-medium mt-24 font-Syne">
             Which of Rareminds' services are you most interested in? <br />
             <span className="text-[20px] leading-[32.4px] font-normal font-Syne">
               (Select all that apply)
@@ -246,7 +251,7 @@ const QueryForm = ({ pageData, content }) => {
             <Form.Check // prettier-ignore
               type="checkbox"
               label="Talent Acquisition"
-              className="text-[30px] leading-[36px] font-normal checkbox font-Syne"
+              className="sm:text-[18px] md:md:text-[30px] leading-[36px] font-normal checkbox font-Syne"
               value={"TA"}
               onChange={(e) => {
                 setCheckBoxValue(e);
@@ -255,7 +260,7 @@ const QueryForm = ({ pageData, content }) => {
             <Form.Check // prettier-ignore
               type="checkbox"
               label="Talent Management"
-              className="text-[30px] leading-[36px] font-normal checkbox font-Syne"
+              className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal checkbox font-Syne"
               value={"TM"}
               onChange={(e) => {
                 setCheckBoxValue(e);
@@ -264,7 +269,7 @@ const QueryForm = ({ pageData, content }) => {
             <Form.Check // prettier-ignore
               type="checkbox"
               label="Talent Development"
-              className="text-[30px] leading-[36px] font-normal checkbox font-Syne"
+              className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal checkbox font-Syne"
               value={"TD"}
               onChange={(e) => {
                 setCheckBoxValue(e);
@@ -272,12 +277,12 @@ const QueryForm = ({ pageData, content }) => {
             />
           </div>
 
-          <h3 className="text-[26px] leading-[42.12px] font-medium mt-24 font-Syne">
+          <h3 className="sm:text-[22px] text-[26px] leading-[42.12px] font-medium mt-24 font-Syne">
             How did you hear about Rareminds?
           </h3>
 
-          <div className="grid md:grid-cols-3 grid-cols-1 gap-4 mt-10">
-            <label className="radio-button">
+          <div className="grid md:grid-cols-3 sm:grid-cols-2 sm:gap-1 gap-4 mt-10">
+            <label className="radio-button sm:text-[18px] md:text-[26px]">
               <input
                 type="radio"
                 onChange={() =>
@@ -285,12 +290,12 @@ const QueryForm = ({ pageData, content }) => {
                 }
                 name="example-radio"
                 value="option1"
-                className="text-[30px] leading-[36px] font-normal radio text-black font-Syne"
+                className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal radio text-black font-Syne"
               />
               <span className="radio"></span>
               Website
             </label>
-            <label className="radio-button">
+            <label className="radio-button sm:text-[18px] md:text-[26px]">
               <input
                 type="radio"
                 onChange={() =>
@@ -298,12 +303,12 @@ const QueryForm = ({ pageData, content }) => {
                 }
                 name="example-radio"
                 value="option1"
-                className="text-[30px] leading-[36px] font-normal radio text-black font-Syne"
+                className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal radio text-black font-Syne"
               />
               <span className="radio"></span>
               Referral
             </label>
-            <label className="radio-button">
+            <label className="radio-button sm:text-[18px] md:text-[26px]">
               <input
                 type="radio"
                 onChange={() =>
@@ -311,12 +316,12 @@ const QueryForm = ({ pageData, content }) => {
                 }
                 name="example-radio"
                 value="option1"
-                className="text-[30px] leading-[36px] font-normal radio text-black font-Syne"
+                className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal radio text-black font-Syne"
               />
               <span className="radio"></span>
               Social Media
             </label>
-            <label className="radio-button">
+            <label className="radio-button sm:text-[18px] md:text-[26px]">
               <input
                 type="radio"
                 onChange={() =>
@@ -324,12 +329,12 @@ const QueryForm = ({ pageData, content }) => {
                 }
                 name="example-radio"
                 value="option1"
-                className="text-[30px] leading-[36px] font-normal radio text-black font-Syne"
+                className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal radio text-black font-Syne"
               />
               <span className="radio"></span>
               Industry Event
             </label>
-            <label className="radio-button">
+            <label className="radio-button sm:text-[18px] md:text-[26px]">
               <input
                 type="radio"
                 onChange={() =>
@@ -337,7 +342,7 @@ const QueryForm = ({ pageData, content }) => {
                 }
                 name="example-radio"
                 value="option1"
-                className="text-[30px] leading-[36px] font-normal radio text-black font-Syne"
+                className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal radio text-black font-Syne"
               />
               <span className="radio"></span>
               Other
@@ -351,7 +356,7 @@ const QueryForm = ({ pageData, content }) => {
 
           <Form.Control
             as="textarea"
-            className="mt-10 border-2 w-[70%] p-5 rounded-xl"
+            className="mt-10 border-2 sm:w-[100%] w-[70%] p-5 rounded-xl"
             rows={5}
             placeholder="Type here"
             onChange={(e) =>
@@ -365,7 +370,7 @@ const QueryForm = ({ pageData, content }) => {
             className="text-[18px] leading-[24px] font-normal md:w-[75%] font-Syne checkbox mt-10"
           />
 
-          <h2 className="text-[26px] leading-[29px] md:w-[60%] xl:w-[75%] mt-24 pr-56 font-Syne font-bold">
+          <h2 className="md:text-[26px] sm:text-[18px] leading-[29px] md:w-[60%] xl:w-[60%] xxl:w-[75%] sm:w-[100%] mt-24 sm:pr-12 pr-56 font-Syne font-bold">
             {content[0]?.SubHeading1}
           </h2>
 

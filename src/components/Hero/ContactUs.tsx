@@ -13,16 +13,18 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
         <meta property="og:title" content={pageData?.OGTitle} />
         <meta property="og:description" content={pageData?.OGDescription} />
       </Helmet>
-      <section className="px-10 md:mt-24 mt-12 md:py-20 font-Syne mb-10">
+      <section className="px-10 md:mt-24 mt-12 md:py-20 sm:py-24 font-Syne mb-10">
         <div className="flex items-start md:px-32">
           <div className="grid space-y-10 place-items-start">
-            <h1 className="font-bold text-5xl">{pageData?.PageSubTitle}</h1>
+            <h1 className="font-bold text-5xl sm:text-3xl">
+              {pageData?.PageSubTitle}
+            </h1>
           </div>
         </div>
 
         {!isMobile && <CTA content={ctaContent} />}
 
-        <div className="flex md:px-60 xl:px-32 xxl:px-64">
+        <div className="flex md:px-60 xl:px-32">
           <div className="my-4 place-items-start">
             {content.map((ele, index) => {
               return (

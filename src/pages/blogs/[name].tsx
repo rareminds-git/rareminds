@@ -38,9 +38,9 @@ const BlogDetail = () => {
           content={blogData?.blogData?.OGDescription}
         />
       </Helmet>
-      <div className="grid w-full min-h-screen lg:py-12">
+      <div className="grid w-full min-h-screen lg:py-12 sm:py-24">
         <section className="lg:px-20 px-10 font-Syne">
-          <h1 className="lg:text-[48px] lg:leading-[62px] text-4xl row-span-1 place-items-start font-bold capitalize">
+          <h1 className="lg:text-[48px] sm:text-[24px] lg:leading-[62px] text-4xl row-span-1 place-items-start font-bold capitalize">
             {blogData?.blogData?.Heading1}
           </h1>
 
@@ -77,7 +77,7 @@ const BlogDetail = () => {
                 return (
                   <div className="row-span-1 mt-16">
                     <p
-                      className="mt-4 mr-20 BlogDetail"
+                      className="mt-4 mr-20 sm:mr-4 BlogDetail"
                       dangerouslySetInnerHTML={{
                         __html: ele.ContentDescription,
                       }}
