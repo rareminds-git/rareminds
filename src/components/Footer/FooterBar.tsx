@@ -39,7 +39,7 @@ const FooterBar = () => {
     async function getData() {
       await axios
         .get(
-          `http://13.126.41.32/api/services/${localStorage.getItem("currentUserType")}`
+          `${import.meta.env.VITE_API_URL}services/${localStorage.getItem("currentUserType")}`
         )
         .then((res) => {
           setData(res.data);

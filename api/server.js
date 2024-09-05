@@ -11,7 +11,8 @@ const jwt = require("jsonwebtoken");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./public/images");
+    console.log("file", file);
+    cb(null, "../src/assets/images/");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + "_" + file.originalname);
@@ -310,8 +311,13 @@ app.post("/services/edit/:slug", async function (req, res) {
 
 app.post(
   "/editService/:userType/:slug/:contentSlug",
+  upload.single("Image1"),
   async function (req, res) {
-    const { userType, slug } = req.params;
+    const { userType, slug, contentSlug } = req.params;
+
+    const { body, file } = req;
+
+    console.log({ body, file });
 
     const formData = req.body;
 
@@ -320,8 +326,6 @@ app.post(
     let serviceData = await mysqlQuery(con, {
       sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + serviceSlug + "'",
     });
-
-    const contentSlug = formData.ContentSlug;
 
     delete formData.ContentSlug;
 
@@ -347,6 +351,32 @@ app.post(
         updateData = await mysqlQuery(con, {
           sql: `UPDATE rm_content_details SET ${updateString} WHERE ContentDetailId = "${ele.ContentDetailId}"`,
         });
+      });
+    } else if (contentSlug === "serviceData") {
+      console.log("form data", formData);
+      let data = {};
+      let contentData = [];
+      if (Object.keys(formData).length > 0) {
+        contentData = Object.keys(formData).map((key) => {
+          data[key] = formData[key];
+          data.Image1 = req?.file?.filename;
+          return data;
+        });
+      } else {
+        contentData.push({ Image1: req?.file?.filename });
+      }
+
+      console.log("content data", contentData);
+
+      let updateString = Object.keys(contentData[0]).map((key) => {
+        console.log("data key", contentData[0][key]);
+        if (contentData[0][key] !== undefined) {
+          return `${key} = "${encodeHTML(contentData[0][key])}"`;
+        }
+      });
+      console.log("update string", updateString);
+      updateData = await mysqlQuery(con, {
+        sql: `UPDATE rm_content SET ${updateString.filter(Boolean)} WHERE ContentSlug = "${serviceSlug}"`,
       });
     } else {
       let updateString = Object.keys(formData).map((key) => {
@@ -699,6 +729,64 @@ app.get("/blogs/:slug", async function (req, res) {
     blogDetails,
   });
 });
+
+app.post(
+  "/addBlog",
+  upload.single("blogFormData.Image1"),
+  async function (req, res) {
+    const { body, file } = req;
+
+    console.log({ body, file });
+
+    const formData = req.body;
+    console.log("formData", formData.blogData, formData.blogDetails);
+
+    // let updateData = "";
+    // if (contentSlug === "blogData") {
+    //   console.log("form data", formData);
+    //   let data = {};
+    //   let contentData = Object.keys(formData).map((key) => {
+    //     data[key] = formData[key];
+    //     data.Image1 = req?.file?.filename;
+    //     return data;
+    //   });
+    //   console.log("content data", contentData);
+
+    //   let updateString = Object.keys(contentData[0]).map((key) => {
+    //     console.log("data key", contentData[0][key]);
+    //     if (contentData[0][key] !== undefined) {
+    //       return `${key} = "${encodeHTML(contentData[0][key])}"`;
+    //     }
+    //   });
+    //   console.log("update string", updateString);
+    //   updateData = await mysqlQuery(con, {
+    //     sql: `UPDATE rm_content SET ${updateString.filter(Boolean)} WHERE ContentSlug = "${slug}"`,
+    //   });
+    // } else {
+    //   console.log("form data", formData);
+    //   let updateString = Object.keys(formData).map((key) => {
+    //     return `${key} = "${encodeHTML(formData[key])}"`;
+    //   });
+
+    //   if (contentSlug === "metadata") {
+    //     updateData = await mysqlQuery(con, {
+    //       sql: `UPDATE rm_content SET ${updateString.filter(Boolean)} WHERE ContentSlug = "${slug}"`,
+    //     });
+    //   } else {
+    //     updateData = await mysqlQuery(con, {
+    //       sql: `UPDATE rm_content_details SET ${updateString} WHERE ContentId = "${blogData[0].ContentId}"`,
+    //     });
+    //   }
+    // }
+
+    // console.log(updateData);
+
+    res.send({
+      status: 200,
+      message: "Data updated successfully",
+    });
+  }
+);
 
 app.post(
   "/editBlog/:slug/:contentSlug",

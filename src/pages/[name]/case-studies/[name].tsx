@@ -14,7 +14,7 @@ const CaseStudyDetail = () => {
     async function getData() {
       await axios
         .get(
-          `http://13.126.41.32/api/case-studies/${userType}/case-studies/${slug}`
+          `${import.meta.env.VITE_API_URL}case-studies/${userType}/case-studies/${slug}`
         )
         .then((res) => {
           setData(res.data);

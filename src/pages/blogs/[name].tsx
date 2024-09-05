@@ -12,9 +12,11 @@ const BlogDetail = () => {
 
   useEffect(() => {
     async function getData() {
-      await axios.get(`http://13.126.41.32/api/blogs/${slug}`).then((res) => {
-        setData(res.data);
-      });
+      await axios
+        .get(`${import.meta.env.VITE_API_URL}blogs/${slug}`)
+        .then((res) => {
+          setData(res.data);
+        });
     }
 
     getData();

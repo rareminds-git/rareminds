@@ -22,14 +22,16 @@ const Name = () => {
 
   useEffect(() => {
     async function getPageData() {
-      await axios.get(`http://13.126.41.32/api/pages/${name}`).then((res) => {
-        setPageData(res.data);
-        const sectionKeys = res.data.sectionData.map(
-          (ele: any) => ele.ContentSlug || ele.PageSlug
-        );
+      await axios
+        .get(`${import.meta.env.VITE_API_URL}pages/${name}`)
+        .then((res) => {
+          setPageData(res.data);
+          const sectionKeys = res.data.sectionData.map(
+            (ele: any) => ele.ContentSlug || ele.PageSlug
+          );
 
-        setSections(sectionKeys);
-      });
+          setSections(sectionKeys);
+        });
     }
 
     getPageData();
