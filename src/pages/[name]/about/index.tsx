@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
-import ServicesImg from "../../../assets/images/servicesImg.svg";
-
+import { useMediaQuery } from "react-responsive";
 import axios from "axios";
-
+import Line from "../../../assets/images/line.svg";
+import MissionImg from "../../../assets/images/mission.svg";
+import VisionImg from "../../../assets/images/vision.svg";
 import { Helmet } from "react-helmet";
 import CTA from "@/common/CTA";
 import parse from "html-react-parser";
+import Achievements from "@/components/Hero/Achievements";
 
 const About = () => {
   const { name, userType } = useParams();
   const [pageData, setPageData] = useState<any>([]);
+  const [hoveredDivs, setHoveredDivs] = useState<any>(null);
+
+  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   useEffect(() => {
     async function getPageData() {
@@ -22,6 +27,8 @@ const About = () => {
 
     getPageData();
   }, []);
+
+  console.log("page data", pageData);
 
   return (
     <>
@@ -40,12 +47,12 @@ const About = () => {
       </Helmet>
 
       <div className="grid w-full min-h-screen md:pt-16">
-        <section className="md:px-44 xl:px-32 xxl:px-60 px-10 md:py-32">
-          <h1 className="text-xl md:text-[70px] leading-[74px] font-Syne font-medium place-items-start text-[#000000] capitalize">
+        <section className="md:px-44 xl:px-32 xxl:px-60 md:pt-16 py-24 px-12 md:pb-0">
+          <h1 className="text-[30px] leading-[74px] md:text-[70px] font-Syne font-medium place-items-start text-[#000000] capitalize">
             {pageData?.pageData?.Heading1}
           </h1>
           <p
-            className="text-[24px] leading-[32.6px] row-span-1 mt-12 font-[Sentient] font-light ml-60 mb-12 md:px-52 xl:px-32"
+            className="text-[18px] md:text-[24px] xl:text-[24px] xxl:text-[24px] leading-[32.6px] row-span-1 mt-12 font-[Sentient] font-light mb-12 md:px-52 xl:px-32"
             dangerouslySetInnerHTML={{
               __html:
                 pageData?.pageData?.Description &&
@@ -53,10 +60,213 @@ const About = () => {
             }}
           ></p>
 
-          <div className="w-full mt-12">
-            <img src={ServicesImg} alt="Services" className="w-full" />
+          <p className="font-Syne md:text-6xl text-3xl text-black py-4 text-center font-bold">
+            Our Values
+          </p>
+
+          {!isMobile ? (
+            <div className="flex service-list pt-20 my-8">
+              {pageData &&
+                pageData?.coreValues?.map((ele: any) => {
+                  return (
+                    <div
+                      className={`item mx-2 rounded-lg bg-red-400 cursor-pointer`}
+                      onMouseEnter={() => setHoveredDivs(ele.ContentAcronym)}
+                      onMouseLeave={() => setHoveredDivs(undefined)}
+                    >
+                      <div
+                        className={` text-white pt-32 pb-12 xl:py-20 xl:px-10 xxl:py-20 xxl:px-24 px-20 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
+                      >
+                        <h4 className="text-5xl font-Syne">{ele.Heading2}</h4>
+
+                        <p
+                          className={`text-sm my-12 font-[Sentient] font-normal ${hoveredDivs === null ? "line-clamp-2" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
+                          dangerouslySetInnerHTML={{
+                            __html: ele?.Description,
+                          }}
+                        ></p>
+
+                        {/* <p
+                        onClick={() => navigate(`/${ele.ContentSlug}`)}
+                        className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
+                      >
+                        ...Read More
+                      </p> */}
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          ) : (
+            <div className="item my-4 cursor-pointer">
+              {pageData &&
+                pageData?.coreValues?.map((ele: any) => {
+                  return (
+                    <div className="bg-red-400 text-white p-10 my-4 rounded-lg item-bg">
+                      <h4 className="text-5xl font-Syne">{ele.Heading2}</h4>
+
+                      <p
+                        className={`text-sm my-12 font-[Sentient] font-normal ${hoveredDivs === null ? "line-clamp-2" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
+                        dangerouslySetInnerHTML={{
+                          __html: ele?.Description,
+                        }}
+                      ></p>
+                    </div>
+                  );
+                })}
+            </div>
+          )}
+
+          <div className="grid md:py-24 py-8 place-items-start relative md:grid-cols-5 grid-cols-1">
+            <div className="mt-4 col-span-2">
+              <img
+                src={VisionImg}
+                width="180px"
+                className="rounded-full
+            border-[#CAF0F8] border-[17px] mx-auto my-6"
+              />
+              <p className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px]">
+                {pageData?.visionMission &&
+                  pageData?.visionMission[0]?.Heading1}
+              </p>
+
+              <p className="mt-2 lg:text-[22px] text-[18px] lg:leading-[43.06px] font-light">
+                {pageData?.visionMission &&
+                  pageData?.visionMission[0]?.Description}
+              </p>
+            </div>
+
+            {!isMobile ? (
+              <div className="w-full col-span-1 mt-4 items-center flex justify-center">
+                <>
+                  <img
+                    src={Line}
+                    style={{
+                      width: "2px",
+                      height: "100%",
+                    }}
+                    alt="line"
+                    className="py-28"
+                  />
+                </>
+              </div>
+            ) : (
+              ""
+            )}
+
+            <div className="mt-4 col-span-2">
+              <img
+                src={MissionImg}
+                width="180px"
+                className="rounded-full
+            border-[#CAF0F8] border-[17px] mx-auto my-6"
+              />
+              <p className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px]">
+                {pageData?.visionMission &&
+                  pageData?.visionMission[1]?.Heading1}
+              </p>
+
+              <p className="mt-2 lg:text-[22px] text-[18px] lg:leading-[43.06px] font-light">
+                {pageData?.visionMission &&
+                  pageData?.visionMission[1]?.Description}
+              </p>
+            </div>
           </div>
+
+          <p className="font-Syne md:text-6xl text-3xl text-black py-4 text-center font-bold">
+            Awards and Recognitions
+          </p>
+
+          <div className="grid py-16 place-items-start relative grid-flow-col sm:-cols-1">
+            {pageData?.awards?.map((ele: any) => {
+              return (
+                <>
+                  <div className="mt-4 col-span-2 px-2 py-3 rounded overflow-hidden shadow-xl mx-3">
+                    <img
+                      src={`/src/assets/images/${ele.Image1}`}
+                      width="180px"
+                      className="rounded-full
+            border-[#CAF0F8] border-[17px] mx-auto my-6"
+                    />
+                    <p className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[26px] lg:leading-[35.2px] text-black-400 mx-2 text-[24px]">
+                      {ele.Heading2}
+                    </p>
+
+                    <p className="mt-2 lg:text-[22px] text-[12px] text-center lg:leading-[43.06px] font-light">
+                      {ele.SubHeading1}
+                    </p>
+                  </div>
+                </>
+              );
+            })}
+          </div>
+
+          {!isMobile ? (
+            <div className="logoMarqueeSection text-center md-px-0 px-8">
+              <h3 className="font-Syne text-6xl text-black py-4 text-center font-bold">
+                Our Partners
+              </h3>
+              <div className="container" id="logoMarqueeSection">
+                <div className="default-content-container flex items-center">
+                  <div className="default-content-container-inner marquee-wrapper relative overflow-hidden inline-block">
+                    <div
+                      className="marquee"
+                      style={{ animationDuration: "12s" }}
+                    >
+                      {pageData?.partners?.map((ele) => {
+                        return (
+                          <a target="_blank">
+                            <img
+                              src={`/src/assets/images/${ele.Image1}`}
+                              title=""
+                              className="marqueelogo"
+                              alt="Rareminds"
+                              width={350}
+                              height={200}
+                            />
+                          </a>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="text-center md-px-0 px-8">
+              <h3 className="font-Syne text-3xl text-black py-4 text-center font-bold">
+                Our Partners
+              </h3>
+              <div className="container">
+                <div className="flex items-center">
+                  <div className="default-content-container-inner marquee-wrapper relative overflow-hidden inline-block">
+                    {pageData?.partners?.map((ele) => {
+                      return (
+                        <a target="_blank">
+                          <img
+                            src={`/src/assets/images/${ele.Image1}`}
+                            title=""
+                            className="marqueelogo my-8"
+                            alt="Rareminds"
+                            width={350}
+                            height={200}
+                          />
+                        </a>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </section>
+        <Achievements
+          content={pageData?.achievementsData}
+          achievements={
+            pageData?.achievementsData &&
+            pageData?.achievementsData[0]?.achievements
+          }
+        />
       </div>
       <CTA content={""} />
     </>

@@ -97,7 +97,7 @@ const Hero = ({ content }) => {
           </div>
         </section>
       ) : (
-        <section className="py-2 bg-hero-gradient">
+        <section className="pt-24 pb-4 bg-hero-gradient">
           <div className="flex items-center justify-center">
             <div className="grid place-items-center">
               <h1 className="mb-4 mt-10 text-[22px] leading-[28px] font-medium text-center mx-12 font-[Sentient] text-[#ff2c2c]">
@@ -116,17 +116,17 @@ const Hero = ({ content }) => {
                 />
               </div>
               <div className="grid place-items-center">
-                <p className="mb-4 font-Syne mt-8 text-[28px] leading-[33.6px] font-medium text-black-400 text-center">
+                <p className="mb-4 font-Syne mt-8 px-4 text-[28px] leading-[33.6px] font-medium text-black-400 text-center">
                   "{content?.Heading2}"
                 </p>
                 <p className="mt-2 font-Syne text-[20px] leading-[33.16px] font-semibold">
                   {content?.SubHeading1}
                 </p>
-                <p className="mt-2 font-Syne text-[20px] leading-[33.16px] font-semibold">
+                <p className="mt-2 py-4 font-Syne text-[20px] leading-[33.16px] font-semibold">
                   {content?.SubHeading2}
                 </p>
               </div>
-              <div className="my-4 place-items-center mx-8">
+              <div className="mt-8 mb-2 place-items-center mx-8">
                 <div className="lg:col-span-6 place-items-start hero-img relative float">
                   <img src={HeroImg1} alt="hero-user-img" />
 

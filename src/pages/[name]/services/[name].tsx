@@ -104,13 +104,13 @@ const ServiceName = () => {
         </div>
       ) : (
         <div className="lg:py-16">
-          <section className="lg:px-20 px-5 lg:py-10">
+          <section className="lg:px-20 px-8 lg:py-10">
             <h1 className="lg:text-8xl text-4xl row-span-1 lg:py-12 pt-20 pb-4 mt-8 col-span-5 mr-36 place-items-start border-b-2 border-black text-[#FF2C2C] font-bold capitalize">
               {serviceData?.serviceData?.Heading1}
             </h1>
 
             <p
-              className="text-md row-span-1 capitalize mb-12 mt-12"
+              className="text-[14px] leading-[21px] font-[Poppins-Regular] row-span-1 capitalize mb-12 mt-12"
               dangerouslySetInnerHTML={{
                 __html: serviceData?.serviceData?.Description,
               }}
@@ -124,6 +124,11 @@ const ServiceName = () => {
                 height={"400px"}
                 alt={serviceData?.serviceData?.Heading1}
               />
+              <img
+                src={ServiceIllsImg}
+                className="mt-10 transform -scale-x-100"
+                alt={serviceData?.serviceData?.Heading1}
+              />
             </div>
 
             <h2 className="text-[#FF2C2C] font-bold capitalize text-3xl mt-8 font-Syne">
@@ -132,7 +137,7 @@ const ServiceName = () => {
 
             {serviceData?.servicePrograms?.map((ele: any) => {
               return (
-                <div className="mt-6 px-8 ml-8">
+                <div className="mt-6">
                   <h3 className="lg:text-4xl text-xl font-bold font-Syne">
                     {ele.ContentTitle}
                   </h3>
