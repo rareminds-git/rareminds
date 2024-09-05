@@ -19,7 +19,7 @@ const DefaultLayout: React.FC<{ children: React.ReactNode }> = ({
       </div>
       {children}
       <FooterBar />
-      <CookieConsent
+      {/* <CookieConsent
         location="bottom"
         buttonText="I understand."
         cookieName="myAwesomeCookieName2"
@@ -29,7 +29,7 @@ const DefaultLayout: React.FC<{ children: React.ReactNode }> = ({
         enableDeclineButton
       >
         This website uses cookies to enhance the user experience.
-      </CookieConsent>
+      </CookieConsent> */}
     </div>
   ) : (
     <div className="App">{children}</div>

@@ -22,7 +22,7 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
 
         {!isMobile && <CTA content={ctaContent} />}
 
-        <div className="flex md:px-60 xl:px-32">
+        <div className="flex md:px-60 xl:px-32 xxl:px-64">
           <div className="my-4 place-items-start">
             {content.map((ele, index) => {
               return (

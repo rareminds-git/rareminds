@@ -9,7 +9,7 @@ const SuccessStories = ({ content, pageData }) => {
   const navigate = useNavigate();
   return (
     <>
-      <section className="md:px-20 px-10 py-10 xl:px-32 bg-hero-gradient">
+      <section className="md:px-20 px-10 py-10 xl:px-32 xxl:px-72 bg-hero-gradient">
         <div className="flex">
           <div className="grid space-y-10">
             <h4 className="mb-4 md:mt-20 mt-10 md:text-[70px] md:leading-[115.2px] text-[28px] leading-[30px] text-left font-normal text-[#FF2C2C]">

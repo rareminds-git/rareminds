@@ -23,10 +23,10 @@ const Hero = ({ content }) => {
   return (
     <>
       {!isMobile ? (
-        <section className="lg:px-16 lg:pt-16 xl:py-48 lg:pb-16 pb-8 bg-hero-gradient">
+        <section className="lg:px-16 xxl:px-32 lg:pt-16 xl:py-48 xxl:py-32 lg:pb-16 pb-8 bg-hero-gradient">
           <div className="flex items-center justify-center">
             <div className="grid space-y-10 place-items-center">
-              <h1 className="mb-4 mt-8 text-[32px] leading-10 mx-[3rem] text-center lg:mx-[8rem] xl:mx-[6rem] font-[Sentient] font-medium lg:text-[60px] lg:leading-[74px] text-[#ff2c2c]">
+              <h1 className="mb-4 mt-8 text-[32px] leading-10 mx-[3rem] text-center lg:mx-[8rem] xl:mx-[6rem] xxl:mx-[16rem] font-[Sentient] font-medium lg:text-[60px] lg:leading-[74px] text-[#ff2c2c]">
                 {content?.Heading1}
               </h1>
             </div>

@@ -42,7 +42,7 @@ const CaseStudyDetail = () => {
       </Helmet>
       {!isMobile ? (
         <div className="grid w-full min-h-screen lg:py-16">
-          <section className="lg:px-20 px-10 lg:py-10 xl:px-32">
+          <section className="lg:px-20 px-10 lg:py-10 xl:px-32 xxl:px-64">
             <div className="grid grid-cols-1 grid-rows-2">
               <h1 className="lg:text-[48px] lg:leading-[55.2px] lg:mr-[20rem] xl:mr-[12rem] text-4xl row-span-1 place-items-start text-[#FF2C2C] font-Syne font-bold capitalize">
                 {studyData?.studyData?.Heading1}

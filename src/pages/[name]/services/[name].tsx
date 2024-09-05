@@ -42,7 +42,7 @@ const ServiceName = () => {
         />
       </Helmet>
       {!isMobile ? (
-        <div className="grid w-full min-h-screen lg:py-4 xl:pt-20 xl:pb-0 xl:px-12">
+        <div className="grid w-full min-h-screen lg:py-4 xl:pt-20 xl:pb-0 xl:px-12 xxl:px-32">
           <section className="lg:px-20 px-10 lg:py-10">
             <div className="grid grid-cols-6 gap-0">
               <h1
