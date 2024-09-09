@@ -5,6 +5,7 @@ import axios from "axios";
 import CTA from "@/common/CTA";
 import moment from "moment";
 import { Helmet } from "react-helmet";
+import parse from "html-react-parser";
 
 const BlogDetail = () => {
   const { slug } = useParams();
@@ -67,7 +68,7 @@ const BlogDetail = () => {
 
           <div className="rounded-md">
             <img
-              src={`${blogData?.blogData?.Image1}`}
+              src={`${import.meta.env.VITE_API_URL}uploads/${blogData?.blogData?.Image1}`}
               className="rounded-lg text-center align-middle justify-center h-96 w-full"
             />
           </div>
@@ -79,7 +80,7 @@ const BlogDetail = () => {
                     <p
                       className="mt-4 mr-20 sm:mr-4 BlogDetail"
                       dangerouslySetInnerHTML={{
-                        __html: ele.ContentDescription,
+                        __html: parse(ele.ContentDescription),
                       }}
                     ></p>
                   </div>

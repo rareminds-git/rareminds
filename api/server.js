@@ -3,7 +3,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var mysql = require("mysql");
-const e = require("express");
 var app = express();
 const multer = require("multer");
 const bcrypt = require("bcryptjs");
@@ -12,7 +11,7 @@ const jwt = require("jsonwebtoken");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     console.log("file", file);
-    cb(null, "../public/images/uploads");
+    cb(null, "./public/images/uploads/");
   },
   filename: function (req, file, cb) {
     cb(null, Date.now() + "_" + file.originalname);
@@ -58,6 +57,12 @@ async function asyncForEach(array, callback) {
   }
 }
 
+function convertToSlug(Text) {
+  return Text.toLowerCase()
+    .replace(/ /g, "-")
+    .replace(/[^\w-]+/g, "");
+}
+
 function encodeHTML(str) {
   console.log("str", str);
   const code = {
@@ -92,6 +97,8 @@ app.all("/*", function (req, res, next) {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use("/uploads", express.static("public/images/uploads/"));
 
 const generateAccessToken = (userId) => {
   return jwt.sign(
@@ -791,63 +798,61 @@ app.get("/blogs/:slug", async function (req, res) {
   });
 });
 
-app.post(
-  "/addBlog",
-  upload.single("blogFormData.Image1"),
-  async function (req, res) {
-    const { body, file } = req;
+app.post("/addBlog", upload.single("Image1"), async function (req, res) {
+  const { body, file } = req;
 
-    console.log({ body, file });
+  console.log({ body, file });
 
-    const formData = req.body;
-    console.log("formData", formData.blogData, formData.blogDetails);
+  const formData = req.body;
 
-    // let updateData = "";
-    // if (contentSlug === "blogData") {
-    //   console.log("form data", formData);
-    //   let data = {};
-    //   let contentData = Object.keys(formData).map((key) => {
-    //     data[key] = formData[key];
-    //     data.Image1 = req?.file?.filename;
-    //     return data;
-    //   });
-    //   console.log("content data", contentData);
+  let blogData = JSON.parse(formData.blogData);
+  blogData.Image1 = req.file.filename;
+  let blogDetails = JSON.parse(formData.blogDetails);
+  let metadata = JSON.parse(formData.metadata);
 
-    //   let updateString = Object.keys(contentData[0]).map((key) => {
-    //     console.log("data key", contentData[0][key]);
-    //     if (contentData[0][key] !== undefined) {
-    //       return `${key} = "${encodeHTML(contentData[0][key])}"`;
-    //     }
-    //   });
-    //   console.log("update string", updateString);
-    //   updateData = await mysqlQuery(con, {
-    //     sql: `UPDATE rm_content SET ${updateString.filter(Boolean)} WHERE ContentSlug = "${slug}"`,
-    //   });
-    // } else {
-    //   console.log("form data", formData);
-    //   let updateString = Object.keys(formData).map((key) => {
-    //     return `${key} = "${encodeHTML(formData[key])}"`;
-    //   });
-
-    //   if (contentSlug === "metadata") {
-    //     updateData = await mysqlQuery(con, {
-    //       sql: `UPDATE rm_content SET ${updateString.filter(Boolean)} WHERE ContentSlug = "${slug}"`,
-    //     });
-    //   } else {
-    //     updateData = await mysqlQuery(con, {
-    //       sql: `UPDATE rm_content_details SET ${updateString} WHERE ContentId = "${blogData[0].ContentId}"`,
-    //     });
-    //   }
-    // }
-
-    // console.log(updateData);
-
-    res.send({
-      status: 200,
-      message: "Data updated successfully",
+  if (Object.keys(blogData).length > 0) {
+    let updateData = await mysqlQuery(con, {
+      sql:
+        "INSERT into `rm_content` (`Heading1`,  `Heading2`, `Image1`, `ContentSlug`, `PageId`, `ContentTypeId`, `MetaTitle`, `MetaDescription`, `MetaKeywords`,`OGTitle`, `OGDescription`) VALUES ('" +
+        blogData.Heading1 +
+        "', '" +
+        blogData.Heading2 +
+        "', '" +
+        blogData.Image1 +
+        "', '" +
+        convertToSlug(blogData.Heading1) +
+        "', '9', '41', '" +
+        (metadata.MetaTitle || "") +
+        "','" +
+        (metadata.MetaDescription || "") +
+        "','" +
+        (metadata.MetaKeywords || "") +
+        "','" +
+        (metadata.OGTitle || "") +
+        "','" +
+        (metadata.OGDescription || "") +
+        "')",
     });
+
+    if (updateData && Object.keys(blogDetails).length > 0) {
+      await mysqlQuery(con, {
+        sql:
+          "INSERT into `rm_content_details` (`ContentTitle`,  `ContentDescription`, `ContentId`) VALUES ('" +
+          blogDetails.ContentTitle +
+          "', '" +
+          encodeHTML(blogDetails.ContentDescription) +
+          "', '" +
+          updateData.insertId +
+          "')",
+      });
+    }
   }
-);
+
+  res.send({
+    status: 200,
+    message: "Data updated successfully",
+  });
+});
 
 app.post(
   "/editBlog/:slug/:contentSlug",
@@ -871,11 +876,19 @@ app.post(
     if (contentSlug === "blogData") {
       console.log("form data", formData);
       let data = {};
-      let contentData = Object.keys(formData).map((key) => {
-        data[key] = formData[key];
-        data.Image1 = req?.file?.filename;
-        return data;
-      });
+      let contentData = [];
+      if (formData.Heading1) {
+        Object.keys(formData).map((key) => {
+          data[key] = formData[key];
+          data.Image1 = req?.file?.filename;
+          return data;
+        });
+      } else {
+        contentData.push({
+          Image1: req?.file?.filename,
+        });
+      }
+
       console.log("content data", contentData);
 
       let updateString = Object.keys(contentData[0]).map((key) => {
