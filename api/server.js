@@ -758,7 +758,7 @@ app.post("/submit-query-form", async function (req, res) {
 
 app.get("/blogs", async function (req, res) {
   let blogData = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_content WHERE ContentTypeId = '41'",
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = '41' order by 'CreatedOn' DESC",
   });
 
   let blogDetails = [];
