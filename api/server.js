@@ -830,7 +830,7 @@ app.post("/addBlog", upload.single("Image1"), async function (req, res) {
         "','" +
         (metadata.OGDescription || "") +
         "', '" +
-        (metadata.CreatedOn || "") +
+        (blogData.CreatedOn || "") +
         "')",
     });
 
