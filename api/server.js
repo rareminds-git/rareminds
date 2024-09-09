@@ -201,7 +201,7 @@ app.get("/pages/:pageSlug", async function (req, res) {
   });
 
   let blogsData = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_content WHERE ContentTypeId = 41",
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = 41 order by UNIX_TIMESTAMP(CreatedOn) DESC LIMIT 6 ",
   });
 
   let achievementsData = await mysqlQuery(con, {
@@ -755,8 +755,12 @@ app.post("/submit-query-form", async function (req, res) {
 });
 
 app.get("/blogs", async function (req, res) {
+  let limit = req.query.limit;
   let blogData = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_content WHERE ContentTypeId = '41' order by UNIX_TIMESTAMP(CreatedOn) DESC",
+    sql:
+      "SELECT * FROM rm_content WHERE ContentTypeId = '41' order by UNIX_TIMESTAMP(CreatedOn) DESC LIMIT " +
+      limit +
+      "",
   });
 
   let blogDetails = [];
