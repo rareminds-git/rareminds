@@ -52,7 +52,7 @@ const Blog = ({ content }) => {
                   <div className="grid grid-flow-col place-items-start">
                     <div className="row-span-3 my-4 mx-4 place-items-start">
                       <img
-                        src={ele.Image1}
+                        src={`${import.meta.env.VITE_API_URL}uploads/${ele.Image1}`}
                         style={{
                           width: "100%",
                           height: `${index % 2 === 0 ? "445px" : "575px"}`,
@@ -99,7 +99,7 @@ const Blog = ({ content }) => {
                   <div className="grid grid-flow-col place-items-start">
                     <div className="row-span-3 my-4 mx-4 place-items-start">
                       <img
-                        src={ele.Image1}
+                        src={`${import.meta.env.VITE_API_URL}uploads/${ele.Image1}`}
                         style={{
                           width: "159px",
                           height: `${index % 2 === 0 ? "186px" : "295px"}`,
