@@ -755,12 +755,8 @@ app.post("/submit-query-form", async function (req, res) {
 });
 
 app.get("/blogs", async function (req, res) {
-  let limit = req.query.limit;
   let blogData = await mysqlQuery(con, {
-    sql:
-      "SELECT * FROM rm_content WHERE ContentTypeId = '41' order by UNIX_TIMESTAMP(CreatedOn) DESC LIMIT " +
-      limit +
-      "",
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = '41' order by UNIX_TIMESTAMP(CreatedOn)",
   });
 
   let blogDetails = [];
