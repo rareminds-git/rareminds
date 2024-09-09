@@ -1,9 +1,6 @@
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
-import BlogImg1 from "../../assets/images/blog1.svg";
-import BlogImg2 from "../../assets/images/blog2.svg";
-import BlogImg3 from "../../assets/images/blog3.svg";
+import "owl.carousel/dist/assets/owl.theme.default.css";  
 import { useMediaQuery } from "react-responsive";
 import moment from "moment";
 
