@@ -813,7 +813,7 @@ app.post("/addBlog", upload.single("Image1"), async function (req, res) {
   if (Object.keys(blogData).length > 0) {
     let updateData = await mysqlQuery(con, {
       sql:
-        "INSERT into `rm_content` (`Heading1`,  `Heading2`, `Image1`, `ContentSlug`, `PageId`, `ContentTypeId`, `MetaTitle`, `MetaDescription`, `MetaKeywords`,`OGTitle`, `OGDescription`) VALUES ('" +
+        "INSERT into `rm_content` (`Heading1`,  `Heading2`, `Image1`, `ContentSlug`, `PageId`, `ContentTypeId`, `MetaTitle`, `MetaDescription`, `MetaKeywords`,`OGTitle`, `OGDescription`, `CreatedAt`) VALUES ('" +
         blogData.Heading1 +
         "', '" +
         blogData.Heading2 +
@@ -831,6 +831,8 @@ app.post("/addBlog", upload.single("Image1"), async function (req, res) {
         (metadata.OGTitle || "") +
         "','" +
         (metadata.OGDescription || "") +
+        "', '" +
+        (metadata.CreatedAt || "") +
         "')",
     });
 
