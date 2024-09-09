@@ -39,7 +39,7 @@ const BlogDetail = () => {
           content={blogData?.blogData?.OGDescription}
         />
       </Helmet>
-      <div className="grid w-full min-h-screen lg:py-12 sm:py-24">
+      <div className="grid w-full min-h-screen lg:py-32 sm:py-24 md:py-32">
         <section className="lg:px-20 px-10 font-Syne">
           <h1 className="lg:text-[48px] sm:text-[24px] lg:leading-[62px] text-4xl row-span-1 place-items-start font-bold capitalize">
             {blogData?.blogData?.Heading1}
