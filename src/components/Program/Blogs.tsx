@@ -24,7 +24,7 @@ const Blogs = ({ pageData, content }) => {
             onClick={() => navigate(`/blogs/${content[0].PageSlug}`)}
           >
             <img
-              src={`${content[0].Image1}`}
+              src={`${import.meta.env.VITE_API_URL}uploads/${content[0].Image1}`}
               width={"100%"}
               className="rounded"
             />
