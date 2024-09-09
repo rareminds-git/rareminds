@@ -879,11 +879,11 @@ app.post(
       console.log("form data", formData);
       let data = {};
       let contentData = [];
-      if (formData.Heading1) {
+      if (Object.keys(formData).length > 0) {
         Object.keys(formData).map((key) => {
           data[key] = formData[key];
           data.Image1 = req?.file?.filename;
-          return data;
+          contentData.push(data);
         });
       } else {
         contentData.push({
