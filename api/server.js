@@ -10,7 +10,6 @@ const jwt = require("jsonwebtoken");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    console.log("file", file);
     cb(null, "./public/images/uploads/");
   },
   filename: function (req, file, cb) {
@@ -42,7 +41,6 @@ const mysqlQuery = async (connection, queryConfig) => {
 
   return new Promise((resolve, reject) => {
     return connection.query(config, function (error, results, fields) {
-      console.log("query results", results);
       if (error) {
         reject(error);
       }
@@ -758,7 +756,7 @@ app.post("/submit-query-form", async function (req, res) {
 
 app.get("/blogs", async function (req, res) {
   let blogData = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_content WHERE ContentTypeId = '41' order by 'CreatedOn' DESC",
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = '41' order by UNIX_TIMESTAMP(CreatedOn) DESC",
   });
 
   let blogDetails = [];
