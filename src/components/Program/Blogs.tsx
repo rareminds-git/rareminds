@@ -60,7 +60,7 @@ const Blogs = ({ pageData, content }) => {
                 <img
                   src={`${import.meta.env.VITE_API_URL}uploads/${ele.Image1}`}
                   width={"100%"}
-                  className="rounded"
+                  className="rounded md:min-h-[500px] md:max-h-[400px]"
                   alt={ele.Heading1}
                 />
 
