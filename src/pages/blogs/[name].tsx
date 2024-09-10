@@ -45,8 +45,8 @@ const BlogDetail = () => {
             {blogData?.blogData?.Heading1}
           </h1>
 
-          <div className="grid grid-cols-3 grid-rows-1 border-b-2 border-black mb-10 p-5">
-            <div className="col-span-1 inline-block">
+          <div className="grid md:grid-cols-3 sm:grid-cols-1 md:grid-rows-1 sm:grid-rows-2 border-b-2 md:border-black mb-10 md:p-5 sm:py-5">
+            <div className="col-span-1 inline-block md:w-[60%]">
               <img
                 src="https://icons.veryicon.com/png/o/healthcate-medical/orange-particle/author-2.png"
                 height="75"
@@ -59,8 +59,12 @@ const BlogDetail = () => {
                 Social Media Manager
               </p>
             </div>
-            <div className="grid grid-cols-subgrid col-span-1"></div>
-            <h4 className="text-right text-red-600 my-6">
+            {!isMobile ? (
+              <div className="grid grid-cols-subgrid col-span-1"></div>
+            ) : (
+              ""
+            )}
+            <h4 className="md:text-right text-red-600 md:my-6 sm:my-2 sm:border-t-2 sm:border-black md:border-0 sm:py-4">
               Published:{" "}
               {moment(blogData?.blogData?.CreatedOn).format("MMM Do YYYY")}
             </h4>
@@ -69,7 +73,7 @@ const BlogDetail = () => {
           <div className="rounded-md">
             <img
               src={`${import.meta.env.VITE_API_URL}uploads/${blogData?.blogData?.Image1}`}
-              className="rounded-lg text-center align-middle justify-center h-96 w-full object-cover"
+              className="rounded-lg text-center align-middle justify-center h-96 w-full h-full"
             />
           </div>
           <div className="grid grid-cols-1">
@@ -78,7 +82,7 @@ const BlogDetail = () => {
                 return (
                   <div className="row-span-1 mt-16">
                     <p
-                      className="mt-4 mr-20 sm:mr-4 BlogDetail"
+                      className="mt-4 mr-20 sm:mr-4 text-[16px] leading-[21.76px] font-[Sentient] font-light BlogDetail"
                       dangerouslySetInnerHTML={{
                         __html: parse(ele.ContentDescription),
                       }}
