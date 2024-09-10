@@ -627,6 +627,23 @@
     padding-right: 5.4rem;
   }
 
+  .BlogDetail p,
+  .BlogDetail h2,
+  .BlogDetail h3,
+  .BlogDetail h4,
+  .BlogDetail figure {
+    margin: 10px 0;
+  }
+
+  .BlogDetail h2,
+  .BlogDetail h3,
+  .BlogDetail h4 {
+    font-weight: 600;
+    font-family: "Syne";
+    font-size: 26px;
+    line-height: 32px;
+  }
+
   .marquee-wrapper:hover .marquee {
     animation-play-state: paused !important;
   }
