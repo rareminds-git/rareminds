@@ -1,6 +1,6 @@
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";  
+import "owl.carousel/dist/assets/owl.theme.default.css";
 import { useMediaQuery } from "react-responsive";
 import moment from "moment";
 
@@ -54,7 +54,7 @@ const Blog = ({ content }) => {
                           width: "100%",
                           height: `${index % 2 === 0 ? "445px" : "575px"}`,
                         }}
-                        className={`${index % 2 === 0 ? "rounded-tl-[20px] rounded-tr-[180px] rounded-bl-[20px] rounded-br-[20px]" : "rounded-tl-[80px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]"}`}
+                        className={`${index % 2 === 0 ? "rounded-tl-[20px] rounded-tr-[180px] rounded-bl-[20px] rounded-br-[20px] object-cover" : "rounded-tl-[80px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] object-cover"}`}
                       />
                       <p className="font-Syne text-[16px] mt-4 leading-[18px] pb-5 mr-4 font-bold">
                         {ele.Heading1}
@@ -101,7 +101,7 @@ const Blog = ({ content }) => {
                           width: "159px",
                           height: `${index % 2 === 0 ? "186px" : "295px"}`,
                         }}
-                        className={`${index % 2 === 0 ? "rounded-tl-[20px] rounded-tr-[180px] rounded-bl-[20px] rounded-br-[20px]" : "rounded-tl-[80px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px]"}`}
+                        className={`${index % 2 === 0 ? "rounded-tl-[20px] rounded-tr-[180px] rounded-bl-[20px] rounded-br-[20px] object-cover" : "rounded-tl-[80px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] object-cover"}`}
                       />
                       <p className="font-Syne text-[16px] leading-[18px] pb-5 mr-4 mt-4 font-bold">
                         {ele.Heading1}

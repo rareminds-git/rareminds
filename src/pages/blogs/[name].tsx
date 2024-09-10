@@ -69,7 +69,7 @@ const BlogDetail = () => {
           <div className="rounded-md">
             <img
               src={`${import.meta.env.VITE_API_URL}uploads/${blogData?.blogData?.Image1}`}
-              className="rounded-lg text-center align-middle justify-center h-96 w-full"
+              className="rounded-lg text-center align-middle justify-center h-96 w-full object-cover"
             />
           </div>
           <div className="grid grid-cols-1">
