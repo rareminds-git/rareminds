@@ -2,13 +2,27 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import { useNavigate } from "react-router-dom";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { useMediaQuery } from "react-responsive";
+import Pagination from "@/common/Pagination";
+
+const PageSize = 10;
 
 const Blogs = ({ pageData, content }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(10);
+
+  const handlePagination = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = content?.slice(indexOfFirstPost, indexOfLastPost);
+
   return (
     <>
-      <section className="md:px-20 px-10 py-10">
+      <section className="md:px-20 px-10 py-10 relative">
         <div className="flex">
           <div className="grid space-y-10">
             <h1 className="mb-20 mt-20 text-3xl text-left font-bold md:text-5xl">
@@ -21,26 +35,26 @@ const Blogs = ({ pageData, content }) => {
         <div className="grid grid-cols-1 mb-20">
           <div
             className="cursor-pointer"
-            onClick={() => navigate(`/blogs/${content[0].PageSlug}`)}
+            onClick={() => navigate(`/blogs/${currentPosts[0].PageSlug}`)}
           >
             <img
-              src={`${import.meta.env.VITE_API_URL}uploads/${content[0].Image1}`}
+              src={`${import.meta.env.VITE_API_URL}uploads/${currentPosts[0].Image1}`}
               width={"100%"}
               className="rounded"
             />
 
-            <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
-              {content[0].Heading1}
+            <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-[#FF2C2C]">
+              {currentPosts[0].Heading1}
             </h4>
-            <p className="text-sm">{content[0].Heading2}</p>
+            <p className="text-sm">{currentPosts[0].Heading2}</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 mb-10">
-          {content.slice(1).map((ele) => {
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+          {currentPosts.slice(1).map((ele) => {
             return (
               <div
-                className="cursor-pointer"
+                className="cursor-pointer sm:my-4 md:max-h-[1200px] md:my-4"
                 onClick={() => navigate(`/blogs/${ele.PageSlug}`)}
               >
                 <img
@@ -50,13 +64,22 @@ const Blogs = ({ pageData, content }) => {
                   alt={ele.Heading1}
                 />
 
-                <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
+                <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-[#FF2C2C]">
                   {ele.Heading1}
                 </h4>
                 <p className="text-sm">{ele.Heading2}</p>
               </div>
             );
           })}
+        </div>
+
+        <div className="absolute sm:bottom-0 md:bottom-8 right-10">
+          <Pagination
+            length={content?.length}
+            postsPerPage={postsPerPage}
+            currentPage={currentPage}
+            handlePagination={handlePagination}
+          />
         </div>
       </section>
     </>
