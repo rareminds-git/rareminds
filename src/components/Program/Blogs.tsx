@@ -41,7 +41,7 @@ const Blogs = ({ pageData, content }) => {
             <img
               src={`${import.meta.env.VITE_API_URL}uploads/${currentPosts[0].Image1}`}
               width={"100%"}
-              className="rounded-xl"
+              className="rounded-xl object-cover"
             />
 
             <h4 className="font-Syne md:text-[26px] leading-[31.2px] mt-5 my-3 text-sm text-black font-bold">
@@ -66,7 +66,7 @@ const Blogs = ({ pageData, content }) => {
                 <img
                   src={`${import.meta.env.VITE_API_URL}uploads/${ele.Image1}`}
                   width={"100%"}
-                  className="rounded-xl md:min-h-[500px] md:max-h-[400px]"
+                  className="rounded-xl md:min-h-[500px] md:max-h-[400px] object-cover"
                   alt={ele.Heading1}
                 />
 
