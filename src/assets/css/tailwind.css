@@ -595,6 +595,22 @@
     white-space: nowrap;
   }
 
+  .pagination {
+    display: flex;
+    border: 1px solid #fff;
+    align-items: end;
+    justify-content: end;
+    padding: 20px;
+  }
+
+  .pagination button {
+    border: none;
+    outline: none;
+    margin: 10px;
+    border-radius: 50%;
+    font-weight: 600;
+  }
+
   .marquee {
     display: inline-block;
     white-space: nowrap;
