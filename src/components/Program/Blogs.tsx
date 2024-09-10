@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { useMediaQuery } from "react-responsive";
 import Pagination from "@/common/Pagination";
+import moment from "moment";
 
 const PageSize = 10;
 
@@ -64,10 +65,15 @@ const Blogs = ({ pageData, content }) => {
                   alt={ele.Heading1}
                 />
 
-                <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-[#FF2C2C]">
+                <h4 className="font-Syne md:text-[26px] leading-[31.2px] mt-5 my-3 text-sm text-black font-bold">
                   {ele.Heading1}
                 </h4>
-                <p className="text-sm">{ele.Heading2}</p>
+                <p className="text-[16px] leading-[24px] font-Syne my-3 line-clamp-2 font-normal">
+                  {ele.Heading2}
+                </p>
+                <p className="text-[16px] leading-[21.76px] my-3 font-[Sentient]">
+                  {moment(ele.CreatedOn).format("DD MMM YYYY")}
+                </p>
               </div>
             );
           })}
