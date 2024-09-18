@@ -225,12 +225,33 @@ app.get("/pages/:pageSlug", async function (req, res) {
     achievementsData[0]["achievements"] = achievements;
   }
 
+  let categories = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = 44",
+  });
+
+  let testimonialData = [];
+
+  await asyncForEach(categories, async (ele) => {
+    let testimonials = await mysqlQuery(con, {
+      sql:
+        "SELECT * FROM rm_content_details WHERE ContentId = " + ele.ContentId,
+    });
+
+    if (testimonials.length > 0) {
+      testimonials.map((data) => {
+        testimonialData.push(data);
+      });
+    }
+  });
+
   res.send({
     pageData: pageData[0],
     sectionData,
     serviceData,
     studyData,
     blogsData,
+    testimonialData,
+    categories,
     achievementsData:
       achievementsData[0] && achievementsData[0]["achievements"],
   });
@@ -917,6 +938,138 @@ app.post(
         });
       }
     }
+
+    console.log(updateData);
+
+    res.send({
+      status: 200,
+      message: "Data updated successfully",
+    });
+  }
+);
+
+app.get("/testimonialCategories", async function (req, res) {
+  let categories = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = 44",
+  });
+
+  res.send({
+    categories,
+  });
+});
+
+app.get("/testimonials/:id", async function (req, res) {
+  let testimonialDetails = await mysqlQuery(con, {
+    sql:
+      "SELECT * FROM rm_content_details WHERE ContentDetailId = " +
+      req.params.id,
+  });
+
+  res.send({
+    testimonialDetails,
+  });
+});
+
+app.get("/testimonials", async function (req, res) {
+  let categories = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = 44",
+  });
+
+  let testimonialData = [];
+
+  await asyncForEach(categories, async (ele) => {
+    let testimonials = await mysqlQuery(con, {
+      sql:
+        "SELECT * FROM rm_content_details WHERE ContentId = " + ele.ContentId,
+    });
+
+    if (testimonials.length > 0) {
+      testimonials.map((data) => {
+        testimonialData.push(data);
+      });
+    }
+  });
+
+  res.send({
+    categories,
+    testimonialData,
+  });
+});
+
+app.post(
+  "/addTestimonial",
+  upload.single("ContentImage"),
+  async function (req, res) {
+    const { body, file } = req;
+
+    console.log({ body, file });
+
+    const formData = req.body;
+
+    let testimonialData = JSON.parse(formData.testimonialDetails);
+    testimonialData.AuthorImage = req.file.filename;
+
+    if (Object.keys(testimonialData).length > 0) {
+      await mysqlQuery(con, {
+        sql:
+          "INSERT into `rm_content_details` (`ContentTitle`,  `ContentDescription`, `ContentId`, `AuthorImage`) VALUES ('" +
+          testimonialData.ContentTitle +
+          "', '" +
+          testimonialData.ContentDescription +
+          "', '" +
+          testimonialData.ContentId +
+          "', '" +
+          testimonialData.AuthorImage +
+          "')",
+      });
+    }
+
+    res.send({
+      status: 200,
+      message: "Data updated successfully",
+    });
+  }
+);
+
+app.post(
+  "/editTestimonial/:id",
+  upload.single("ContentImage"),
+  async function (req, res) {
+    const { id } = req.params;
+    const { body, file } = req;
+
+    console.log({ body, file });
+
+    const formData = req.body;
+
+    let updateData = "";
+    console.log("form data", formData);
+    let data = {};
+    let contentData = [];
+    if (Object.keys(formData.testimonialDetails).length > 0) {
+      Object.keys(formData.testimonialDetails).map((key) => {
+        data[key] = formData.testimonialDetails[key];
+        data.AuthorImage = req?.file?.filename;
+        contentData.push(data);
+      });
+    } else {
+      contentData.push({
+        AuthorImage: req?.file?.filename,
+      });
+    }
+
+    console.log("content data", contentData);
+
+    let updateString = Object.keys(contentData[0]).map((key) => {
+      console.log("data key", contentData[0][key]);
+      if (contentData[0][key] !== undefined) {
+        return `${key} = "${encodeHTML(contentData[0][key])}"`;
+      }
+    });
+    console.log("update string", updateString);
+    updateData = await mysqlQuery(con, {
+      sql: `UPDATE rm_content_details SET ${updateString.filter(Boolean)} WHERE ContentDetailId = "${id}"`,
+    });
 
     console.log(updateData);
 
