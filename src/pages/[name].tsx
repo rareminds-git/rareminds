@@ -117,6 +117,8 @@ const Name = () => {
           content={pageData.sectionData.filter(
             (ele: any) => ele.ContentSlug === "testimonials" && ele
           )}
+          testimonials={pageData?.testimonialData}
+          categories={pageData?.categories}
         />
       )}
       {pageData.blogsData.length > 0 && pageData.pageData.PageType === 1 && (
