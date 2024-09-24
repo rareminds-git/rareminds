@@ -39,6 +39,8 @@ const socialIcons = [
 const FooterBar = () => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const [serviceData, setData] = useState<any>({});
+  const [subscriberEmail, setSubscriberEmail] = useState();
+  const [successMessage, setSuccessMsg] = useState();
 
   useEffect(() => {
     async function getData() {
@@ -53,6 +55,35 @@ const FooterBar = () => {
 
     getData();
   }, []);
+
+  const submitSubscription = () => {
+    const config = {
+      method: "post",
+      maxBodyLength: Infinity,
+      url: `${import.meta.env.VITE_API_URL}subscribers`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: { SubscriberEmail: subscriberEmail },
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        if (response.data.status === 200) {
+          setSuccessMsg(response.data.message);
+          setTimeout(() => {
+            setSuccessMsg("");
+          }, 2000);
+        }
+        if (response.data.status === 500) {
+          setErrorMsg(response.data.message);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <>
@@ -137,10 +168,21 @@ const FooterBar = () => {
               <input
                 className="rounded p-2 mt-5 bg-transparent border-[#CAF0F8]-400 border mr-10"
                 placeholder="Enter your email"
+                onChange={(e) => setSubscriberEmail(e.target.value)}
               />
-              <button className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-5 rounded font-bold mr-0">
+
+              <button
+                className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-5 rounded font-bold mr-0"
+                onClick={() => submitSubscription()}
+              >
                 Subscribe
               </button>
+
+              {successMessage && (
+                <span className="text-white flex text-2xl justify-end text-left mt-4 py-4">
+                  Thank you for subscribing.
+                </span>
+              )}
             </div>
           </div>
           <div className="grid grid-flow-col grid-rows-1">

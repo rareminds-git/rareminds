@@ -6,6 +6,9 @@ import CTA from "@/common/CTA";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import parse from "html-react-parser";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
 
 const Services = () => {
   const { userType, serviceName } = useParams();
@@ -103,66 +106,50 @@ const Services = () => {
           </section>
         </div>
       ) : (
-        <div className="grid min-h-screen pt-24 pb-8">
-          <section className="px-8">
-            <h1 className="text-[30px] leading-[74px] font-Syne font-medium place-items-start text-[#000000] capitalize">
+        <div className="md:pt-44">
+          <section className="md:px-44 xl:px-32 xxl:px-60 px-10 py-32 w-6/6">
+            <h1 className="text-[34px] leading-[34px] font-Syne font-medium place-items-start text-[#000000] capitalize">
               {serviceData?.servicePageData?.Heading1}
             </h1>
-
             <p
-              className="text-[14px] leading-[21px] row-span-1 mt-12 font-[Poppins-Regular] font-light mb-12"
+              className="text-[16px] leading-[22.6px] row-span-1 mt-12 font-[Sentient] font-light mb-12 "
               dangerouslySetInnerHTML={{
                 __html:
                   serviceData?.servicePageData?.Description &&
                   parse(serviceData?.servicePageData?.Description),
               }}
             ></p>
+            <OwlCarousel
+              className="owl-theme"
+              autoplay
+              margin={20}
+              items={1}
+              dots={false}
+              nav={false}
+            >
+              {serviceData &&
+                serviceData?.serviceData?.map((ele: any) => {
+                  return (
+                    <div
+                      className="item my-4 cursor-pointer"
+                      onClick={() => navigate(`/${ele.ContentSlug}`)}
+                    >
+                      <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
+                        <h3 className="text-4xl font-semibold my-10">
+                          {ele.Heading1}
+                        </h3>
 
-            {serviceData &&
-              serviceData?.serviceData?.map((ele: any) => {
-                return (
-                  <div
-                    className="item my-4 cursor-pointer"
-                    onMouseEnter={() => setHoveredDivs(ele.ServiceShortForm)}
-                    onMouseLeave={() => setHoveredDivs(undefined)}
-                    onClick={() => navigate(`/${ele.ContentSlug}`)}
-                    style={{
-                      height:
-                        hoveredDivs === ele.ServiceShortForm
-                          ? "auto"
-                          : hoveredDivs === ""
-                            ? "150px"
-                            : "auto",
-                    }}
-                  >
-                    <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
-                      <h3 className="text-4xl font-semibold my-10">
-                        {ele.Heading1}
-                      </h3>
-
-                      {hoveredDivs === ele.ServiceShortForm ? (
                         <p
-                          className="text-sm my-5"
+                          className="text-sm my-5 line-clamp-6"
                           dangerouslySetInnerHTML={{
                             __html: ele?.Description,
                           }}
                         ></p>
-                      ) : (
-                        <p
-                          className="text-sm my-5"
-                          dangerouslySetInnerHTML={{
-                            __html: ele?.SubHeading1,
-                          }}
-                        ></p>
-                      )}
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-
-            <div className="flex justify-center mt-10">
-              <img src={ServicesImg} alt="Services" />
-            </div>
+                  );
+                })}
+            </OwlCarousel>
           </section>
         </div>
       )}

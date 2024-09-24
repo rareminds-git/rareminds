@@ -46,7 +46,7 @@ const Index = () => {
 
   useEffect(() => {
     async function getPages() {
-      await axios.get("http://13.126.41.32/api/pages").then((res) => {
+      await axios.get(`${import.meta.env.VITE_API_URL}pages`).then((res) => {
         const homePages = res.data.filter((el: any) => {
           return el.PageType === 1;
         });

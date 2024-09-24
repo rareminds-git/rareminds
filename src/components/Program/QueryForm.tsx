@@ -57,7 +57,7 @@ const QueryForm = ({ pageData, content }) => {
       const config = {
         method: "post",
         maxBodyLength: Infinity,
-        url: "http://13.126.41.32/api/submit-query-form",
+        url: `${import.meta.env.VITE_API_URL}submit-query-form`,
         headers: {
           "Content-Type": "application/json",
         },
