@@ -168,30 +168,61 @@ app.get("/pages", function (req, res) {
   });
 });
 
+app.get("/dashboard", async function (req, res) {
+  let blogsData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = 41 order by UNIX_TIMESTAMP(CreatedOn) DESC",
+  });
+
+  let subscribers = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_subscribers",
+  });
+
+  let queries = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_queries",
+  });
+
+  res.send({
+    blogsData,
+    subscribers,
+    queries,
+  });
+});
+
 app.get("/pages/:pageSlug", async function (req, res) {
   const pageSlug = req.params.pageSlug;
   let pageData = await mysqlQuery(con, {
     sql: "SELECT * FROM rm_pages WHERE PageSlug = '/" + pageSlug + "'",
   });
 
-  let sectionData = await mysqlQuery(con, {
-    sql:
-      "SELECT * FROM rm_content WHERE PageId = " +
-      pageData[0].PageId +
-      " AND ContentTypeId != 38",
-  });
+  let sectionData = [];
 
-  sectionData.map(async (ele) => {
-    let contentData = await mysqlQuery(con, {
-      sql:
-        "SELECT ContentSlug from rm_content_types WHERE ContentTypeId = " +
-        ele.ContentTypeId,
+  if (pageSlug === "privacy-policy") {
+    sectionData = await mysqlQuery(con, {
+      sql: "SELECT * FROM rm_content WHERE ContentTypeId = 45",
     });
-    if (ele.ContentTypeId === 40 || ele.ContentTypeId === 41) {
-      ele.PageSlug = ele.ContentSlug;
-    }
-    ele.ContentSlug = contentData[0].ContentSlug;
-  });
+  } else if (pageSlug === "terms-&-conditions") {
+    sectionData = await mysqlQuery(con, {
+      sql: "SELECT * FROM rm_content WHERE ContentTypeId = 46",
+    });
+  } else {
+    sectionData = await mysqlQuery(con, {
+      sql:
+        "SELECT * FROM rm_content WHERE PageId = " +
+        pageData[0].PageId +
+        " AND ContentTypeId != 38",
+    });
+    sectionData.map(async (ele) => {
+      let contentData = await mysqlQuery(con, {
+        sql:
+          "SELECT ContentSlug from rm_content_types WHERE ContentTypeId = " +
+          ele.ContentTypeId,
+      });
+      if (ele.ContentTypeId === 40 || ele.ContentTypeId === 41) {
+        ele.PageSlug = ele.ContentSlug;
+      }
+      ele.ContentSlug = contentData[0].ContentSlug;
+    });
+  }
 
   let serviceData = await mysqlQuery(con, {
     sql:
@@ -704,6 +735,14 @@ app.post("/editPage/:slug", async function (req, res) {
     updateData = await mysqlQuery(con, {
       sql: `UPDATE rm_content SET ${updateString} WHERE ContentId = "${formData.ContentId}"`,
     });
+  } else if (pageSlug === "privacy-policy") {
+    updateData = await mysqlQuery(con, {
+      sql: `UPDATE rm_content SET ${updateString} WHERE ContentTypeId = 45`,
+    });
+  } else if (pageSlug === "terms-&-conditions") {
+    updateData = await mysqlQuery(con, {
+      sql: `UPDATE rm_content SET ${updateString} WHERE ContentTypeId = 46`,
+    });
   } else {
     updateData = await mysqlQuery(con, {
       sql: `UPDATE rm_content SET ${updateString} WHERE ContentSlug = "${formData.ContentSlug}" AND PageId = ${pageData[0].PageId}`,
@@ -757,6 +796,31 @@ app.post("/submit-query-form", async function (req, res) {
       formData.ReferralSource +
       "', '" +
       formData.Comment +
+      "')",
+  });
+
+  if (insertData) {
+    res.send({
+      status: 200,
+      message:
+        "Thank you for submitting your details. We will contact your shortly.",
+    });
+  } else {
+    res.send({
+      status: 500,
+      message:
+        "Details could not be submitted at this time. Please try again after sometime.",
+    });
+  }
+});
+
+app.post("/subscribers", async function (req, res) {
+  const formData = req.body;
+
+  let insertData = await mysqlQuery(con, {
+    sql:
+      "INSERT INTO `rm_subscribers` (`SubscriberEmail`) VALUES ('" +
+      formData.SubscriberEmail +
       "')",
   });
 

@@ -52,46 +52,37 @@ const Services = ({ content, services, ctaContent }) => {
               })}
             </div>
           ) : (
-            services.map((ele: any) => {
-              return (
-                <div
-                  className="item my-4 cursor-pointer"
-                  onMouseEnter={() => setHoveredDivs(ele.ServiceShortForm)}
-                  onMouseLeave={() => setHoveredDivs(undefined)}
-                  onClick={() => navigate(`/${ele.ContentSlug}`)}
-                  style={{
-                    height:
-                      hoveredDivs === ele.ServiceShortForm
-                        ? "auto"
-                        : hoveredDivs === ""
-                          ? "150px"
-                          : "auto",
-                  }}
-                >
-                  <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
-                    <h3 className="text-4xl font-semibold my-10">
-                      {ele.Heading1}
-                    </h3>
+            <OwlCarousel
+              className="owl-theme"
+              autoplay
+              loop
+              margin={20}
+              items={1}
+              dots={false}
+              nav={false}
+            >
+              {services.map((ele: any) => {
+                return (
+                  <div
+                    className="item my-4 cursor-pointer"
+                    onClick={() => navigate(`/${ele.ContentSlug}`)}
+                  >
+                    <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
+                      <h3 className="text-4xl font-semibold my-10">
+                        {ele.Heading1}
+                      </h3>
 
-                    {hoveredDivs === ele.ServiceShortForm ? (
                       <p
-                        className="text-sm my-5"
+                        className="text-sm my-5 line-clamp-6"
                         dangerouslySetInnerHTML={{
                           __html: ele?.Description,
                         }}
                       ></p>
-                    ) : (
-                      <p
-                        className="text-sm my-5"
-                        dangerouslySetInnerHTML={{
-                          __html: ele?.SubHeading1,
-                        }}
-                      ></p>
-                    )}
+                    </div>
                   </div>
-                </div>
-              );
-            })
+                );
+              })}
+            </OwlCarousel>
           )}
         </>
       </section>
