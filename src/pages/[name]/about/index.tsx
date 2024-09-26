@@ -18,7 +18,7 @@ const About = () => {
 
   useEffect(() => {
     async function getPageData() {
-      await axios.get(`${import.meta.env.VITE_API_URL}/about`).then((res) => {
+      await axios.get(`${import.meta.env.VITE_API_URL}about`).then((res) => {
         setPageData(res.data);
       });
     }
