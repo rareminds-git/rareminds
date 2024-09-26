@@ -547,46 +547,31 @@ app.get("/services/:slug", async function (req, res) {
   });
 });
 
-app.get("/:userType/about", async function (req, res) {
+app.get("/about", async function (req, res) {
   const pageSlug = req.params.userType + "/about";
 
   let pageData = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + pageSlug + "'",
+    sql: "SELECT * FROM rm_content WHERE Heading1 = 'Our Story'",
   });
 
   let coreValues = await mysqlQuery(con, {
-    sql:
-      "SELECT * from rm_content WHERE Heading1 = 'Core Values' AND PageId = '" +
-      pageData[0].PageId +
-      "'",
+    sql: "SELECT * from rm_content WHERE Heading1 = 'Core Values'",
   });
 
   let visionMission = await mysqlQuery(con, {
-    sql:
-      "SELECT * from rm_content WHERE (Heading1 = 'Mission' OR Heading1 = 'Vision') AND PageId = '" +
-      pageData[0].PageId +
-      "'",
+    sql: "SELECT * from rm_content WHERE (Heading1 = 'Mission' OR Heading1 = 'Vision')",
   });
 
   let awards = await mysqlQuery(con, {
-    sql:
-      "SELECT * from rm_content WHERE Heading1 = 'Awards' AND PageId = '" +
-      pageData[0].PageId +
-      "'",
+    sql: "SELECT * from rm_content WHERE Heading1 = 'Awards'",
   });
 
   let partners = await mysqlQuery(con, {
-    sql:
-      "SELECT * from rm_content WHERE Heading1 = 'Partners' AND PageId = '" +
-      pageData[0].PageId +
-      "'",
+    sql: "SELECT * from rm_content WHERE Heading1 = 'Partners' ",
   });
 
   let achievementsData = await mysqlQuery(con, {
-    sql:
-      "SELECT * FROM rm_content WHERE PageId = " +
-      pageData[0].PageId +
-      " AND ContentTypeId = 7",
+    sql: "SELECT * FROM rm_content WHERE PageId = 2 AND ContentTypeId = 7",
   });
 
   if (achievementsData.length > 0) {
