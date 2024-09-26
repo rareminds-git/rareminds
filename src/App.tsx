@@ -29,7 +29,7 @@ const App = () => {
               path="/:userType/case-studies/:slug"
               element={<CaseStudyDetail />}
             />
-            <Route path="/:userType/about" element={<About />} />
+            <Route path="/about" element={<About />} />
             <Route path="blogs/:slug" element={<BlogDetail />} />
           </Routes>
         </Suspense>

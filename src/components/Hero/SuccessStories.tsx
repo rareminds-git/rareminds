@@ -15,9 +15,12 @@ const SuccessStories = ({ content, pageData }) => {
             <h4 className="mb-4 md:mt-20 mt-10 md:text-[70px] md:leading-[115.2px] text-[28px] leading-[30px] text-left font-normal text-[#FF2C2C]">
               Success Stories so far
             </h4>
-            <p className="text-[22px] leading-[33px] mb-10 font-[Poppins-Regular]">
-              {pageData?.Description}
-            </p>
+            <p
+              className="text-[22px] leading-[33px] mb-10 font-[Poppins-Regular]"
+              dangerouslySetInnerHTML={{
+                __html: pageData?.Description,
+              }}
+            />
           </div>
         </div>
 

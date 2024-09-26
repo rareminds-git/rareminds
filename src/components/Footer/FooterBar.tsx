@@ -98,11 +98,7 @@ const FooterBar = () => {
                       <a href="/">Home</a>
                     </li>
                     <li>
-                      <a
-                        href={`/${localStorage.getItem("currentUserType")}/about`}
-                      >
-                        About{" "}
-                      </a>
+                      <a href={`/about`}>About </a>
                     </li>
                     <li>
                       <a href="/contact-us">Contact</a>
@@ -129,11 +125,7 @@ const FooterBar = () => {
                 <div className="row-span-1">
                   <ul className="mx-10 text-[20px] leading-[24px] font-Syne">
                     <li>
-                      <a
-                        href={`/${localStorage.getItem("currentUserType")}/services`}
-                      >
-                        Our Services
-                      </a>
+                      <a href={`/services`}>Our Services</a>
                     </li>
                     {serviceData &&
                       serviceData?.serviceData?.map((ele: any) => {
@@ -148,11 +140,7 @@ const FooterBar = () => {
                 <div className="row-span-1">
                   <ul className="mx-10 text-[20px] leading-[24px] font-Syne">
                     <li>
-                      <a
-                        href={`/${localStorage.getItem("currentUserType")}/case-studies`}
-                      >
-                        Case Study
-                      </a>
+                      <a href={`/case-studies`}>Case Study</a>
                     </li>
                     <li>
                       <a href="/blogs">Blog</a>
@@ -223,21 +211,13 @@ const FooterBar = () => {
                       <a href="/">Home</a>
                     </li>
                     <li>
-                      <a
-                        href={`/${localStorage.getItem("currentUserType")}/about`}
-                      >
-                        About{" "}
-                      </a>
+                      <a href={`/about`}>About </a>
                     </li>
                     <li>
                       <a href="/contact-us">Contact</a>
                     </li>
                     <li>
-                      <a
-                        href={`/${localStorage.getItem("currentUserType")}/case-studies`}
-                      >
-                        Case Study
-                      </a>
+                      <a href={`/case-studies`}>Case Study</a>
                     </li>
                     <li>
                       <a href="/blogs">Blog</a>

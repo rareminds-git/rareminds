@@ -21,9 +21,7 @@ const WhyUs = ({ content }) => {
               }}
             ></p>
             <p
-              onClick={() =>
-                navigate(`/${localStorage.getItem("currentUserType")}/about`)
-              }
+              onClick={() => navigate(`/about`)}
               className="mb-4 mt-0 lg:text-[24px] lg:leading-[71px] text-[14px] leading-[20px] cursor-pointer font-Syne text-xl ml-0 font-bold text-black-200"
             >
               Read more about What we do

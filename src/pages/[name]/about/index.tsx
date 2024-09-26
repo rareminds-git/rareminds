@@ -18,11 +18,9 @@ const About = () => {
 
   useEffect(() => {
     async function getPageData() {
-      await axios
-        .get(`${import.meta.env.VITE_API_URL}${userType}/about`)
-        .then((res) => {
-          setPageData(res.data);
-        });
+      await axios.get(`${import.meta.env.VITE_API_URL}/about`).then((res) => {
+        setPageData(res.data);
+      });
     }
 
     getPageData();
@@ -125,15 +123,23 @@ const About = () => {
                 className="rounded-full
             border-[#CAF0F8] border-[17px] mx-auto my-6"
               />
-              <p className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px]">
-                {pageData?.visionMission &&
-                  pageData?.visionMission[0]?.Heading1}
-              </p>
+              <p
+                className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px]"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    pageData?.visionMission &&
+                    pageData?.visionMission[0]?.Heading1,
+                }}
+              />
 
-              <p className="mt-2 lg:text-[22px] text-[18px] lg:leading-[43.06px] font-light">
-                {pageData?.visionMission &&
-                  pageData?.visionMission[0]?.Description}
-              </p>
+              <p
+                className="mt-2 lg:text-[22px] text-[18px] lg:leading-[43.06px] font-light"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    pageData?.visionMission &&
+                    pageData?.visionMission[0]?.Description,
+                }}
+              />
             </div>
 
             {!isMobile ? (
@@ -161,15 +167,23 @@ const About = () => {
                 className="rounded-full
             border-[#CAF0F8] border-[17px] mx-auto my-6"
               />
-              <p className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px]">
-                {pageData?.visionMission &&
-                  pageData?.visionMission[1]?.Heading1}
-              </p>
+              <p
+                className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px]"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    pageData?.visionMission &&
+                    pageData?.visionMission[1]?.Heading1,
+                }}
+              />
 
-              <p className="mt-2 lg:text-[22px] text-[18px] lg:leading-[43.06px] font-light">
-                {pageData?.visionMission &&
-                  pageData?.visionMission[1]?.Description}
-              </p>
+              <p
+                className="mt-2 lg:text-[22px] text-[18px] lg:leading-[43.06px] font-light"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    pageData?.visionMission &&
+                    pageData?.visionMission[1]?.Description,
+                }}
+              />
             </div>
           </div>
 
@@ -188,13 +202,19 @@ const About = () => {
                       className="rounded-full
             border-[#CAF0F8] border-[17px] mx-auto my-6"
                     />
-                    <p className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[26px] lg:leading-[35.2px] text-black-400 mx-2 text-[24px]">
-                      {ele.Heading2}
-                    </p>
+                    <p
+                      className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[26px] lg:leading-[35.2px] text-black-400 mx-2 text-[24px]"
+                      dangerouslySetInnerHTML={{
+                        __html: ele.Heading2,
+                      }}
+                    />
 
-                    <p className="mt-2 lg:text-[22px] text-[12px] text-center lg:leading-[43.06px] font-light">
-                      {ele.SubHeading1}
-                    </p>
+                    <p
+                      className="mt-2 lg:text-[22px] text-[12px] text-center lg:leading-[43.06px] font-light"
+                      dangerouslySetInnerHTML={{
+                        __html: ele.SubHeading1,
+                      }}
+                    />
                   </div>
                 </>
               );

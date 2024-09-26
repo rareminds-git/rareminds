@@ -3,19 +3,25 @@ import CountUp from "react-countup";
 import { useInViewport } from "../useInViewPort";
 
 const Achievements = ({ content, achievements }) => {
-  console.log("achievements", achievements);
   const { isInViewport, ref } = useInViewport();
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>
       <section className="lg:px-10 xl:px-20 xxl:px-60 lg:py-20 place-items-center font-Syne">
         <div className="items-center px-5 py-5">
-          <p className="mt-0 font-bold text-center ml-0 text-[24px] leading-[28.8px] lg:text-[49px] lg:leading-[73.5px] py-10 text-black-500 font-[Poppins-Regular]">
-            {content && content[0]?.Heading1}
-          </p>
-          <p className="lg:text-[22px] lg:leading-[33px] text-[14px] leading-[21px] lg:mt-2 lg:px-[10rem] xl:px-[4rem] lg:mb-20 lg:text-center font-[Poppins-Regular]">
-            {content && content[0]?.Description}
-          </p>
+          <p
+            className="mt-0 font-bold text-center ml-0 text-[24px] leading-[28.8px] lg:text-[49px] lg:leading-[73.5px] py-10 text-black-500 font-[Poppins-Regular]"
+            dangerouslySetInnerHTML={{
+              __html: content && content[0]?.Heading1,
+            }}
+          />
+
+          <p
+            className="lg:text-[22px] lg:leading-[33px] text-[14px] leading-[21px] lg:mt-2 lg:px-[10rem] xl:px-[4rem] lg:mb-20 lg:text-center font-[Poppins-Regular]"
+            dangerouslySetInnerHTML={{
+              __html: content && content[0]?.Description,
+            }}
+          />
         </div>
         {!isMobile ? (
           <>
@@ -24,12 +30,18 @@ const Achievements = ({ content, achievements }) => {
                 <div className="container-fluid lg:px-12 xl:px-4" ref={ref}>
                   <div className="grid grid-cols-4 gap-4 lg:px-12 lg:py-12 py-10 px-10 border-y-black border-2 border-x-0">
                     <div className="lg:col-span-2 col-span-2">
-                      <h5 className="text-[52px] leading-[58px] font-Syne font-bold">
-                        {ele.ContentTitle}
-                      </h5>
-                      <p className="text-[16px] leading-[21.76px] mt-5 font-[Sentient] font-light">
-                        {ele.ContentDescription}
-                      </p>
+                      <h5
+                        className="text-[52px] leading-[58px] font-Syne font-bold"
+                        dangerouslySetInnerHTML={{
+                          __html: ele.ContentTitle,
+                        }}
+                      ></h5>
+                      <p
+                        className="text-[16px] leading-[21.76px] mt-5 font-[Sentient] font-light"
+                        dangerouslySetInnerHTML={{
+                          __html: ele.ContentDescription,
+                        }}
+                      ></p>
                     </div>
                     <div className="grid place-items-end lg:col-span-2 col-span-1">
                       <div className="place-items-end">
@@ -56,9 +68,12 @@ const Achievements = ({ content, achievements }) => {
                   <div className="grid grid-rows-2 gap-4 lg:px-12 lg:py-12 px-4 border-y-black border-2 border-x-0">
                     <div className="row-span-1 grid grid-cols-3">
                       <div className="col-span-1 mt-4">
-                        <h5 className="text-[16px] leading-[18px] font-Syne font-bold">
-                          {ele.ContentTitle}
-                        </h5>
+                        <h5
+                          className="text-[16px] leading-[18px] font-Syne font-bold"
+                          dangerouslySetInnerHTML={{
+                            __html: ele.ContentTitle,
+                          }}
+                        ></h5>
                       </div>
                       <div className="col-span-2 mt-4">
                         <h5 className="text-right lg:text-[40px] leading-[42px] text-blue-400 font-Poppins}">
@@ -71,9 +86,12 @@ const Achievements = ({ content, achievements }) => {
                       </div>
                     </div>
                     <div className="row-span-1">
-                      <p className="text-[13px] leading-[17.66px] mb-4 font-[Sentient] font-light">
-                        {ele.ContentDescription}
-                      </p>
+                      <p
+                        className="text-[13px] leading-[17.66px] mb-4 font-[Sentient] font-light"
+                        dangerouslySetInnerHTML={{
+                          __html: ele.Description,
+                        }}
+                      />
                     </div>
                   </div>
                 </div>

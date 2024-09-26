@@ -107,12 +107,18 @@ const QueryForm = ({ pageData, content }) => {
     <section className="md:px-20 px-10 md:pt-32 md:pb-48">
       <div className="flex">
         <div className="grid space-y-10 text-center font-Syne">
-          <h1 className="mt-20 text-3xl md:text-center text-left font-bold md:text-5xl">
-            {content[0]?.Heading1}
-          </h1>
-          <p className="text-xl mb-20 md:px-44 md:text-center text-left">
-            {content[0]?.Heading2}
-          </p>
+          <h1
+            className="mt-20 text-3xl md:text-center text-left font-bold md:text-5xl"
+            dangerouslySetInnerHTML={{
+              __html: content[0]?.Heading1,
+            }}
+          />
+          <p
+            className="text-xl mb-20 md:px-44 md:text-center text-left"
+            dangerouslySetInnerHTML={{
+              __html: content[0]?.Heading2,
+            }}
+          />
           <h3 className="mt-20 text-3xl md:text-center text-left font-bold md:text-5xl">
             {successMessage}
           </h3>
@@ -124,12 +130,18 @@ const QueryForm = ({ pageData, content }) => {
       <section className="md:px-60 xl:px-40 px-10 md:pt-32 md:pb-48 py-16">
         <div className="flex">
           <div className="grid space-y-10 text-center font-Syne">
-            <h1 className="mt-20 text-3xl md:text-center text-left font-bold md:text-5xl">
-              {content[0]?.Heading1}
-            </h1>
-            <p className="text-xl mb-20 md:px-72 xl:px-40 md:text-center text-left">
-              {content[0]?.Heading2}
-            </p>
+            <h1
+              className="mt-20 text-3xl md:text-center text-left font-bold md:text-5xl"
+              dangerouslySetInnerHTML={{
+                __html: content[0]?.Heading1,
+              }}
+            />
+            <p
+              className="text-xl mb-20 md:px-72 xl:px-40 md:text-center text-left"
+              dangerouslySetInnerHTML={{
+                __html: content[0]?.Heading2,
+              }}
+            />
 
             <h3
               className={`text-xl mt-8 px-24 md:text-center text-left text-red-500 font-bold font-Syne fixed ${errorMessage ? "bg-gray-300" : "bg-white"} top-10 left-0 w-full p-5 xl:p-0 z-50`}

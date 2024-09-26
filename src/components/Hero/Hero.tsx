@@ -26,23 +26,35 @@ const Hero = ({ content }) => {
         <section className="lg:px-16 xxl:px-32 lg:pt-16 xl:py-48 xxl:py-32 lg:pb-16 pb-8 bg-hero-gradient">
           <div className="flex items-center justify-center">
             <div className="grid space-y-10 place-items-center">
-              <h1 className="mb-4 mt-8 text-[32px] leading-10 mx-[3rem] text-center lg:mx-[8rem] xl:mx-[6rem] xxl:mx-[16rem] font-[Sentient] font-medium lg:text-[60px] lg:leading-[74px] text-[#ff2c2c]">
-                {content?.Heading1}
-              </h1>
+              <h1
+                className="mb-4 mt-8 text-[32px] leading-10 mx-[3rem] text-center lg:mx-[8rem] xl:mx-[6rem] xxl:mx-[16rem] font-[Sentient] font-medium lg:text-[60px] lg:leading-[74px] text-[#ff2c2c]"
+                dangerouslySetInnerHTML={{
+                  __html: content.Heading1,
+                }}
+              />
             </div>
           </div>
 
           <div className="grid space-y-10 place-items-start grid-cols-5">
             <div className="place-items-start col-span-2">
-              <p className="mb-4 font-Syne lg:mt-36 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px] pl-8">
-                "{content?.Heading2}"
-              </p>
-              <p className="mt-8 lg:text-[32px] text-[20px] lg:leading-[53.06px] font-medium pl-8">
-                {content?.SubHeading1},
-              </p>
-              <p className="mt-2 font-Syne lg:text-[32px] text-[20px] lg:leading-[53.06px] font-mediumn pl-8">
-                {content?.SubHeading2}
-              </p>
+              <p
+                className="mb-4 font-Syne lg:mt-36 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px] pl-8"
+                dangerouslySetInnerHTML={{
+                  __html: content.Heading2,
+                }}
+              />
+              <p
+                className="mt-8 lg:text-[32px] text-[20px] lg:leading-[53.06px] font-medium pl-8"
+                dangerouslySetInnerHTML={{
+                  __html: content.SubHeading1,
+                }}
+              />
+              <p
+                className="mt-2 font-Syne lg:text-[32px] text-[20px] lg:leading-[53.06px] font-mediumn pl-8"
+                dangerouslySetInnerHTML={{
+                  __html: content.SubHeading2,
+                }}
+              />
             </div>
 
             <div
@@ -116,15 +128,24 @@ const Hero = ({ content }) => {
                 />
               </div>
               <div className="grid place-items-center">
-                <p className="mb-4 font-Syne mt-8 px-4 text-[28px] leading-[33.6px] font-medium text-black-400 text-center">
-                  "{content?.Heading2}"
-                </p>
-                <p className="mt-2 font-Syne text-[20px] leading-[33.16px] font-semibold">
-                  {content?.SubHeading1}
-                </p>
-                <p className="mt-2 py-4 font-Syne text-[20px] leading-[33.16px] font-semibold">
-                  {content?.SubHeading2}
-                </p>
+                <p
+                  className="mb-4 font-Syne mt-8 px-4 text-[28px] leading-[33.6px] font-medium text-black-400 text-center"
+                  dangerouslySetInnerHTML={{
+                    __html: content.Heading2,
+                  }}
+                />
+                <p
+                  className="mt-2 font-Syne text-[20px] leading-[33.16px] font-semibold"
+                  dangerouslySetInnerHTML={{
+                    __html: content.SubHeading1,
+                  }}
+                />
+                <p
+                  className="mt-2 py-4 font-Syne text-[20px] leading-[33.16px] font-semibold"
+                  dangerouslySetInnerHTML={{
+                    __html: content.SubHeading2,
+                  }}
+                />
               </div>
               <div className="mt-8 mb-2 place-items-center mx-8">
                 <div className="lg:col-span-6 place-items-start hero-img relative float">

@@ -30,34 +30,53 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
               return (
                 <>
                   <div className="md:px-64 xl:px-44 my-10">
-                    <p className="text-red-400 font-bold font-Syne text-[36px] leading-[43.2px] ">
-                      {ele.Heading1}
-                    </p>
-                    <p className="text-black-400 py-2 font-normal font-Syne text-[18px] leading-[21.6px]">
-                      {ele.Heading2}
-                    </p>
+                    <p
+                      className="text-red-400 font-bold font-Syne text-[36px] leading-[43.2px] "
+                      dangerouslySetInnerHTML={{
+                        __html: ele.Heading1,
+                      }}
+                    />
+                    <p
+                      className="text-black-400 py-2 font-normal font-Syne text-[18px] leading-[21.6px]"
+                      dangerouslySetInnerHTML={{
+                        __html: ele.Heading2,
+                      }}
+                    />
                   </div>
 
                   <div className="container md:px-64 xl:px-44">
                     <div className="grid grid-cols-2 gap-4 md:py-12">
                       <div className="grid">
                         <div className="md:col-span-6 col-span-9">
-                          <p className="md:text-[20px] md:leading-[24px] text-xl font-semibold">
-                            {ele.SubHeading1}
-                          </p>
-                          <p className=" md:text-[20px] md:leading-[24px] text-xl font-normal">
-                            {ele.Description}
-                          </p>
+                          <p
+                            className="md:text-[20px] md:leading-[24px] text-xl font-semibold"
+                            dangerouslySetInnerHTML={{
+                              __html: ele.SubHeading1,
+                            }}
+                          />
+                          <p
+                            className=" md:text-[20px] md:leading-[24px] text-xl font-normal"
+                            dangerouslySetInnerHTML={{
+                              __html: ele.SubHeading2,
+                            }}
+                          />
                         </div>
                       </div>
                       <div className="grid place-items-end my-5">
                         <div className="md-col-span-6 col-span-3 place-items-end">
-                          <p className=" md:text-xl text-xl text-black-400 font-Syne">
-                            {ele.Address1 || ele.Contact1}
-                          </p>
-                          <p className=" md:text-xl text-xl text-black-400 font-Syne">
-                            {ele.Contact2}
-                          </p>
+                          <p
+                            className=" md:text-xl text-xl text-black-400 font-Syne"
+                            dangerouslySetInnerHTML={{
+                              __html: ele.Address1 || ele.Contact1,
+                            }}
+                          />
+
+                          <p
+                            className=" md:text-xl text-xl text-black-400 font-Syne"
+                            dangerouslySetInnerHTML={{
+                              __html: ele.Contact2,
+                            }}
+                          />
                         </div>
                       </div>
                     </div>
@@ -65,16 +84,22 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
                     <div className="grid grid-cols-2 gap-4 md:py-12">
                       <div className="grid my-5">
                         <div className="md:col-span-6 col-span-9">
-                          <p className=" md:text-xl text-xl font-bold">
-                            {ele.SubHeading2}
-                          </p>
+                          <p
+                            className=" md:text-xl text-xl font-bold"
+                            dangerouslySetInnerHTML={{
+                              __html: ele.subHeading2,
+                            }}
+                          />
                         </div>
                       </div>
                       <div className="grid place-items-end my-5">
                         <div className="md-col-span-6 col-span-3 place-items-end">
-                          <p className=" md:text-xl text-xl text-black-400 font-Syne">
-                            {ele.Address2 || ele.EmailAddress}
-                          </p>
+                          <p
+                            className=" md:text-xl text-xl text-black-400 font-Syne"
+                            dangerouslySetInnerHTML={{
+                              __html: ele.Address2 || ele.EmailAddress,
+                            }}
+                          />
                         </div>
                       </div>
                     </div>
