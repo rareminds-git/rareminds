@@ -44,12 +44,18 @@ const Blogs = ({ pageData, content }) => {
               className="rounded-xl object-cover"
             />
 
-            <h4 className="font-Syne md:text-[26px] leading-[31.2px] mt-5 my-3 text-sm text-black font-bold">
-              {currentPosts[0].Heading1}
-            </h4>
-            <p className="text-[16px] leading-[24px] font-Syne my-3 line-clamp-2 font-normal">
-              {currentPosts[0].Heading2}
-            </p>
+            <h4
+              className="font-Syne md:text-[26px] leading-[31.2px] mt-5 my-3 text-sm text-black font-bold"
+              dangerouslySetInnerHTML={{
+                __html: currentPosts[0].Heading1,
+              }}
+            />
+            <p
+              className="text-[16px] leading-[24px] font-Syne my-3 line-clamp-2 font-normal"
+              dangerouslySetInnerHTML={{
+                __html: currentPosts[0].Heading2,
+              }}
+            />
             <p className="text-[16px] leading-[21.76px] my-3 font-[Sentient]">
               {moment(currentPosts[0].CreatedOn).format("DD MMM YYYY")}
             </p>
@@ -70,12 +76,18 @@ const Blogs = ({ pageData, content }) => {
                   alt={ele.Heading1}
                 />
 
-                <h4 className="font-Syne md:text-[26px] leading-[31.2px] mt-5 my-3 text-sm text-black font-bold">
-                  {ele.Heading1}
-                </h4>
-                <p className="text-[16px] leading-[24px] font-Syne my-3 line-clamp-2 font-normal">
-                  {ele.Heading2}
-                </p>
+                <h4
+                  className="font-Syne md:text-[26px] leading-[31.2px] mt-5 my-3 text-sm text-black font-bold"
+                  dangerouslySetInnerHTML={{
+                    __html: ele.Heading1,
+                  }}
+                />
+                <p
+                  className="text-[16px] leading-[24px] font-Syne my-3 line-clamp-2 font-normal"
+                  dangerouslySetInnerHTML={{
+                    __html: ele.Heading2,
+                  }}
+                />
                 <p className="text-[16px] leading-[21.76px] my-3 font-[Sentient]">
                   {moment(ele.CreatedOn).format("DD MMM YYYY")}
                 </p>

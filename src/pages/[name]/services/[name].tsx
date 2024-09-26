@@ -86,9 +86,12 @@ const ServiceName = () => {
                 {serviceData?.servicePrograms?.map((ele: any) => {
                   return (
                     <div className="row-span-1">
-                      <p className="text-xl lg:text-[36px] lg:leading-[42px] font-[Syne] font-semibold">
-                        {ele.ContentTitle}
-                      </p>
+                      <p
+                        className="text-xl lg:text-[36px] lg:leading-[42px] font-[Syne] font-semibold"
+                        dangerouslySetInnerHTML={{
+                          __html: ele.ContentTitle,
+                        }}
+                      />
                       <span
                         className="mt-4 mr-20 lg:text-[16px] lg:leading-[21.76px] font-[Sentient] font-light serviceProgramList"
                         dangerouslySetInnerHTML={{

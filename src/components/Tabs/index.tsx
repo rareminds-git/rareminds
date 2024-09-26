@@ -1,5 +1,5 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
+// import "react-tabs/style/react-tabs.css";
 import TestimonialCarousel from "../Hero/TestimonalCarousel";
 
 const CustomTabs = ({ testimonials, tabs, categories }) => {

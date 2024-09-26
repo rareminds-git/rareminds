@@ -130,9 +130,12 @@ const Index = () => {
                       For {ele.PageName}
                     </h3>
                     {activeBanner === ele.PageSlug.replace("/", "") ? (
-                      <p className="mt-60 mr-16 text-white font-[Urbanist] text-[20px] leading-[26px] font-semibold absolute bottom-10">
-                        {ele.PageSubTitle}
-                      </p>
+                      <p
+                        className="mt-60 mr-16 text-white font-[Urbanist] text-[20px] leading-[26px] font-semibold absolute bottom-10"
+                        dangerouslySetInnerHTML={{
+                          __html: ele.PageSubTitle,
+                        }}
+                      />
                     ) : (
                       ""
                     )}
@@ -164,9 +167,12 @@ const Index = () => {
                       <h3 className="text-white font-extrabold font-[Poppins-Medium] text-2xl">
                         For {ele.PageName}
                       </h3>
-                      <p className="mt-24 text-white font-[Poppins-Medium]">
-                        {ele.PageSubTitle}
-                      </p>
+                      <p
+                        className="mt-24 text-white font-[Poppins-Medium]"
+                        dangerouslySetInnerHTML={{
+                          __html: ele.PageSubTitle,
+                        }}
+                      />
                     </div>
                   );
                 })}

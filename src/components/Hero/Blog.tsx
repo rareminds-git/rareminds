@@ -56,12 +56,18 @@ const Blog = ({ content }) => {
                         }}
                         className={`${index % 2 === 0 ? "rounded-tl-[20px] rounded-tr-[180px] rounded-bl-[20px] rounded-br-[20px] object-cover" : "rounded-tl-[80px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] object-cover"}`}
                       />
-                      <p className="font-Syne text-[16px] mt-4 leading-[18px] pb-5 mr-4 font-bold">
-                        {ele.Heading1}
-                      </p>
-                      <p className="font-Syne font-normal text-[16px] leading-[18px] line-clamp-3">
-                        {ele.Heading2}
-                      </p>
+                      <p
+                        className="font-Syne text-[16px] mt-4 leading-[18px] pb-5 mr-4 font-bold"
+                        dangerouslySetInnerHTML={{
+                          __html: ele.Heading1,
+                        }}
+                      />
+                      <p
+                        className="font-Syne font-normal text-[16px] leading-[18px] line-clamp-3"
+                        dangerouslySetInnerHTML={{
+                          __html: ele.Heading2,
+                        }}
+                      />
                       <p className="font-Syne font-normal text-[16px] leading-[18px] mt-3">
                         {moment(ele.CreatedOn).format("MMM Do YYYY")}
                       </p>
@@ -103,12 +109,18 @@ const Blog = ({ content }) => {
                         }}
                         className={`${index % 2 === 0 ? "rounded-tl-[20px] rounded-tr-[180px] rounded-bl-[20px] rounded-br-[20px] object-cover" : "rounded-tl-[80px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] object-cover"}`}
                       />
-                      <p className="font-Syne text-[16px] leading-[18px] pb-5 mr-4 mt-4 font-bold">
-                        {ele.Heading1}
-                      </p>
-                      <p className="font-Syne font-normal text-[16px] leading-[18px] line-clamp-3">
-                        {ele.Heading2}
-                      </p>
+                      <p
+                        className="font-Syne text-[16px] leading-[18px] pb-5 mr-4 mt-4 font-bold"
+                        dangerouslySetInnerHTML={{
+                          __html: ele.Heading1,
+                        }}
+                      />
+                      <p
+                        className="font-Syne font-normal text-[16px] leading-[18px] line-clamp-3"
+                        dangerouslySetInnerHTML={{
+                          __html: ele.Heading2,
+                        }}
+                      />
                       <p className="font-Syne font-normal text-[16px] leading-[18px] mt-3">
                         {moment(ele.CreatedOn).format("MMM Do YYYY")}
                       </p>

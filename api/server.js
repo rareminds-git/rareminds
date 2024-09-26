@@ -204,6 +204,10 @@ app.get("/pages/:pageSlug", async function (req, res) {
     sectionData = await mysqlQuery(con, {
       sql: "SELECT * FROM rm_content WHERE ContentTypeId = 46",
     });
+  } else if (pageSlug === "about-us") {
+    sectionData = await mysqlQuery(con, {
+      sql: "SELECT * FROM rm_content WHERE ContentTypeId = 43",
+    });
   } else {
     sectionData = await mysqlQuery(con, {
       sql:
@@ -717,7 +721,7 @@ app.post("/editPage/:slug", async function (req, res) {
     sql: "SELECT * FROM rm_pages WHERE PageSlug = '/" + pageSlug + "'",
   });
 
-  if (formData.ContentSlug === "/metadata") {
+  if (formData.ContentSlug === "/metadata" || pageSlug === "about-us") {
     delete formData.ContentSlug;
   }
 
@@ -731,7 +735,7 @@ app.post("/editPage/:slug", async function (req, res) {
     updateData = await mysqlQuery(con, {
       sql: `UPDATE rm_pages SET ${updateString} WHERE PageSlug = "/${pageSlug}"`,
     });
-  } else if (pageSlug === "contact-us") {
+  } else if (pageSlug === "contact-us" || pageSlug === "about-us") {
     updateData = await mysqlQuery(con, {
       sql: `UPDATE rm_content SET ${updateString} WHERE ContentId = "${formData.ContentId}"`,
     });

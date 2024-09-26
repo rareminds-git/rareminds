@@ -46,12 +46,18 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
                       className="rounded-full
             border-[#CAF0F8] border-[17px]"
                     />
-                    <p className="font-[Sentient] font-normal text-wrap lg:text-[30px] text-[20px] lg:leading-[40.8px] my-8 lg:pr-44">
-                      {item.ContentTitle}
-                    </p>
-                    <p className="font-[Sentient] font-normal text-balance text-[18px] leading-[24.48px] pb-5 lg:pr-44 Hero">
-                      {item.ContentDescription}
-                    </p>
+                    <p
+                      className="font-[Sentient] font-normal text-wrap lg:text-[30px] text-[20px] lg:leading-[40.8px] my-8 lg:pr-44"
+                      dangerouslySetInnerHTML={{
+                        __html: item.Contenttitle,
+                      }}
+                    />
+                    <p
+                      className="font-[Sentient] font-normal text-balance text-[18px] leading-[24.48px] pb-5 lg:pr-44 Hero"
+                      dangerouslySetInnerHTML={{
+                        __html: item.ContentDescription,
+                      }}
+                    />
                   </div>
                   <div className="col-span-1 row-span-1 my-4 place-items-start">
                     <img
@@ -89,12 +95,18 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
                     </div>
                   </div>
                   <div className="col-span-2">
-                    <p className="font-Inter text-xl font-bold my-8">
-                      {item.ContentTitle}
-                    </p>
-                    <p className="font-Inter text-sm pb-5 mr-4 font-thin">
-                      {item.ContentDescription}
-                    </p>
+                    <p
+                      className="font-Inter text-xl font-bold my-8"
+                      dangerouslySetInnerHTML={{
+                        __html: item.Contenttitle,
+                      }}
+                    />
+                    <p
+                      className="font-Inter text-sm pb-5 mr-4 font-thin"
+                      dangerouslySetInnerHTML={{
+                        __html: item.ContentDescription,
+                      }}
+                    />
                     <div className="col-span-4 row-span-1 my-4 place-items-start">
                       <img
                         className="testimonyIlls"
