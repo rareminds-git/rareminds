@@ -5,6 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import CTA from "@/common/CTA";
 import { Helmet } from "react-helmet";
+import parse from "html-react-parser";
 
 const ServiceName = () => {
   const { userType, serviceName } = useParams();

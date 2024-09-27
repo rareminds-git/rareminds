@@ -3,6 +3,7 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { useMediaQuery } from "react-responsive";
 import { useNavigate } from "react-router-dom";
+import parse from "html-react-parser";
 
 const Services = ({ content, services, ctaContent }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
@@ -36,7 +37,7 @@ const Services = ({ content, services, ctaContent }) => {
                       <p
                         className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
                         dangerouslySetInnerHTML={{
-                          __html: ele?.Description,
+                          __html: parse(ele?.Description),
                         }}
                       ></p>
 
