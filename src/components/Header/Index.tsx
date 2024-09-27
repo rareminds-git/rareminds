@@ -49,7 +49,14 @@ const Header = ({ navbarOpen, setNavbarOpen }) => {
         >
           {pages.map((ele: any) => {
             return (
-              <option className=" px-8" value={ele.PageSlug.replace("/", "")}>
+              <option
+                className=" px-8"
+                value={ele.PageSlug.replace("/", "")}
+                selected={
+                  ele.PageSlug.replace("/", "") ===
+                  localStorage.getItem("currentUserType")
+                }
+              >
                 {" "}
                 For {ele.PageName}
               </option>

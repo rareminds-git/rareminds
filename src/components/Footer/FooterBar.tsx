@@ -39,8 +39,8 @@ const socialIcons = [
 const FooterBar = () => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const [serviceData, setData] = useState<any>({});
-  const [subscriberEmail, setSubscriberEmail] = useState();
-  const [successMessage, setSuccessMsg] = useState();
+  const [subscriberEmail, setSubscriberEmail] = useState(null);
+  const [successMessage, setSuccessMsg] = useState(null);
 
   useEffect(() => {
     async function getData() {
@@ -57,32 +57,41 @@ const FooterBar = () => {
   }, []);
 
   const submitSubscription = () => {
-    const config = {
-      method: "post",
-      maxBodyLength: Infinity,
-      url: `${import.meta.env.VITE_API_URL}subscribers`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: { SubscriberEmail: subscriberEmail },
-    };
+    if (subscriberEmail) {
+      if (!/(.+)@(.+){2,}\.(.+){2,}/.test(subscriberEmail)) {
+        setSuccessMsg("Enter a valid email address");
+      } else {
+        setSuccessMsg(null);
+        const config = {
+          method: "post",
+          maxBodyLength: Infinity,
+          url: `${import.meta.env.VITE_API_URL}subscribers`,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: { SubscriberEmail: subscriberEmail },
+        };
 
-    axios
-      .request(config)
-      .then((response) => {
-        if (response.data.status === 200) {
-          setSuccessMsg(response.data.message);
-          setTimeout(() => {
-            setSuccessMsg("");
-          }, 2000);
-        }
-        if (response.data.status === 500) {
-          setErrorMsg(response.data.message);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+        axios
+          .request(config)
+          .then((response) => {
+            if (response.data.status === 200) {
+              setSuccessMsg("Thank you for subscribing");
+              setTimeout(() => {
+                setSuccessMsg(null);
+              }, 2000);
+            }
+            if (response.data.status === 500) {
+              setErrorMsg(response.data.message);
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    } else {
+      setSuccessMsg("Please enter the email address");
+    }
   };
 
   return (
@@ -140,7 +149,11 @@ const FooterBar = () => {
                 <div className="row-span-1">
                   <ul className="mx-10 text-[20px] leading-[24px] font-Syne">
                     <li>
-                      <a href={`/case-studies`}>Case Study</a>
+                      <a
+                        href={`/${localStorage.getItem("currentUserType")}/case-studies`}
+                      >
+                        Case Study
+                      </a>
                     </li>
                     <li>
                       <a href="/blogs">Blog</a>
@@ -156,7 +169,10 @@ const FooterBar = () => {
               <input
                 className="rounded p-2 mt-5 bg-transparent border-[#CAF0F8]-400 border mr-10"
                 placeholder="Enter your email"
-                onChange={(e) => setSubscriberEmail(e.target.value)}
+                onChange={(e) => {
+                  setSuccessMsg(null);
+                  setSubscriberEmail(e.target.value);
+                }}
               />
 
               <button
@@ -168,7 +184,7 @@ const FooterBar = () => {
 
               {successMessage && (
                 <span className="text-white flex text-2xl justify-end text-left mt-4 py-4">
-                  Thank you for subscribing.
+                  {successMessage}
                 </span>
               )}
             </div>
@@ -217,7 +233,11 @@ const FooterBar = () => {
                       <a href="/contact-us">Contact</a>
                     </li>
                     <li>
-                      <a href={`/case-studies`}>Case Study</a>
+                      <a
+                        href={`/${localStorage.getItem("currentUserType")}/case-studies`}
+                      >
+                        Case Study
+                      </a>
                     </li>
                     <li>
                       <a href="/blogs">Blog</a>
