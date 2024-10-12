@@ -84,6 +84,7 @@ function encodeHTML(str) {
 
 //Allow all requests from all domains & localhost
 app.all("/*", function (req, res, next) {
+  console.log("call api");
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
@@ -1132,5 +1133,140 @@ app.post(
     });
   }
 );
+
+app.post("/addEvent", upload.single("Image1"), async function (req, res) {
+  const { body, file } = req;
+
+  console.log({ body, file });
+
+  const formData = req.body;
+
+  let eventData = JSON.parse(formData.eventData);
+  eventData.Image1 = req.file.filename;
+  let eventSchedule = JSON.parse(formData.eventSchedule);
+  let eventAgenda = JSON.parse(formData.eventAgenda);
+  let updateData = "";
+  if (Object.keys(eventData).length > 0) {
+    updateData = await mysqlQuery(con, {
+      sql:
+        "INSERT into `rm_content` (`Heading1`,  `Heading2`, `SubHeading1`, `SubHeading2`, `Image1`, `PageId`, `ContentTypeId`, `ContentSlug`, `Address1`, `EventDate`, `Status`, `Description`) VALUES ('" +
+        eventData.Heading1 +
+        "', '" +
+        eventData.Heading2 +
+        "', '" +
+        eventData.SubHeading1 +
+        "', '" +
+        eventData.SubHeading2 +
+        "', '" +
+        eventData.Image1 +
+        "', '0', '47', '" +
+        (eventData.ContentSlug || "") +
+        "','" +
+        (eventData.Address1 || "") +
+        "','" +
+        (eventData.EventDate || "") +
+        "','" +
+        eventData.Status +
+        "','" +
+        (eventData.Description || "") +
+        "')",
+    });
+  }
+
+  if (updateData && Object.keys(eventSchedule).length > 0) {
+    eventSchedule.map(async (rowData) => {
+      await mysqlQuery(con, {
+        sql:
+          "INSERT into `rm_event_schedule` (`Title`,  `Date`, `EventId`) VALUES ('" +
+          rowData.Title +
+          "', '" +
+          rowData.Date +
+          "', '" +
+          updateData.insertId +
+          "')",
+      });
+    });
+  }
+
+  if (updateData && Object.keys(eventAgenda).length > 0) {
+    eventAgenda.map(async (rowData) => {
+      await mysqlQuery(con, {
+        sql:
+          "INSERT into `rm_event_agenda` (`Title`,  `Time`, `Description`, `EventId`) VALUES ('" +
+          rowData.Title +
+          "', '" +
+          rowData.Time +
+          "', '" +
+          rowData.Description +
+          "', '" +
+          updateData.insertId +
+          "')",
+      });
+    });
+  }
+
+  res.send({
+    status: 200,
+    message: "Data updated successfully",
+  });
+});
+
+app.get("/events/:id", async function (req, res) {
+  let eventData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentId = '" + req.params.id + "'",
+  });
+
+  console.log("event data", eventData);
+  let eventSchedule = await mysqlQuery(con, {
+    sql:
+      "SELECT * FROM rm_event_schedule WHERE EventId = " +
+      eventData[0].ContentId,
+  });
+  let eventAgenda = await mysqlQuery(con, {
+    sql:
+      "SELECT * FROM rm_event_agenda WHERE EventId = " + eventData[0].ContentId,
+  });
+
+  res.send({
+    eventData,
+    eventSchedule,
+    eventAgenda,
+  });
+});
+
+app.get("/events", async function (req, res) {
+  let eventData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content where ContentTypeId = 47",
+  });
+
+  res.send({
+    eventsData: eventData,
+  });
+});
+
+app.get("/events/hackathon/:eventCategory/:slug", async function (req, res) {
+  let eventSlug =
+    "hackathon/" + req.params.eventCategory + "/" + req.params.slug;
+  let eventData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + eventSlug + "/'",
+  });
+
+  console.log("event data", eventData);
+  let eventSchedule = await mysqlQuery(con, {
+    sql:
+      "SELECT * FROM rm_event_schedule WHERE EventId = " +
+      eventData[0].ContentId,
+  });
+  let eventAgenda = await mysqlQuery(con, {
+    sql:
+      "SELECT * FROM rm_event_agenda WHERE EventId = " + eventData[0].ContentId,
+  });
+
+  res.send({
+    eventData,
+    eventSchedule,
+    eventAgenda,
+  });
+});
 
 app.listen(6069);

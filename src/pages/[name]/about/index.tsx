@@ -237,7 +237,7 @@ const About = () => {
                         return (
                           <a target="_blank">
                             <img
-                              src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
+                              src={`${import.meta.env.VITE_PUBLIC_URL}uploads/${ele.Image1}`}
                               title=""
                               className="marqueelogo"
                               alt="Rareminds"
