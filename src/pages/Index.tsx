@@ -33,9 +33,9 @@ const Index = () => {
         ? GovernmentBanner
         : activeBanner === "institutions"
           ? InstitutionsBanner
-          : activeBanner === "school"
+          : activeBanner === "schools"
             ? SchoolsBanner
-            : GovernmentBanner;
+            : CorporateBanner;
 
   const redirectToPage = (slug: string) => {
     setTimeout(() => {
@@ -90,7 +90,7 @@ const Index = () => {
       </Helmet>
       {!isMobile ? (
         <div className="banner" style={{ backgroundImage: `url(${Baner})` }}>
-          <div className="banner-grid h-screen">
+          <div className="banner-grid h-screen bg-black opacity-55">
             <div className="grid grid-rows-2 grid-flow-col gap-0 h-screen">
               <div
                 className="mt-8 mx-8 row-span-2"
@@ -168,7 +168,7 @@ const Index = () => {
                         For {ele.PageName}
                       </h3>
                       <p
-                        className="mt-24 text-white font-[Poppins-Medium]"
+                        className="mt-20 text-white font-[Poppins-Medium]"
                         dangerouslySetInnerHTML={{
                           __html: ele.PageSubTitle,
                         }}

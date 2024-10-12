@@ -68,6 +68,12 @@ const Blog = ({ content }) => {
                           __html: ele.Heading2,
                         }}
                       />
+                      <span
+                        onClick={() => navigate(`/blogs/${ele.ContentSlug}`)}
+                        className="text-black font-bold cursor-pointer"
+                      >
+                        Read more
+                      </span>
                       <p className="font-Syne font-normal text-[16px] leading-[18px] mt-3">
                         {moment(ele.CreatedOn).format("MMM Do YYYY")}
                       </p>
@@ -118,9 +124,15 @@ const Blog = ({ content }) => {
                       <p
                         className="font-Syne font-normal text-[16px] leading-[18px] line-clamp-3"
                         dangerouslySetInnerHTML={{
-                          __html: ele.Heading2,
+                          __html: ele.Heading2 + "Read more",
                         }}
                       />
+                      <span
+                        onClick={() => navigate(`/blogs/${ele.ContentSlug}`)}
+                        className="text-black font-bold cursor-pointer"
+                      >
+                        Read more
+                      </span>
                       <p className="font-Syne font-normal text-[16px] leading-[18px] mt-3">
                         {moment(ele.CreatedOn).format("MMM Do YYYY")}
                       </p>
