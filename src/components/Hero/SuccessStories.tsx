@@ -9,7 +9,7 @@ const SuccessStories = ({ content, pageData }) => {
   const navigate = useNavigate();
   return (
     <>
-      <section className="md:px-20 px-10 py-10 xl:px-32 xxl:px-72 bg-hero-gradient">
+      <section className="md:px-20 px-10 py-10 xl:px-32 xxl:px-44 bg-hero-gradient">
         <div className="flex">
           <div className="grid space-y-10">
             <h4 className="mb-4 md:mt-20 mt-10 md:text-[70px] md:leading-[115.2px] text-[28px] leading-[30px] text-left font-normal text-[#FF2C2C]">
@@ -49,7 +49,15 @@ const SuccessStories = ({ content, pageData }) => {
                     <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
                       {ele.Heading1}
                     </h4>
-                    <p className="text-sm">{ele.Heading2}</p>
+                    <p className="text-sm">
+                      {ele.Heading2}...{" "}
+                      <span
+                        onClick={() => navigate(`/${ele.ContentSlug}`)}
+                        className="text-black font-bold cursor-pointer"
+                      >
+                        Read more
+                      </span>
+                    </p>
                   </div>
                 );
               })}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import FooterIcon from "./FooterIcon";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
@@ -12,27 +12,27 @@ const socialIcons = [
   {
     id: 1,
     icon: FaceBookIcon,
-    link: "https://facebook.com",
+    link: "https://www.facebook.com/raremindsgroup",
   },
   {
     id: 2,
     icon: TwitterIcon,
-    link: "https://twitter.com/",
+    link: "https://twitter.com/minds_rare",
   },
   {
     id: 3,
     icon: InstagramIcon,
-    link: "https://instagram.com",
+    link: "https://www.instagram.com/rareminds_eym/",
   },
   {
     id: 4,
     icon: YoutubeIcon,
-    link: "https://youtube.com",
+    link: "https://www.youtube.com/channel/UClkBtwJsScYxFzNoFdlifeA",
   },
   {
     id: 5,
     icon: LinkedInIcon,
-    link: "https://linkedin.com",
+    link: "https://www.linkedin.com/company/13376601/admin/",
   },
 ];
 
@@ -41,6 +41,8 @@ const FooterBar = () => {
   const [serviceData, setData] = useState<any>({});
   const [subscriberEmail, setSubscriberEmail] = useState(null);
   const [successMessage, setSuccessMsg] = useState(null);
+
+  const subscribeInput = useRef();
 
   useEffect(() => {
     async function getData() {
@@ -77,6 +79,7 @@ const FooterBar = () => {
           .then((response) => {
             if (response.data.status === 200) {
               setSuccessMsg("Thank you for subscribing");
+              subscribeInput.current.value = "";
               setTimeout(() => {
                 setSuccessMsg(null);
               }, 2000);
@@ -163,12 +166,13 @@ const FooterBar = () => {
               </div>
             </div>
             <div className="row-span-1 place-items-end text-right">
-              <h3 className="text-[30px] leading-[40.8px] font-light font-[Sentient] text-left xl:ml-[4.5rem] xxl:ml-[32rem] md:ml-[32rem]">
+              <h3 className="text-[30px] leading-[40.8px] font-light font-[Sentient] text-left xl:ml-[4.5rem] xxl:ml-[8rem] md:ml-[32rem]">
                 Sign up to receive <br /> latest news.
               </h3>
               <input
                 className="rounded p-2 mt-5 bg-transparent border-[#CAF0F8]-400 border mr-10"
                 placeholder="Enter your email"
+                ref={subscribeInput}
                 onChange={(e) => {
                   setSuccessMsg(null);
                   setSubscriberEmail(e.target.value);

@@ -7,7 +7,7 @@ const Achievements = ({ content, achievements }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>
-      <section className="lg:px-10 xl:px-20 xxl:px-60 lg:py-20 place-items-center font-Syne">
+      <section className="lg:px-10 xl:px-20 xxl:px-44 lg:py-20 place-items-center font-Syne">
         <div className="items-center px-5 py-5">
           <p
             className="mt-0 font-bold text-center ml-0 text-[24px] leading-[28.8px] lg:text-[49px] lg:leading-[73.5px] py-10 text-black-500 font-[Poppins-Regular]"
@@ -27,9 +27,9 @@ const Achievements = ({ content, achievements }) => {
           <>
             {achievements?.map((ele: any) => {
               return (
-                <div className="container-fluid lg:px-12 xl:px-4" ref={ref}>
-                  <div className="grid grid-cols-4 gap-4 lg:px-12 lg:py-12 py-10 px-10 border-y-black border-2 border-x-0">
-                    <div className="lg:col-span-2 col-span-2">
+                <div className="container-fluid" ref={ref}>
+                  <div className="grid grid-cols-4 gap-4 lg:px-4 lg:py-12 py-10 px-10 border-y-black border-2 border-x-0">
+                    <div className="lg:col-span-1 col-span-1">
                       <h5
                         className="text-[52px] leading-[58px] font-Syne font-bold"
                         dangerouslySetInnerHTML={{
@@ -43,7 +43,7 @@ const Achievements = ({ content, achievements }) => {
                         }}
                       ></p>
                     </div>
-                    <div className="grid place-items-end lg:col-span-2 col-span-1">
+                    <div className="grid place-items-end lg:col-span-3 col-span-1">
                       <div className="place-items-end">
                         <h5 className=" lg:text-[162px] leading-[171px] text-[60px] text-blue-400 font-[Poppins-Regular]">
                           {isInViewport && (

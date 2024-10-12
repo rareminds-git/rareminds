@@ -26,7 +26,7 @@ const Testimonials = ({
   console.log("tabs", tabs);
   return (
     <>
-      <div className="lg:py-20 xl:px-8 xxl:px-32">
+      <div className="lg:py-20 xl:px-8 xxl:px-12">
         <CustomTabs
           testimonials={testimonials}
           categories={categories}

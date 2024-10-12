@@ -10,27 +10,27 @@ const socialIcons = [
   {
     id: 1,
     icon: FaceBookIcon,
-    link: "https://facebook.com",
+    link: "https://www.facebook.com/raremindsgroup",
   },
   {
     id: 2,
     icon: TwitterIcon,
-    link: "https://twitter.com/",
+    link: "https://twitter.com/minds_rare",
   },
   {
     id: 3,
     icon: InstagramIcon,
-    link: "https://instagram.com",
+    link: "https://www.instagram.com/rareminds_eym/",
   },
   {
     id: 4,
     icon: YoutubeIcon,
-    link: "https://youtube.com",
+    link: "https://www.youtube.com/channel/UClkBtwJsScYxFzNoFdlifeA",
   },
   {
     id: 5,
     icon: LinkedInIcon,
-    link: "https://linkedin.com",
+    link: "https://www.linkedin.com/company/13376601/admin/",
   },
 ];
 
@@ -117,7 +117,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                     </a>
                   </li>
                   <li className="nav-li text-[22px] leading-[20px] font-semibold pt-12 font-Syne text-white">
-                    info@rareminds.in
+                    <a href="mailto:info@rareminds.in">info@rareminds.in</a>
                   </li>
                 </ul>
               </div>
@@ -303,7 +303,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                 </ul>
 
                 <p className="text-white font-Syne text-xl mt-32">
-                  info@rareminds.in
+                  <a href="mailto:info@rareminds.in">info@rareminds.in</a>
                 </p>
                 <p className="text-2xl font-Syne text-white">
                   Follow us:{" "}

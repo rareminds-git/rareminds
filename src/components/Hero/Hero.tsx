@@ -23,11 +23,11 @@ const Hero = ({ content }) => {
   return (
     <>
       {!isMobile ? (
-        <section className="lg:px-16 xxl:px-32 lg:pt-16 xl:py-48 xxl:py-32 lg:pb-16 pb-8 bg-hero-gradient">
+        <section className="lg:px-16 xxl:px-32 lg:pt-16 xl:py-48 xxl:py-16 lg:pb-16 pb-8 bg-hero-gradient">
           <div className="flex items-center justify-center">
             <div className="grid space-y-10 place-items-center">
               <h1
-                className="mb-4 mt-8 text-[32px] leading-10 mx-[3rem] text-center lg:mx-[8rem] xl:mx-[6rem] xxl:mx-[16rem] font-[Sentient] font-medium lg:text-[60px] lg:leading-[74px] text-[#ff2c2c]"
+                className="mb-4 mt-8 text-[32px] leading-10 mx-[3rem] text-center lg:mx-[8rem] xl:mx-[6rem] xxl:mx-[4rem] font-[Sentient] font-medium lg:text-[60px] lg:leading-[74px] text-[#ff2c2c]"
                 dangerouslySetInnerHTML={{
                   __html: content.Heading1,
                 }}
@@ -38,7 +38,7 @@ const Hero = ({ content }) => {
           <div className="grid space-y-10 place-items-start grid-cols-5">
             <div className="place-items-start col-span-2">
               <p
-                className="mb-4 font-Syne lg:mt-36 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px] pl-8"
+                className="mb-4 font-Syne lg:mt-16 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px] pl-8"
                 dangerouslySetInnerHTML={{
                   __html: content.Heading2,
                 }}
