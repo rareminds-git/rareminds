@@ -10,6 +10,7 @@ import BlogDetail from "./pages/blogs/[name]";
 import Services from "./pages/[name]/services/index";
 import CaseStudies from "./pages/[name]/case-studies";
 import About from "./pages/[name]/about";
+import EventDetail from "./pages/hackathon/[name]";
 
 const App = () => {
   return (
@@ -30,7 +31,11 @@ const App = () => {
               element={<CaseStudyDetail />}
             />
             <Route path="/about" element={<About />} />
-            <Route path="blogs/:slug" element={<BlogDetail />} />
+            <Route path="/blogs/:slug" element={<BlogDetail />} />
+            <Route
+              path="/hackathon/:eventCategory/:slug"
+              element={<EventDetail />}
+            />
           </Routes>
         </Suspense>
       </DefaultLayout>
