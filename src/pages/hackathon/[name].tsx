@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import moment from "moment";
+import Trophy from "../../assets/images/trophy.svg";
+import Trophy2 from "../../assets/images/trophy2.svg";
+import Trophy3 from "../../assets/images/trophy-3.svg";
+import JudgingCriteria from "../../assets/images/5786206.png";
+import Awards from "../../assets/images/8741013.png";
 
 const EventDetail = () => {
   const { eventCategory, slug } = useParams();
@@ -227,7 +232,7 @@ const EventDetail = () => {
                   <div className="lg:col-span-2">
                     <div className="w-max mx-auto text-white">
                       <img
-                        src="/src/assets/images/trophy.svg"
+                        src={Trophy}
                         className="mx-auto drop-shadow-[0px_0px_5px_#ecc440]"
                         width="70"
                         alt="trophy"
@@ -243,7 +248,7 @@ const EventDetail = () => {
                   <div className="w-max mx-auto">
                     <div className="w-max mx-auto text-white">
                       <img
-                        src="/src/assets/images/trophy2.svg"
+                        src={Trophy2}
                         className="mx-auto drop-shadow-[0px_0px_5px_#d8d8d8]"
                         width="70"
                         alt="trophy"
@@ -258,7 +263,7 @@ const EventDetail = () => {
                   <div className="w-max mx-auto">
                     <div className="w-max mx-auto text-white">
                       <img
-                        src="/src/assets/images/trophy-3.svg"
+                        src={Trophy3}
                         className="mx-auto drop-shadow-[0px_0px_5px_#cd7f32]"
                         width="70"
                         alt="trophy"
@@ -276,11 +281,7 @@ const EventDetail = () => {
                 </p>
               </div>
               <div className="order-[1] lg:order-[2] relative hidden lg:flex justify-center items-center">
-                <img
-                  src="/src/assets/images/8741013.png"
-                  className="mt-[50px] absolute"
-                  alt=""
-                />
+                <img src={Awards} className="mt-[50px] absolute" alt="" />
               </div>
             </div>
           </div>
@@ -320,11 +321,7 @@ const EventDetail = () => {
           <div className="container mx-auto xl:px-[80px] px-5 flex flex-col">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10">
               <div>
-                <img
-                  src="/src/assets/images/5786206.png"
-                  className="mx-auto"
-                  alt=""
-                />
+                <img src={JudgingCriteria} className="mx-auto" alt="" />
               </div>
               <div>
                 <h4 className="text-4xl font-semibold min-w-max text-center lg:text-left">
