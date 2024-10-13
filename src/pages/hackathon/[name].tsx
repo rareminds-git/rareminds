@@ -43,47 +43,27 @@ const EventDetail = () => {
   return (
     <>
       <div className="w-full font-Syne min-h-screen lg:py-12 sm:py-24 md:py-32">
-        <section>
-          <div
-            style={{
-              backgroundImage: `url(${import.meta.env.VITE_PUBLIC_URL}uploads/${eventData && eventData.eventData ? eventData.eventData[0].Image1 : ""})`,
-            }}
-            className={`header bg-cover bg-center`}
-          >
-            <div className="h-[100vh] w-full header flex flex-col items-center justify-center text-[#ffffff] bg-[#00000066]">
-              <h1 className="mt-2 text-5xl lg:text-6xl font-bold">
-                {" "}
-                {eventData && eventData.eventData
-                  ? eventData.eventData[0].Heading1
-                  : ""}
-              </h1>
-              <p className="mt-2 text-xl">
-                {eventData && eventData.eventData
-                  ? eventData.eventData[0].Heading2
-                  : ""}
-              </p>
-            </div>
+        <section className="lg:px-20 px-10 font-Syne">
+          <h1 className="lg:text-[48px] sm:text-[24px] xxl:pt-20 xxl:pb-10 lg:leading-[62px] text-4xl row-span-1 place-items-start font-bold capitalize">
+            {eventData && eventData.eventData
+              ? eventData.eventData[0].SubHeading1
+              : ""}
+            {" ("}
+            {eventData && eventData.eventData
+              ? eventData.eventData[0].Heading2
+              : ""}
+            {")"}
+          </h1>
+
+          <div className="rounded-md">
+            <img
+              src={`${import.meta.env.VITE_PUBLIC_URL}uploads/${eventData && eventData.eventData ? eventData.eventData[0].Image1 : ""}`}
+              className="rounded-lg text-center align-middle justify-center h-96 w-full h-full"
+            />
           </div>
         </section>
 
         <section className="py-[30px] lg:py-[30px] lg:px-64 px-5">
-          <div className="w-full mb-10 border border-[#ff2c2c] rounded-[12px]">
-            <div className="px-10 py-5 bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] flex justify-center rounded-[10px]">
-              <h3 className="text-2xl font-bold text-[#fff] text-center">
-                {eventData && eventData.eventData
-                  ? eventData.eventData[0].SubHeading1
-                  : ""}
-              </h3>
-            </div>
-            <div className="px-10 py-5 flex justify-center rounded-[10px]">
-              <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] text-center">
-                {eventData && eventData.eventData
-                  ? eventData.eventData[0].SubHeading2
-                  : ""}
-              </h3>
-            </div>
-          </div>
-
           <div className="text-center my-10">
             <p>Online event starts in</p>
             <br />
@@ -153,7 +133,7 @@ const EventDetail = () => {
             </div>
           </div>
 
-          <div className="text-center py-30 my-10 pb-[20px] lg:pb-[10px]">
+          <div className="text-center py-10 my-10 pb-[4px] lg:pb-[4px]">
             <p className="lg:text-5xl text-2xl font-bold">
               Join as at the{" "}
               {eventData && eventData.eventData
@@ -170,28 +150,19 @@ const EventDetail = () => {
             </p>
           </div>
         </section>
-        <section className="pb-[30px] lg:pb-[30px] px-40">
-          <div className="container lg:px-5 xl:px-[80px] pb-[60px] lg:pb-[100px] flex flex-col items-center lg:mx-12">
-            <div className="p-[3px] bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] rounded-[24px]">
-              <div className="py-10 flex flex-col items-center px-[30px] lg:px-[60px] bg-white rounded-[20px]">
-                <h2
-                  className="text-3xl font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c]"
-                  id="reg-heading"
-                >
-                  Registrations{" "}
-                  {eventData &&
-                  eventData.eventData &&
-                  eventData.eventData.Status
-                    ? "Open"
-                    : "Closed"}
-                  !
-                </h2>
-              </div>
-            </div>
+        <section className="cursor-pointer xl:pt-0">
+          <div className="grid space-y-10 lg:grid-cols-3 my-12 md:my-5 lg:mx-32 mx-12 sm:mx-4 place-items-center border-y-[#FF2C2C] border-2 border-x-0">
+            <h3 className="lg:col-span-3 mb-4 relative text-left mt-4 font-Syne font-bold inline-block lg:text-[50px] lg:leading-[58px] text-[#FF2C2C] lg:mx-8 text-[22px] leading-[28.4px] py-4 px-12 lg:px-4 lg:py-4">
+              Registrations{" "}
+              {eventData && eventData.eventData && eventData.eventData.Status
+                ? "Open"
+                : "Closed"}
+              !
+            </h3>
           </div>
         </section>
 
-        <section className="mb-[60px] lg:mb-[100px] xxl:px-[150px]">
+        <section className="mb-[60px] lg:mb-[100px] xxl:px-[150px] my-20">
           <div className="container px-5 xl:px-[80px] mx-auto flex flex-col items-center">
             <h2 className="text-4xl font-semibold">Event Schedule</h2>
             <p>A Representstion of Event Planning</p>
@@ -221,7 +192,7 @@ const EventDetail = () => {
             </div>
           </div>
         </section>
-        <section className="bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] py-[100px]">
+        <section className="bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] py-[100px] xxl:mx-20 rounded-xl">
           <div className="px-5 container xl:px-[80px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="order-[2] lg:order-[1]">
