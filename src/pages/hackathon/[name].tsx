@@ -71,6 +71,22 @@ const EventDetail = () => {
       </section>
 
       <section className="py-[30px] lg:py-[10px] lg:px-64 px-5">
+        <div className="w-full mb-10 border border-[#ff2c2c] rounded-[12px]">
+          <div className="px-10 py-5 bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] flex justify-center rounded-[10px]">
+            <h3 className="text-2xl font-bold text-[#fff] text-center">
+              {eventData && eventData.eventData
+                ? eventData.eventData[0].SubHeading1
+                : ""}
+            </h3>
+          </div>
+          <div className="px-10 py-5 flex justify-center rounded-[10px]">
+            <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] text-center">
+              {eventData && eventData.eventData
+                ? eventData.eventData[0].SubHeading2
+                : ""}
+            </h3>
+          </div>
+        </div>
         <div className="text-center">
           <p>Online event starts in</p>
           <br />
@@ -110,9 +126,9 @@ const EventDetail = () => {
           </div>
         </div>
         <div className="grid md:grid-cols-2 mt-10 gap-5 lg:mx-48">
-          <div className="p-5 min-w-[300px] rounded-xl lg:rounded-l-[30px] text-[#fff] flex flex-col items-center md:items-end bg-gradient-to-b md:bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] shadow-[0_0px_15px_0px_rgba(0,0,0,0.1)]">
+          <div className="p-5 min-w-[300px] rounded-xl border-[#ff2c2c] border-2 text-[#ff2c2c] flex flex-col items-center md:items-center bg-gradient-to-b md:bg-gradient-to-r from-[#ffffff] to-[#ffffff] shadow-[0_0px_15px_0px_rgba(0,0,0,0.1)]">
             <p className="font-semibold text-2xl">When</p>
-            <p className="text-center md:text-right">
+            <p className="text-center md:text-center">
               {eventData &&
                 eventData.eventData &&
                 moment(eventData.eventData[0].EventDate).format("DD MMMM")}{" "}
@@ -122,7 +138,7 @@ const EventDetail = () => {
                 moment(eventData.eventData[0].EventDate).format("dddd YYYY")}
             </p>
           </div>
-          <div className="p-5 min-w-[300px] rounded-xl lg:rounded-r-[30px] text-[#fff] flex flex-col items-center md:items-start bg-gradient-to-b md:bg-gradient-to-r to-[#ff2c2c] from-[#ff2c2c] shadow-[0_0px_15px_0px_rgba(0,0,0,0.1)]">
+          <div className="p-5 min-w-[300px] rounded-xl border-[#ff2c2c] border-2 text-[#ff2c2c] flex flex-col items-center md:items-center bg-gradient-to-b md:bg-gradient-to-r to-[#ffffff] from-[#ffffff] shadow-[0_0px_15px_0px_rgba(0,0,0,0.1)]">
             <p className="font-semibold text-2xl">Where</p>
             <p className="text-center md:text-left">
               {eventData &&
@@ -130,11 +146,6 @@ const EventDetail = () => {
                 eventData.eventData[0].Address1}
             </p>
             <br />
-            <p className="text-xl opacity-0">
-              {eventData &&
-                eventData.eventData &&
-                eventData.eventData[0].Address1}
-            </p>
           </div>
         </div>
 
@@ -197,16 +208,16 @@ const EventDetail = () => {
           </div>
         </div>
       </section>
-      <section className="bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] py-[100px] xxl:mx-20 rounded-xl">
+      <section className="bg-gradient-to-r from-[#ffffff] to-[#ffffff] py-[100px] xxl:mx-20 rounded-xl">
         <div className="px-5 container xl:px-[80px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="order-[2] lg:order-[1]">
-              <h2 className="text-5xl font-semibold text-white text-center">
+              <h2 className="text-5xl font-semibold text-[#ff2c2c] text-center">
                 Prize Pool
               </h2>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-5 mt-10">
                 <div className="lg:col-span-2">
-                  <div className="w-max mx-auto text-white">
+                  <div className="w-max mx-auto text-[#ff2c2c]">
                     <img
                       src={Trophy}
                       className="mx-auto drop-shadow-[0px_0px_5px_#ecc440]"
@@ -222,7 +233,7 @@ const EventDetail = () => {
                   </div>
                 </div>
                 <div className="w-max mx-auto">
-                  <div className="w-max mx-auto text-white">
+                  <div className="w-max mx-auto text-[#ff2c2c]">
                     <img
                       src={Trophy2}
                       className="mx-auto drop-shadow-[0px_0px_5px_#d8d8d8]"
@@ -237,7 +248,7 @@ const EventDetail = () => {
                   </div>
                 </div>
                 <div className="w-max mx-auto">
-                  <div className="w-max mx-auto text-white">
+                  <div className="w-max mx-auto text-[#ff2c2c]">
                     <img
                       src={Trophy3}
                       className="mx-auto drop-shadow-[0px_0px_5px_#cd7f32]"
@@ -252,7 +263,7 @@ const EventDetail = () => {
                   </div>
                 </div>
               </div>
-              <p className="text-center mx-auto mt-10 text-xl text-white">
+              <p className="text-center mx-auto mt-10 text-xl text-[#ff2c2c]">
                 Special Mention Awards: For Participation
               </p>
             </div>
