@@ -67,8 +67,8 @@ const EventDetail = () => {
         </section>
 
         <section className="py-[30px] lg:py-[30px] lg:px-64 px-5">
-          <div className="w-full mb-10 border border-[#4C176B] rounded-[12px]">
-            <div className="px-10 py-5 bg-gradient-to-r from-[#4C176B] to-[#134BBB] flex justify-center rounded-[10px]">
+          <div className="w-full mb-10 border border-[#ff2c2c] rounded-[12px]">
+            <div className="px-10 py-5 bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] flex justify-center rounded-[10px]">
               <h3 className="text-2xl font-bold text-[#fff] text-center">
                 {eventData && eventData.eventData
                   ? eventData.eventData[0].SubHeading1
@@ -76,7 +76,7 @@ const EventDetail = () => {
               </h3>
             </div>
             <div className="px-10 py-5 flex justify-center rounded-[10px]">
-              <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#4C176B] to-[#134BBB] text-center">
+              <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] text-center">
                 {eventData && eventData.eventData
                   ? eventData.eventData[0].SubHeading2
                   : ""}
@@ -88,15 +88,15 @@ const EventDetail = () => {
             <p>Online event starts in</p>
             <br />
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 max-w-[600px] mx-auto">
-              <div className="border w-max py-5 px-8 rounded-[20px] border-[#3381d0] mx-auto flex flex-col items-center justify-center min-w-[120px]">
-                <p className="text-5xl text-[#014195]" id="timer-day">
+              <div className="border w-max py-5 px-8 rounded-[20px] border-[#ff2c2c] mx-auto flex flex-col items-center justify-center min-w-[120px]">
+                <p className="text-5xl text-[#ff2c2c]" id="timer-day">
                   {Math.floor(duration?.asDays()) > 0
                     ? Math.floor(duration?.asDays())
                     : "00"}
                 </p>
                 <p>Days</p>
               </div>
-              <div className="border w-max py-5 px-8 rounded-[20px] border-[#3381d0] mx-auto flex flex-col items-center justify-center min-w-[120px]">
+              <div className="border w-max py-5 px-8 rounded-[20px] border-[#ff2c2c] mx-auto flex flex-col items-center justify-center min-w-[120px]">
                 <p className="text-5xl" id="timer-hour">
                   {Math.floor(duration?.hours()) > 0
                     ? Math.floor(duration?.hours())
@@ -104,7 +104,7 @@ const EventDetail = () => {
                 </p>
                 <p>Hours</p>
               </div>
-              <div className="border w-max py-5 px-8 rounded-[20px] border-[#3381d0] mx-auto flex flex-col items-center justify-center min-w-[120px]">
+              <div className="border w-max py-5 px-8 rounded-[20px] border-[#ff2c2c] mx-auto flex flex-col items-center justify-center min-w-[120px]">
                 <p className="text-5xl" id="timer-min">
                   {Math.floor(duration?.minutes()) > 0
                     ? Math.floor(duration?.minutes())
@@ -112,7 +112,7 @@ const EventDetail = () => {
                 </p>
                 <p>Minutes</p>
               </div>
-              <div className="border w-max py-5 px-8 rounded-[20px] border-[#3381d0] mx-auto flex flex-col items-center justify-center min-w-[120px]">
+              <div className="border w-max py-5 px-8 rounded-[20px] border-[#ff2c2c] mx-auto flex flex-col items-center justify-center min-w-[120px]">
                 <p className="text-5xl" id="timer-sec">
                   {Math.floor(duration?.seconds()) > 0
                     ? Math.floor(duration?.seconds())
@@ -123,7 +123,7 @@ const EventDetail = () => {
             </div>
           </div>
           <div className="grid md:grid-cols-2 mt-10 gap-5 lg:mx-48">
-            <div className="p-5 min-w-[300px] rounded-xl lg:rounded-l-[30px] text-[#fff] flex flex-col items-center md:items-end bg-gradient-to-b md:bg-gradient-to-r from-[#4C176B] to-[#134BBB] shadow-[0_0px_15px_0px_rgba(0,0,0,0.1)]">
+            <div className="p-5 min-w-[300px] rounded-xl lg:rounded-l-[30px] text-[#fff] flex flex-col items-center md:items-end bg-gradient-to-b md:bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] shadow-[0_0px_15px_0px_rgba(0,0,0,0.1)]">
               <p className="font-semibold text-2xl">When</p>
               <p className="text-center md:text-right">
                 {eventData &&
@@ -137,7 +137,7 @@ const EventDetail = () => {
                   moment(eventData.eventData[0].EventDate).format("dddd YYYY")}
               </p>
             </div>
-            <div className="p-5 min-w-[300px] rounded-xl lg:rounded-r-[30px] text-[#fff] flex flex-col items-center md:items-start bg-gradient-to-b md:bg-gradient-to-r to-[#4C176B] from-[#134BBB] shadow-[0_0px_15px_0px_rgba(0,0,0,0.1)]">
+            <div className="p-5 min-w-[300px] rounded-xl lg:rounded-r-[30px] text-[#fff] flex flex-col items-center md:items-start bg-gradient-to-b md:bg-gradient-to-r to-[#ff2c2c] from-[#ff2c2c] shadow-[0_0px_15px_0px_rgba(0,0,0,0.1)]">
               <p className="font-semibold text-2xl">Where</p>
               <p className="text-center md:text-left">
                 {eventData &&
@@ -172,10 +172,10 @@ const EventDetail = () => {
         </section>
         <section className="pb-[30px] lg:pb-[30px] px-40">
           <div className="container lg:px-5 xl:px-[80px] pb-[60px] lg:pb-[100px] flex flex-col items-center lg:mx-12">
-            <div className="p-[3px] bg-gradient-to-r from-[#4C176B] to-[#134BBB] rounded-[24px]">
+            <div className="p-[3px] bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] rounded-[24px]">
               <div className="py-10 flex flex-col items-center px-[30px] lg:px-[60px] bg-white rounded-[20px]">
                 <h2
-                  className="text-3xl font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#4C176B] to-[#134BBB]"
+                  className="text-3xl font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c]"
                   id="reg-heading"
                 >
                   Registrations{" "}
@@ -191,7 +191,7 @@ const EventDetail = () => {
           </div>
         </section>
 
-        <section className="mb-[60px] lg:mb-[100px]">
+        <section className="mb-[60px] lg:mb-[100px] xxl:px-[150px]">
           <div className="container px-5 xl:px-[80px] mx-auto flex flex-col items-center">
             <h2 className="text-4xl font-semibold">Event Schedule</h2>
             <p>A Representstion of Event Planning</p>
@@ -200,7 +200,7 @@ const EventDetail = () => {
                 return (
                   <>
                     <div className="w-full flex flex-col lg:flex-row gap-2 sm:gap-5 lg:my-2">
-                      <div className="schedule-date p-5 bg-gradient-to-r from-[#4C176B] to-[#134BBB] relative text-[#fff] rounded-xl after:hidden sm:after:flex after:absolute after:top-[50%] after:translate-y-[-50%] after:right-[-15px] after:content-[' '] after:bg-[#134BBB] after:w-[15px] after:h-[30px] min-w-[159.5px]">
+                      <div className="schedule-date p-5 bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] relative text-[#fff] rounded-xl after:hidden sm:after:flex after:absolute after:top-[50%] after:translate-y-[-50%] after:right-[-15px] after:content-[' '] after:bg-[#ff2c2c] after:w-[15px] after:h-[30px] min-w-[159.5px]">
                         <p className="text-center">
                           <span className="text-2xl font-semibold">
                             {moment(row.Date).format("Do")}
@@ -209,7 +209,7 @@ const EventDetail = () => {
                           {moment(row.Date).format("MMMM YYYY")}
                         </p>
                       </div>
-                      <div className="flex-1 rounded-[13px] bg-gradient-to-r from-[#4C176B] to-[#134BBB] p-[1px]">
+                      <div className="flex-1 rounded-[13px] bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] p-[1px]">
                         <div className="flex items-center rounded-xl p-5 h-full w-full bg-[#ffffff]">
                           <p className="text-xl">{row.Title}</p>
                         </div>
@@ -221,7 +221,7 @@ const EventDetail = () => {
             </div>
           </div>
         </section>
-        <section className="bg-gradient-to-r from-[#4C176B] to-[#134BBB] py-[100px]">
+        <section className="bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] py-[100px]">
           <div className="px-5 container xl:px-[80px] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="order-[2] lg:order-[1]">
@@ -286,7 +286,7 @@ const EventDetail = () => {
             </div>
           </div>
         </section>
-        <section className="my-[60px] lg:my-[100px]">
+        <section className="my-[60px] lg:my-[100px] xxl:px-[150px]">
           <div className="container mx-auto xl:px-[80px] px-5">
             <h2 className="text-4xl font-semibold text-center mb-10">
               Hackathon Agenda
@@ -299,7 +299,7 @@ const EventDetail = () => {
                   </div>
                   {row.Title.includes("Lunch") ? (
                     <div className="lg:col-span-2 pb-5 mt-0 lg:mt-5 mb-5">
-                      <div className="rounded-[10px] bg-gradient-to-r from-[#4C176B] to-[#134BBB] text-white p-5">
+                      <div className="rounded-[10px] bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] text-white p-5">
                         <p className="text-center text-xl">
                           12:00 PM - 12:45 PM
                         </p>
@@ -329,7 +329,7 @@ const EventDetail = () => {
                 </h4>
                 <div className="mt-8 flex flex-col gap-y-2">
                   <div>
-                    <p className="font-semibold text-xl w-max after:content-[' '] after:flex after:h-[3px] after:w-2/4 after:bg-gradient-to-r after:from-[#4C176B] after:to-[#134BBB] after:rounded-xl after:mt-1">
+                    <p className="font-semibold text-xl w-max after:content-[' '] after:flex after:h-[3px] after:w-2/4 after:bg-gradient-to-r after:from-[#ff2c2c] after:to-[#ff2c2c] after:rounded-xl after:mt-1">
                       Innovation
                     </p>
                     <p className="mt-2">
@@ -338,7 +338,7 @@ const EventDetail = () => {
                   </div>
 
                   <div>
-                    <p className="font-semibold text-xl w-max after:content-[' '] after:flex after:h-[3px] after:w-2/4 after:bg-gradient-to-r after:from-[#4C176B] after:to-[#134BBB] after:rounded-xl after:mt-1">
+                    <p className="font-semibold text-xl w-max after:content-[' '] after:flex after:h-[3px] after:w-2/4 after:bg-gradient-to-r after:from-[#ff2c2c] after:to-[#ff2c2c] after:rounded-xl after:mt-1">
                       Impact
                     </p>
                     <p className="mt-2">
@@ -348,7 +348,7 @@ const EventDetail = () => {
                   </div>
 
                   <div>
-                    <p className="font-semibold text-xl w-max after:content-[' '] after:flex after:h-[3px] after:w-2/4 after:bg-gradient-to-r after:from-[#4C176B] after:to-[#134BBB] after:rounded-xl after:mt-1">
+                    <p className="font-semibold text-xl w-max after:content-[' '] after:flex after:h-[3px] after:w-2/4 after:bg-gradient-to-r after:from-[#ff2c2c] after:to-[#ff2c2c] after:rounded-xl after:mt-1">
                       Feasibility
                     </p>
                     <p className="mt-2">
@@ -358,7 +358,7 @@ const EventDetail = () => {
                   </div>
 
                   <div>
-                    <p className="font-semibold text-xl w-max after:content-[' '] after:flex after:h-[3px] after:w-2/4 after:bg-gradient-to-r after:from-[#4C176B] after:to-[#134BBB] after:rounded-xl after:mt-1">
+                    <p className="font-semibold text-xl w-max after:content-[' '] after:flex after:h-[3px] after:w-2/4 after:bg-gradient-to-r after:from-[#ff2c2c] after:to-[#ff2c2c] after:rounded-xl after:mt-1">
                       Technical Execution
                     </p>
                     <p className="mt-2">
@@ -368,7 +368,7 @@ const EventDetail = () => {
                   </div>
 
                   <div>
-                    <p className="font-semibold text-xl w-max after:content-[' '] after:flex after:h-[3px] after:w-2/4 after:bg-gradient-to-r after:from-[#4C176B] after:to-[#134BBB] after:rounded-xl after:mt-1">
+                    <p className="font-semibold text-xl w-max after:content-[' '] after:flex after:h-[3px] after:w-2/4 after:bg-gradient-to-r after:from-[#ff2c2c] after:to-[#ff2c2c] after:rounded-xl after:mt-1">
                       Presentation &amp; Demo
                     </p>
                     <p className="mt-2">
