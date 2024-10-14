@@ -44,8 +44,8 @@ const EventDetail = () => {
     <>
       <section className="md:px-20 px-10 py-10 relative font-Syne">
         <div className="flex">
-          <div className="grid space-y-10">
-            <h1 className="mb-20 mt-20 text-3xl text-left font-bold md:text-5xl">
+          <div className="grid">
+            <h1 className="mt-20 text-3xl text-left font-bold md:text-5xl">
               {eventData && eventData.eventData
                 ? eventData.eventData[0].SubHeading1
                 : ""}
@@ -55,6 +55,16 @@ const EventDetail = () => {
                 : ""}
               {")"}
             </h1>
+            <br />
+            <h3 className="text-2xl font-bold text-left mb-20">
+              {/* {eventData && eventData.eventData
+                ? eventData.eventData[0].SubHeading1
+                : ""}{" "}
+              :{" "} */}
+              {eventData && eventData.eventData
+                ? eventData.eventData[0].SubHeading2
+                : ""}
+            </h3>
             {/* <p className="text-2xl mb-20">{content?.Description}</p> */}
           </div>
         </div>
@@ -71,7 +81,7 @@ const EventDetail = () => {
       </section>
 
       <section className="py-[30px] lg:py-[10px] lg:px-64 px-5">
-        <div className="w-full mb-10 border border-[#ff2c2c] rounded-[12px]">
+        {/* <div className="w-full mb-10 border border-[#ff2c2c] rounded-[12px]">
           <div className="px-10 py-5 bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] flex justify-center rounded-[10px]">
             <h3 className="text-2xl font-bold text-[#fff] text-center">
               {eventData && eventData.eventData
@@ -86,7 +96,7 @@ const EventDetail = () => {
                 : ""}
             </h3>
           </div>
-        </div>
+        </div> */}
         <div className="text-center">
           <p>Online event starts in</p>
           <br />
@@ -208,7 +218,7 @@ const EventDetail = () => {
           </div>
         </div>
       </section>
-      <section className="bg-gradient-to-r from-[#ffffff] to-[#ffffff] py-[100px] xxl:mx-20 rounded-xl">
+      <section className="bg-gradient-to-r from-[#eeeeee] to-[#eeeeee] py-[100px] xxl:mx-20 rounded-xl">
         <div className="px-5 container xl:px-[80px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="order-[2] lg:order-[1]">
