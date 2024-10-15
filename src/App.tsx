@@ -11,6 +11,7 @@ import Services from "./pages/[name]/services/index";
 import CaseStudies from "./pages/[name]/case-studies";
 import About from "./pages/[name]/about";
 import EventDetail from "./pages/hackathon/[name]";
+import WallofFame from "./pages/walloffame";
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
               path="/hackathon/:eventCategory/:slug"
               element={<EventDetail />}
             />
+            <Route path="/walloffame/" element={<WallofFame />} />
           </Routes>
         </Suspense>
       </DefaultLayout>
