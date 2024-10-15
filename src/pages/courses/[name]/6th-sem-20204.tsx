@@ -148,7 +148,7 @@ const CourseDetail = () => {
           </div>
         </div>
       </section>
-      <section className="xxl:px-44 px-4 font-Syne min-h-[300px] bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] text-white flex items-center">
+      <section className="xxl:px-44 px-4 font-Syne min-h-[300px] bg-gradient-to-r from-[#000] to-[#000] text-white flex items-center">
         <div className="container xl:px-[80px] mx-auto grid grid-cols-1 sm:grid-cols-2 h-full py-[80px] gap-10">
           <div className="flex flex-col justify-center items-center">
             <p className="text-5xl font-bold">15,000+</p>
