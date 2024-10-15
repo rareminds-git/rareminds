@@ -818,10 +818,10 @@
   }
 
   .infinity-scroll-inner {
-    animation: scroll 30s linear infinite;
+    animation: logo-scroll 30s linear infinite;
   }
 
-  @keyframes scroll {
+  @keyframes logo-scroll {
     from {
       transform: translate(0%);
     }

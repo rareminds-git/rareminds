@@ -101,7 +101,7 @@ const WallofFame = () => {
       </section>
       <section
         id="nominate"
-        className="nominate-section bg-[#ff2c2c] font-Syne"
+        className="nominate-section bg-[#000000] font-Syne"
       >
         <div className="container mx-auto px-10">
           <h2 className="text-white text-2xl font-semibold mb-2">

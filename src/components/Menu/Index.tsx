@@ -127,7 +127,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
             <div className="grid">
               <div className="col-span-6">
                 <ul className="w-full flex flex-col items-start pl-16 pt-48 xl:pt-20">
-                  <li className="nav-li">
+                  <li className="nav-li opacity-0">
                     <a
                       href="/events"
                       className="nav-link text-[60px] leading-[81.6px] font-[Sentient] font-bold text-white"
@@ -138,7 +138,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       Events
                     </a>
                   </li>
-                  <li className="nav-li">
+                  <li className="nav-li opacity-0">
                     <a
                       href="/walloffame"
                       className="nav-link text-[60px] leading-[81.6px] font-[Sentient] font-bold text-white"
@@ -171,7 +171,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       Wall of Fame
                     </a>
                   </li>
-                  <li className="nav-li text-[20px] leading-[20px] flex items-center font-semibold pt-24 text-white font-Syne">
+                  <li className="nav-li text-[20px] leading-[20px] mt-6 flex items-center font-semibold pt-24 text-white font-Syne">
                     <span className="inline-flex mr-1">Follow us:</span>
                     {socialIcons.map((socialIcon) => {
                       const { icon, id, link } = socialIcon;
@@ -306,7 +306,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                 <p className="text-white font-Syne text-xl mt-32">
                   <a href="mailto:info@rareminds.in">info@rareminds.in</a>
                 </p>
-                <p className="text-2xl font-Syne text-white">
+                <p className="text-2xl font-Syne text-white mt-32">
                   Follow us:{" "}
                   {socialIcons.map((socialIcon) => {
                     const { icon, id, link } = socialIcon;
