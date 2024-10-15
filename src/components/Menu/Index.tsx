@@ -63,7 +63,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   </li>
                   <li className="nav-li">
                     <a
-                      href={`/services`}
+                      href={`${localStorage.getItem("currentUserType")}/services`}
                       className="nav-link text-[60px] leading-[81.6px] font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
@@ -139,7 +139,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   </li>
                   <li className="nav-li opacity-0">
                     <a
-                      href={`/services`}
+                      href={`${localStorage.getItem("currentUserType")}/services`}
                       className="nav-link text-6xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
@@ -161,7 +161,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   </li>
                   <li className="nav-li opacity-0">
                     <a
-                      href={`/case-studies`}
+                      href={`${localStorage.getItem("currentUserType")}/services`}
                       className="nav-link text-6xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
@@ -236,7 +236,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   </li>
                   <li className="nav-li py-2">
                     <a
-                      href={`/services`}
+                      href={`${localStorage.getItem("currentUserType")}/services`}
                       className="nav-link text-4xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
@@ -258,7 +258,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   </li>
                   <li className="nav-li py-2">
                     <a
-                      href={`/case-studies`}
+                      href={`${localStorage.getItem("currentUserType")}/case-studies`}
                       className="nav-link text-4xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
