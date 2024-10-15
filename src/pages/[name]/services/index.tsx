@@ -52,8 +52,8 @@ const Services = () => {
         />
       </Helmet>
       {!isMobile ? (
-        <div className="grid w-full min-h-screen md:pt-16">
-          <section className="md:px-44 xl:px-32 xxl:px-60 px-10 md:py-32">
+        <section className="md:px-44 xl:px-32 xxl:px-8 px-10 md:py-32 xxl:py-32 grid w-full min-h-screen md:pt-16">
+          <div className="px-32">
             <h1 className="text-xl md:text-[70px] leading-[74px] font-Syne font-medium place-items-start text-[#000000] capitalize">
               {serviceData?.servicePageData?.Heading1}
             </h1>
@@ -62,7 +62,7 @@ const Services = () => {
               dangerouslySetInnerHTML={{
                 __html:
                   serviceData?.servicePageData?.Description &&
-                  parse(serviceData?.servicePageData?.Description),
+                  serviceData?.servicePageData?.Description,
               }}
             ></p>
 
@@ -77,7 +77,7 @@ const Services = () => {
                       onClick={() => navigate(`/${ele.ContentSlug}`)}
                     >
                       <div
-                        className={` text-white pt-32 pb-12 xl:py-20 xl:px-10 xxl:py-20 xxl:px-24 px-20 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
+                        className={` text-white pt-32 pb-12 xl:py-20 xl:px-10 xxl:py-20 xxl:px-12 px-20 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
                       >
                         <h4 className="text-5xl font-Syne">{ele.Heading1}</h4>
 
@@ -103,8 +103,8 @@ const Services = () => {
             <div className="flex justify-center mt-40">
               <img src={ServicesImg} alt="Services" />
             </div>
-          </section>
-        </div>
+          </div>
+        </section>
       ) : (
         <div className="md:pt-44">
           <section className="md:px-44 xl:px-32 xxl:px-60 px-10 py-32 w-6/6">

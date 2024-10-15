@@ -168,7 +168,7 @@ const Index = () => {
                         For {ele.PageName}
                       </h3>
                       <p
-                        className="mt-20 text-white font-[Poppins-Medium]"
+                        className="xs:mt-10 sm:mt-20 mt-20 text-white font-[Poppins-Medium]"
                         dangerouslySetInnerHTML={{
                           __html: ele.PageSubTitle,
                         }}

@@ -7,6 +7,7 @@ import Trophy2 from "../../assets/images/trophy2.svg";
 import Trophy3 from "../../assets/images/trophy-3.svg";
 import JudgingCriteria from "../../assets/images/5786206.png";
 import Awards from "../../assets/images/8741013.png";
+import parse from "html-react-parser";
 
 const EventDetail = () => {
   const { eventCategory, slug } = useParams();
@@ -47,7 +48,7 @@ const EventDetail = () => {
           <div className="grid">
             <h1 className="mt-20 text-3xl text-left font-bold md:text-5xl">
               {eventData && eventData.eventData
-                ? eventData.eventData[0].SubHeading1
+                ? eventData.eventData[0].Heading1
                 : ""}
               {" ("}
               {eventData && eventData.eventData
@@ -57,13 +58,14 @@ const EventDetail = () => {
             </h1>
             <br />
             <h3 className="text-2xl font-bold text-left mb-20">
-              {/* {eventData && eventData.eventData
+              {eventData && eventData.eventData
                 ? eventData.eventData[0].SubHeading1
                 : ""}{" "}
-              :{" "} */}
+              {" ("}
               {eventData && eventData.eventData
                 ? eventData.eventData[0].SubHeading2
                 : ""}
+              {")"}
             </h3>
             {/* <p className="text-2xl mb-20">{content?.Description}</p> */}
           </div>
@@ -97,7 +99,7 @@ const EventDetail = () => {
             </h3>
           </div>
         </div> */}
-        <div className="text-center">
+        <div className="text-center font-Syne">
           <p>Online event starts in</p>
           <br />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 max-w-[600px] mx-auto">
@@ -135,7 +137,7 @@ const EventDetail = () => {
             </div>
           </div>
         </div>
-        <div className="grid md:grid-cols-2 mt-10 gap-5 lg:mx-48">
+        <div className="grid md:grid-cols-2 mt-10 gap-5 lg:mx-48 font-Syne">
           <div className="p-5 min-w-[300px] rounded-xl border-[#ff2c2c] border-2 text-[#ff2c2c] flex flex-col items-center md:items-center bg-gradient-to-b md:bg-gradient-to-r from-[#ffffff] to-[#ffffff] shadow-[0_0px_15px_0px_rgba(0,0,0,0.1)]">
             <p className="font-semibold text-2xl">When</p>
             <p className="text-center md:text-center">
@@ -159,7 +161,7 @@ const EventDetail = () => {
           </div>
         </div>
 
-        <div className="text-center py-10 my-10 pb-[4px] lg:pb-[4px]">
+        <div className="text-center py-10 my-10 pb-[4px] lg:pb-[4px] font-Syne">
           <p className="lg:text-5xl text-2xl font-bold">
             Join as at the{" "}
             {eventData && eventData.eventData
@@ -188,11 +190,11 @@ const EventDetail = () => {
         </div>
       </section>
 
-      <section className="mb-[60px] lg:mb-[100px] xxl:px-[150px] my-20">
+      <section className="mb-[60px] lg:mb-[100px] xxl:px-[150px] my-20 font-Syne">
         <div className="container px-5 xl:px-[80px] mx-auto flex flex-col items-center">
           <h2 className="text-4xl font-semibold">Event Schedule</h2>
           <p>A Representstion of Event Planning</p>
-          <div className="w-full flex flex-col mt-10 gap-5">
+          <div className="w-full flex flex-col mt-10 gap-5 font-Syne">
             {eventData?.eventSchedule?.map((row) => {
               return (
                 <>
@@ -218,16 +220,16 @@ const EventDetail = () => {
           </div>
         </div>
       </section>
-      <section className="bg-gradient-to-r from-[#eeeeee] to-[#eeeeee] py-[100px] xxl:mx-20 rounded-xl">
+      <section className="bg-gradient-to-r from-[#000] to-[#000] py-[100px] xxl:mx-20 rounded-xl font-Syne">
         <div className="px-5 container xl:px-[80px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2">
-            <div className="order-[2] lg:order-[1]">
-              <h2 className="text-5xl font-semibold text-[#ff2c2c] text-center">
+            <div className="order-[2] lg:order-[1] font-Syne">
+              <h2 className="text-5xl font-semibold text-[#fff] text-center">
                 Prize Pool
               </h2>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-5 mt-10">
                 <div className="lg:col-span-2">
-                  <div className="w-max mx-auto text-[#ff2c2c]">
+                  <div className="w-max mx-auto text-[#fff]">
                     <img
                       src={Trophy}
                       className="mx-auto drop-shadow-[0px_0px_5px_#ecc440]"
@@ -235,7 +237,7 @@ const EventDetail = () => {
                       alt="trophy"
                     />
                     <div className="p-3 border-2 rounded-t-lg w-[200px]">
-                      <p className="text-center text-2xl">1st Price</p>
+                      <p className="text-center text-2xl">1st Prize</p>
                       <p className="text-center">Cash Prize</p>
                       <p className="text-center">Internship Opportunity</p>
                       <p className="text-center">Certificate</p>
@@ -243,7 +245,7 @@ const EventDetail = () => {
                   </div>
                 </div>
                 <div className="w-max mx-auto">
-                  <div className="w-max mx-auto text-[#ff2c2c]">
+                  <div className="w-max mx-auto text-[#fff]">
                     <img
                       src={Trophy2}
                       className="mx-auto drop-shadow-[0px_0px_5px_#d8d8d8]"
@@ -251,14 +253,14 @@ const EventDetail = () => {
                       alt="trophy"
                     />
                     <div className="p-3 border-2 rounded-t-lg w-[200px]">
-                      <p className="text-center text-2xl">2nd Price</p>
+                      <p className="text-center text-2xl">2nd Prize</p>
                       <p className="text-center">Internship Opportunity</p>
                       <p className="text-center">Certificate</p>
                     </div>
                   </div>
                 </div>
                 <div className="w-max mx-auto">
-                  <div className="w-max mx-auto text-[#ff2c2c]">
+                  <div className="w-max mx-auto text-[#fff]">
                     <img
                       src={Trophy3}
                       className="mx-auto drop-shadow-[0px_0px_5px_#cd7f32]"
@@ -266,14 +268,14 @@ const EventDetail = () => {
                       alt="trophy"
                     />
                     <div className="p-3 border-2 rounded-t-lg w-[200px]">
-                      <p className="text-center text-2xl">3rd Price</p>
+                      <p className="text-center text-2xl">3rd Prize</p>
                       <p className="text-center">Certificate</p>
                       <p className="text-center">Gift Hamper</p>
                     </div>
                   </div>
                 </div>
               </div>
-              <p className="text-center mx-auto mt-10 text-xl text-[#ff2c2c]">
+              <p className="text-center mx-auto mt-10 text-xl text-[#fff]">
                 Special Mention Awards: For Participation
               </p>
             </div>
@@ -283,7 +285,7 @@ const EventDetail = () => {
           </div>
         </div>
       </section>
-      <section className="my-[60px] lg:my-[100px] xxl:px-[150px]">
+      <section className="my-[60px] lg:my-[100px] xxl:px-[150px] font-Syne">
         <div className="container mx-auto xl:px-[80px] px-5">
           <h2 className="text-4xl font-semibold text-center mb-10">
             Hackathon Agenda
@@ -303,8 +305,10 @@ const EventDetail = () => {
                 ) : (
                   <div className="lg:col-span-2 pb-5">
                     <p className="text-xl">{row.Time}</p>
-                    <div className="h-[2px] bg-[#D9D9D9] mt-2 mb-5"></div>
-                    {row.Description !== "undefined" ? row.Description : ""}
+                    <div className="h-[2px] bg-[#D9D9D9] mt-2 mb-2"></div>
+                    {row.Description !== "undefined"
+                      ? parse(row.Description)
+                      : ""}
                   </div>
                 )}
               </div>
@@ -312,7 +316,7 @@ const EventDetail = () => {
           })}
         </div>
       </section>
-      <section className="pb-[60px] lg:pb-[100px]">
+      <section className="pb-[60px] lg:pb-[100px] font-Syne">
         <div className="container mx-auto xl:px-[80px] px-5 flex flex-col">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10">
             <div>

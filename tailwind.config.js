@@ -20,8 +20,9 @@ export default {
       },
     },
     screens: {
-      sm: "360px",
+      xs: "360px",
       // => @media (min-width: 640px) { ... }
+      sm: "380px",
 
       md: "768px",
       // => @media (min-width: 768px) { ... }
