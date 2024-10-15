@@ -137,7 +137,11 @@ const FooterBar = () => {
                 <div className="row-span-1">
                   <ul className="mx-10 text-[20px] leading-[24px] font-Syne">
                     <li>
-                      <a href={`/services`}>Our Services</a>
+                      <a
+                        href={`/${localStorage.getItem("currentUserType")}/services`}
+                      >
+                        Our Services
+                      </a>
                     </li>
                     {serviceData &&
                       serviceData?.serviceData?.map((ele: any) => {

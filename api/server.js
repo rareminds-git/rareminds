@@ -372,6 +372,17 @@ app.post("/services/edit/:slug", async function (req, res) {
 });
 
 app.post(
+  "/blog/image-upload",
+  upload.single("upload"),
+  async function (req, res, err) {
+    if (err) return res.json({ error: { message: "image upload failed" } });
+    res.json({
+      url: `${process.env.VITE_API_URL}/uploads/${req.file.filename}`,
+    });
+  }
+);
+
+app.post(
   "/editService/:userType/:slug/:contentSlug",
   upload.single("Image1"),
   async function (req, res) {
