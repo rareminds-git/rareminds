@@ -21,6 +21,10 @@ const Header = ({ navbarOpen, setNavbarOpen }) => {
       });
     }
 
+    if (localStorage.getItem("currentUserType") === null) {
+      localStorage.setItem("currentUserType", "corporate");
+    }
+
     getPages();
   }, []);
 
