@@ -20,7 +20,7 @@ const CourseDetail = () => {
 
   return (
     <>
-      <section className="md:px-20 px-10 py-10 relative font-Syne">
+      <section className="md:px-20 px-4 py-10 relative font-Syne">
         <div className="flex">
           <div className="grid">
             <h1 className="mt-20 text-3xl text-left font-bold md:text-5xl">
@@ -48,11 +48,11 @@ const CourseDetail = () => {
         </div>
       </section>
 
-      <section className="xxl:px-44 px-10 font-Syne">
+      <section className="xxl:px-44 px-4 font-Syne">
         <div className="container xl:px-[80px] px-5 mx-auto">
           <div className="bg-[#F5F7FA] rounded-[30px] px-5 py-10 lg:py-[50px] lg:px-[80px] grid grid-cols-1 lg:grid-cols-2 gap-[30px] 2xl:gap-[100px] mb-[60px] box-shadow border border-[#959da533]">
             <div className="flex flex-col order-[2] lg:order-[1]">
-              <h3 className="text-3xl font-semibold mt-5">
+              <h3 className="text-xl xxl:text-3xl font-semibold mt-5">
                 What is Tamil Nadu Skill Development Corporation(TNSDC)?
               </h3>
               <p className="mt-5 text-justify">
@@ -88,7 +88,7 @@ const CourseDetail = () => {
               />
             </div>
             <div className="flex flex-col justify-center order-[1] lg:order-[2]">
-              <h3 className="text-3xl font-bold">Why Rareminds?</h3>
+              <h3 className="text-xl xxl:text-3xl font-bold">Why Rareminds?</h3>
               <p className="mt-5 max-w-[600px] text-justify">
                 Rareminds' relevance as a training partner for TNSDC is further
                 underscored by the specialized courses it offers in food
@@ -107,12 +107,12 @@ const CourseDetail = () => {
           </div>
         </div>
       </section>
-      <section className="xxl:px-44 px-10 font-Syne">
+      <section className="xxl:px-44 px-4 font-Syne">
         <div className="container xl:px-[80px] mx-auto px-5">
           <div className="mt-[60px] mb-[100px] lg:my-[140px] grid grid-cols-1 lg:grid-cols-2 gap-[40px] lg:gap-[60px]">
             <div className="flex flex-col items-center justify-center">
               <div className="">
-                <h3 className="text-3xl font-bold mb-5">
+                <h3 className="text-xl xxl:text-3xl font-bold mb-5">
                   Key Achievements of TNSDC
                 </h3>
                 <div className="flex mt-3">
@@ -148,7 +148,7 @@ const CourseDetail = () => {
           </div>
         </div>
       </section>
-      <section className="xxl:px-44 px-10 font-Syne min-h-[300px] bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] text-white flex items-center">
+      <section className="xxl:px-44 px-4 font-Syne min-h-[300px] bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] text-white flex items-center">
         <div className="container xl:px-[80px] mx-auto grid grid-cols-1 sm:grid-cols-2 h-full py-[80px] gap-10">
           <div className="flex flex-col justify-center items-center">
             <p className="text-5xl font-bold">15,000+</p>
@@ -162,7 +162,7 @@ const CourseDetail = () => {
           </div>
         </div>
       </section>
-      <section className="xxl:px-44 px-10 font-Syne py-[80px] lg:py-[160px]">
+      <section className="xxl:px-44 px-4 font-Syne py-[80px] lg:py-[160px]">
         <div className="container xl:px-[80px] mx-auto px-5 flex flex-col gap-[80px] lg:gap-[140px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-[40px] lg:gap-[60px]">
             <div className="h-full order-[2] lg:order-[1]">
@@ -174,7 +174,7 @@ const CourseDetail = () => {
               />
             </div>
             <div className="flex flex-col justify-center order-[1] lg:order-[2]">
-              <h3 className="text-3xl font-bold">Agribusiness</h3>
+              <h3 className="text-xl xxl:text-3xl font-bold">Agribusiness</h3>
               <p className="mt-5 max-w-[600px] text-justify">
                 At Rareminds, our Agri Business Management course equips Naan
                 Mudhalvan students with the strategic skills needed to excel in
@@ -196,7 +196,7 @@ const CourseDetail = () => {
               />
             </div>
             <div className="flex flex-col justify-center order-[1]">
-              <h3 className="text-3xl font-bold">Food Analysis</h3>
+              <h3 className="text-xl xxl:text-3xl font-bold">Food Analysis</h3>
               <p className="mt-5 max-w-[600px] text-justify">
                 Our Organic Food Production course is tailored for students
                 passionate about sustainable agriculture. This course teaches
@@ -219,7 +219,9 @@ const CourseDetail = () => {
               />
             </div>
             <div className="flex flex-col justify-center order-[1] lg:order-[2]">
-              <h3 className="text-3xl font-bold">EV Battery Management</h3>
+              <h3 className="text-xl xxl:text-3xl font-bold">
+                EV Battery Management
+              </h3>
               <p className="mt-5 max-w-[600px] text-justify">
                 The Electronic Vehicle Battery Management Systems course offers
                 students in-depth knowledge of EV technology, with a focus on
@@ -242,7 +244,9 @@ const CourseDetail = () => {
               />
             </div>
             <div className="flex flex-col justify-center order-[1]">
-              <h3 className="text-3xl font-bold">Organic Food Production</h3>
+              <h3 className="text-xl xxl:text-3xl font-bold">
+                Organic Food Production
+              </h3>
               <p className="mt-5 max-w-[600px] text-justify">
                 In the Food Analysis and Quality Control course, students learn
                 to ensure the safety and quality of food products. This course
@@ -255,8 +259,7 @@ const CourseDetail = () => {
           </div>
         </div>
       </section>
-      <section className="xxl:px-44 px-10 font-Syne pt-[120px] relative bg-[url('images/sec-bg.png')] bg-no-repeat bg-cover">
-        <div className="absolute w-full h-[100px] bg-gradient-to-b from-[#ffffffff] to-[#ffffff00] -mt-[120px]"></div>
+      <section className="xxl:px-44 px-4 font-Syne pt-[120px]">
         <div className="container xl:px-[80px] mx-auto px-5">
           <h2 className="text-4xl text-[#000] text-center font-bold mb-[70px]">
             Benifits of Our Course
@@ -345,7 +348,7 @@ const CourseDetail = () => {
         </div>
         <div className="h-[50px] lg:h-[100px] bg-gradient-to-t from-[#F5F7FA] to-[#F5F7FA00]"></div>
       </section>
-      <section className="xxl:px-44 px-10 font-Syne py-[100px]">
+      <section className="xxl:px-44 px-4 font-Syne py-[100px]">
         <div className="container xl:px-[80px] mx-auto px-5">
           <h2 className="text-4xl font-bold mx-auto text-center mb-[60px] lg:mb-[100px]">
             Join Leading Universities in Transforming Education
@@ -594,7 +597,7 @@ const CourseDetail = () => {
           </div>
         </div>
       </section>
-      <section className="xxl:px-44 px-10 font-Syne bg-[#F5F7FA] py-[100px]">
+      <section className="xxl:px-44 px-4 font-Syne bg-[#F5F7FA] py-[100px]">
         <h3 className="text-[#000] text-center font-bold xxl:text-5xl text-2xl py-10 mx-auto justify-center">
           Testimonials
         </h3>
