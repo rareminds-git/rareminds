@@ -23,7 +23,7 @@ const WallofFame = () => {
   return (
     <>
       <header
-        className={`hero-section bg-[length:100%_100%] mx-44 rounded-xl shadow-[0_0px_15px_0px_rgba(0,0,0,0.1)] bg-no-repeat bg-center h-[400px] lg:h-[500px] mt-32`}
+        className={`hero-section bg-[length:100%_100%] mx-2 xxl:mx-44 rounded-xl shadow-[0_0px_15px_0px_rgba(0,0,0,0.1)] bg-no-repeat bg-center h-[400px] lg:h-[500px] mt-32`}
         style={{ backgroundImage: `url(${Banner})` }}
       >
         <div className=""></div>
