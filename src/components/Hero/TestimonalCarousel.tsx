@@ -41,7 +41,7 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
                 <div className="grid grid-cols-2 place-items-start">
                   <div className="col-span-1 row-span-3 my-4 mx-4 place-items-start testimonyImg">
                     <img
-                      src={`${import.meta.env.VITE_PUBLIC_URL}api/uploads/${item.AuthorImage}`}
+                      src={`${import.meta.env.VITE_PUBLIC_URL}uploads/${item.AuthorImage}`}
                       width="480px"
                       className="rounded-full
             border-[#CAF0F8] border-[17px]"

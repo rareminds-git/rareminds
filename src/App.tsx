@@ -12,6 +12,7 @@ import CaseStudies from "./pages/[name]/case-studies";
 import About from "./pages/[name]/about";
 import EventDetail from "./pages/hackathon/[name]";
 import WallofFame from "./pages/walloffame";
+import CourseDetail from "./pages/courses/[name]/6th-sem-20204";
 
 const App = () => {
   return (
@@ -38,6 +39,10 @@ const App = () => {
               element={<EventDetail />}
             />
             <Route path="/walloffame/" element={<WallofFame />} />
+            <Route
+              path="courses/:name/6th-sem-2024"
+              element={<CourseDetail />}
+            />
           </Routes>
         </Suspense>
       </DefaultLayout>
