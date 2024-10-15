@@ -165,6 +165,9 @@ const FooterBar = () => {
                     <li>
                       <a href="/blogs">Blog</a>
                     </li>
+                    <li>
+                      <a href="/walloffame">Wall Of Fame</a>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -249,6 +252,9 @@ const FooterBar = () => {
                     </li>
                     <li>
                       <a href="/blogs">Blog</a>
+                    </li>
+                    <li>
+                      <a href="/walloffame">Wall Of Fame</a>
                     </li>
 
                     <li>

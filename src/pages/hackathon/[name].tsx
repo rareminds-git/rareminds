@@ -57,7 +57,7 @@ const EventDetail = () => {
               {")"}
             </h1>
             <br />
-            <h3 className="text-2xl font-bold text-left mb-20">
+            <h3 className="xxl:text-2xl text-sm font-bold text-left xxl:mb-20 mb-4">
               {eventData && eventData.eventData
                 ? eventData.eventData[0].SubHeading1
                 : ""}{" "}
@@ -71,7 +71,7 @@ const EventDetail = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 mb-20">
+        <div className="grid grid-cols-1 xxl:mb-20 mb-4">
           <div className="cursor-pointer">
             <img
               src={`${import.meta.env.VITE_PUBLIC_URL}uploads/${eventData && eventData.eventData ? eventData.eventData[0].Image1 : ""}`}
@@ -82,7 +82,7 @@ const EventDetail = () => {
         </div>
       </section>
 
-      <section className="py-[30px] lg:py-[10px] lg:px-64 px-5">
+      <section className="py-[10px] lg:py-[10px] lg:px-64 px-5">
         {/* <div className="w-full mb-10 border border-[#ff2c2c] rounded-[12px]">
           <div className="px-10 py-5 bg-gradient-to-r from-[#ff2c2c] to-[#ff2c2c] flex justify-center rounded-[10px]">
             <h3 className="text-2xl font-bold text-[#fff] text-center">
