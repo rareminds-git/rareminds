@@ -138,7 +138,7 @@ const FooterBar = () => {
                   <ul className="mx-10 text-[20px] leading-[24px] font-Syne">
                     <li>
                       <a
-                        href={`/${localStorage.getItem("currentUserType")}/services`}
+                        href={`${localStorage.getItem("currentUserType")}/services`}
                       >
                         Our Services
                       </a>
@@ -167,6 +167,9 @@ const FooterBar = () => {
                     </li>
                     <li>
                       <a href="/walloffame">Wall Of Fame</a>
+                    </li>
+                    <li>
+                      <a href="/events">Events</a>
                     </li>
                   </ul>
                 </div>
@@ -245,7 +248,7 @@ const FooterBar = () => {
                     </li>
                     <li>
                       <a
-                        href={`/${localStorage.getItem("currentUserType")}/case-studies`}
+                        href={`${localStorage.getItem("currentUserType")}/case-studies`}
                       >
                         Case Study
                       </a>

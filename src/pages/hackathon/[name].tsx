@@ -74,7 +74,7 @@ const EventDetail = () => {
         <div className="grid grid-cols-1 xxl:mb-20 mb-4">
           <div className="cursor-pointer">
             <img
-              src={`${import.meta.env.VITE_PUBLIC_URL}uploads/${eventData && eventData.eventData ? eventData.eventData[0].Image1 : ""}`}
+              src={`${import.meta.env.VITE_API_URL}uploads/${eventData && eventData.eventData ? eventData.eventData[0].Image1 : ""}`}
               width={"100%"}
               className="rounded-xl object-cover"
             />

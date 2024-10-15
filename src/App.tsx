@@ -13,6 +13,7 @@ import About from "./pages/[name]/about";
 import EventDetail from "./pages/hackathon/[name]";
 import WallofFame from "./pages/walloffame";
 import CourseDetail from "./pages/courses/[name]/6th-sem-20204";
+import Events from "./pages/hackathon";
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
               element={<CaseStudyDetail />}
             />
             <Route path="/about" element={<About />} />
+            <Route path="/events" element={<Events />} />
             <Route path="/blogs/:slug" element={<BlogDetail />} />
             <Route
               path="/hackathon/:eventCategory/:slug"

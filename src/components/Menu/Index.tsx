@@ -116,6 +116,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       Blog
                     </a>
                   </li>
+
                   <li className="nav-li text-[22px] leading-[20px] font-semibold pt-12 font-Syne text-white">
                     <a href="mailto:info@rareminds.in">info@rareminds.in</a>
                   </li>
@@ -126,70 +127,48 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
             <div className="grid">
               <div className="col-span-6">
                 <ul className="w-full flex flex-col items-start pl-16 pt-48 xl:pt-20">
-                  <li className="nav-li opacity-0">
+                  <li className="nav-li">
                     <a
-                      href="/"
-                      className="nav-link text-6xl font-[Sentient] text-white font-bold"
+                      href="/events"
+                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient] font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
                     >
-                      Home
+                      Events
+                    </a>
+                  </li>
+                  <li className="nav-li">
+                    <a
+                      href="/walloffame"
+                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient] font-bold text-white"
+                      onClick={() => {
+                        setNavbarOpen(false);
+                      }}
+                    >
+                      Wall of Fame
                     </a>
                   </li>
                   <li className="nav-li opacity-0">
                     <a
-                      href={`${localStorage.getItem("currentUserType")}/services`}
-                      className="nav-link text-6xl font-[Sentient] text-white font-bold"
+                      href="/events"
+                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient] font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
                     >
-                      Our Services
+                      Events
                     </a>
                   </li>
                   <li className="nav-li opacity-0">
                     <a
-                      href={`/about`}
-                      className="nav-link text-6xl font-[Sentient] text-white font-bold"
+                      href="/walloffame"
+                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient] font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
                     >
-                      About
-                    </a>
-                  </li>
-                  <li className="nav-li opacity-0">
-                    <a
-                      href={`${localStorage.getItem("currentUserType")}/services`}
-                      className="nav-link text-6xl font-[Sentient] text-white font-bold"
-                      onClick={() => {
-                        setNavbarOpen(false);
-                      }}
-                    >
-                      Case Study
-                    </a>
-                  </li>
-                  <li className="nav-li opacity-0">
-                    <a
-                      href="/contact-us"
-                      className="nav-link text-6xl font-[Sentient] text-white font-bold"
-                      onClick={() => {
-                        setNavbarOpen(false);
-                      }}
-                    >
-                      Contact
-                    </a>
-                  </li>
-                  <li className="nav-li opacity-0">
-                    <a
-                      href="/blogs"
-                      className="nav-link text-6xl font-[Sentient] font-bold text-white"
-                      onClick={() => {
-                        setNavbarOpen(false);
-                      }}
-                    >
-                      Blog
+                      Wall of Fame
                     </a>
                   </li>
                   <li className="nav-li text-[20px] leading-[20px] flex items-center font-semibold pt-24 text-white font-Syne">
@@ -298,6 +277,28 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       }}
                     >
                       Blog
+                    </a>
+                  </li>
+                  <li className="nav-li py-2">
+                    <a
+                      href="/events"
+                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient] font-bold text-white"
+                      onClick={() => {
+                        setNavbarOpen(false);
+                      }}
+                    >
+                      Events
+                    </a>
+                  </li>
+                  <li className="nav-li py-2">
+                    <a
+                      href="/walloffame"
+                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient] font-bold text-white"
+                      onClick={() => {
+                        setNavbarOpen(false);
+                      }}
+                    >
+                      Wall of Fame
                     </a>
                   </li>
                 </ul>
