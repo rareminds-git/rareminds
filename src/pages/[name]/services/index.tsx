@@ -62,7 +62,7 @@ const Services = () => {
               dangerouslySetInnerHTML={{
                 __html:
                   serviceData?.servicePageData?.Description &&
-                  serviceData?.servicePageData?.Description,
+                  parse(serviceData?.servicePageData?.Description),
               }}
             ></p>
 
@@ -84,7 +84,7 @@ const Services = () => {
                         <p
                           className={`text-sm my-12 font-[Sentient] font-normal ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
                           dangerouslySetInnerHTML={{
-                            __html: ele?.Description,
+                            __html: parse(ele?.Description),
                           }}
                         ></p>
 
@@ -142,7 +142,7 @@ const Services = () => {
                         <p
                           className="text-sm my-5 line-clamp-6"
                           dangerouslySetInnerHTML={{
-                            __html: ele?.Description,
+                            __html: parse(ele?.Description),
                           }}
                         ></p>
                       </div>

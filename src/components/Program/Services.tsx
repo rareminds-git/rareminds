@@ -76,7 +76,7 @@ const Services = ({ content, services, ctaContent }) => {
                       <p
                         className="text-sm my-5 line-clamp-6"
                         dangerouslySetInnerHTML={{
-                          __html: ele?.Description,
+                          __html: parse(ele?.Description),
                         }}
                       ></p>
                     </div>
