@@ -830,4 +830,8 @@
       transform: translate(calc(-50% - 30px));
     }
   }
+
+  .servicesSection .owl-carousel.owl-loaded {
+    max-height: 500px;
+  }
 }

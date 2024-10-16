@@ -279,7 +279,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       Blog
                     </a>
                   </li>
-                  <li className="nav-li py-2">
+                  {/* <li className="nav-li py-2">
                     <a
                       href="/events"
                       className="nav-link text-[60px] leading-[81.6px] font-[Sentient] font-bold text-white"
@@ -300,7 +300,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                     >
                       Wall of Fame
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
 
                 <p className="text-white font-Syne text-xl mt-32">
