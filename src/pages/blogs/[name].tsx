@@ -46,7 +46,7 @@ const BlogDetail = () => {
           </h1>
 
           <div className="grid md:grid-cols-3 sm:grid-cols-1 md:grid-rows-1 sm:grid-rows-2 border-b-2 md:border-black mb-10 md:p-5 sm:py-5">
-            <div className="col-span-1 inline-block md:w-[60%]">
+            <div className="col-span-1 inline-block lg:w-[100%] xxl:w-[60%] xl:w-[80%] md:w-[60%]">
               <img
                 src="https://icons.veryicon.com/png/o/healthcate-medical/orange-particle/author-2.png"
                 height="75"
