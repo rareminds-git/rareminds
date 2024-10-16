@@ -53,7 +53,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href="/"
-                      className="nav-link text-[60px] lg:text-[44px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
+                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[81.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -64,7 +64,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href={`${localStorage.getItem("currentUserType")}/services`}
-                      className="nav-link text-[60px] lg:text-[44px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
+                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[81.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -75,7 +75,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href={`/about`}
-                      className="nav-link text-[60px] lg:text-[44px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
+                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[81.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -97,7 +97,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href="/contact-us"
-                      className="nav-link text-[60px] lg:text-[44px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
+                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[81.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -108,7 +108,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href="/blogs"
-                      className="nav-link text-[60px] lg:text-[44px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] font-bold text-white"
+                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[81.6px] leading-[81.6px] font-[Sentient] font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -126,11 +126,11 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
 
             <div className="grid">
               <div className="col-span-6">
-                <ul className="w-full flex flex-col items-start pl-16 pt-48 xl:pt-20">
+                <ul className="w-full flex flex-col items-start pl-16 pt-48 lg:pt-24 lg:pl-28 xl:pt-20">
                   <li className="nav-li opacity-0">
                     <a
                       href="/events"
-                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient] font-bold text-white"
+                      className="nav-link text-[60px] leading-[81.6px] lg:text-[56px] lg:leading-[81.6px] font-[Sentient] font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -141,7 +141,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href="/walloffame"
-                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient] font-bold text-white"
+                      className="nav-link text-[60px] leading-[81.6px] lg:text-[56px] lg:leading-[81.6px] font-[Sentient] font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -152,7 +152,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href="/events"
-                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient] font-bold text-white"
+                      className="nav-link text-[60px] leading-[81.6px] lg:text-[56px] lg:leading-[81.6px] font-[Sentient] font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -163,7 +163,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href="/walloffame"
-                      className="nav-link text-[60px] leading-[81.6px] font-[Sentient] font-bold text-white"
+                      className="nav-link text-[60px] leading-[81.6px] lg:text-[56px] lg:leading-[81.6px] font-[Sentient] font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -171,7 +171,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       Wall of Fame
                     </a>
                   </li>
-                  <li className="nav-li text-[20px] leading-[20px] mt-6 flex items-center font-semibold pt-24 text-white font-Syne">
+                  <li className="nav-li text-[20px] leading-[20px] mt-6 flex items-center font-semibold lg:pt-20 pt-24 text-white font-Syne">
                     <span className="inline-flex mr-1">Follow us:</span>
                     {socialIcons.map((socialIcon) => {
                       const { icon, id, link } = socialIcon;
