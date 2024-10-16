@@ -44,7 +44,7 @@ const About = () => {
         />
       </Helmet>
 
-      <section className="md:px-44 xl:px-32 xxl:px-60 md:pt-16 py-24 px-12 md:pb-0">
+      <section className="md:px-44 xl:px-32 xxl:px-60 md:pt-16 py-24 px-12 lg:py-32 md:pb-0">
         <h1 className="text-[30px] leading-[74px] md:text-[70px] font-Syne font-medium place-items-start text-[#000000] capitalize">
           {pageData?.pageData?.Heading1}
         </h1>
@@ -190,7 +190,7 @@ const About = () => {
           Awards and Recognitions
         </p>
 
-        <div className="grid py-16 md:grid-flow-row xxl:grid-flow-col place-items-start relative">
+        <div className="grid py-16 md:grid-flow-row xxl:grid-flow-col lg:grid-flow-col xl:grid-flow-col place-items-start relative">
           {pageData?.awards?.map((ele: any, index) => {
             return (
               <>
