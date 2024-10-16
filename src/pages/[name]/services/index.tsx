@@ -29,6 +29,8 @@ const Services = () => {
     getData();
   }, []);
 
+  console.log("service data", serviceData);
+
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>
@@ -107,7 +109,7 @@ const Services = () => {
         </section>
       ) : (
         <div className="md:pt-44">
-          <section className="md:px-44 xl:px-32 xxl:px-60 px-10 py-32 w-6/6">
+          <section className="md:px-44 xl:px-32 xxl:px-60 px-10 pt-32 pb-12 w-6/6">
             <h1 className="text-[34px] leading-[34px] font-Syne font-medium place-items-start text-[#000000] capitalize">
               {serviceData?.servicePageData?.Heading1}
             </h1>
@@ -119,37 +121,43 @@ const Services = () => {
                   parse(serviceData?.servicePageData?.Description),
               }}
             ></p>
-            <OwlCarousel
-              className="owl-theme"
-              autoplay
-              margin={20}
-              items={1}
-              dots={false}
-              nav={false}
-            >
-              {serviceData &&
-                serviceData?.serviceData?.map((ele: any) => {
-                  return (
-                    <div
-                      className="item my-4 cursor-pointer"
-                      onClick={() => navigate(`/${ele.ContentSlug}`)}
-                    >
-                      <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
-                        <h3 className="text-4xl font-semibold my-10">
-                          {ele.Heading1}
-                        </h3>
+            {serviceData?.serviceData?.length > 0 && (
+              <OwlCarousel
+                className="owl-theme"
+                autoplay
+                // margin={20}
+                items={1}
+                dots={false}
+                nav={false}
+              >
+                {serviceData &&
+                  serviceData?.serviceData?.map((ele: any) => {
+                    return (
+                      <div
+                        className="item my-4 cursor-pointer"
+                        onClick={() => navigate(`/${ele.ContentSlug}`)}
+                        key={ele.Heading1}
+                      >
+                        <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
+                          <h3 className="text-4xl font-semibold my-10">
+                            {ele.Heading1}
+                          </h3>
 
-                        <p
-                          className="text-sm my-5 line-clamp-6"
-                          dangerouslySetInnerHTML={{
-                            __html: parse(ele?.Description),
-                          }}
-                        ></p>
+                          <p
+                            className="text-sm my-5 line-clamp-6"
+                            dangerouslySetInnerHTML={{
+                              __html: parse(ele?.Description),
+                            }}
+                          ></p>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
-            </OwlCarousel>
+                    );
+                  })}
+              </OwlCarousel>
+            )}
+            <div className="flex justify-center mt-10">
+              <img src={ServicesImg} alt="Services" />
+            </div>
           </section>
         </div>
       )}
