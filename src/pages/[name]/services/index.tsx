@@ -54,13 +54,13 @@ const Services = () => {
         />
       </Helmet>
       {!isMobile ? (
-        <section className="md:py-32 xxl:py-32 grid w-full min-h-screen md:pt-16">
-          <div className="px-32">
+        <section className="md:py-32 xxl:py-32 lg:py-32 grid w-full min-h-screen md:pt-16">
+          <div className="px-32 lg:px-20 xxl:px-28">
             <h1 className="text-xl md:text-[70px] leading-[74px] font-Syne font-medium place-items-start text-[#000000] capitalize">
               {serviceData?.servicePageData?.Heading1}
             </h1>
             <p
-              className="text-[24px] leading-[32.6px] row-span-1 mt-12 font-[Sentient] font-light ml-60 mb-12 md:px-52 xl:px-32"
+              className="text-[24px] lg:text-[22px] leading-[32.6px] row-span-1 mt-12 font-[Sentient] font-light ml-60 lg:ml-12 mb-12 md:px-52 lg:px-4 xl:px-32"
               dangerouslySetInnerHTML={{
                 __html:
                   serviceData?.servicePageData?.Description &&
@@ -79,7 +79,7 @@ const Services = () => {
                       onClick={() => navigate(`/${ele.ContentSlug}`)}
                     >
                       <div
-                        className={` text-white pt-32 pb-12 xl:py-20 xl:px-10 xxl:py-20 xxl:px-12 px-20 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
+                        className={` text-white pt-32 lg:pt-12 pb-12 xl:py-20 xl:px-10 xxl:py-20 xxl:px-12 px-20 lg:px-8 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
                       >
                         <h4 className="text-5xl font-Syne">{ele.Heading1}</h4>
 

@@ -190,11 +190,13 @@ const About = () => {
           Awards and Recognitions
         </p>
 
-        <div className="grid py-16 place-items-start relative grid-flow-col sm:-cols-1">
-          {pageData?.awards?.map((ele: any) => {
+        <div className="grid py-16 md:grid-flow-row xxl:grid-flow-col place-items-start relative">
+          {pageData?.awards?.map((ele: any, index) => {
             return (
               <>
-                <div className="mt-4 col-span-2 px-2 py-3 rounded overflow-hidden shadow-xl mx-3">
+                <div
+                  className={`mt-4 md:row-span-${index + 1} min-h-100 col-span-12 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
+                >
                   <img
                     src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
                     width="180px"

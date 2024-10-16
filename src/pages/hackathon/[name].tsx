@@ -33,7 +33,6 @@ const EventDetail = () => {
       if (eventData?.eventData) {
         const now = moment();
         const end = moment(eventData?.eventData[0].EventDate);
-        console.log("date", now, end, eventData?.eventData[0].EventDate);
         return setDuration(moment.duration(end.diff(now)));
       }
     }, 1000);
@@ -220,7 +219,7 @@ const EventDetail = () => {
           </div>
         </div>
       </section>
-      <section className="bg-gradient-to-r from-[#000] to-[#000] py-[100px] xxl:mx-20 rounded-xl font-Syne">
+      <section className="bg-gradient-to-r from-[#000] to-[#000] py-[100px] xl:mx-20 lg:mx-20 rounded-xl font-Syne">
         <div className="px-5 container xl:px-[80px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="order-[2] lg:order-[1] font-Syne">
