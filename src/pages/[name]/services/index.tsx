@@ -52,7 +52,7 @@ const Services = () => {
         />
       </Helmet>
       {!isMobile ? (
-        <section className="md:px-44 xl:px-32 xxl:px-8 px-10 md:py-32 xxl:py-32 grid w-full min-h-screen md:pt-16">
+        <section className="md:py-32 xxl:py-32 grid w-full min-h-screen md:pt-16">
           <div className="px-32">
             <h1 className="text-xl md:text-[70px] leading-[74px] font-Syne font-medium place-items-start text-[#000000] capitalize">
               {serviceData?.servicePageData?.Heading1}
