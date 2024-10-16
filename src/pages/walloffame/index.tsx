@@ -6,7 +6,7 @@ const WallofFame = () => {
 
   useEffect(() => {
     const load = function () {
-      Papa.parse("https://rareminds.in/walloffame/teacherfeedback.csv", {
+      Papa.parse("./teacherfeedback.csv", {
         download: true,
         header: true,
         complete: (result) => {
@@ -23,7 +23,7 @@ const WallofFame = () => {
   return (
     <>
       <header
-        className={`hero-section bg-[length:100%_100%] mx-2 xxl:mx-44 rounded-xl shadow-[0_0px_15px_0px_rgba(0,0,0,0.1)] bg-no-repeat bg-center h-[400px] lg:h-[500px] mt-32`}
+        className={`hero-section bg-[length:100%_100%] mx-2 xxl:mx-44 xl:mx-20 lg:mx-20 rounded-xl shadow-[0_0px_15px_0px_rgba(0,0,0,0.1)] bg-no-repeat bg-center h-[400px] lg:h-[500px] mt-32`}
         style={{ backgroundImage: `url(${Banner})` }}
       >
         <div className=""></div>
@@ -38,7 +38,7 @@ const WallofFame = () => {
           </p>
         </div>
       </section>
-      <section className="featured-teachers container px-5 lg:px-60  font-Syne">
+      <section className="featured-teachers px-5 lg:px-60  font-Syne">
         <h2 className="text-3xl mb-10 font-semibold">What Our Students Says</h2>
 
         <div className="hidden lg:grid grid-cols-1 lg:grid-cols-6 mb-2 font-semibold"></div>
@@ -82,7 +82,7 @@ const WallofFame = () => {
           </blockquote>
         </div>
       </section>
-      <section className="testimonials container mx-auto px-10 lg:px-60 rounded-[20px] mb-10  font-Syne">
+      <section className="testimonials container mx-auto px-10 lg:px-60 rounded-[20px] mb-10 font-Syne">
         <h2 className="text-2xl mb-5">What Students &amp; Colleagues Say</h2>
         <div className="testimonial">
           <p>
@@ -103,7 +103,7 @@ const WallofFame = () => {
         id="nominate"
         className="nominate-section bg-[#000000] font-Syne"
       >
-        <div className="container mx-auto px-10">
+        <div className="container mx-auto xxl:px-10 px-5">
           <h2 className="text-white text-2xl font-semibold mb-2">
             Nominate an Outstanding Teacher!
           </h2>
@@ -114,7 +114,7 @@ const WallofFame = () => {
           <br />
           <a
             href="#"
-            className="rounded px-12 py-4 mt-40 bg-white text-[#ff2c2c]"
+            className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-5 rounded font-bold mr-0"
           >
             Nominate Now
           </a>

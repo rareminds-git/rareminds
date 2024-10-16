@@ -55,7 +55,7 @@ const BlogDetail = () => {
               />
 
               <h3 className="float-left mx-2 my-2">The Art of Gaming</h3>
-              <p className="float-left mx-2 my-2 text-gray-500">
+              <p className="float-left mx-2 my-2 xxl:my-1 text-gray-500">
                 Social Media Manager
               </p>
             </div>
@@ -82,7 +82,7 @@ const BlogDetail = () => {
                 return (
                   <div className="row-span-1 mt-16">
                     <p
-                      className="mt-4 mr-20 sm:mr-4 text-[16px] leading-[21.76px] font-[Sentient] font-light BlogDetail"
+                      className="mt-4 mr-20 sm:mr-4 text-[16px] leading-[21.76px] font-[Syne] font-light BlogDetail"
                       dangerouslySetInnerHTML={{
                         __html: parse(ele.ContentDescription),
                       }}

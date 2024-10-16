@@ -157,7 +157,7 @@ const FooterBar = () => {
                   <ul className="mx-10 text-[20px] leading-[24px] font-Syne">
                     <li>
                       <a
-                        href={`/${localStorage.getItem("currentUserType")}/case-studies`}
+                        href={`${localStorage.getItem("currentUserType")}/case-studies`}
                       >
                         Case Study
                       </a>
@@ -176,7 +176,7 @@ const FooterBar = () => {
               </div>
             </div>
             <div className="row-span-1 place-items-end text-right">
-              <h3 className="text-[30px] leading-[40.8px] font-light font-[Sentient] text-left xl:ml-[4.5rem] xxl:ml-[8rem] md:ml-[32rem]">
+              <h3 className="text-[30px] leading-[40.8px] font-light font-[Sentient] text-left xl:ml-[4.5rem] lg:ml-[3.5rem] xxl:ml-[8rem] md:ml-[32rem]">
                 Sign up to receive <br /> latest news.
               </h3>
               <input
@@ -248,7 +248,7 @@ const FooterBar = () => {
                     </li>
                     <li>
                       <a
-                        href={`${localStorage.getItem("currentUserType")}/case-studies`}
+                        href={`/${localStorage.getItem("currentUserType")}/case-studies`}
                       >
                         Case Study
                       </a>
@@ -278,7 +278,7 @@ const FooterBar = () => {
             </div>
           </div>
           <div className="grid grid-flow-col grid-rows-1">
-            <div className="flex items-center row-span-1 justify-center md:flex md:justify-start">
+            {/* <div className="flex items-center row-span-1 justify-center md:flex md:justify-start">
               {socialIcons.map((socialIcon) => {
                 const { icon, id, link } = socialIcon;
                 return (
@@ -287,7 +287,7 @@ const FooterBar = () => {
                   </div>
                 );
               })}
-            </div>
+            </div> */}
             <div className="flex items-end row-span-1 justify-center md:flex md:justify-end mr-10">
               <p>@rareminds 2024</p>
             </div>
