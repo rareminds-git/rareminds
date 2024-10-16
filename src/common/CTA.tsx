@@ -12,7 +12,7 @@ const CTA = ({ content }) => {
         >
           <h3 className="lg:col-span-3 mb-4 relative text-left mt-4 font-Syne font-bold inline-block lg:text-[50px] lg:leading-[58px] text-[#FF2C2C] lg:mx-8 text-[22px] leading-[28.4px] py-4 px-12 lg:px-4 lg:py-12">
             Form Fill: Unlock Your Potential!
-            <span className="inline-block ml-8 absolute top-[2.5rem] h-[100%] w-[100px]">
+            <span className="inline-block ml-2 xxl:ml-8 absolute xxl:top-[2.5rem] top-[2.2rem] h-[100%] xxl:w-[100px] w-[40px]">
               <img src={NortgImg} />
             </span>
           </h3>
