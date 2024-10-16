@@ -25,6 +25,12 @@ const ServiceName = () => {
     getData();
   }, []);
 
+  const htmlDecode = (input) => {
+    const e = document.createElement("div");
+    e.innerHTML = input;
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  };
+
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   return (
     <>
@@ -58,7 +64,7 @@ const ServiceName = () => {
             <p
               className="text-md font-[Sentient] text-[24px] leading-[32.84px] font-light capitalize ml-72 mr-16 mt-12 mb-12"
               dangerouslySetInnerHTML={{
-                __html: serviceData?.serviceData?.Description,
+                __html: htmlDecode(serviceData?.serviceData?.Description),
               }}
             ></p>
 
@@ -90,7 +96,7 @@ const ServiceName = () => {
                       <p
                         className="text-xl lg:text-[36px] lg:leading-[42px] font-[Syne] font-semibold"
                         dangerouslySetInnerHTML={{
-                          __html: ele.ContentTitle,
+                          __html: htmlDecode(ele.ContentTitle),
                         }}
                       />
                       <span
