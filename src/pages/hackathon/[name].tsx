@@ -14,6 +14,12 @@ const EventDetail = () => {
   const [eventData, setEventData] = useState<any>({});
   const [duration, setDuration] = useState();
 
+  const htmlDecode = (input) => {
+    const e = document.createElement("div");
+    e.innerHTML = input;
+    return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+  };
+
   useEffect(() => {
     async function getData() {
       await axios
@@ -293,7 +299,7 @@ const EventDetail = () => {
             return (
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
                 <div>
-                  <h3 className="text-3xl">{row.Title}</h3>
+                  <h3 className="text-3xl">{htmlDecode(row.Title)}</h3>
                 </div>
                 {row.Title.includes("Lunch") ? (
                   <div className="lg:col-span-2 pb-5 mt-0 lg:mt-5 mb-5">
@@ -305,9 +311,11 @@ const EventDetail = () => {
                   <div className="lg:col-span-2 pb-5">
                     <p className="text-xl">{row.Time}</p>
                     <div className="h-[2px] bg-[#D9D9D9] mt-2 mb-2"></div>
-                    {row.Description !== "undefined"
-                      ? parse(row.Description)
-                      : ""}
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: row.Description,
+                      }}
+                    ></p>
                   </div>
                 )}
               </div>
