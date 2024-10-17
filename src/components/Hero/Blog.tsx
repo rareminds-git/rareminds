@@ -93,11 +93,11 @@ const Blog = ({ content }) => {
             className="owl-theme pl-2"
             autoplay
             loop
-            margin={20}
+            margin={0}
             stagePadding={0}
             nav={false}
             dots={false}
-            items={1.5}
+            items={1.75}
           >
             {content.map((ele, index) => {
               return (
@@ -110,10 +110,10 @@ const Blog = ({ content }) => {
                       <img
                         src={`${import.meta.env.VITE_API_URL}uploads/${ele.Image1}`}
                         style={{
-                          width: "159px",
+                          // width: "159px",
                           height: `${index % 2 === 0 ? "186px" : "295px"}`,
                         }}
-                        className={`${index % 2 === 0 ? "rounded-tl-[20px] rounded-tr-[180px] rounded-bl-[20px] rounded-br-[20px] object-cover" : "rounded-tl-[80px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] object-cover"}`}
+                        className={`${index % 2 === 0 ? "rounded-tl-[20px] rounded-tr-[180px] rounded-bl-[20px] rounded-br-[20px] object-fill" : "rounded-tl-[80px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] object-fill"}`}
                       />
                       <p
                         className="font-Syne text-[16px] leading-[18px] pb-5 mr-4 mt-4 font-bold"

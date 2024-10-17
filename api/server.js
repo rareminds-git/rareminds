@@ -7,6 +7,7 @@ var app = express();
 const multer = require("multer");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const moment = require("moment");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -36,7 +37,7 @@ con.connect(function (err) {
 });
 
 const mysqlQuery = async (connection, queryConfig) => {
-  console.log("query config", queryConfig);
+  // console.log("query config", queryConfig);
   const config = { ...queryConfig, timeout: 4000 };
 
   return new Promise((resolve, reject) => {
@@ -1215,6 +1216,79 @@ app.post("/addEvent", upload.single("Image1"), async function (req, res) {
       });
     });
   }
+
+  res.send({
+    status: 200,
+    message: "Data updated successfully",
+  });
+});
+
+app.post("/editEvent/:id", upload.single("Image1"), async function (req, res) {
+  const { id } = req.params;
+  const { body, file } = req;
+
+  // console.log({ body, file });
+
+  const formData = req.body;
+
+  let updateData = "";
+  // console.log("form data", JSON.parse(formData.eventData));
+  let data = {};
+  let eventData = JSON.parse(formData.eventData)[0];
+  let contentData = [];
+  if (Object.keys(eventData).length > 0) {
+    Object.keys(eventData).map((key) => {
+      data[key] = eventData[key];
+      data.Image1 = req?.file ? req?.file?.filename : eventData["Image1"];
+      contentData.push(data);
+    });
+  }
+
+  console.log("content data", eventData);
+
+  delete eventData["CreatedOn"];
+  delete eventData["ModifiedOn"];
+  eventData["EventDate"] = moment(eventData["EventDate"]).format(
+    "YYYY-MM-DD HH:mm:ss"
+  );
+
+  let updateString = Object.keys(eventData).map((key) => {
+    // console.log("data key", contentData[0][key]);
+    if (eventData[key] !== undefined) {
+      return `${key} = "${encodeHTML(eventData[key])}"`;
+    }
+  });
+
+  console.log("update string", updateString);
+
+  updateData = await mysqlQuery(con, {
+    sql: `UPDATE rm_content SET ${updateString.filter(Boolean)} WHERE ContentId = "${id}"`,
+  });
+
+  JSON.parse(formData.eventAgenda).map(async (row) => {
+    let eventAgendaString = Object.keys(row).map((key) => {
+      if (row[key] !== undefined) {
+        return `${key} = "${row[key]}"`;
+      }
+    });
+
+    await mysqlQuery(con, {
+      sql: `UPDATE rm_event_agenda SET ${eventAgendaString.filter(Boolean)} WHERE id = "${row.id}"`,
+    });
+  });
+
+  JSON.parse(formData.eventSchedule).map(async (row) => {
+    let eventScheduleString = Object.keys(row).map((key) => {
+      row["Date"] = moment(row["Date"]).format("YYYY-MM-DD HH:mm:ss");
+      if (row[key] !== undefined) {
+        return `${key} = "${row[key]}"`;
+      }
+    });
+
+    await mysqlQuery(con, {
+      sql: `UPDATE rm_event_schedule SET ${eventScheduleString.filter(Boolean)} WHERE id = "${row.id}"`,
+    });
+  });
 
   res.send({
     status: 200,
