@@ -249,7 +249,7 @@ app.get("/pages/:pageSlug", async function (req, res) {
   });
 
   let studyData = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_content WHERE ContentTypeId = 40",
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = 40 order by UNIX_TIMESTAMP(CreatedOn) DESC",
   });
 
   if (achievementsData.length > 0) {
@@ -843,7 +843,7 @@ app.post("/subscribers", async function (req, res) {
 
 app.get("/blogs", async function (req, res) {
   let blogData = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_content WHERE ContentTypeId = '41' order by UNIX_TIMESTAMP(CreatedOn)",
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = '41' order by UNIX_TIMESTAMP(CreatedOn) DESC",
   });
 
   let blogDetails = [];
@@ -1038,7 +1038,7 @@ app.get("/testimonials/:id", async function (req, res) {
 
 app.get("/testimonials", async function (req, res) {
   let categories = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_content WHERE ContentTypeId = 44",
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = 44 order by UNIX_TIMESTAMP(CreatedOn) DESC",
   });
 
   let testimonialData = [];
@@ -1321,7 +1321,7 @@ app.get("/events/:id", async function (req, res) {
 
 app.get("/events", async function (req, res) {
   let eventData = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_content where ContentTypeId = 47",
+    sql: "SELECT * FROM rm_content where ContentTypeId = 47 order by UNIX_TIMESTAMP(EventDate) DESC",
   });
 
   res.send({

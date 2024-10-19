@@ -198,7 +198,7 @@ const EventDetail = () => {
       <section className="mb-[60px] lg:mb-[100px] xxl:px-[150px] my-20 font-Syne">
         <div className="container px-5 xl:px-[80px] mx-auto flex flex-col items-center">
           <h2 className="text-4xl font-semibold">Event Schedule</h2>
-          <p>A Representstion of Event Planning</p>
+          <p>A Representation of Event Planning</p>
           <div className="w-full flex flex-col mt-10 gap-5 font-Syne">
             {eventData?.eventSchedule?.map((row) => {
               return (
