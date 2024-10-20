@@ -6,7 +6,7 @@ import { useMediaQuery } from "react-responsive";
 import CTA from "@/common/CTA";
 
 const Program = ({ showCTA }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
   return (
     <>
       {!isMobile ? (

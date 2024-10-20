@@ -375,11 +375,15 @@ app.post("/services/edit/:slug", async function (req, res) {
 app.post(
   "/blog/image-upload",
   upload.single("upload"),
-  async function (req, res, err) {
-    if (err) return res.json({ error: { message: "image upload failed" } });
-    res.json({
-      url: `${process.env.VITE_API_URL}/uploads/${req.file.filename}`,
-    });
+  async function (req, res, next) {
+    console.log("req files", req);
+    try {
+      res.json({
+        url: `${process.env.VITE_API_URL}/uploads/${req?.file?.filename}`,
+      });
+    } catch (err) {
+      next(err);
+    }
   }
 );
 

@@ -5,12 +5,12 @@ import { useMediaQuery } from "react-responsive";
 import moment from "moment";
 
 const Blog = ({ content }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
   const navigate = useNavigate();
   return (
     <>
       {!isMobile ? (
-        <div className="bg-[#cabe9e1f] lg:py-32 mt-10">
+        <div className="bg-[#cabe9e1f] lg:py-32 mt-10 md:px-20 md:py-20">
           <h5 className="font-Syne py-12 mx-auto text-black font-bold mb-20 text-[59px] leading-[70.8px] text-center">
             Blog
           </h5>

@@ -2,7 +2,7 @@ import { useMediaQuery } from "react-responsive";
 import ProgramImg from "../../assets/images/programImg.svg";
 
 const Hero = ({ name }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
   return (
     <>
       {!isMobile ? (

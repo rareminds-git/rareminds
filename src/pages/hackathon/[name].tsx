@@ -44,7 +44,7 @@ const EventDetail = () => {
     }, 1000);
   }, [eventData]);
 
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
 
   return (
     <>

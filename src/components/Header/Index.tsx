@@ -9,7 +9,7 @@ const Header = ({ navbarOpen, setNavbarOpen }) => {
 
   const navigate = useNavigate();
 
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
 
   useEffect(() => {
     async function getPages() {

@@ -8,7 +8,7 @@ import moment from "moment";
 const PageSize = 10;
 
 const Blogs = ({ pageData, content }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(10);

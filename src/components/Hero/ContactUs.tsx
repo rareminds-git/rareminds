@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useMediaQuery } from "react-responsive";
 
 const ContactUs = ({ content, ctaContent, pageData }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
   return (
     <>
       <Helmet>
@@ -14,7 +14,7 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
         <meta property="og:description" content={pageData?.OGDescription} />
       </Helmet>
       <section className="px-10 md:mt-24 mt-12 md:py-20 sm:py-24 font-Syne mb-10">
-        <div className="flex items-start md:px-32">
+        <div className="flex items-start md:px-12">
           <div className="grid space-y-10 place-items-start">
             <h1 className="font-bold text-5xl sm:text-3xl">
               {pageData?.PageSubTitle}
@@ -24,12 +24,12 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
 
         {!isMobile && <CTA content={ctaContent} />}
 
-        <div className="flex md:px-60 xl:px-32">
+        <div className="flex md:px-10 xl:px-32">
           <div className="my-4 place-items-start">
             {content.map((ele, index) => {
               return (
                 <>
-                  <div className="md:px-64 xl:px-44 my-10">
+                  <div className="md:px-10 xl:px-44 my-10">
                     <p
                       className="text-red-400 font-bold font-Syne text-[36px] leading-[43.2px] "
                       dangerouslySetInnerHTML={{
@@ -44,7 +44,7 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
                     />
                   </div>
 
-                  <div className="container md:px-64 xl:px-44">
+                  <div className="container md:px-12 xl:px-44">
                     <div className="grid grid-cols-2 gap-4 md:py-12">
                       <div className="grid">
                         <div className="md:col-span-6 col-span-9">
@@ -110,7 +110,7 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
             })}
           </div>
         </div>
-        <div className="md:px-32">
+        <div className="md:px-12">
           <h2 className="text-2xl font-bold text-red-400 md:py-8">
             Spot us on the map
           </h2>

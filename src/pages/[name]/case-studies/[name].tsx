@@ -24,7 +24,7 @@ const CaseStudyDetail = () => {
     getData();
   }, []);
 
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
   return (
     <>
       <Helmet>

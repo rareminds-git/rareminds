@@ -5,14 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 const SuccessStories = ({ content, pageData }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
   const navigate = useNavigate();
   return (
     <>
       <section className="md:px-20 px-10 py-10 xl:px-32 xxl:px-44 bg-hero-gradient">
         <div className="flex">
           <div className="grid space-y-10">
-            <h4 className="mb-4 md:mt-20 mt-10 md:text-[70px] md:leading-[115.2px] text-[28px] leading-[30px] text-left font-normal text-[#FF2C2C]">
+            <h4 className="mb-4 md:mt-20 mt-10 md:text-[50px] md:leading-[75.2px] text-[28px] leading-[30px] text-left font-normal text-[#FF2C2C]">
               Success Stories so far
             </h4>
             <p

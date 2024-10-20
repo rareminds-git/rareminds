@@ -9,7 +9,7 @@ import axios from "axios";
 import BackArrow from "../../assets/images/back-arrow.svg";
 
 const QueryForm = ({ pageData, content }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
   const [formData, setFormData] = useState({
     FullName: "",
     CompanyName: "",
@@ -127,7 +127,7 @@ const QueryForm = ({ pageData, content }) => {
     </section>
   ) : (
     <>
-      <section className="md:px-60 xl:px-40 px-10 md:pt-32 md:pb-48 py-16">
+      <section className="md:px-20 xl:px-40 px-10 md:pt-32 md:pb-48 py-16">
         <div className="flex">
           <div className="grid space-y-10 text-center font-Syne">
             <h1
@@ -137,7 +137,7 @@ const QueryForm = ({ pageData, content }) => {
               }}
             />
             <p
-              className="text-xl mb-20 md:px-72 xl:px-40 md:text-center text-left"
+              className="text-xl mb-20 md:px-20 xl:px-40 md:text-center text-left"
               dangerouslySetInnerHTML={{
                 __html: content[0]?.Heading2,
               }}
@@ -151,8 +151,8 @@ const QueryForm = ({ pageData, content }) => {
           </div>
         </div>
 
-        <Form className="mt-20 pr-10 sm:pr-0 md:px-20">
-          <div className="grid md:grid-cols-3 grid-cols-1 gap-4">
+        <Form className="mt-20 pr-10 sm:pr-0 md:px-10">
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
             <Form.Group className="w-full grid md:grid-rows-2">
               <Form.Label className="sm:text-[18px] md:text-[26px] leading-[31.2px] text-black-500 font-medium">
                 Full Name*

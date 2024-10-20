@@ -6,14 +6,14 @@ import { useNavigate } from "react-router-dom";
 import parse from "html-react-parser";
 
 const Services = ({ content, services, ctaContent }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
   const [hoveredDivs, setHoveredDivs] = useState<any>(null);
 
   const navigate = useNavigate();
 
   return (
     <>
-      <section className="md:px-40 xl:px-32 xxl:px-44 xl:py-20 px-8 pt-20 servicesSection">
+      <section className="md:px-20 xl:px-32 xxl:px-44 xl:py-20 px-8 pt-20 servicesSection">
         <h3 className="md:mb-20 text-5xl text-left md:font-semibold font-[Sentient] font-semibold text-black">
           {content?.Heading1}
         </h3>

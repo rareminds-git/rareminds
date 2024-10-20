@@ -31,7 +31,7 @@ const ServiceName = () => {
     return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
   };
 
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
   return (
     <>
       <Helmet>
