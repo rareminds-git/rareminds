@@ -93,7 +93,7 @@ const Index = () => {
           <div className="banner-grid h-screen bg-black opacity-55">
             <div className="grid grid-rows-2 grid-flow-col gap-0 h-screen">
               <div
-                className="mt-8 mx-8 row-span-2"
+                className="mt-8 mx-8 row-span-2 md:col-span-2"
                 onMouseOver={() => {
                   console.log("mouse over");
                   setActiveBanner("home");
@@ -102,7 +102,7 @@ const Index = () => {
                 <img src={Logo} alt="Rareminds" />
               </div>
               <div
-                className="p-12 cursor-pointer row-span-2"
+                className="p-12 cursor-pointer row-span-2 md:hidden"
                 onMouseOver={() => {
                   console.log("mouse over");
                   setActiveBanner("home");

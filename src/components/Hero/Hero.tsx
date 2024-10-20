@@ -7,7 +7,7 @@ import { useMediaQuery } from "react-responsive";
 import { useInViewport } from "../useInViewPort";
 
 const Hero = ({ content }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
   const [lineHeight, setLineHeight] = useState(0);
 
   const { isInViewport, ref } = useInViewport();
@@ -23,7 +23,7 @@ const Hero = ({ content }) => {
   return (
     <>
       {!isMobile ? (
-        <section className="lg:px-16 xxl:px-32 lg:pt-16 xl:py-48 xxl:py-16 lg:pb-16 pb-8 bg-hero-gradient">
+        <section className="lg:px-16 xxl:px-32 lg:pt-16 xl:py-48 xxl:py-16 md:py-24 lg:pb-16 pb-8 bg-hero-gradient">
           <div className="flex items-center justify-center">
             <div className="grid space-y-10 place-items-center">
               <h1
@@ -112,7 +112,7 @@ const Hero = ({ content }) => {
         <section className="pt-24 pb-4 bg-hero-gradient">
           <div className="flex items-center justify-center">
             <div className="grid place-items-center">
-              <h1 className="mb-4 mt-10 text-[22px] leading-[28px] font-medium text-center mx-12 font-[Sentient] text-[#ff2c2c]">
+              <h1 className="mb-4 mt-10 text-[22px] leading-[28px] md:text-[32px] md:leading-[44px] font-medium text-center mx-12 font-[Sentient] text-[#ff2c2c]">
                 {content.Heading1}
               </h1>
             </div>

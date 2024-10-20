@@ -4,10 +4,10 @@ import { useInViewport } from "../useInViewPort";
 
 const Achievements = ({ content, achievements }) => {
   const { isInViewport, ref } = useInViewport();
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
   return (
     <>
-      <section className="lg:px-10 xl:px-20 xxl:px-44 lg:py-20 place-items-center font-Syne">
+      <section className="lg:px-10 xl:px-20 xxl:px-44 lg:py-20 md:px-20 place-items-center font-Syne">
         <div className="items-center px-5 py-5">
           <p
             className="mt-0 font-bold text-center ml-0 text-[24px] leading-[28.8px] lg:text-[49px] lg:leading-[73.5px] py-10 text-black-500 font-[Poppins-Regular]"
@@ -65,7 +65,7 @@ const Achievements = ({ content, achievements }) => {
             {achievements?.map((ele: any) => {
               return (
                 <div className="container px-2">
-                  <div className="grid grid-rows-2 gap-4 lg:px-12 lg:py-12 px-4 border-y-black border-2 border-x-0">
+                  <div className="grid md:grid-rows-1 grid-rows-2 gap-4 lg:px-12 lg:py-12 px-4 border-y-black border-2 border-x-0">
                     <div className="row-span-1 grid grid-cols-3">
                       <div className="col-span-1 mt-4">
                         <h5

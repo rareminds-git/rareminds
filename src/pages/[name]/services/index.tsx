@@ -31,7 +31,7 @@ const Services = () => {
 
   console.log("service data", serviceData);
 
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
   return (
     <>
       <Helmet>

@@ -6,7 +6,7 @@ import TestimonialIlls from "../../assets/images/testimonialIlls.svg";
 import { useMediaQuery } from "react-responsive";
 
 const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
   console.log("testimonials", testimonials);
   return (
     <>

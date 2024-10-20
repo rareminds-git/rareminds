@@ -14,7 +14,7 @@ const About = () => {
   const [pageData, setPageData] = useState<any>([]);
   const [hoveredDivs, setHoveredDivs] = useState<any>(null);
 
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
 
   useEffect(() => {
     async function getPageData() {
@@ -44,12 +44,12 @@ const About = () => {
         />
       </Helmet>
 
-      <section className="md:px-44 xl:px-32 xxl:px-60 md:pt-16 py-24 px-12 lg:py-32 md:pb-0">
+      <section className="md:px-20 xl:px-32 xxl:px-60 md:pt-32 py-24 px-12 lg:py-32 md:pb-0">
         <h1 className="text-[30px] leading-[74px] md:text-[70px] font-Syne font-medium place-items-start text-[#000000] capitalize">
           {pageData?.pageData?.Heading1}
         </h1>
         <p
-          className="text-[18px] md:text-[24px] xl:text-[24px] xxl:text-[18px] leading-[32.6px] row-span-1 mt-12 font-[Sentient] font-light mb-12 md:px-52 xl:px-32 xxl:px-2"
+          className="text-[18px] md:text-[20px] xl:text-[24px] xxl:text-[18px] leading-[32.6px] row-span-1 mt-12 font-[Sentient] font-light mb-12 md:px-20 xl:px-32 xxl:px-2"
           dangerouslySetInnerHTML={{
             __html:
               pageData?.pageData?.Description &&
@@ -114,7 +114,7 @@ const About = () => {
           </div>
         )}
 
-        <div className="grid md:py-24 py-8 place-items-start relative md:grid-cols-5 grid-cols-1">
+        <div className="grid md:py-24 py-8 place-items-start relative md:grid-cols-4 md:gap-4  grid-cols-1 ">
           <div className="mt-4 col-span-2">
             <img
               src={VisionImg}
@@ -190,12 +190,12 @@ const About = () => {
           Awards and Recognitions
         </p>
 
-        <div className="grid py-16 md:grid-flow-row xxl:grid-flow-col lg:grid-flow-col xl:grid-flow-col place-items-start relative">
+        <div className="grid py-16 md:grid-rows-1 xxl:grid-flow-col md:grid-cols-2 lg:grid-flow-col xl:grid-flow-col place-items-start relative">
           {pageData?.awards?.map((ele: any, index) => {
             return (
               <>
                 <div
-                  className={`mt-4 md:row-span-${index + 1} min-h-100 col-span-12 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
+                  className={`mt-4 row-span-${index + 1} min-h-100 col-span-12 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
                 >
                   <img
                     src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
@@ -229,7 +229,7 @@ const About = () => {
             </h3>
             <div className="container" id="logoMarqueeSection">
               <div className="default-content-container flex items-center">
-                <div className="default-content-container-inner marquee-wrapper relative overflow-hidden inline-block">
+                <div className="default-content-container-inner marquee-wrapper relative overflow-hidden inline-block md:flex">
                   <div className="marquee" style={{ animationDuration: "12s" }}>
                     {pageData?.partners?.map((ele) => {
                       return (
@@ -285,8 +285,9 @@ const About = () => {
           pageData?.achievementsData[0]?.achievements
         }
       />
-
-      <CTA content={""} />
+      <div className="md:px-20">
+        <CTA content={""} />
+      </div>
     </>
   );
 };

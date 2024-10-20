@@ -4,7 +4,7 @@ import TestimonialCarousel from "../Hero/TestimonalCarousel";
 
 const CustomTabs = ({ testimonials, tabs, categories }) => {
   return (
-    <Tabs className="border-0">
+    <Tabs className="border-0 md:px-20">
       {tabs?.map((title: any) => {
         const category = categories.filter(
           (ele) => ele.Heading1 === title && ele
@@ -21,7 +21,7 @@ const CustomTabs = ({ testimonials, tabs, categories }) => {
           </TabPanel>
         );
       })}
-      <TabList className="border-0 border-r-0 custom-tabs md:mx-20">
+      <TabList className="border-0 border-r-0 custom-tabs md:mx-0">
         {tabs?.map((title: any) => {
           const category = categories.filter(
             (ele) => ele.Heading1 === title && ele
