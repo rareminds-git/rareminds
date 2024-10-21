@@ -52,7 +52,7 @@ const SuccessStories = ({ content, pageData }) => {
                     <p className="text-sm">
                       {ele.Heading2}...{" "}
                       <span
-                        onClick={() => navigate(`/${ele.ContentSlug}`)}
+                        onClick={() => navigate(`${ele.ContentSlug}`)}
                         className="text-black font-bold cursor-pointer"
                       >
                         Read more
@@ -77,7 +77,7 @@ const SuccessStories = ({ content, pageData }) => {
                 return (
                   <div
                     className="cursor-pointer item"
-                    onClick={() => navigate(`/${ele.ContentSlug}`)}
+                    onClick={() => navigate(`${ele.ContentSlug}`)}
                   >
                     <img
                       src={`/images/${ele.Image1}`}
