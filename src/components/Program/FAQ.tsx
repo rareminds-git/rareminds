@@ -2,7 +2,7 @@ import { useMediaQuery } from "react-responsive";
 import CTA from "@/common/CTA";
 
 const FAQ = () => {
-  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   return (
     <>
       <section className="md:px-20 px-10 py-10">

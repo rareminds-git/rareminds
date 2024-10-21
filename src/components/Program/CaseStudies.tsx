@@ -4,7 +4,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import { useMediaQuery } from "react-responsive";
 
 const CaseStudies = ({ pageData, ctaContent, content }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   const navigate = useNavigate();
   return (
     <>

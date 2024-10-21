@@ -9,7 +9,7 @@ import axios from "axios";
 import BackArrow from "../../assets/images/back-arrow.svg";
 
 const QueryForm = ({ pageData, content }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   const [formData, setFormData] = useState({
     FullName: "",
     CompanyName: "",

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 const SuccessStories = ({ content, pageData }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   const navigate = useNavigate();
   return (
     <>

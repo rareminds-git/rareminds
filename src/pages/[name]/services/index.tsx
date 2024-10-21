@@ -37,7 +37,7 @@ const Services = () => {
 
   console.log("service data", serviceData);
 
-  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   return (
     <>
       <Helmet>
@@ -115,7 +115,7 @@ const Services = () => {
         </section>
       ) : (
         <div className="md:pt-44">
-          <section className="md:px-44 xl:px-32 xxl:px-60 px-10 pt-32 pb-12 w-6/6">
+          <section className="md:px-44 xl:px-32 xxl:px-60 px-10 md:pt-6 pt-32 pb-12 w-6/6">
             <h1 className="text-[34px] leading-[34px] font-Syne font-medium place-items-start text-[#000000] capitalize">
               {serviceData?.servicePageData?.Heading1}
             </h1>

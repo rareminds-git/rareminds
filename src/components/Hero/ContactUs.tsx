@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useMediaQuery } from "react-responsive";
 
 const ContactUs = ({ content, ctaContent, pageData }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   return (
     <>
       <Helmet>

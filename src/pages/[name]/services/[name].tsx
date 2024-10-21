@@ -31,7 +31,7 @@ const ServiceName = () => {
     return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
   };
 
-  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   return (
     <>
       <Helmet>
@@ -64,7 +64,7 @@ const ServiceName = () => {
             <p
               className="text-md font-[Sentient] text-[24px] leading-[32.84px] font-light capitalize ml-72 mr-16 mt-12 mb-12"
               dangerouslySetInnerHTML={{
-                __html: htmlDecode(serviceData?.serviceData?.Description),
+                __html: parse(serviceData?.serviceData?.Description),
               }}
             ></p>
 

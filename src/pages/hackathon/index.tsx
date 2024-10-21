@@ -9,7 +9,7 @@ import axios from "axios";
 const PageSize = 10;
 
 const Events = () => {
-  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   const navigate = useNavigate();
   const [pageData, setPageData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
