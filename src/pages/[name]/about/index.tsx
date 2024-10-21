@@ -44,7 +44,7 @@ const About = () => {
         />
       </Helmet>
 
-      <section className="md:px-20 xl:px-32 xxl:px-60 md:pt-32 py-24 px-12 lg:py-32 md:pb-0">
+      <section className="md:px-20 xl:px-32 xxl:px-60 md:pt-32 py-24 px-12 lg:py-24 md:pb-0">
         <h1 className="text-[30px] leading-[74px] md:text-[70px] font-Syne font-medium place-items-start text-[#000000] capitalize">
           {pageData?.pageData?.Heading1}
         </h1>
@@ -72,7 +72,7 @@ const About = () => {
                     onMouseLeave={() => setHoveredDivs(undefined)}
                   >
                     <div
-                      className={` text-white pt-32 pb-12 xl:py-20 xl:px-10 xxl:py-20 xxl:px-8 px-20 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
+                      className={` text-white pt-32 pb-12 xl:py-20 xl:px-10 xxl:py-20 xxl:px-8 md:px-8 md:pt-12 px-20 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
                     >
                       <h4 className="text-5xl font-Syne">{ele.Heading2}</h4>
 
@@ -114,8 +114,8 @@ const About = () => {
           </div>
         )}
 
-        <div className="grid md:py-24 py-8 place-items-start relative md:grid-cols-4 md:gap-4  grid-cols-1 ">
-          <div className="mt-4 col-span-2">
+        <div className="grid md:py-24 py-8 place-items-start relative md:grid-cols-3 md:gap-4 grid-cols-1  ">
+          <div className="mt-4 col-span-2 md:col-span-1">
             <img
               src={VisionImg}
               width="180px"
@@ -159,7 +159,7 @@ const About = () => {
             ""
           )}
 
-          <div className="mt-4 col-span-2">
+          <div className="mt-4 col-span-2 md:col-span-1">
             <img
               src={MissionImg}
               width="180px"
@@ -190,12 +190,12 @@ const About = () => {
           Awards and Recognitions
         </p>
 
-        <div className="grid py-16 md:grid-rows-1 xxl:grid-flow-col md:grid-cols-2 lg:grid-flow-col xl:grid-flow-col place-items-start relative">
+        <div className="grid py-16 xxl:grid-flow-col md:grid-cols-2 md:grid-rows-2 lg:grid-flow-col xl:grid-flow-col place-items-start relative">
           {pageData?.awards?.map((ele: any, index) => {
             return (
               <>
                 <div
-                  className={`mt-4 row-span-${index + 1} min-h-100 col-span-12 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
+                  className={`mt-4 xxl:row-span-${index + 1} min-h-100 col-span-12 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
                 >
                   <img
                     src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
@@ -223,7 +223,7 @@ const About = () => {
         </div>
 
         {!isMobile ? (
-          <div className="logoMarqueeSection text-center md-px-0 px-8">
+          <div className="logoMarqueeSection text-center md:px-4 px-8 md:py-8">
             <h3 className="font-Syne text-6xl text-black py-4 text-center font-bold">
               Our Partners
             </h3>
