@@ -99,8 +99,10 @@ const About = () => {
             {pageData &&
               pageData?.coreValues?.map((ele: any) => {
                 return (
-                  <div className="bg-red-400 text-white p-10 my-4 rounded-lg item-bg">
-                    <h4 className="text-5xl font-Syne">{ele.Heading2}</h4>
+                  <div className="bg-red-400 text-white md:p-6 p-10 my-4 rounded-lg item-bg">
+                    <h4 className="text-5xl md:text-3xl font-Syne">
+                      {ele.Heading2}
+                    </h4>
 
                     <p
                       className={`text-sm my-12 font-[Sentient] font-normal ${hoveredDivs === null ? "line-clamp-2" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
@@ -150,7 +152,7 @@ const About = () => {
                   height: "100%",
                 }}
                 alt="line"
-                className="py-28"
+                className="py-28 mx-auto"
               />
             </>
           </div>
@@ -191,7 +193,7 @@ const About = () => {
             return (
               <>
                 <div
-                  className={`mt-4 xxl:row-span-${index + 1} min-h-100 col-span-12 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
+                  className={`mt-4 xxl:row-span-${index + 1} min-h-100 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
                 >
                   <img
                     src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}

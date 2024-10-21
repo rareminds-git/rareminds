@@ -14,8 +14,14 @@ const Hero = ({ content }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      if (lineHeight < 500) {
-        setLineHeight(lineHeight + 125);
+      if (!isMobile) {
+        if (lineHeight < 500) {
+          setLineHeight(lineHeight + 125);
+        }
+      } else {
+        if (lineHeight < 200) {
+          setLineHeight(lineHeight + 75);
+        }
       }
     }, 1000);
   }, [lineHeight]);
@@ -176,14 +182,14 @@ const Hero = ({ content }) => {
 
             <div
               ref={ref}
-              className="place-items-start hero-img relative float col-span-2"
+              className="place-items-start hero-img relative col-span-2"
             >
               {isInViewport && (
                 <>
                   <img src={HeroImg1} alt="hero-user-img" />
                   <img
                     src={HeroSun}
-                    className="absolute top-[180px] -z-10 right-[60px] scale-150"
+                    className="absolute top-[30px] -z-10 right-[60px] "
                     alt="hero-sun"
                   />
                 </>
