@@ -162,9 +162,14 @@ const QueryForm = ({ pageData, content }) => {
                 type="text"
                 placeholder="Type your name"
                 onChange={(e) => {
-                  setFormData({ ...formData, FullName: e.target.value });
-                  setErrors({ ...errors, FullName: "" });
+                  const re = /^[A-Za-z]+$/;
+
+                  if (e.target.value === "" || re.test(e.target.value)) {
+                    setFormData({ ...formData, FullName: e.target.value });
+                    setErrors({ ...errors, FullName: "" });
+                  }
                 }}
+                value={formData.FullName}
               />
               {errors.FullName && (
                 <span className="error-message text-red-500 font-bold">
@@ -182,9 +187,14 @@ const QueryForm = ({ pageData, content }) => {
                 type="text"
                 placeholder="Type your company"
                 onChange={(e) => {
-                  setFormData({ ...formData, CompanyName: e.target.value });
-                  setErrors({ ...errors, CompanyName: "" });
+                  const re = /^[A-Za-z]+$/;
+
+                  if (e.target.value === "" || re.test(e.target.value)) {
+                    setFormData({ ...formData, CompanyName: e.target.value });
+                    setErrors({ ...errors, CompanyName: "" });
+                  }
                 }}
+                value={formData.CompanyName}
               />
               {errors.CompanyName && (
                 <span className="error-message text-red-500 font-bold">
@@ -221,9 +231,14 @@ const QueryForm = ({ pageData, content }) => {
                 type="text"
                 placeholder="Type your number"
                 onChange={(e) => {
-                  setFormData({ ...formData, PhoneNumber: e.target.value });
-                  setErrors({ ...errors, PhoneNumber: "" });
+                  const re = /^[0-9\b]+$/;
+
+                  if (e.target.value === "" || re.test(e.target.value)) {
+                    setFormData({ ...formData, PhoneNumber: e.target.value });
+                    setErrors({ ...errors, PhoneNumber: "" });
+                  }
                 }}
+                value={formData.PhoneNumber}
               />
               {errors.PhoneNumber && (
                 <span className="error-message text-red-500 font-bold">
@@ -240,9 +255,14 @@ const QueryForm = ({ pageData, content }) => {
                 type="text"
                 placeholder="Type your job title"
                 onChange={(e) => {
-                  setFormData({ ...formData, JobTitle: e.target.value });
-                  setErrors({ ...errors, JobTitle: "" });
+                  const re = /^[A-Za-z]+$/;
+
+                  if (e.target.value === "" || re.test(e.target.value)) {
+                    setFormData({ ...formData, JobTitle: e.target.value });
+                    setErrors({ ...errors, JobTitle: "" });
+                  }
                 }}
+                value={formData.CompanyName}
               />
               {errors.JobTitle && (
                 <span className="error-message text-red-500 font-bold">
