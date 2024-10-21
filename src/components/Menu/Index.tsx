@@ -35,7 +35,7 @@ const socialIcons = [
 ];
 
 const Menu = ({ navbarOpen, setNavbarOpen }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   return (
     <>
       {!isMobile ? (

@@ -7,7 +7,7 @@ import { useMediaQuery } from "react-responsive";
 import { useInViewport } from "../useInViewPort";
 
 const Hero = ({ content }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   const [lineHeight, setLineHeight] = useState(0);
 
   const { isInViewport, ref } = useInViewport();
@@ -118,7 +118,80 @@ const Hero = ({ content }) => {
             </div>
           </div>
 
-          <div className="flex">
+          <div className="grid space-y-10 place-items-start grid-cols-5 md:px-20">
+            <div className="place-items-start col-span-2">
+              <p
+                className="mb-4 font-Syne lg:mt-16 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px] pl-8"
+                dangerouslySetInnerHTML={{
+                  __html: content.Heading2,
+                }}
+              />
+              <p
+                className="mt-8 lg:text-[32px] text-[20px] lg:leading-[53.06px] font-medium pl-8"
+                dangerouslySetInnerHTML={{
+                  __html: content.SubHeading1,
+                }}
+              />
+              <p
+                className="mt-2 font-Syne lg:text-[32px] text-[20px] lg:leading-[53.06px] font-mediumn pl-8"
+                dangerouslySetInnerHTML={{
+                  __html: content.SubHeading2,
+                }}
+              />
+            </div>
+
+            <div
+              className="w-full col-span-1 relative items-center flex justify-center"
+              ref={ref}
+            >
+              {isInViewport && (
+                <>
+                  <img
+                    src={Ellipsis}
+                    className="absolute top-0"
+                    alt="elipsis"
+                  />
+                  <img
+                    src={Line}
+                    className="absolute top-0"
+                    style={{
+                      height: `${lineHeight}px`,
+                      width: "15px",
+                      transition: "height 1s linear",
+                    }}
+                    alt="line"
+                  />
+                  <img
+                    src={Ellipsis}
+                    className="absolute"
+                    style={{
+                      top: `${lineHeight}px`,
+                      transition: "top 1s linear",
+                    }}
+                    alt="elipsis"
+                  />
+                </>
+              )}
+            </div>
+
+            <div
+              ref={ref}
+              className="place-items-start hero-img relative float col-span-2"
+            >
+              {isInViewport && (
+                <>
+                  <img src={HeroImg1} alt="hero-user-img" />
+                  <img
+                    src={HeroSun}
+                    className="absolute top-[180px] -z-10 right-[60px] scale-150"
+                    alt="hero-sun"
+                  />
+                </>
+              )}
+            </div>
+          </div>
+
+          <div className="flex md:hidden">
             <div className="mt-8 mb-8">
               <div className="place-items-center illsImg h-44">
                 <img

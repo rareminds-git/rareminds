@@ -5,7 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import moment from "moment";
 
 const Blog = ({ content }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   const navigate = useNavigate();
   return (
     <>
@@ -85,7 +85,7 @@ const Blog = ({ content }) => {
           </OwlCarousel>
         </div>
       ) : (
-        <div className="bg-[#cabe9e1f] pl-2">
+        <div className="bg-[#cabe9e1f] pl-2 md:px-20">
           <h5 className="font-Syne my-8 mx-auto text-red-400 text-center font-bold text-3xl">
             Blog
           </h5>

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import parse from "html-react-parser";
 
 const Services = ({ content, services, ctaContent }) => {
-  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   const [hoveredDivs, setHoveredDivs] = useState<any>(null);
 
   const navigate = useNavigate();

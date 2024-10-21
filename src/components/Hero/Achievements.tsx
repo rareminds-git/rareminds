@@ -4,10 +4,10 @@ import { useInViewport } from "../useInViewPort";
 
 const Achievements = ({ content, achievements }) => {
   const { isInViewport, ref } = useInViewport();
-  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   return (
     <>
-      <section className="xl:px-20 xxl:px-44 lg:py-20 md:px-20 md:py-4 place-items-center font-Syne">
+      <section className="xl:px-20 xxl:px-44 md:px-20 md:py-4 place-items-center font-Syne">
         <div className="items-center px-5 py-5">
           <p
             className="mt-0 font-bold text-center ml-0 text-[24px] leading-[28.8px] lg:text-[49px] lg:leading-[73.5px] py-10 text-black-500 font-[Poppins-Regular]"
@@ -17,7 +17,7 @@ const Achievements = ({ content, achievements }) => {
           />
 
           <p
-            className="lg:text-[22px] lg:leading-[33px] text-[14px] leading-[21px] lg:mt-2 lg:px-[10rem] xl:px-[4rem] lg:mb-20 lg:text-center font-[Poppins-Regular]"
+            className="lg:text-[22px] lg:leading-[33px] text-[14px] leading-[21px] lg:mt-2 lg:px-10 xl:px-[4rem] lg:mb-20 lg:text-center font-[Poppins-Regular]"
             dangerouslySetInnerHTML={{
               __html: content && content[0]?.Description,
             }}

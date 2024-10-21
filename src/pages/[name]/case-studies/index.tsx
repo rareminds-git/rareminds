@@ -6,7 +6,7 @@ import axios from "axios";
 import { Helmet } from "react-helmet";
 
 const CaseStudies = () => {
-  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   const { userType } = useParams();
   const [pageData, setPageData] = useState<any>({});
   const [content, setContent] = useState<any>([]);

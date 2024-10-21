@@ -37,7 +37,7 @@ const socialIcons = [
 ];
 
 const FooterBar = () => {
-  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   const [serviceData, setData] = useState<any>({});
   const [subscriberEmail, setSubscriberEmail] = useState(null);
   const [successMessage, setSuccessMsg] = useState(null);

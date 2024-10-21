@@ -12,7 +12,7 @@ const Testimonials = ({
   categories: any;
 }) => {
   const [tabs, setTabs] = useState();
-  const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   console.log("categories", categories);
   useEffect(() => {
     const tabsData = categories?.map((ele: any) => {
