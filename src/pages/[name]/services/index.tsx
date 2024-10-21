@@ -10,6 +10,12 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 
+const htmlDecode = (input) => {
+  const e = document.createElement("div");
+  e.innerHTML = input;
+  return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+};
+
 const Services = () => {
   const { userType, serviceName } = useParams();
   const [serviceData, setData] = useState<any>({});
@@ -118,7 +124,7 @@ const Services = () => {
               dangerouslySetInnerHTML={{
                 __html:
                   serviceData?.servicePageData?.Description &&
-                  parse(serviceData?.servicePageData?.Description),
+                  htmlDecode(serviceData?.servicePageData?.Description),
               }}
             ></p>
             {serviceData?.serviceData?.length > 0 && (

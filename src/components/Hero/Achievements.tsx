@@ -7,7 +7,7 @@ const Achievements = ({ content, achievements }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 1024px)` });
   return (
     <>
-      <section className="lg:px-10 xl:px-20 xxl:px-44 lg:py-20 md:px-20 place-items-center font-Syne">
+      <section className="xl:px-20 xxl:px-44 lg:py-20 md:px-20 md:py-4 place-items-center font-Syne">
         <div className="items-center px-5 py-5">
           <p
             className="mt-0 font-bold text-center ml-0 text-[24px] leading-[28.8px] lg:text-[49px] lg:leading-[73.5px] py-10 text-black-500 font-[Poppins-Regular]"
