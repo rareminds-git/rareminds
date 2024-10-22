@@ -24,13 +24,13 @@ export default {
       // => @media (min-width: 640px) { ... }
       sm: "380px",
 
-      md: "768px",
+      md: "700px",
       // => @media (min-width: 768px) { ... }
 
       lg: "1024px",
       // => @media (min-width: 1024px) { ... }
 
-      xl: "1280px",
+      xl: "1350px",
       // => @media (min-width: 1280px) { ... }
 
       xxl: "1536px",

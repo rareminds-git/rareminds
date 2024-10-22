@@ -7,7 +7,7 @@ const Achievements = ({ content, achievements }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   return (
     <>
-      <section className="xl:px-20 xxl:px-44 md:px-20 md:py-4 place-items-center font-Syne">
+      <section className="xl:px-32 xxl:px-44 md:px-20 md:py-4 place-items-center font-Syne">
         <div className="items-center px-5 py-5">
           <p
             className="mt-0 font-bold text-center ml-0 text-[24px] leading-[28.8px] lg:text-[49px] lg:leading-[73.5px] py-10 text-black-500 font-[Poppins-Regular]"
@@ -27,7 +27,7 @@ const Achievements = ({ content, achievements }) => {
           <>
             {achievements?.map((ele: any) => {
               return (
-                <div className="container-fluid" ref={ref}>
+                <div className="container" ref={ref}>
                   <div className="grid grid-cols-4 gap-4 lg:px-4 lg:py-12 py-10 px-10 border-y-black border-2 border-x-0">
                     <div className="lg:col-span-1 col-span-1">
                       <h5

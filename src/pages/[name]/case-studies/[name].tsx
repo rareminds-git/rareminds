@@ -6,6 +6,12 @@ import CTA from "@/common/CTA";
 import { Helmet } from "react-helmet";
 import parse from "html-react-parser";
 
+const htmlDecode = (input) => {
+  const e = document.createElement("div");
+  e.innerHTML = input;
+  return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+};
+
 const CaseStudyDetail = () => {
   const { slug, userType } = useParams();
   const [studyData, setData] = useState<any>({});

@@ -253,6 +253,11 @@
       height: auto;
       width: auto;
     }
+
+    @media (max-width: 1280px) {
+      height: 150px;
+      width: 150px;
+    }
   }
 
   .testimonyAuthor {
@@ -477,9 +482,22 @@
     font-weight: 600;
     border: none;
 
+    @media (min-width: 700px) {
+      padding: 0px;
+      margin: 5px;
+      font-size: 12px;
+    }
+
+    @media (min-width: 900px) {
+      padding: 0px;
+      margin: 8px;
+      font-size: 15px;
+    }
+
     @media (min-width: 1280px) {
-      padding: 2px;
-      margin: 0.75rem;
+      padding: 12px;
+      margin: 0.5rem;
+      font-size: 20px;
     }
 
     @media (min-width: 1536px) {
