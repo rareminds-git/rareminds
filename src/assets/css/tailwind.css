@@ -451,6 +451,8 @@
     margin: 8px;
     position: relative;
     transition: all 0.7s ease-out;
+    min-height: 400px;
+    max-height: 400px;
   }
 
   .service-list .item:hover {

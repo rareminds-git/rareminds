@@ -30,7 +30,7 @@ const Services = ({ content, services, ctaContent }) => {
                     onClick={() => navigate(`/${ele.ContentSlug}`)}
                   >
                     <div
-                      className={` text-white md:p-20 xl:py-20 xl:px-10 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
+                      className={` text-white md:p-20 xl:py-12 xl:px-10 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
                     >
                       <h4 className="text-5xl font-Syne">{ele.Heading1}</h4>
 

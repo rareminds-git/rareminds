@@ -85,7 +85,7 @@ const Services = () => {
                       onClick={() => navigate(`/${ele.ContentSlug}`)}
                     >
                       <div
-                        className={` text-white pt-32 lg:pt-12 pb-12 xl:py-20 xl:px-10 xxl:py-20 xxl:px-12 px-20 lg:px-8 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
+                        className={` text-white pt-32 lg:pt-12 pb-12 xl:py-6 xl:px-10 xxl:py-20 xxl:px-12 px-20 lg:px-8 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
                       >
                         <h4 className="text-5xl font-Syne">{ele.Heading1}</h4>
 
