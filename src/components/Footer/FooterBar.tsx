@@ -224,7 +224,7 @@ const FooterBar = () => {
               Sign up to receive the <br /> latest news.
             </h3>
             <input
-              className="rounded p-2 mt-3 bg-transparent border-[#CAF0F8]-400 border"
+              className="rounded p-2 mt-3 bg-transparent border-[#CAF0F8]-400 border w-[60%] md:w-[80%] lg:w-[100%] xl:w-[100%] xxl:w-[100%] mr-[10px]"
               placeholder="Enter your email"
             />
             <button className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-3 rounded font-bold">

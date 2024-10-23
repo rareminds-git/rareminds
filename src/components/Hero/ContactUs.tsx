@@ -13,7 +13,7 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
         <meta property="og:title" content={pageData?.OGTitle} />
         <meta property="og:description" content={pageData?.OGDescription} />
       </Helmet>
-      <section className="px-32 md:mt-24 mt-12 md:py-20 sm:py-24 font-Syne mb-10">
+      <section className="px-12 md:mt-24 mt-12 md:py-20 py-24 font-Syne mb-10">
         <div className="flex items-start md:px-12">
           <div className="grid space-y-10 place-items-start">
             <h1 className="font-bold text-5xl sm:text-3xl">
