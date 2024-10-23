@@ -44,7 +44,7 @@ const About = () => {
         />
       </Helmet>
 
-      <section className="md:px-20 xl:px-32 xxl:px-60 md:pt-32 py-24 px-12 md:pb-0">
+      <section className="md:px-20 xl:px-32 xxl:px-60 md:pt-32 pt-24 pb-4 px-12 md:pb-0">
         <h1 className="text-[30px] leading-[74px] md:text-[70px] font-Syne font-medium place-items-start text-[#000000] capitalize">
           {pageData?.pageData?.Heading1}
         </h1>
@@ -220,52 +220,35 @@ const About = () => {
           })}
         </div>
 
-        {!isMobile ? (
-          <div className="logoMarqueeSection text-center md:px-4 px-8 md:py-8">
-            <h3 className="font-Syne text-6xl text-black py-4 text-center font-bold">
-              Our Partners
-            </h3>
-            <div className="container" id="logoMarqueeSection">
-              <div className="default-content-container flex items-center">
-                <div className="default-content-container-inner marquee-wrapper relative overflow-hidden inline-block md:flex">
-                  <div className="marquee" style={{ animationDuration: "12s" }}>
-                    {pageData?.partners?.map((ele) => {
-                      return (
-                        <a target="_blank">
-                          <img
-                            src={`${import.meta.env.VITE_PUBLIC_URL}images/${ele.Image1}`}
-                            title=""
-                            className="marqueelogo"
-                            alt="Rareminds"
-                            width={350}
-                            height={200}
-                          />
-                        </a>
-                      );
-                    })}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className="logoMarqueeSection text-center md:px-4 px-8 md:py-8">
-            <div className="text-center md-px-0 px-8">
-              <h3 className="font-Syne text-3xl text-black py-4 text-center font-bold">
-                Our Partners
-              </h3>
-              <div className="container">
-                <div className="xxl:flex lg:inline-flex sm:flex md:inline-flex items-center">
+        <div className="logoMarqueeSection text-center md:px-4 px-2 md:py-8 py-2">
+          <h3 className="font-Syne xxl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-2xl text-black py-4 text-center font-bold">
+            Our Partners
+          </h3>
+          <div className="container" id="logoMarqueeSection">
+            <div className="default-content-container flex items-center">
+              <div className="default-content-container-inner marquee-wrapper relative overflow-hidden inline-block md:flex">
+                <div className="marquee" style={{ animationDuration: "6s" }}>
                   {pageData?.partners?.map((ele) => {
-                    return (
+                    return !isMobile ? (
                       <a target="_blank">
                         <img
                           src={`${import.meta.env.VITE_PUBLIC_URL}images/${ele.Image1}`}
                           title=""
-                          className="marqueelogo my-8"
+                          className="marqueelogo"
                           alt="Rareminds"
                           width={350}
                           height={200}
+                        />
+                      </a>
+                    ) : (
+                      <a target="_blank">
+                        <img
+                          src={`${import.meta.env.VITE_PUBLIC_URL}images/${ele.Image1}`}
+                          title=""
+                          className="marqueelogo"
+                          alt="Rareminds"
+                          width={250}
+                          height={100}
                         />
                       </a>
                     );
@@ -274,7 +257,7 @@ const About = () => {
               </div>
             </div>
           </div>
-        )}
+        </div>
       </section>
       <Achievements
         content={pageData?.achievementsData}

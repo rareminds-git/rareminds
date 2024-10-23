@@ -124,7 +124,7 @@ const Hero = ({ content }) => {
             </div>
           </div>
 
-          <div className="grid space-y-10 place-items-start grid-cols-5 md:px-20">
+          <div className="space-y-10 place-items-start grid-cols-5 md:px-20 md:grid hidden">
             <div className="place-items-start col-span-2">
               <p
                 className="mb-4 font-Syne lg:mt-16 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px] pl-8"

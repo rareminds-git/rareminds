@@ -93,11 +93,29 @@ const Blog = ({ content }) => {
             className="owl-theme pl-2"
             autoplay
             loop
-            margin={0}
+            margin={10}
             stagePadding={0}
             nav={false}
             dots={false}
             items={1.75}
+            responsive={{
+              0: {
+                items: 2,
+                nav: false,
+                dots: false,
+              },
+              600: {
+                items: 3.5,
+                nav: false,
+                dots: false,
+                stagePadding: 20,
+              },
+              1000: {
+                items: 3,
+                loop: true,
+                dots: false,
+              },
+            }}
           >
             {content.map((ele, index) => {
               return (
