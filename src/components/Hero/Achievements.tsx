@@ -7,8 +7,8 @@ const Achievements = ({ content, achievements }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   return (
     <>
-      <section className="xl:px-32 xxl:px-44 md:px-20 md:py-4 place-items-center font-Syne">
-        <div className="items-center px-5 py-5">
+      <section className="xl:px-32 xxl:px-44 md:px-20 px-6 md:py-4 place-items-center font-Syne">
+        <div className="items-center px-3 py-5">
           <p
             className="mt-0 font-bold text-center ml-0 text-[24px] leading-[28.8px] lg:text-[49px] lg:leading-[73.5px] py-10 text-black-500 font-[Poppins-Regular]"
             dangerouslySetInnerHTML={{
@@ -65,7 +65,7 @@ const Achievements = ({ content, achievements }) => {
             {achievements?.map((ele: any) => {
               return (
                 <div className="container px-2">
-                  <div className="grid md:grid-rows-1 grid-rows-2 gap-4 lg:px-12 lg:py-12 px-4 border-y-black border-2 border-x-0">
+                  <div className="grid md:grid-rows-1 grid-rows-1 gap-4 lg:px-12 lg:py-12 px-4 border-y-black border-2 border-x-0">
                     <div className="row-span-1 grid grid-cols-3">
                       <div className="col-span-1 mt-4">
                         <h5
@@ -89,7 +89,7 @@ const Achievements = ({ content, achievements }) => {
                       <p
                         className="text-[13px] leading-[17.66px] mb-4 font-[Sentient] font-light"
                         dangerouslySetInnerHTML={{
-                          __html: ele.Description,
+                          __html: ele.ContentDescription,
                         }}
                       />
                     </div>

@@ -235,7 +235,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       About
                     </a>
                   </li>
-                  <li className="nav-li py-2">
+                  {/* <li className="nav-li py-2">
                     <a
                       href={`${localStorage.getItem("currentUserType")}/case-studies`}
                       className="nav-link text-4xl font-[Sentient] text-white font-bold"
@@ -245,7 +245,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                     >
                       Case Study
                     </a>
-                  </li>
+                  </li> */}
                   <li className="nav-li py-2">
                     <a
                       href="/contact-us"
@@ -257,17 +257,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       Contact
                     </a>
                   </li>
-                  <li className="nav-li py-2">
-                    <a
-                      href="/testimonials"
-                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
-                      onClick={() => {
-                        setNavbarOpen(false);
-                      }}
-                    >
-                      Testimonials
-                    </a>
-                  </li>
+
                   <li className="nav-li py-2">
                     <a
                       href="/blogs"

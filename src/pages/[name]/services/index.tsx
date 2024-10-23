@@ -155,6 +155,12 @@ const Services = () => {
                               __html: parse(ele?.Description),
                             }}
                           ></p>
+                          <p
+                            onClick={() => navigate(`/${ele.ContentSlug}`)}
+                            className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
+                          >
+                            ...Read More
+                          </p>
                         </div>
                       </div>
                     );

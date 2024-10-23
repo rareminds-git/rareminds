@@ -249,6 +249,11 @@
   .testimonyImg img {
     height: 205px;
     width: 205px !important;
+    @media (min-width: 375px) {
+      height: 80px !important;
+      width: 80px !important;
+    }
+
     @media (max-width: 640px) {
       height: auto;
       width: auto;
@@ -663,6 +668,13 @@
     font-family: "Syne" !important;
     font-size: 26px !important;
     line-height: 32px !important;
+
+    @media (min-width: 375px) {
+      font-weight: 500 !important;
+      font-family: "Syne" !important;
+      font-size: 16px !important;
+      line-height: 22px !important;
+    }
   }
 
   .marquee-wrapper:hover .marquee {

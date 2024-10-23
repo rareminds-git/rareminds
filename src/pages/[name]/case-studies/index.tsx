@@ -45,7 +45,7 @@ const CaseStudies = () => {
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-          {content.map((ele: any) => {
+          {content?.map((ele: any) => {
             return (
               <div
                 className="cursor-pointer"

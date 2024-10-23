@@ -96,7 +96,7 @@ const Blogs = ({ pageData, content }) => {
           })}
         </div>
 
-        <div className="absolute sm:bottom-0 md:bottom-8 right-10">
+        <div className="absolute bottom-0 md:bottom-8  right-10">
           <Pagination
             length={content?.length}
             postsPerPage={postsPerPage}

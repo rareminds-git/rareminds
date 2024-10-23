@@ -41,7 +41,7 @@ const Header = ({ navbarOpen, setNavbarOpen }) => {
             src={Logo}
             alt="Rareminds"
             className="sm:mt-4"
-            width={!isMobile ? 211 : 104}
+            width={!isMobile ? 211 : 200}
             height={!isMobile ? 52 : 27}
           />
         </a>

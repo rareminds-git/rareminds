@@ -114,7 +114,7 @@ const QueryForm = ({ pageData, content }) => {
             }}
           />
           <p
-            className="text-xl mb-20 md:px-44 md:text-center text-left"
+            className="text-xl mb-20 md:px-32 md:text-center text-left"
             dangerouslySetInnerHTML={{
               __html: content[0]?.Heading2,
             }}
@@ -151,14 +151,14 @@ const QueryForm = ({ pageData, content }) => {
           </div>
         </div>
 
-        <Form className="mt-20 pr-10 sm:pr-0 md:px-10 xl:mx-10">
+        <Form className="mt-20 pr-10 sm:pr-0 md:px-10">
           <div className="grid md:grid-cols-2 grid-cols-1 xl:grid-cols-3 lg:grid-cols-2 gap-4">
             <Form.Group className="w-full grid md:grid-rows-2">
               <Form.Label className="sm:text-[18px] md:text-[26px] leading-[31.2px] text-black-500 font-medium">
                 Full Name*
               </Form.Label>
               <Form.Control
-                className={`my-2 w-60 border-b-2 ${errors.FullName ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-72 border-b-2 ${errors.FullName ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your name"
                 onChange={(e) => {
@@ -183,7 +183,7 @@ const QueryForm = ({ pageData, content }) => {
                 Company Name*
               </Form.Label>
               <Form.Control
-                className={`my-2 w-60 border-b-2 ${errors.CompanyName ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-72 border-b-2 ${errors.CompanyName ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your company"
                 onChange={(e) => {
@@ -208,7 +208,7 @@ const QueryForm = ({ pageData, content }) => {
                 Email address*
               </Form.Label>
               <Form.Control
-                className={`my-2 w-60 border-b-2 ${errors.Email ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-72 border-b-2 ${errors.Email ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your email"
                 onChange={(e) => {
@@ -227,7 +227,7 @@ const QueryForm = ({ pageData, content }) => {
                 Phone Number*
               </Form.Label>
               <Form.Control
-                className={`my-2 w-60 border-b-2 ${errors.PhoneNumber ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-72 border-b-2 ${errors.PhoneNumber ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your number"
                 onChange={(e) => {
@@ -251,7 +251,7 @@ const QueryForm = ({ pageData, content }) => {
                 Job Title*
               </Form.Label>
               <Form.Control
-                className={`my-2 w-60 border-b-2 ${errors.JobTitle ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-72 border-b-2 ${errors.JobTitle ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your job title"
                 onChange={(e) => {

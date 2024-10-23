@@ -39,13 +39,13 @@ const BlogDetail = () => {
           content={blogData?.blogData?.OGDescription}
         />
       </Helmet>
-      <div className="grid w-full min-h-screen lg:py-32 sm:py-24 md:py-32">
+      <div className="grid w-full min-h-screen lg:py-32 sm:py-24 md:py-32 py-24">
         <section className="lg:px-20 px-10 font-Syne">
-          <h1 className="lg:text-[48px] sm:text-[24px] lg:leading-[62px] text-4xl row-span-1 place-items-start font-bold capitalize">
+          <h1 className="lg:text-[48px] text-[24px] lg:leading-[62px] text-4xl row-span-1 place-items-start font-bold capitalize">
             {blogData?.blogData?.Heading1}
           </h1>
 
-          <div className="grid md:grid-cols-2 sm:grid-cols-1 md:grid-rows-1 sm:grid-rows-2 border-b-2 md:border-black mb-10 md:p-5 sm:py-5">
+          <div className="grid md:grid-cols-2 sm:grid-cols-1 md:grid-rows-1 sm:grid-rows-2 border-b-2 md:border-black mb-10 md:p-5 py-5">
             <div className="col-span-1 md:col-span-1 xl:col-span-1 inline-block lg:w-[60%] xl:w-[45%] md:w-[20%]">
               <img
                 src="https://icons.veryicon.com/png/o/healthcate-medical/orange-particle/author-2.png"
@@ -71,21 +71,21 @@ const BlogDetail = () => {
               className="rounded-lg text-center align-middle justify-center h-96 w-full h-full"
             />
           </div>
-          <div className="grid grid-cols-1">
-            <div className="grid grid-flow-row gap-4">
-              {blogData?.blogDetails?.map((ele: any) => {
-                return (
-                  <div className="row-span-1 mt-16">
-                    <p
-                      className="mt-4 mr-20 sm:mr-4 text-[16px] leading-[21.76px] font-[Syne] font-light BlogDetail"
-                      dangerouslySetInnerHTML={{
-                        __html: parse(ele.ContentDescription),
-                      }}
-                    ></p>
-                  </div>
-                );
-              })}
-            </div>
+          <div className="grid grid-cols-1 grid-flow-row gap-4">
+            {/* <div className="grid grid-flow-row gap-4"> */}
+            {blogData?.blogDetails?.map((ele: any) => {
+              return (
+                <div className="row-span-1 mt-16">
+                  <p
+                    className="mt-4 md:mr-20 mr-4 text-[16px] leading-[21.76px] font-[Syne] font-light BlogDetail"
+                    dangerouslySetInnerHTML={{
+                      __html: parse(ele.ContentDescription),
+                    }}
+                  ></p>
+                </div>
+              );
+            })}
+            {/* </div> */}
           </div>
         </section>
       </div>

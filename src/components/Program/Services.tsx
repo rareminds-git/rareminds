@@ -69,7 +69,7 @@ const Services = ({ content, services, ctaContent }) => {
                     onClick={() => navigate(`/${ele.ContentSlug}`)}
                   >
                     <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
-                      <h3 className="text-4xl font-semibold my-10">
+                      <h3 className="text-4xl font-semibold my-20 md:mb-16">
                         {ele.Heading1}
                       </h3>
 
@@ -79,6 +79,12 @@ const Services = ({ content, services, ctaContent }) => {
                           __html: parse(ele?.Description),
                         }}
                       ></p>
+                      <p
+                        onClick={() => navigate(`/${ele.ContentSlug}`)}
+                        className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
+                      >
+                        ...Read More
+                      </p>
                     </div>
                   </div>
                 );
