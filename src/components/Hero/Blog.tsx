@@ -10,12 +10,12 @@ const Blog = ({ content }) => {
   return (
     <>
       {!isMobile ? (
-        <div className="bg-[#cabe9e1f] lg:py-32 mt-10 md:px-20 md:py-20">
-          <h5 className="font-Syne py-12 mx-auto text-black font-bold mb-20 text-[59px] leading-[70.8px] text-center">
+        <div className="xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:py-16 lg:py-20 md:py-16 py-8">
+          <h5 className="font-Syne mx-auto text-black font-bold mb-20 text-[59px] leading-[70.8px] text-center">
             Blog
           </h5>
           <OwlCarousel
-            className="owl-theme lg:pl-64 xl:pl-40"
+            className="owl-theme"
             autoplay
             responsive={{
               0: {
@@ -85,19 +85,19 @@ const Blog = ({ content }) => {
           </OwlCarousel>
         </div>
       ) : (
-        <div className="bg-[#cabe9e1f] pl-2 md:px-20">
-          <h5 className="font-Syne my-8 mx-auto text-red-400 text-center font-bold text-3xl">
+        <div className="bg-[#cabe9e1f] px-8 pb-4 py-8 md:px-16 md:pb-8 md:py-16">
+          <h5 className="font-Syne mx-auto text-red-400 text-center font-bold text-3xl">
             Blog
           </h5>
           <OwlCarousel
             className="owl-theme pl-2"
             autoplay
             loop
-            margin={10}
+            margin={5}
             stagePadding={0}
             nav={false}
             dots={false}
-            items={1.75}
+            items={1.5}
             responsive={{
               0: {
                 items: 2,

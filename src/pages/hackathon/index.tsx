@@ -37,10 +37,10 @@ const Events = () => {
 
   return (
     <>
-      <section className="md:px-20 px-10 py-10 relative font-Syne">
+      <section className="xl:px-28 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8 relative font-Syne">
         <div className="flex">
           <div className="grid space-y-10">
-            <h1 className="mb-20 mt-20 text-3xl text-left font-bold md:text-5xl">
+            <h1 className="mb-20 text-3xl text-left font-bold md:text-5xl">
               Events
             </h1>
             {/* <p className="text-2xl mb-20">{content?.Description}</p> */}

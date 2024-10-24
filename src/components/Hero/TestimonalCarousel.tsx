@@ -37,7 +37,7 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
         >
           {testimonials?.map((item: any) => {
             return (
-              <div className="item mx-20">
+              <div className="item">
                 <div className="grid grid-cols-2 place-items-start">
                   <div className="col-span-1 row-span-3 my-4 mx-4 place-items-start testimonyImg">
                     <img
@@ -83,7 +83,7 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
         >
           {testimonials?.map((item: any) => {
             return (
-              <div className="item mx-5">
+              <div className="item">
                 <div className="grid grid-cols-3 place-items-start">
                   <div className="mx-4 place-items-start testimonyImg">
                     <div className="col-span-1 place-items-start">

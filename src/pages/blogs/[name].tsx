@@ -39,14 +39,14 @@ const BlogDetail = () => {
           content={blogData?.blogData?.OGDescription}
         />
       </Helmet>
-      <div className="grid w-full min-h-screen lg:py-32 sm:py-24 md:py-32 py-24">
-        <section className="lg:px-20 px-10 font-Syne">
+      <div className="grid w-full min-h-screen xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:py-16 lg:py-20 md:py-16 py-8">
+        <section className="font-Syne">
           <h1 className="lg:text-[48px] text-[24px] lg:leading-[62px] text-4xl row-span-1 place-items-start font-bold capitalize">
             {blogData?.blogData?.Heading1}
           </h1>
 
-          <div className="grid md:grid-cols-2 sm:grid-cols-1 md:grid-rows-1 sm:grid-rows-2 border-b-2 md:border-black mb-10 md:p-5 py-5">
-            <div className="col-span-1 md:col-span-1 xl:col-span-1 inline-block lg:w-[60%] xl:w-[45%] md:w-[20%]">
+          <div className="grid md:grid-cols-3 sm:grid-cols-1 md:grid-rows-1 sm:grid-rows-2 border-b-2 md:border-black mb-10 py-5">
+            <div className="col-span-1 md:col-span-2 xl:col-span-1 inline-block lg:w-[60%] xl:w-[45%] md:w-[60%]">
               <img
                 src="https://icons.veryicon.com/png/o/healthcate-medical/orange-particle/author-2.png"
                 height="75"

@@ -44,12 +44,12 @@ const About = () => {
         />
       </Helmet>
 
-      <section className="md:px-20 xl:px-32 xxl:px-60 md:pt-32 pt-24 pb-4 px-12 md:pb-0">
+      <section className="xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:py-16 lg:py-20 md:py-16 py-8">
         <h1 className="text-[30px] leading-[74px] md:text-[70px] font-Syne font-medium place-items-start text-[#000000] capitalize">
           {pageData?.pageData?.Heading1}
         </h1>
         <p
-          className="text-[18px] md:text-[20px] xl:text-[24px] xxl:text-[18px] leading-[32.6px] row-span-1 mt-12 font-[Sentient] font-light mb-12 md:px-20 xl:px-32 xxl:px-2"
+          className="text-[18px] md:text-[20px] xl:text-[24px] xxl:text-[18px] leading-[32.6px] row-span-1 mt-12 font-[Sentient] font-light mb-12 md:px-8 xl:px-32 xxl:px-2"
           dangerouslySetInnerHTML={{
             __html:
               pageData?.pageData?.Description &&
@@ -266,9 +266,8 @@ const About = () => {
           pageData?.achievementsData[0]?.achievements
         }
       />
-      <div className="md:px-20">
-        <CTA content={""} />
-      </div>
+
+      <CTA content={""} />
     </>
   );
 };

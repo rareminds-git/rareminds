@@ -7,7 +7,7 @@ const WhyUs = ({ content }) => {
 
   return (
     <>
-      <section className="lg:px-28 xl:px-32 xxl:px-44 px-8 bg-[#cabe9e1f] py-10 md:px-20 why-us-block">
+      <section className=" bg-[#cabe9e1f] xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:py-16 lg:py-20 md:py-16 py-8 why-us-block">
         <div className="flex items-start">
           <div className="grid place-items-start">
             <h2 className="lg:font-bold lg:text-[50px] lg:leading-[83.5px] text-[22px] leading-[28px] font-bold font-[Sentient]">

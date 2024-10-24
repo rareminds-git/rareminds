@@ -13,7 +13,7 @@ const Services = ({ content, services, ctaContent }) => {
 
   return (
     <>
-      <section className="md:px-20 xl:px-32 xxl:px-44 xl:py-20 px-8 pt-20 servicesSection">
+      <section className="xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:py-16 lg:py-20 md:py-16 py-8 servicesSection">
         <h3 className="md:mb-20 text-5xl text-left md:font-semibold font-[Sentient] font-semibold text-black">
           {content?.Heading1}
         </h3>
@@ -30,12 +30,12 @@ const Services = ({ content, services, ctaContent }) => {
                     onClick={() => navigate(`/${ele.ContentSlug}`)}
                   >
                     <div
-                      className={` text-white md:p-20 xl:py-12 xl:px-10 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
+                      className={` text-white p-8 xl:py-12 xl:px-10 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
                     >
                       <h4 className="text-5xl font-Syne">{ele.Heading1}</h4>
 
                       <p
-                        className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
+                        className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === null ? "mt-16" : hoveredDivs === undefined ? "mt-16" : ""} ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
                         dangerouslySetInnerHTML={{
                           __html: parse(ele?.Description),
                         }}
@@ -57,24 +57,22 @@ const Services = ({ content, services, ctaContent }) => {
               className="owl-theme"
               autoplay
               loop
-              margin={20}
-              items={1}
+              margin={10}
+              items={1.1}
               dots={false}
               nav={false}
             >
               {services.map((ele: any) => {
                 return (
                   <div
-                    className="item my-4 cursor-pointer"
+                    className="item my-4 cursor-pointer font-Syne max-h-[300px] min-h-[300px]"
                     onClick={() => navigate(`/${ele.ContentSlug}`)}
                   >
-                    <div className="bg-red-400 text-white p-10 rounded-lg item-bg">
-                      <h3 className="text-4xl font-semibold my-20 md:mb-16">
-                        {ele.Heading1}
-                      </h3>
+                    <div className="bg-red-400 text-white p-8 rounded-2xl item-bg">
+                      <h3 className="text-3xl font-semibold">{ele.Heading1}</h3>
 
                       <p
-                        className="text-sm my-5 line-clamp-6"
+                        className="text-sm my-5 line-clamp-3"
                         dangerouslySetInnerHTML={{
                           __html: parse(ele?.Description),
                         }}
