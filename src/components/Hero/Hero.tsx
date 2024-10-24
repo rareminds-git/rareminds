@@ -15,12 +15,12 @@ const Hero = ({ content }) => {
   useEffect(() => {
     setTimeout(() => {
       if (!isMobile) {
-        if (lineHeight < 500) {
+        if (lineHeight < 350) {
           setLineHeight(lineHeight + 125);
         }
       } else {
         if (lineHeight < 200) {
-          setLineHeight(lineHeight + 75);
+          setLineHeight(lineHeight + 35);
         }
       }
     }, 1000);
@@ -29,11 +29,11 @@ const Hero = ({ content }) => {
   return (
     <>
       {!isMobile ? (
-        <section className="lg:px-16 xxl:px-32 lg:pt-16 xl:py-48 xxl:py-16 md:py-24 lg:pb-16 pb-8 bg-hero-gradient">
+        <section className="xl:px-28 lg:px-24 md:px-20 px-16 xl:pb-16 lg:pb-12 md:pb-8 pb-4 bg-hero-gradient">
           <div className="flex items-center justify-center">
             <div className="grid space-y-10 place-items-center">
               <h1
-                className="mb-4 mt-8 text-[32px] leading-10 mx-[3rem] text-center lg:mx-[8rem] xl:mx-[6rem] xxl:mx-[4rem] font-[Sentient] font-medium lg:text-[60px] lg:leading-[74px] text-[#ff2c2c]"
+                className="mb-4 mt-8 text-[32px] leading-10 text-center font-[Sentient] font-medium lg:text-[55px] lg:leading-[74px] text-[#ff2c2c]"
                 dangerouslySetInnerHTML={{
                   __html: content.Heading1,
                 }}
@@ -44,19 +44,19 @@ const Hero = ({ content }) => {
           <div className="grid space-y-10 place-items-start grid-cols-5">
             <div className="place-items-start col-span-2">
               <p
-                className="mb-4 font-Syne lg:mt-16 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px] pl-8"
+                className="mb-4 font-Syne lg:mt-16 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px] pl-2"
                 dangerouslySetInnerHTML={{
                   __html: content.Heading2,
                 }}
               />
               <p
-                className="mt-8 lg:text-[32px] text-[20px] lg:leading-[53.06px] font-medium pl-8"
+                className="mt-8 lg:text-[32px] text-[20px] lg:leading-[53.06px] font-medium pl-2"
                 dangerouslySetInnerHTML={{
                   __html: content.SubHeading1,
                 }}
               />
               <p
-                className="mt-2 font-Syne lg:text-[32px] text-[20px] lg:leading-[53.06px] font-mediumn pl-8"
+                className="mt-2 font-Syne lg:text-[32px] text-[20px] lg:leading-[53.06px] font-mediumn pl-2"
                 dangerouslySetInnerHTML={{
                   __html: content.SubHeading2,
                 }}
@@ -115,31 +115,31 @@ const Hero = ({ content }) => {
           </div>
         </section>
       ) : (
-        <section className="pt-24 pb-4 bg-hero-gradient">
+        <section className="px-8 pb-4 py-12 md:px-16 md:pb-8 md:py-16 lg:px-20 lg:pb-12 lg:py-20 bg-hero-gradient">
           <div className="flex items-center justify-center">
             <div className="grid place-items-center">
-              <h1 className="mb-4 mt-10 text-[22px] leading-[28px] md:text-[32px] md:leading-[44px] font-medium text-center mx-12 font-[Sentient] text-[#ff2c2c]">
+              <h1 className="mb-4 mt-10 text-[22px] leading-[28px] md:text-[32px] md:leading-[44px] font-medium text-center font-[Sentient] text-[#ff2c2c]">
                 {content.Heading1}
               </h1>
             </div>
           </div>
 
-          <div className="space-y-10 place-items-start grid-cols-5 md:px-20 md:grid hidden">
+          <div className="space-y-10 place-items-start grid-cols-5 md:grid hidden">
             <div className="place-items-start col-span-2">
               <p
-                className="mb-4 font-Syne lg:mt-16 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px] pl-8"
+                className="mb-4 font-Syne lg:mt-16 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400  text-[24px] pl-2"
                 dangerouslySetInnerHTML={{
                   __html: content.Heading2,
                 }}
               />
               <p
-                className="mt-8 lg:text-[32px] text-[20px] lg:leading-[53.06px] font-medium pl-8"
+                className="mt-8 lg:text-[32px] text-[20px] lg:leading-[53.06px] font-medium pl-2"
                 dangerouslySetInnerHTML={{
                   __html: content.SubHeading1,
                 }}
               />
               <p
-                className="mt-2 font-Syne lg:text-[32px] text-[20px] lg:leading-[53.06px] font-mediumn pl-8"
+                className="mt-2 font-Syne lg:text-[32px] text-[20px] lg:leading-[53.06px] font-mediumn pl-2"
                 dangerouslySetInnerHTML={{
                   __html: content.SubHeading2,
                 }}
@@ -208,25 +208,25 @@ const Hero = ({ content }) => {
               </div>
               <div className="grid place-items-center">
                 <p
-                  className="mb-4 font-Syne mt-8 px-4 text-[28px] leading-[33.6px] font-medium text-black-400 text-center"
+                  className="mb-4 font-Syne mt-8 text-[28px] leading-[33.6px] font-medium text-black-400 text-center"
                   dangerouslySetInnerHTML={{
                     __html: content.Heading2,
                   }}
                 />
                 <p
-                  className="mt-2 font-Syne text-[20px] leading-[33.16px] font-semibold"
-                  dangerouslySetInnerHTML={{
-                    __html: content.SubHeading1,
-                  }}
-                />
-                <p
-                  className="mt-2 py-4 font-Syne text-[20px] leading-[33.16px] font-semibold"
+                  className="mt-2 py-1 font-Syne text-[20px] leading-[33.16px] font-semibold"
                   dangerouslySetInnerHTML={{
                     __html: content.SubHeading2,
                   }}
                 />
+                <p
+                  className="font-Syne text-[20px] leading-[33.16px] font-semibold"
+                  dangerouslySetInnerHTML={{
+                    __html: content.SubHeading1,
+                  }}
+                />
               </div>
-              <div className="mt-8 mb-2 place-items-center mx-8">
+              <div className="mt-8 mb-2 place-items-center">
                 <div className="lg:col-span-6 place-items-start hero-img relative float">
                   <img src={HeroImg1} alt="hero-user-img" />
 

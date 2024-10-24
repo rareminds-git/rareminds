@@ -247,21 +247,22 @@
   }
 
   .testimonyImg img {
-    height: 205px;
+    height: 205px !important;
     width: 205px !important;
+
     @media (min-width: 375px) {
       height: 80px !important;
       width: 80px !important;
     }
 
-    @media (max-width: 640px) {
-      height: auto;
-      width: auto;
+    @media (min-width: 640px) {
+      height: auto !important;
+      width: auto !important;
     }
 
-    @media (max-width: 1280px) {
-      height: 150px;
-      width: 150px;
+    @media (min-width: 1280px) {
+      height: 150px !important;
+      width: 150px !important;
     }
   }
 
@@ -488,6 +489,12 @@
     line-height: 28.8px;
     font-weight: 600;
     border: none;
+
+    @media (min-width: 360px) {
+      padding: 0px;
+      margin: 5px;
+      font-size: 12px;
+    }
 
     @media (min-width: 700px) {
       padding: 0px;

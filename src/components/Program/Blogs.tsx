@@ -23,17 +23,17 @@ const Blogs = ({ pageData, content }) => {
 
   return (
     <>
-      <section className="md:px-20 px-10 py-10 relative">
+      <section className="xl:px-28 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8 relative">
         <div className="flex">
           <div className="grid space-y-10">
-            <h1 className="mb-20 mt-20 text-3xl text-left font-bold md:text-5xl">
+            <h1 className="text-3xl text-left font-bold md:text-5xl">
               {pageData?.PageName}
             </h1>
             {/* <p className="text-2xl mb-20">{content?.Description}</p> */}
           </div>
         </div>
 
-        <div className="grid grid-cols-1 mb-20">
+        <div className="grid grid-cols-1 mt-20 mb-20">
           <div
             className="cursor-pointer"
             onClick={() => navigate(`/blogs/${currentPosts[0].PageSlug}`)}

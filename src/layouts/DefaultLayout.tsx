@@ -13,12 +13,13 @@ const DefaultLayout: React.FC<{ children: React.ReactNode }> = ({
 
   return location.pathname !== "/" ? (
     <div>
-      <div className="App w-full h-full">
-        <Header navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} />
-        <Menu navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} />
+      <Header navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} />
+      <Menu navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} />
+      <div className="App w-full h-full xl:pt-24 lg:pt-20 md:pt-16 pt-12">
+        {children}
       </div>
-      {children}
       <FooterBar />
+
       {/* <CookieConsent
         location="bottom"
         buttonText="I understand."

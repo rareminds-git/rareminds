@@ -48,10 +48,10 @@ const EventDetail = () => {
 
   return (
     <>
-      <section className="md:px-20 px-10 py-10 relative font-Syne">
+      <section className="xl:px-28 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8 relative font-Syne">
         <div className="flex">
           <div className="grid">
-            <h1 className="mt-20 text-3xl text-left font-bold md:text-5xl">
+            <h1 className="text-3xl text-left font-bold md:text-5xl">
               {eventData && eventData.eventData
                 ? eventData.eventData[0].Heading1
                 : ""}

@@ -9,10 +9,10 @@ const SuccessStories = ({ content, pageData }) => {
   const navigate = useNavigate();
   return (
     <>
-      <section className="md:px-20 px-10 py-10 xl:px-32 xxl:px-44 bg-hero-gradient">
+      <section className="xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:py-16 lg:py-20 md:py-16 py-8 bg-hero-gradient">
         <div className="flex">
           <div className="grid space-y-10">
-            <h4 className="mb-4 md:mt-20 mt-10 md:text-[50px] md:leading-[75.2px] text-[28px] leading-[30px] text-left font-normal text-[#FF2C2C]">
+            <h4 className="mb-4 md:text-[50px] md:leading-[75.2px] text-[28px] leading-[30px] text-left font-normal text-[#FF2C2C]">
               Success Stories so far
             </h4>
             <p

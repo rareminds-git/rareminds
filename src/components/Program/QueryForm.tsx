@@ -104,7 +104,7 @@ const QueryForm = ({ pageData, content }) => {
   };
 
   return successMessage ? (
-    <section className="md:px-20 px-10 md:pt-32 md:pb-48">
+    <section className="xl:px-28 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8 cursor-pointer">
       <div className="flex">
         <div className="grid space-y-10 text-center font-Syne">
           <h1
@@ -127,38 +127,38 @@ const QueryForm = ({ pageData, content }) => {
     </section>
   ) : (
     <>
-      <section className="md:px-20 xl:px-40 px-10 md:pt-32 md:pb-48 py-16">
+      <section className="xl:px-28 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8 cursor-pointer">
         <div className="flex">
           <div className="grid space-y-10 text-center font-Syne">
             <h1
-              className="mt-20 text-3xl md:text-center text-left font-bold md:text-5xl"
+              className="text-3xl md:text-center text-left font-bold md:text-5xl"
               dangerouslySetInnerHTML={{
                 __html: content[0]?.Heading1,
               }}
             />
             <p
-              className="text-xl mb-20 md:px-20 xl:px-40 md:text-center text-left"
+              className="text-xl mb-20 md:px-16 md:text-center text-left"
               dangerouslySetInnerHTML={{
                 __html: content[0]?.Heading2,
               }}
             />
 
             <h3
-              className={`text-xl mt-8 px-24 md:text-center text-left text-red-500 font-bold font-Syne fixed ${errorMessage ? "bg-gray-300" : "bg-white"} top-10 left-0 w-full p-5 xl:p-0 z-50`}
+              className={`text-xl mt-8 px-24 md:text-center text-left text-red-500 font-bold font-Syne fixed ${errorMessage ? "bg-gray-300" : "transparent"} top-10 left-0 w-full p-5 xl:p-0 z-50`}
             >
               {errorMessage}
             </h3>
           </div>
         </div>
 
-        <Form className="mt-20 pr-10 sm:pr-0 md:px-10">
-          <div className="grid md:grid-cols-2 grid-cols-1 xl:grid-cols-3 lg:grid-cols-2 gap-4">
+        <Form className="mt-20 pr-10 sm:pr-0">
+          <div className="grid md:grid-cols-2 grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 gap-4">
             <Form.Group className="w-full grid md:grid-rows-2">
               <Form.Label className="sm:text-[18px] md:text-[26px] leading-[31.2px] text-black-500 font-medium">
                 Full Name*
               </Form.Label>
               <Form.Control
-                className={`my-2 w-72 border-b-2 ${errors.FullName ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-72 lg:w-56 border-b-2 ${errors.FullName ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your name"
                 onChange={(e) => {
@@ -183,7 +183,7 @@ const QueryForm = ({ pageData, content }) => {
                 Company Name*
               </Form.Label>
               <Form.Control
-                className={`my-2 w-72 border-b-2 ${errors.CompanyName ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-72 lg:w-56 border-b-2 ${errors.CompanyName ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your company"
                 onChange={(e) => {
@@ -208,7 +208,7 @@ const QueryForm = ({ pageData, content }) => {
                 Email address*
               </Form.Label>
               <Form.Control
-                className={`my-2 w-72 border-b-2 ${errors.Email ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-72 lg:w-56 border-b-2 ${errors.Email ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your email"
                 onChange={(e) => {
@@ -227,7 +227,7 @@ const QueryForm = ({ pageData, content }) => {
                 Phone Number*
               </Form.Label>
               <Form.Control
-                className={`my-2 w-72 border-b-2 ${errors.PhoneNumber ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-72 lg:w-56 border-b-2 ${errors.PhoneNumber ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your number"
                 onChange={(e) => {
@@ -251,7 +251,7 @@ const QueryForm = ({ pageData, content }) => {
                 Job Title*
               </Form.Label>
               <Form.Control
-                className={`my-2 w-72 border-b-2 ${errors.JobTitle ? "border-red-500" : "border-black"}`}
+                className={`my-2 w-72 lg:w-56 border-b-2 ${errors.JobTitle ? "border-red-500" : "border-black"}`}
                 type="text"
                 placeholder="Type your job title"
                 onChange={(e) => {

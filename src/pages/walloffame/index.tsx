@@ -23,13 +23,13 @@ const WallofFame = () => {
   return (
     <>
       <header
-        className={`hero-section bg-[length:100%_100%] mx-2 xxl:mx-44 xl:mx-20 lg:mx-20 rounded-xl shadow-[0_0px_15px_0px_rgba(0,0,0,0.1)] bg-no-repeat bg-center h-[400px] lg:h-[500px] mt-32`}
+        className={`hero-section bg-[length:100%_100%] mx-8 my-8 mb-4 xxl:mx-28 xl:mx-20 lg:mx-24 md:mx-16 rounded-xl shadow-[0_0px_15px_0px_rgba(0,0,0,0.1)] bg-no-repeat bg-center h-[400px] lg:h-[500px] mt-32`}
         style={{ backgroundImage: `url(${Banner})` }}
       >
         <div className=""></div>
       </header>
       <section className="intro-section font-Syne">
-        <div className="container mx-auto px-5 lg:px-10 py-10">
+        <div className="container mx-auto xl:px-28 lg:px-24 md:px-16 px-8 xl:py-16 lg:py-12 md:py-16 py-4 pb-8">
           <p className="text-black max-w-[960px] mx-auto">
             At Rareminds, we believe that every great achievement begins with a
             great teacher. Our Wall of Fame honors the educators who have gone
@@ -38,7 +38,7 @@ const WallofFame = () => {
           </p>
         </div>
       </section>
-      <section className="featured-teachers px-5 lg:px-60  font-Syne">
+      <section className="featured-teachers xl:px-28 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8 font-Syne">
         <h2 className="text-3xl mb-10 font-semibold">What Our Students Says</h2>
 
         <div className="hidden lg:grid grid-cols-1 lg:grid-cols-6 mb-2 font-semibold"></div>

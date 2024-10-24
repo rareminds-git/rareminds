@@ -4,7 +4,7 @@ import TestimonialCarousel from "../Hero/TestimonalCarousel";
 
 const CustomTabs = ({ testimonials, tabs, categories }) => {
   return (
-    <Tabs className="border-0 md:px-20">
+    <Tabs className="border-0">
       {tabs?.map((title: any) => {
         const category = categories.filter(
           (ele) => ele.Heading1 === title && ele
@@ -14,7 +14,7 @@ const CustomTabs = ({ testimonials, tabs, categories }) => {
         );
         return (
           <TabPanel>
-            <h5 className="font-Syne text-center my-12 lg:mb-20 place-items-center lg:mx-20 text-[#ff2c2c] lg:text-[70px] lg:leading-[115.2px] text-[28px] leading-[30px] ">
+            <h5 className="font-Syne text-center my-12 lg:mb-10 place-items-center text-[#ff2c2c] lg:text-[70px] lg:leading-[115.2px] text-[28px] leading-[30px] ">
               Testimonials - {title}
             </h5>
             <TestimonialCarousel testimonials={testimonialData} />
