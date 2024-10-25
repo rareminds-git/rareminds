@@ -21,7 +21,7 @@ const CTA = ({ content, contactPage }) => {
               {" "}
               Form Fill: Unlock Your Potential!{" "}
             </span>
-            <span className="inline-block ml-2 lg:ml-20 xxl:ml-2 relative md:top-[0.75rem] h-[100%] xxl:w-[50px] w-[40px]">
+            <span className="inline-block ml-2 lg:ml-2 xxl:ml-2 relative md:top-[0.75rem] h-[100%] xxl:w-[50px] w-[40px]">
               <img src={NortgImg} />
             </span>
           </h3>
