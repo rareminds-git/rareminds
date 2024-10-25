@@ -256,8 +256,8 @@
     }
 
     @media (min-width: 640px) {
-      height: auto !important;
-      width: auto !important;
+      height: 180px !important;
+      width: 180px !important;
     }
 
     @media (min-width: 1280px) {
@@ -457,8 +457,8 @@
     margin: 8px;
     position: relative;
     transition: all 1.2s ease-in-out;
-    min-height: 370px;
-    max-height: 370px;
+    /* min-height: 370px;
+    max-height: 370px; */
   }
 
   .service-list .item:hover {
@@ -498,7 +498,7 @@
 
     @media (min-width: 700px) {
       padding: 0px;
-      margin: 5px;
+      margin: 11px;
       font-size: 12px;
     }
 

@@ -19,7 +19,7 @@ const Hero = ({ content }) => {
           setLineHeight(lineHeight + 125);
         }
       } else {
-        if (lineHeight < 200) {
+        if (lineHeight < 240) {
           setLineHeight(lineHeight + 35);
         }
       }
@@ -127,7 +127,7 @@ const Hero = ({ content }) => {
           <div className="space-y-10 place-items-start grid-cols-5 md:grid hidden">
             <div className="place-items-start col-span-2">
               <p
-                className="mb-4 font-Syne lg:mt-16 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400  text-[24px] pl-2"
+                className="mb-4 font-Syne lg:mt-16 mt-12 font-bold lg:text-[23px] lg:leading-[35.2px] text-black-400  text-[24px] pl-2"
                 dangerouslySetInnerHTML={{
                   __html: content.Heading2,
                 }}

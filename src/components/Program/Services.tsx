@@ -24,7 +24,7 @@ const Services = ({ content, services, ctaContent }) => {
               {services.map((ele: any) => {
                 return (
                   <div
-                    className={`item mx-2 rounded-lg bg-red-400 cursor-pointer`}
+                    className={`item mx-2 rounded-lg bg-red-400 cursor-pointer max-h-[370px] min-h-[370px]`}
                     onMouseEnter={() => setHoveredDivs(ele.ContentAcronym)}
                     onMouseLeave={() => setHoveredDivs(undefined)}
                     onClick={() => navigate(`/${ele.ContentSlug}`)}
@@ -53,41 +53,81 @@ const Services = ({ content, services, ctaContent }) => {
               })}
             </div>
           ) : (
-            <OwlCarousel
-              className="owl-theme"
-              autoplay
-              loop
-              margin={10}
-              items={1.1}
-              dots={false}
-              nav={false}
-            >
-              {services.map((ele: any) => {
-                return (
-                  <div
-                    className="item my-4 cursor-pointer font-Syne max-h-[300px] min-h-[300px]"
-                    onClick={() => navigate(`/${ele.ContentSlug}`)}
-                  >
-                    <div className="bg-red-400 text-white p-8 rounded-2xl item-bg">
-                      <h3 className="text-3xl font-semibold">{ele.Heading1}</h3>
-
-                      <p
-                        className="text-sm my-5 line-clamp-3"
-                        dangerouslySetInnerHTML={{
-                          __html: parse(ele?.Description),
-                        }}
-                      ></p>
-                      <p
+            <>
+              <div className="md:hidden">
+                <OwlCarousel
+                  className="owl-theme"
+                  autoplay
+                  loop
+                  margin={10}
+                  items={1.1}
+                  dots={false}
+                  nav={false}
+                >
+                  {services.map((ele: any) => {
+                    return (
+                      <div
+                        className="item my-4 cursor-pointer font-Syne max-h-[300px] min-h-[300px]"
                         onClick={() => navigate(`/${ele.ContentSlug}`)}
-                        className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
                       >
-                        ...Read More
-                      </p>
+                        <div className="bg-red-400 text-white p-8 rounded-2xl item-bg">
+                          <h3 className="text-3xl font-semibold">
+                            {ele.Heading1}
+                          </h3>
+
+                          <p
+                            className="text-sm my-5 line-clamp-3"
+                            dangerouslySetInnerHTML={{
+                              __html: parse(ele?.Description),
+                            }}
+                          ></p>
+                          <p
+                            onClick={() => navigate(`/${ele.ContentSlug}`)}
+                            className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
+                          >
+                            ...Read More
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </OwlCarousel>
+              </div>
+              <div className="md:flex lg:flex hidden service-list">
+                {services.map((ele: any) => {
+                  return (
+                    <div
+                      className={`item mx-2 rounded-lg bg-red-400 cursor-pointer max-h-[320px] min-h-[320px]`}
+                      onMouseEnter={() => setHoveredDivs(ele.ContentAcronym)}
+                      onMouseLeave={() => setHoveredDivs(undefined)}
+                      onClick={() => navigate(`/${ele.ContentSlug}`)}
+                    >
+                      <div
+                        className={` text-white p-8 xl:py-12 xl:px-10 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
+                      >
+                        <h4 className="lg:text-3xl md:text-2xl font-Syne">
+                          {ele.Heading1}
+                        </h4>
+
+                        <p
+                          className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === null ? "mt-16" : hoveredDivs === undefined ? "mt-16" : ""} ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
+                          dangerouslySetInnerHTML={{
+                            __html: parse(ele?.Description),
+                          }}
+                        ></p>
+
+                        <p
+                          onClick={() => navigate(`/${ele.ContentSlug}`)}
+                          className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
+                        >
+                          ...Read More
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-            </OwlCarousel>
+                  );
+                })}
+              </div>
+            </>
           )}
         </>
       </section>
