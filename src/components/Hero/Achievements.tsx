@@ -25,10 +25,12 @@ const Achievements = ({ content, achievements }) => {
         </div>
         {!isMobile ? (
           <>
-            {achievements?.map((ele: any) => {
+            {achievements?.map((ele: any, index) => {
               return (
                 <div className="container" ref={ref}>
-                  <div className="grid grid-cols-4 gap-4 lg:px-4 lg:py-12 py-10 px-10 border-y-black border-2 border-x-0">
+                  <div
+                    className={`grid grid-cols-4 gap-4 lg:px-4 lg:py-12 py-10 px-10 ${index === 0 ? "border-y-black border-2" : ""} ${index === 2 ? "border-t-black border-2 border-b-0" : ""} border-x-0`}
+                  >
                     <div className="lg:col-span-1 col-span-1">
                       <h5
                         className="text-[52px] leading-[58px] font-Syne font-bold"
@@ -62,10 +64,12 @@ const Achievements = ({ content, achievements }) => {
           </>
         ) : (
           <>
-            {achievements?.map((ele: any) => {
+            {achievements?.map((ele: any, index: any) => {
               return (
                 <div className="container">
-                  <div className="grid md:grid-rows-1 grid-rows-1 gap-4 border-y-black border-2 border-x-0">
+                  <div
+                    className={`grid md:grid-rows-1 grid-rows-1 gap-4 ${index === 0 ? "border-y-black border-2" : ""} ${index === 2 ? "border-t-black border-2 border-b-0" : ""} border-x-0`}
+                  >
                     <div className="row-span-1 grid grid-cols-3">
                       <div className="col-span-1 mt-4">
                         <h5

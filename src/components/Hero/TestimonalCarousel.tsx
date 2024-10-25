@@ -41,7 +41,7 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
                 <div className="grid grid-cols-2 place-items-start">
                   <div className="col-span-1 row-span-3 my-4 mx-4 place-items-start testimonyImg">
                     <img
-                      src={`${import.meta.env.VITE_PUBLIC_URL}uploads/${item.AuthorImage}`}
+                      src={`${import.meta.env.VITE_API_URL}uploads/${item.AuthorImage}`}
                       width="480px"
                       className="rounded-full
             border-[#CAF0F8] border-[17px]"
@@ -49,7 +49,7 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
                     <p
                       className="font-[Sentient] font-normal text-wrap lg:text-[30px] text-[20px] lg:leading-[40.8px] my-8 lg:pr-44"
                       dangerouslySetInnerHTML={{
-                        __html: item.Contenttitle,
+                        __html: item.ContentTitle,
                       }}
                     />
                     <p
@@ -88,7 +88,7 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
                   <div className="mx-4 place-items-start testimonyImg">
                     <div className="col-span-1 place-items-start">
                       <img
-                        src={`${import.meta.env.VITE_PUBLIC_URL}api/uploads/${item.AuthorImage}`}
+                        src={`${import.meta.env.VITE_API_URL}api/uploads/${item.AuthorImage}`}
                         className="rounded-full mt-12
             border-[#CAF0F8] border-[12px]"
                       />
@@ -98,7 +98,7 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
                     <p
                       className="font-Inter text-xl font-bold my-8"
                       dangerouslySetInnerHTML={{
-                        __html: item.Contenttitle,
+                        __html: item.ContentTitle,
                       }}
                     />
                     <p
