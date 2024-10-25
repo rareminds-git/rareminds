@@ -14,11 +14,14 @@ const CTA = ({ content, contactPage }) => {
       >
         <div
           onClick={() => navigate("/unlock-your-potential")}
-          className="grid space-y-10 lg:grid-cols-3 place-items-center border-y-[#FF2C2C] border-2 border-x-0"
+          className="grid space-y-10 lg:grid-cols-3 place-items-center border-y-[#FF2C2C] border-2 border-x-0 "
         >
-          <h3 className="lg:col-span-3 mb-4 relative text-left mt-4 font-Syne font-bold inline-block lg:text-[36px] lg:leading-[58px] text-[#FF2C2C] text-[22px] leading-[28.4px] py-4 px-12 lg:py-6">
-            Form Fill: Unlock Your Potential!
-            <span className="inline-block ml-2 lg:ml-20 xxl:ml-8 absolute lg:right-[-50px] xxl:right-[-80px] lg:top-[2.2rem] xxl:top-[2.5rem] top-[2.2rem] md:top-[0.75rem] h-[100%] xxl:w-[100px] w-[40px]">
+          <h3 className="lg:col-span-3 mb-4 cta-heading relative text-left mt-4 font-Syne font-bold inline-block lg:text-[36px] lg:leading-[58px] text-[#FF2C2C] text-[22px] leading-[28.4px] py-4 px-12 lg:py-6">
+            <span className="inline-block">
+              {" "}
+              Form Fill: Unlock Your Potential!{" "}
+            </span>
+            <span className="inline-block ml-2 lg:ml-20 xxl:ml-2 relative md:top-[0.75rem] h-[100%] xxl:w-[50px] w-[40px]">
               <img src={NortgImg} />
             </span>
           </h3>

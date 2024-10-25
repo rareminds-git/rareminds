@@ -456,9 +456,9 @@
     flex: 0.5;
     margin: 8px;
     position: relative;
-    transition: all 0.7s ease-out;
-    min-height: 400px;
-    max-height: 400px;
+    transition: all 1.2s ease-in-out;
+    min-height: 370px;
+    max-height: 370px;
   }
 
   .service-list .item:hover {
@@ -872,5 +872,15 @@
 
   .servicesSection .owl-carousel.owl-loaded {
     max-height: 500px;
+  }
+  .cta-heading:after {
+    content: "";
+    width: 30px;
+    height: 30px;
+    background: url("../../public/images/north.svg") no-repeat -30px -50px fixed;
+    top: 10px;
+    right: 5px;
+    position: absolute;
+    display: inline-block;
   }
 }

@@ -40,7 +40,7 @@ const Header = ({ navbarOpen, setNavbarOpen }) => {
           <img
             src={Logo}
             alt="Rareminds"
-            className="sm:mt-4"
+            className="sm:mt-2"
             width={!isMobile ? 211 : 200}
             height={!isMobile ? 52 : 27}
           />
