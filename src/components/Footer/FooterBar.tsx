@@ -220,9 +220,7 @@ const FooterBar = () => {
       ) : (
         <div className="bg-black text-white py-12 font-Syne pt-10">
           <div className="row-span-1 mx-10 my-5">
-            <h3 className="text-3xl">
-              Sign up to receive the <br /> latest news.
-            </h3>
+            <h3 className="text-3xl">Sign up to receive the latest news.</h3>
             <input
               className="rounded p-2 mt-3 bg-transparent border-[#CAF0F8]-400 border w-[60%] md:w-[80%] lg:w-[85%] xl:w-[100%] xxl:w-[100%] mr-[10px]"
               placeholder="Enter your email"
@@ -232,52 +230,77 @@ const FooterBar = () => {
             </button>
           </div>
 
-          <div className="grid grid-flow-col grid-rows-2 mx-10 py-10 gap-4">
-            <div className="row-span-2">
-              <div className="grid grid-rows-1 grid-flow-col">
-                <div className="col-span-6 row-span-1">
-                  <ul>
-                    <li>
-                      <a href="/">Home</a>
-                    </li>
-                    <li>
-                      <a href={`/about`}>About </a>
-                    </li>
-                    <li>
-                      <a href="/contact-us">Contact</a>
-                    </li>
-                    <li>
-                      <a
-                        href={`/${localStorage.getItem("currentUserType")}/case-studies`}
-                      >
-                        Case Study
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/blogs">Blog</a>
-                    </li>
-                    <li>
-                      <a href="/walloffame">Wall Of Fame</a>
-                    </li>
-
-                    <li>
-                      <a href="/corporate">Corporate Program </a>
-                    </li>
-                    <li>
-                      <a href="/institutions">Institutions Program</a>
-                    </li>
-                    <li>
-                      <a href="/government">Government Program</a>
-                    </li>
-                    <li>
-                      <a href="/schools">School Program</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+          <div className="grid grid-cols-3 md:grid-cols-4 mx-10 py-10 gap-4">
+            <div className="col-span-1 md:col-span-1">
+              <ul>
+                <li>
+                  <a href="/">Home</a>
+                </li>
+                <li>
+                  <a href={`/about`}>About </a>
+                </li>
+                <li>
+                  <a href="/contact-us">Contact</a>
+                </li>
+                <li>
+                  <a
+                    href={`/${localStorage.getItem("currentUserType")}/case-studies`}
+                  >
+                    Case Study
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div className="col-span-2 md:col-span-1">
+              <ul>
+                <li>
+                  <a href="/corporate">Corporate Program </a>
+                </li>
+                <li>
+                  <a href="/institutions">Institutions Program</a>
+                </li>
+                <li>
+                  <a href="/government">Government Program</a>
+                </li>
+                <li>
+                  <a href="/schools">School Program</a>
+                </li>
+              </ul>
+            </div>
+            <div className="col-span-1 md:col-span-1 md:items-center">
+              <ul>
+                <li>
+                  <a href="/blogs">Blog</a>
+                </li>
+                <li>
+                  <a href="/walloffame">Wall Of Fame</a>
+                </li>
+                <li>
+                  <a href="/walloffame">Events</a>
+                </li>
+              </ul>
+            </div>
+            <div className="col-span-2 md:col-span-1">
+              <ul>
+                <li>
+                  <a
+                    href={`${localStorage.getItem("currentUserType")}/services`}
+                  >
+                    Our Services
+                  </a>
+                </li>
+                {serviceData &&
+                  serviceData?.serviceData?.map((ele: any) => {
+                    return (
+                      <li>
+                        <a href={`/${ele.ContentSlug}`}>{ele.Heading1}</a>
+                      </li>
+                    );
+                  })}
+              </ul>
             </div>
           </div>
-          <div className="grid grid-flow-col grid-rows-1">
+          <div className="grid grid-cols-4 mx-10 pt-10 gap-1">
             {/* <div className="flex items-center row-span-1 justify-center md:flex md:justify-start">
               {socialIcons.map((socialIcon) => {
                 const { icon, id, link } = socialIcon;
@@ -288,8 +311,15 @@ const FooterBar = () => {
                 );
               })}
             </div> */}
-            <div className="flex items-end row-span-1 justify-center md:flex md:justify-end mr-10">
+            <div className="col-span-2">
               <p>@rareminds 2024</p>
+            </div>
+            <div className="col-span-2">
+              <a href="/terms-&-conditions" className="text">
+                Terms & Conditions
+              </a>
+              <br />
+              <a href="/privacy-policy">Privacy</a>
             </div>
           </div>
         </div>

@@ -41,7 +41,7 @@ const Blogs = ({ pageData, content }) => {
             <img
               src={`${import.meta.env.VITE_API_URL}uploads/${currentPosts[0].Image1}`}
               width={"100%"}
-              className="rounded-xl object-cover"
+              className="rounded-xl object-cover max-h-[300px]"
             />
 
             <h4
@@ -62,17 +62,19 @@ const Blogs = ({ pageData, content }) => {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-          {currentPosts.slice(1).map((ele) => {
+        <div
+          className={`grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-4 mb-10`}
+        >
+          {currentPosts.slice(1).map((ele, index) => {
             return (
               <div
-                className="cursor-pointer sm:my-4 md:max-h-[1200px] md:my-4"
+                className={`cursor-pointer sm:my-4 ${index % 2 === 0 ? "xl:col-span-2 " : "xl:col-span-3 "} md:max-h-[1200px] md:my-4`}
                 onClick={() => navigate(`/blogs/${ele.PageSlug}`)}
               >
                 <img
                   src={`${import.meta.env.VITE_API_URL}uploads/${ele.Image1}`}
                   width={"100%"}
-                  className="rounded-xl md:min-h-[500px] md:max-h-[400px] object-cover"
+                  className={`rounded-xl ${index % 2 === 0 ? "xl:max-h-[300px] xl:min-h-[300px]" : "xl:min-h-[400px] xl:max-h-[400px]"} md:min-h-[500px] md:max-h-[400px] object-cover`}
                   alt={ele.Heading1}
                 />
 

@@ -127,19 +127,19 @@ const Hero = ({ content }) => {
           <div className="space-y-10 place-items-start grid-cols-5 md:grid hidden">
             <div className="place-items-start col-span-2">
               <p
-                className="mb-4 font-Syne lg:mt-16 mt-12 font-bold lg:text-[23px] lg:leading-[35.2px] text-black-400  text-[24px] pl-2"
+                className="mb-4 font-Syne lg:mt-16 mt-12 font-bold lg:text-[32px] lg:leading-[53.06px] text-black-400  text-[24px] pl-2"
                 dangerouslySetInnerHTML={{
                   __html: content.Heading2,
                 }}
               />
               <p
-                className="mt-8 lg:text-[32px] text-[20px] lg:leading-[53.06px] font-medium pl-2"
+                className="mt-8 lg:mt-4 lg:text-[23px] text-[20px] lg:leading-[33.06px] font-medium pl-2"
                 dangerouslySetInnerHTML={{
                   __html: content.SubHeading1,
                 }}
               />
               <p
-                className="mt-2 font-Syne lg:text-[32px] text-[20px] lg:leading-[53.06px] font-mediumn pl-2"
+                className="mt-2 lg:mt-0 font-Syne lg:text-[23px] text-[20px] lg:leading-[33.06px] font-mediumn pl-2"
                 dangerouslySetInnerHTML={{
                   __html: content.SubHeading2,
                 }}
