@@ -371,6 +371,13 @@
     font-size: 11px;
     max-height: 35px;
     border-right: 16px solid transparent;
+
+    @media (min-width: 360px) {
+      padding: 0px 10px;
+      max-height: 25px;
+      margin-left: 10px;
+      margin-top: 1rem !important;
+    }
   }
 
   select.top-nav-dropdown option:hover {
@@ -450,23 +457,32 @@
     }
   }
 
+  .service-list {
+    display: flex;
+  }
+
   .service-list .item {
-    /* height: 80vh; */
-    cursor: pointer;
-    flex: 0.5;
-    margin: 8px;
-    position: relative;
-    transition: all 1.2s ease-in-out;
-    /* min-height: 370px;
-    max-height: 370px; */
+    transition: width 0.9s ease-in-out;
+    max-height: 370px; /* Set a maximum height */
+    height: 370px; /* Fixed height */
+    overflow: hidden;
+    width: 100%;
   }
 
-  .service-list .item:hover {
-    flex: 3;
+  .service-list .item.hovered {
+    width: 80%;
   }
 
-  .service-list .item .item-bg.active {
+  .service-list .item.non-hovered {
+    width: 10%;
+  }
+
+  .service-list .hidden-content {
     display: none;
+  }
+
+  .service-list .text-white {
+    transition: none; /* No animation on text */
   }
 
   .custom-tabs {

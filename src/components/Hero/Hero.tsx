@@ -139,7 +139,7 @@ const Hero = ({ content }) => {
                 }}
               />
               <p
-                className="mt-2 lg:mt-0 font-Syne lg:text-[23px] text-[20px] lg:leading-[33.06px] font-mediumn pl-2"
+                className="lg:mt-0 font-Syne lg:text-[23px] text-[20px] lg:leading-[33.06px] font-mediumn pl-2"
                 dangerouslySetInnerHTML={{
                   __html: content.SubHeading2,
                 }}

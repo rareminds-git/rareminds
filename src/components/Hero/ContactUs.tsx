@@ -55,7 +55,38 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
                             }}
                           />
                           <p
-                            className=" md:text-[20px] md:leading-[24px] text-xl font-normal"
+                            className="md:text-[20px] mt-4 md:leading-[24px] text-xl font-normal"
+                            dangerouslySetInnerHTML={{
+                              __html: ele.Description,
+                            }}
+                          />
+                        </div>
+                      </div>
+                      <div className="grid place-items-end my-5">
+                        <div className="md-col-span-6 col-span-3 place-items-end">
+                          <p
+                            className="md:text-xl text-xl text-black-400 font-Syne"
+                            dangerouslySetInnerHTML={{
+                              __html: ele.Address1 || ele.Contact1,
+                            }}
+                          />
+                          <p
+                            className="md:text-xl text-xl text-black-400 font-Syne"
+                            dangerouslySetInnerHTML={{
+                              __html: ele.Contact2,
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="w-full h-px bg-black my-5"></div>
+
+                    <div className="grid grid-cols-2 gap-4 md:py-12">
+                      <div className="grid my-5">
+                        <div className="md:col-span-6 col-span-9">
+                          <p
+                            className="md:text-xl text-xl font-bold"
                             dangerouslySetInnerHTML={{
                               __html: ele.SubHeading2,
                             }}
@@ -65,37 +96,7 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
                       <div className="grid place-items-end my-5">
                         <div className="md-col-span-6 col-span-3 place-items-end">
                           <p
-                            className=" md:text-xl text-xl text-black-400 font-Syne"
-                            dangerouslySetInnerHTML={{
-                              __html: ele.Address1 || ele.Contact1,
-                            }}
-                          />
-
-                          <p
-                            className=" md:text-xl text-xl text-black-400 font-Syne"
-                            dangerouslySetInnerHTML={{
-                              __html: ele.Contact2,
-                            }}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <hr className="text-black" />
-                    <div className="grid grid-cols-2 gap-4 md:py-12">
-                      <div className="grid my-5">
-                        <div className="md:col-span-6 col-span-9">
-                          <p
-                            className=" md:text-xl text-xl font-bold"
-                            dangerouslySetInnerHTML={{
-                              __html: ele.subHeading2,
-                            }}
-                          />
-                        </div>
-                      </div>
-                      <div className="grid place-items-end my-5">
-                        <div className="md-col-span-6 col-span-3 place-items-end">
-                          <p
-                            className=" md:text-xl text-xl text-black-400 font-Syne"
+                            className="md:text-xl text-xl text-black-400 font-Syne"
                             dangerouslySetInnerHTML={{
                               __html: ele.Address2 || ele.EmailAddress,
                             }}
@@ -103,7 +104,10 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
                         </div>
                       </div>
                     </div>
+
+                    <div className="w-full h-px bg-black my-5"></div>
                   </div>
+
                   {index === 0 && isMobile && (
                     <CTA content={ctaContent} contactPage={true} />
                   )}
