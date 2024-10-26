@@ -42,6 +42,8 @@ const Services = () => {
   };
 
   const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
+  const defaultWidth = `${100 / serviceData?.serviceData?.length}%`; // Equal width initially
+  const fixedHeight = "370px"; // Set a fixed height
   return (
     <>
       <Helmet>
@@ -76,26 +78,47 @@ const Services = () => {
                 htmlDecode(serviceData?.servicePageData?.Description),
             }}
           ></p>
-
-          <div className="flex service-list pt-20">
+          <div className="flex service-list">
             {serviceData &&
               serviceData?.serviceData?.map((ele: any) => {
                 return (
                   <div
-                    className={`item mx-2 rounded-lg bg-red-400 cursor-pointer`}
+                    key={ele.ContentAcronym}
+                    className={`item mx-2 rounded-lg bg-red-400 cursor-pointer transition-all duration-300 ease-in-out ${
+                      hoveredDivs === ele.ContentAcronym
+                        ? "hovered"
+                        : hoveredDivs
+                          ? "non-hovered"
+                          : ""
+                    }`}
                     onMouseEnter={() => setHoveredDivs(ele.ContentAcronym)}
-                    onMouseLeave={() => setHoveredDivs(undefined)}
+                    onMouseLeave={() => setHoveredDivs(null)}
                     onClick={() => navigate(`/${ele.ContentSlug}`)}
+                    style={{
+                      width:
+                        hoveredDivs === ele.ContentAcronym
+                          ? "80%"
+                          : hoveredDivs
+                            ? "10%"
+                            : defaultWidth,
+                      height: fixedHeight, // Maintain a fixed height
+                    }}
                   >
                     <div
-                      className={` text-white pt-32 lg:pt-12 pb-12 xl:py-6 xl:px-10 xxl:py-20 xxl:px-12 px-20 lg:px-8 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
+                      className={`text-white p-8 xl:py-12 xl:px-10 rounded-lg item-bg ${
+                        hoveredDivs && hoveredDivs !== ele.ContentAcronym
+                          ? "hidden-content"
+                          : ""
+                      }`}
                     >
                       <h4 className="text-5xl font-Syne">{ele.Heading1}</h4>
 
                       <p
-                        className={`text-sm my-12 font-[Sentient] font-normal ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
+                        className={`text-sm my-5 font-[Sentient] font-normal ${
+                          hoveredDivs === null ? "mt-16" : ""
+                        } ${hoveredDivs === null ? "line-clamp-4" : ""}`}
                         dangerouslySetInnerHTML={{
-                          __html: htmlDecode(ele?.Description),
+                          __html: parse(ele?.Description),
                         }}
                       ></p>
 
@@ -129,45 +152,85 @@ const Services = () => {
             }}
           ></p>
           {serviceData?.serviceData?.length > 0 && (
-            <OwlCarousel
-              className="owl-theme"
-              autoplay
-              loop
-              margin={10}
-              items={1.1}
-              dots={false}
-              nav={false}
-            >
-              {serviceData &&
-                serviceData?.serviceData?.map((ele: any) => {
-                  return (
-                    <div
-                      className="item my-4 cursor-pointer font-Syne max-h-[300px] min-h-[300px]"
-                      onClick={() => navigate(`/${ele.ContentSlug}`)}
-                    >
-                      <div className="bg-red-400 text-white p-8 rounded-2xl item-bg">
-                        <h3 className="text-3xl font-semibold">
-                          {ele.Heading1}
-                        </h3>
-
-                        <p
-                          className="text-sm my-5 line-clamp-3"
-                          dangerouslySetInnerHTML={{
-                            __html: parse(ele?.Description),
-                          }}
-                        ></p>
-                        <p
+            <>
+              <div className="md:hidden">
+                <OwlCarousel
+                  className="owl-theme"
+                  // autoplay
+                  loop
+                  margin={10}
+                  items={1.1}
+                  dots={false}
+                  nav={false}
+                >
+                  {serviceData &&
+                    serviceData?.serviceData?.map((ele: any) => {
+                      const description = parse(ele?.Description);
+                      return (
+                        <div
+                          className="item my-4 cursor-pointer font-Syne max-h-[300px] min-h-[300px]"
                           onClick={() => navigate(`/${ele.ContentSlug}`)}
-                          className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
                         >
-                          ...Read More
-                        </p>
+                          <div className="bg-red-400 text-white p-8 rounded-2xl item-bg">
+                            <h3 className="text-3xl font-semibold">
+                              {ele.Heading1}
+                            </h3>
+
+                            <p className="text-sm my-5">
+                              {description
+                                .replace("<p>", "")
+                                .substring(0, 150) + "..."}
+                            </p>
+                            <p
+                              onClick={() => navigate(`/${ele.ContentSlug}`)}
+                              className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
+                            >
+                              Read More
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                </OwlCarousel>
+              </div>
+              <div className="md:flex lg:flex hidden service-list">
+                {serviceData &&
+                  serviceData?.serviceData?.map((ele: any) => {
+                    return (
+                      <div
+                        className={`item mx-2 rounded-lg bg-red-400 cursor-pointer max-h-[320px] min-h-[320px]`}
+                        onMouseEnter={() => setHoveredDivs(ele.ContentAcronym)}
+                        onMouseLeave={() => setHoveredDivs(undefined)}
+                        onClick={() => navigate(`/${ele.ContentSlug}`)}
+                      >
+                        <div
+                          className={` text-white p-8 xl:py-12 xl:px-10 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
+                        >
+                          <h4 className="lg:text-3xl md:text-2xl font-Syne">
+                            {ele.Heading1}
+                          </h4>
+
+                          <p
+                            className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === null ? "mt-16" : hoveredDivs === undefined ? "mt-16" : ""} ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
+                            dangerouslySetInnerHTML={{
+                              __html: parse(ele?.Description),
+                            }}
+                          ></p>
+
+                          <p
+                            onClick={() => navigate(`/${ele.ContentSlug}`)}
+                            className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
+                          >
+                            ...Read More
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
-            </OwlCarousel>
+                    );
+                  })}
+              </div>
+            </>
           )}
+
           <div className="flex justify-center mt-10">
             <img src={ServicesImg} alt="Services" />
           </div>

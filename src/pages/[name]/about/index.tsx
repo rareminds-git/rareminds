@@ -8,6 +8,9 @@ import { Helmet } from "react-helmet";
 import CTA from "@/common/CTA";
 import parse from "html-react-parser";
 import Achievements from "@/components/Hero/Achievements";
+import OwlCarousel from "react-owl-carousel";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
 
 const About = () => {
   const { name, userType } = useParams();
@@ -116,7 +119,7 @@ const About = () => {
           </div>
         )}
 
-        <div className="grid md:py-24 py-8 place-items-start relative md:grid-cols-3 md:gap-4 grid-cols-1  ">
+        <div className="grid md:py-24 py-8 place-items-start relative md:grid-cols-3 md:gap-4 grid-cols-1 xl:mx-36 xl:text-center">
           <div className="mt-4 col-span-2 md:col-span-1">
             <img
               src={VisionImg}
@@ -188,36 +191,121 @@ const About = () => {
           Awards and Recognitions
         </p>
 
-        <div className="grid py-16 xxl:grid-flow-col md:grid-cols-2 md:grid-rows-2 lg:grid-flow-col xl:grid-flow-col place-items-start relative">
-          {pageData?.awards?.map((ele: any, index) => {
-            return (
-              <>
-                <div
-                  className={`mt-4 xxl:row-span-${index + 1} min-h-100 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
-                >
-                  <img
-                    src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
-                    width="180px"
-                    className="rounded-full
+        <div className="py-16 place-items-start relative">
+          {!isMobile ? (
+            <OwlCarousel
+              className="owl-theme"
+              autoplay
+              responsive={{
+                0: {
+                  items: 1,
+                  nav: false,
+                  dots: false,
+                },
+                600: {
+                  items: 1,
+                  nav: false,
+                },
+                1000: {
+                  items: 4,
+                  loop: true,
+                  dots: false,
+                },
+              }}
+              loop
+              cellPadding={120}
+              margin={100}
+              items={4}
+            >
+              {pageData?.awards?.map((ele: any, index) => {
+                return (
+                  <div className="item">
+                    <div
+                      className={`mt-4 xxl:row-span-${index + 1} min-h-100 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
+                    >
+                      <img
+                        src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
+                        width="180px"
+                        className="rounded-full
             border-[#CAF0F8] border-[17px] mx-auto my-6"
-                  />
-                  <p
-                    className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[26px] lg:leading-[35.2px] text-black-400 mx-2 text-[24px]"
-                    dangerouslySetInnerHTML={{
-                      __html: ele.Heading2,
-                    }}
-                  />
+                      />
+                      <p
+                        className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[26px] lg:leading-[35.2px] text-black-400 mx-2 text-[24px]"
+                        dangerouslySetInnerHTML={{
+                          __html: ele.Heading2,
+                        }}
+                      />
 
-                  <p
-                    className="mt-2 lg:text-[22px] text-[12px] text-center lg:leading-[43.06px] font-light"
-                    dangerouslySetInnerHTML={{
-                      __html: ele.SubHeading1,
-                    }}
-                  />
-                </div>
-              </>
-            );
-          })}
+                      <p
+                        className="mt-2 lg:text-[22px] text-[12px] text-center lg:leading-[43.06px] font-light"
+                        dangerouslySetInnerHTML={{
+                          __html: ele.SubHeading1,
+                        }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </OwlCarousel>
+          ) : (
+            <OwlCarousel
+              className="owl-theme"
+              autoplay
+              loop
+              margin={0}
+              items={1}
+              dots={false}
+              nav={false}
+              responsive={{
+                0: {
+                  items: 1,
+                  nav: false,
+                  dots: false,
+                },
+                600: {
+                  items: 3,
+                  nav: false,
+                  dots: false,
+                  stagePadding: 20,
+                },
+                1000: {
+                  items: 3,
+                  loop: true,
+                  dots: false,
+                },
+              }}
+            >
+              {pageData?.awards?.map((ele: any, index) => {
+                return (
+                  <div className="item">
+                    <div
+                      className={`mt-4 xxl:row-span-${index + 1} min-h-100 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
+                    >
+                      <img
+                        src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
+                        width="180px"
+                        className="rounded-full
+            border-[#CAF0F8] border-[17px] mx-auto my-6"
+                      />
+                      <p
+                        className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[26px] lg:leading-[35.2px] text-black-400 mx-2 text-[24px]"
+                        dangerouslySetInnerHTML={{
+                          __html: ele.Heading2,
+                        }}
+                      />
+
+                      <p
+                        className="mt-2 lg:text-[22px] text-[12px] text-center lg:leading-[43.06px] font-light"
+                        dangerouslySetInnerHTML={{
+                          __html: ele.SubHeading1,
+                        }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </OwlCarousel>
+          )}
         </div>
 
         <div className="logoMarqueeSection text-center md:px-4 px-2 md:py-8 py-2">

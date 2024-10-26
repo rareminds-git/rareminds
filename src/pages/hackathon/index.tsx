@@ -60,7 +60,7 @@ const Events = () => {
             <img
               src={`${import.meta.env.VITE_API_URL}uploads/${currentPosts && currentPosts[0].Image1}`}
               width={"100%"}
-              className="rounded-xl object-cover"
+              className="rounded-xl object-cover max-h-[300px]"
             />
 
             <h4
@@ -83,43 +83,46 @@ const Events = () => {
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-          {currentPosts?.slice(1).map((ele) => {
-            return (
-              <div
-                className="cursor-pointer sm:my-4 md:max-h-[1200px] md:my-4"
-                onClick={() =>
-                  window.open(
-                    `${import.meta.env.VITE_PUBLIC_URL}${ele.ContentSlug}`,
-                    "_self"
-                  )
-                }
-              >
-                <img
-                  src={`${import.meta.env.VITE_API_URL}uploads/${ele.Image1}`}
-                  width={"100%"}
-                  className="rounded-xl md:min-h-[500px] md:max-h-[400px] object-cover"
-                  alt={ele.Heading1}
-                />
+        <div className="grid sm:grid-cols-1 md:grid-cols-5 gap-4 mb-10">
+          {currentPosts?.slice(1).map((ele, index) => (
+            <div
+              key={index}
+              className={`cursor-pointer md:my-4 ${
+                // Adjust column span based on row pattern
+                index % 4 === 0 || index % 4 === 3
+                  ? "col-span-2" // 60% width for large image in odd rows
+                  : "col-span-3" // 40% width for small image in odd rows
+              }`}
+              onClick={() => window.open(`/${ele.ContentSlug}`, "_self")}
+            >
+              <img
+                src={`${import.meta.env.VITE_API_URL}uploads/${ele.Image1}`}
+                width="100%"
+                className={`rounded-xl object-cover ${
+                  index % 4 === 0 || index % 4 === 3
+                    ? "xl:min-h-[250px] xl:max-h-[250px]" // Large image height
+                    : "xl:min-h-[400px] xl:max-h-[400px]" // Small image height
+                }`}
+                alt={ele.Heading1}
+              />
 
-                <h4
-                  className="font-Syne md:text-[26px] leading-[31.2px] mt-5 my-3 text-sm text-black font-bold"
-                  dangerouslySetInnerHTML={{
-                    __html: ele.Heading1,
-                  }}
-                />
-                <p
-                  className="text-[16px] leading-[24px] font-Syne my-3 line-clamp-2 font-normal"
-                  dangerouslySetInnerHTML={{
-                    __html: ele.Heading2,
-                  }}
-                />
-                <p className="text-[16px] leading-[21.76px] my-3 font-[Sentient]">
-                  {moment(ele.EventDate).format("DD MMM YYYY")}
-                </p>
-              </div>
-            );
-          })}
+              <h4
+                className="font-Syne md:text-[26px] leading-[31.2px] mt-5 my-3 text-sm text-black font-bold"
+                dangerouslySetInnerHTML={{
+                  __html: ele.Heading1,
+                }}
+              />
+              <p
+                className="text-[16px] leading-[24px] font-Syne my-3 line-clamp-2 font-normal"
+                dangerouslySetInnerHTML={{
+                  __html: ele.Heading2,
+                }}
+              />
+              <p className="text-[16px] leading-[21.76px] my-3 font-[Sentient]">
+                {moment(ele.CreatedOn).format("DD MMM YYYY")}
+              </p>
+            </div>
+          ))}
         </div>
 
         <div className="absolute sm:bottom-0 md:bottom-8 right-10">

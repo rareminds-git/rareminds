@@ -18,6 +18,9 @@ export default {
       transitionProperty: {
         width: "width",
       },
+      colors: {
+        "placeholder-red": "#ff0000", // or any shade of red you prefer
+      },
     },
     screens: {
       xs: "360px",
