@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ProgramImg from "../../assets/images/programImg.svg";
+import AuthorImg from "../../assets/images/author-image.svg";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import CTA from "@/common/CTA";
@@ -45,10 +45,10 @@ const BlogDetail = () => {
             {blogData?.blogData?.Heading1}
           </h1>
 
-          <div className="grid md:grid-cols-3 sm:grid-cols-1 md:grid-rows-1 sm:grid-rows-2 border-b-2 md:border-black mb-10 py-5">
-            <div className="col-span-1 md:col-span-2 xl:col-span-1 inline-block lg:w-[60%] xl:w-[45%] md:w-[60%]">
+          <div className="grid md:grid-cols-3 sm:grid-cols-1 xl:grid-cols-3 md:grid-rows-1 sm:grid-rows-2 border-b-2 md:border-black mb-10 py-5">
+            <div className="col-span-1 md:col-span-2 xl:col-span-2 inline-block lg:w-[60%] xl:w-[45%] md:w-[60%]">
               <img
-                src="https://icons.veryicon.com/png/o/healthcate-medical/orange-particle/author-2.png"
+                src={AuthorImg}
                 height="75"
                 width="75"
                 className="rounded-full border-4 float-left"
@@ -59,7 +59,7 @@ const BlogDetail = () => {
                 Social Media Manager
               </p>
             </div>
-            <h4 className="md:text-right text-red-600 row-span-1 md:text-[15px] col-span-1 md:my-6 sm:my-2 sm:border-t-2 sm:border-black md:border-0 sm:py-4">
+            <h4 className="md:text-right text-red-600 row-span-1 md:text-[15px] col-span-1 xl:col-span-1 md:my-6 sm:my-2 sm:border-t-2 sm:border-black md:border-0 sm:py-4">
               Published:{" "}
               {moment(blogData?.blogData?.CreatedOn).format("MMM Do YYYY")}
             </h4>

@@ -57,7 +57,7 @@ const Services = ({ content, services, ctaContent }) => {
               <div className="md:hidden">
                 <OwlCarousel
                   className="owl-theme"
-                  autoplay
+                  // autoplay
                   loop
                   margin={10}
                   items={1.1}
@@ -65,6 +65,7 @@ const Services = ({ content, services, ctaContent }) => {
                   nav={false}
                 >
                   {services.map((ele: any) => {
+                    const description = parse(ele?.Description);
                     return (
                       <div
                         className="item my-4 cursor-pointer font-Syne max-h-[300px] min-h-[300px]"
@@ -75,17 +76,15 @@ const Services = ({ content, services, ctaContent }) => {
                             {ele.Heading1}
                           </h3>
 
-                          <p
-                            className="text-sm my-5 line-clamp-3"
-                            dangerouslySetInnerHTML={{
-                              __html: parse(ele?.Description),
-                            }}
-                          ></p>
+                          <p className="text-sm my-5">
+                            {description.replace("<p>", "").substring(0, 150) +
+                              "..."}
+                          </p>
                           <p
                             onClick={() => navigate(`/${ele.ContentSlug}`)}
                             className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
                           >
-                            ...Read More
+                            Read More
                           </p>
                         </div>
                       </div>

@@ -29,9 +29,9 @@ const Achievements = ({ content, achievements }) => {
               return (
                 <div className="container" ref={ref}>
                   <div
-                    className={`grid grid-cols-4 gap-4 lg:px-4 lg:py-12 py-10 px-10 ${index === 0 ? "border-y-black border-2" : ""} ${index === 2 ? "border-t-black border-2 border-b-0" : ""} border-x-0`}
+                    className={`grid grid-cols-4 gap-4 lg:px-4 lg:py-4 py-10 px-10 ${index === 0 ? "border-y-black border-2" : ""} ${index === 2 ? "border-t-black border-2 border-b-0" : ""} border-x-0`}
                   >
-                    <div className="lg:col-span-1 col-span-1">
+                    <div className="col-span-2">
                       <h5
                         className="text-[52px] leading-[58px] font-Syne font-bold"
                         dangerouslySetInnerHTML={{
@@ -45,17 +45,20 @@ const Achievements = ({ content, achievements }) => {
                         }}
                       ></p>
                     </div>
-                    <div className="grid place-items-end lg:col-span-3 col-span-1">
-                      <div className="place-items-end">
-                        <h5 className=" lg:text-[162px] leading-[171px] text-[60px] text-blue-400 font-[Poppins-Regular]">
-                          {isInViewport && (
-                            <CountUp
-                              start={0}
-                              end={ele.ContentSubDescription.replace(",", "")}
-                            />
-                          )}
-                        </h5>
-                      </div>
+                    {index > 0 && <div className="col-span-1"></div>}
+                    <div
+                      className={`grid lg:col-span-1 ${index < 2 ? "content-center" : "content-start"}`}
+                    >
+                      <h5
+                        className={`${index < 2 ? "lg:text-[162px] leading-[171px]" : "lg:text-[62px] leading-[71px]"} text-right text-[60px] text-blue-400 font-[Poppins-Regular]`}
+                      >
+                        {isInViewport && (
+                          <CountUp
+                            start={0}
+                            end={ele.ContentSubDescription.replace(",", "")}
+                          />
+                        )}
+                      </h5>
                     </div>
                   </div>
                 </div>
