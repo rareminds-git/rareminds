@@ -121,7 +121,7 @@ const Blog = ({ content }) => {
               return (
                 <div
                   className="item cursor-pointer"
-                  onClick={() => navigate(`/blogs/${ele.PageSlug}`)}
+                  onClick={() => navigate(`/blogs/${ele.ContentSlug}`)}
                 >
                   <div className="grid grid-flow-col place-items-start">
                     <div className="row-span-3 my-4 mx-4 place-items-start">
@@ -131,7 +131,7 @@ const Blog = ({ content }) => {
                           // width: "159px",
                           height: `${index % 2 === 0 ? "186px" : "295px"}`,
                         }}
-                        className={`${index % 2 === 0 ? "rounded-tl-[20px] rounded-tr-[180px] rounded-bl-[20px] rounded-br-[20px] object-fill" : "rounded-tl-[80px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] object-fill"}`}
+                        className={`${index % 2 === 0 ? "rounded-tl-[20px] rounded-tr-[180px] rounded-bl-[20px] rounded-br-[20px] object-cover" : "rounded-tl-[80px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] object-cover"}`}
                       />
                       <p
                         className="font-Syne text-[16px] leading-[18px] pb-5 mr-4 mt-4 font-bold"
