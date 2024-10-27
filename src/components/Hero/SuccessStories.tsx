@@ -77,7 +77,7 @@ const SuccessStories = ({ content, pageData }) => {
                 return (
                   <div
                     className="cursor-pointer item"
-                    onClick={() => navigate(`${ele.ContentSlug}`)}
+                    onClick={() => navigate(`/${ele.ContentSlug}`)}
                   >
                     <img
                       src={`/images/${ele.Image1}`}
