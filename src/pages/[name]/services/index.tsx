@@ -81,6 +81,7 @@ const Services = () => {
           <div className="flex service-list">
             {serviceData &&
               serviceData?.serviceData?.map((ele: any) => {
+                const description = parse(ele.Description);
                 return (
                   <div
                     key={ele.ContentAcronym}
@@ -118,7 +119,7 @@ const Services = () => {
                           hoveredDivs === null ? "mt-16" : ""
                         } ${hoveredDivs === null ? "line-clamp-4" : ""}`}
                         dangerouslySetInnerHTML={{
-                          __html: parse(ele?.Description),
+                          __html: description.substring(0, 300),
                         }}
                       ></p>
 

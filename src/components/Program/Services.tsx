@@ -24,56 +24,59 @@ const Services = ({ content, services, ctaContent }) => {
         <>
           {!isMobile ? (
             <div className="flex service-list">
-              {services.map((ele) => (
-                <div
-                  key={ele.ContentAcronym}
-                  className={`item mx-2 rounded-lg bg-red-400 cursor-pointer transition-all duration-300 ease-in-out ${
-                    hoveredDivs === ele.ContentAcronym
-                      ? "hovered"
-                      : hoveredDivs
-                        ? "non-hovered"
-                        : ""
-                  }`}
-                  onMouseEnter={() => setHoveredDivs(ele.ContentAcronym)}
-                  onMouseLeave={() => setHoveredDivs(null)}
-                  onClick={() => navigate(`/${ele.ContentSlug}`)}
-                  style={{
-                    width:
-                      hoveredDivs === ele.ContentAcronym
-                        ? "80%"
-                        : hoveredDivs
-                          ? "10%"
-                          : defaultWidth,
-                    height: fixedHeight, // Maintain a fixed height
-                  }}
-                >
+              {services.map((ele) => {
+                const description = parse(ele?.Description);
+                return (
                   <div
-                    className={`text-white p-8 xl:py-12 xl:px-10 rounded-lg item-bg ${
-                      hoveredDivs && hoveredDivs !== ele.ContentAcronym
-                        ? "hidden-content"
-                        : ""
+                    key={ele.ContentAcronym}
+                    className={`item mx-2 rounded-lg bg-red-400 cursor-pointer transition-all duration-300 ease-in-out ${
+                      hoveredDivs === ele.ContentAcronym
+                        ? "hovered"
+                        : hoveredDivs
+                          ? "non-hovered"
+                          : ""
                     }`}
+                    onMouseEnter={() => setHoveredDivs(ele.ContentAcronym)}
+                    onMouseLeave={() => setHoveredDivs(null)}
+                    onClick={() => navigate(`/${ele.ContentSlug}`)}
+                    style={{
+                      width:
+                        hoveredDivs === ele.ContentAcronym
+                          ? "80%"
+                          : hoveredDivs
+                            ? "10%"
+                            : defaultWidth,
+                      height: fixedHeight, // Maintain a fixed height
+                    }}
                   >
-                    <h4 className="text-5xl font-Syne">{ele.Heading1}</h4>
-
-                    <p
-                      className={`text-sm my-5 font-[Sentient] font-normal ${
-                        hoveredDivs === null ? "mt-16" : ""
-                      } ${hoveredDivs === null ? "line-clamp-4" : ""}`}
-                      dangerouslySetInnerHTML={{
-                        __html: parse(ele?.Description),
-                      }}
-                    ></p>
-
-                    <p
-                      onClick={() => navigate(`/${ele.ContentSlug}`)}
-                      className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
+                    <div
+                      className={`text-white p-8 xl:py-12 xl:px-10 rounded-lg item-bg ${
+                        hoveredDivs && hoveredDivs !== ele.ContentAcronym
+                          ? "hidden-content"
+                          : ""
+                      }`}
                     >
-                      ...Read More
-                    </p>
+                      <h4 className="text-5xl font-Syne">{ele.Heading1}</h4>
+
+                      <p
+                        className={`text-sm my-5 font-[Sentient] font-normal ${
+                          hoveredDivs === null ? "mt-16" : ""
+                        } ${hoveredDivs === null ? "line-clamp-4" : ""}`}
+                        dangerouslySetInnerHTML={{
+                          __html: description.substring(0, 375) + "...",
+                        }}
+                      ></p>
+
+                      <p
+                        onClick={() => navigate(`/${ele.ContentSlug}`)}
+                        className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
+                      >
+                        ...Read More
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           ) : (
             <>
