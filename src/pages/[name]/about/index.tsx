@@ -29,8 +29,6 @@ const About = () => {
     getPageData();
   }, []);
 
-  console.log("page data", pageData);
-
   return (
     <>
       <Helmet>
@@ -217,35 +215,36 @@ const About = () => {
               margin={100}
               items={4}
             >
-              {pageData?.awards?.map((ele: any, index) => {
-                return (
-                  <div className="item">
-                    <div
-                      className={`mt-4 xxl:row-span-${index + 1} min-h-100 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
-                    >
-                      <img
-                        src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
-                        width="180px"
-                        className="rounded-full
+              {pageData &&
+                pageData?.awards?.map((ele: any, index) => {
+                  return (
+                    <div className="item">
+                      <div
+                        className={`mt-4 xxl:row-span-${index + 1} min-h-100 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
+                      >
+                        <img
+                          src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
+                          width="180px"
+                          className="rounded-full
             border-[#CAF0F8] border-[17px] mx-auto my-6"
-                      />
-                      <p
-                        className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[26px] lg:leading-[35.2px] text-black-400 mx-2 text-[24px]"
-                        dangerouslySetInnerHTML={{
-                          __html: ele.Heading2,
-                        }}
-                      />
+                        />
+                        <p
+                          className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[26px] lg:leading-[35.2px] text-black-400 mx-2 text-[24px]"
+                          dangerouslySetInnerHTML={{
+                            __html: ele.Heading2,
+                          }}
+                        />
 
-                      <p
-                        className="mt-2 lg:text-[22px] text-[12px] text-center lg:leading-[43.06px] font-light"
-                        dangerouslySetInnerHTML={{
-                          __html: ele.SubHeading1,
-                        }}
-                      />
+                        <p
+                          className="mt-2 lg:text-[22px] text-[12px] text-center lg:leading-[43.06px] font-light"
+                          dangerouslySetInnerHTML={{
+                            __html: ele.SubHeading1,
+                          }}
+                        />
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </OwlCarousel>
           ) : (
             <OwlCarousel
@@ -275,35 +274,36 @@ const About = () => {
                 },
               }}
             >
-              {pageData?.awards?.map((ele: any, index) => {
-                return (
-                  <div className="item">
-                    <div
-                      className={`mt-4 xxl:row-span-${index + 1} min-h-100 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
-                    >
-                      <img
-                        src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
-                        width="180px"
-                        className="rounded-full
+              {pageData &&
+                pageData?.awards?.map((ele: any, index) => {
+                  return (
+                    <div className="item">
+                      <div
+                        className={`mt-4 xxl:row-span-${index + 1} min-h-100 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
+                      >
+                        <img
+                          src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
+                          width="180px"
+                          className="rounded-full
             border-[#CAF0F8] border-[17px] mx-auto my-6"
-                      />
-                      <p
-                        className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[26px] lg:leading-[35.2px] text-black-400 mx-2 text-[24px]"
-                        dangerouslySetInnerHTML={{
-                          __html: ele.Heading2,
-                        }}
-                      />
+                        />
+                        <p
+                          className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[26px] lg:leading-[35.2px] text-black-400 mx-2 text-[24px]"
+                          dangerouslySetInnerHTML={{
+                            __html: ele.Heading2,
+                          }}
+                        />
 
-                      <p
-                        className="mt-2 lg:text-[22px] text-[12px] text-center lg:leading-[43.06px] font-light"
-                        dangerouslySetInnerHTML={{
-                          __html: ele.SubHeading1,
-                        }}
-                      />
+                        <p
+                          className="mt-2 lg:text-[22px] text-[12px] text-center lg:leading-[43.06px] font-light"
+                          dangerouslySetInnerHTML={{
+                            __html: ele.SubHeading1,
+                          }}
+                        />
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
             </OwlCarousel>
           )}
         </div>
@@ -312,38 +312,51 @@ const About = () => {
           <h3 className="font-Syne xxl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-2xl text-black py-4 text-center font-bold">
             Our Partners
           </h3>
-          <div className="container" id="logoMarqueeSection">
-            <div className="default-content-container flex items-center">
-              <div className="default-content-container-inner marquee-wrapper relative overflow-hidden inline-block md:flex">
-                <div className="marquee" style={{ animationDuration: "6s" }}>
-                  {pageData?.partners?.map((ele) => {
-                    return !isMobile ? (
+          <div className="container">
+            <OwlCarousel
+              className="owl-theme"
+              autoplay
+              responsive={{
+                0: {
+                  items: 4,
+                  nav: false,
+                  dots: false,
+                },
+                600: {
+                  items: 4,
+                  nav: false,
+                  dots: false,
+                },
+                1000: {
+                  items: 4,
+                  loop: true,
+                  dots: false,
+                  nav: false,
+                },
+              }}
+              loop
+              cellPadding={10}
+              margin={10}
+              items={4}
+            >
+              {pageData &&
+                pageData?.partners?.map((ele) => {
+                  return (
+                    <div className="item">
                       <a target="_blank">
                         <img
                           src={`${import.meta.env.VITE_PUBLIC_URL}images/${ele.Image1}`}
                           title=""
                           className="marqueelogo"
                           alt="Rareminds"
-                          width={350}
-                          height={200}
+                          width={!isMobile ? 350 : 250}
+                          height={!isMobile ? 200 : 100}
                         />
                       </a>
-                    ) : (
-                      <a target="_blank">
-                        <img
-                          src={`${import.meta.env.VITE_PUBLIC_URL}images/${ele.Image1}`}
-                          title=""
-                          className="marqueelogo"
-                          alt="Rareminds"
-                          width={250}
-                          height={100}
-                        />
-                      </a>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
+                    </div>
+                  );
+                })}
+            </OwlCarousel>
           </div>
         </div>
       </section>
