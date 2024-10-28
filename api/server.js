@@ -249,7 +249,10 @@ app.get("/pages/:pageSlug", async function (req, res) {
   });
 
   let studyData = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_content WHERE ContentTypeId = 40 order by UNIX_TIMESTAMP(CreatedOn) DESC",
+    sql:
+      "SELECT * FROM rm_content WHERE ContentTypeId = 40 AND PageId = " +
+      pageData[0].PageId +
+      " order by UNIX_TIMESTAMP(CreatedOn) DESC",
   });
 
   if (achievementsData.length > 0) {

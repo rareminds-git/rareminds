@@ -36,6 +36,7 @@ const SuccessStories = ({ content, pageData }) => {
               nav={false}
             >
               {content?.map((ele: any) => {
+                console.log("Slug", ele.ContentSlug);
                 return (
                   <div
                     className="cursor-pointer item"
