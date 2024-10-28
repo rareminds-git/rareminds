@@ -63,7 +63,9 @@ const Services = ({ content, services, ctaContent }) => {
                           hoveredDivs === null ? "mt-16" : ""
                         } ${hoveredDivs === null ? "line-clamp-4" : ""}`}
                         dangerouslySetInnerHTML={{
-                          __html: description.substring(0, 375) + "...",
+                          __html:
+                            description &&
+                            description.substring(0, 375) + "...",
                         }}
                       ></p>
 
@@ -103,8 +105,9 @@ const Services = ({ content, services, ctaContent }) => {
                           </h3>
 
                           <p className="text-sm my-5">
-                            {description.replace("<p>", "").substring(0, 150) +
-                              "..."}
+                            {description &&
+                              description.replace("<p>", "").substring(0, 150) +
+                                "..."}
                           </p>
                           <p
                             onClick={() => navigate(`/${ele.ContentSlug}`)}
