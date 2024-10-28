@@ -76,14 +76,14 @@ const SuccessStories = ({ content, pageData }) => {
               {content.map((ele: any) => {
                 return (
                   <div
-                    className="cursor-pointer item"
+                    className="cursor-pointer item rounded-2xl"
                     onClick={() => navigate(`/${ele.ContentSlug}`)}
                   >
                     <img
                       src={`/images/${ele.Image1}`}
                       width={"100%"}
                       alt={ele.Heading1}
-                      className="rounded-3xl"
+                      className="rounded-2xl"
                     />
 
                     <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
