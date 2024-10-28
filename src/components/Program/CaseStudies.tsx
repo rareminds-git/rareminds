@@ -28,6 +28,7 @@ const CaseStudies = ({ pageData, ctaContent, content }) => {
                 <img
                   src={`/images/${ele.Image1}`}
                   width={"100%"}
+                  className="rounded-3xl"
                   alt={ele.Heading1}
                 />
 
