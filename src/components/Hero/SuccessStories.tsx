@@ -83,6 +83,7 @@ const SuccessStories = ({ content, pageData }) => {
                       src={`/images/${ele.Image1}`}
                       width={"100%"}
                       alt={ele.Heading1}
+                      className="rounded-3xl"
                     />
 
                     <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
