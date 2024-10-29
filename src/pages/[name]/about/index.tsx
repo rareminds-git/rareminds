@@ -192,7 +192,7 @@ const About = () => {
 
         <div className="py-16 place-items-start relative">
           {!isMobile
-            ? pageData?.awards.length > 0 && (
+            ? pageData?.awards && (
                 <OwlCarousel
                   className="owl-theme"
                   autoplay
