@@ -19,7 +19,7 @@ export default {
         width: "width",
       },
       colors: {
-        "placeholder-red": "#ff0000", // or any shade of red you prefer
+        "placeholder-red": "#D9D9D9", // or any shade of red you prefer
       },
     },
     screens: {

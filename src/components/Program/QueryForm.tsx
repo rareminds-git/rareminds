@@ -262,7 +262,7 @@ const QueryForm = ({ pageData, content }) => {
                     setErrors({ ...errors, JobTitle: "" });
                   }
                 }}
-                value={formData.CompanyName}
+                value={formData.JobTitle}
               />
               {errors.JobTitle && (
                 <span className="error-message text-red-500 font-bold">
