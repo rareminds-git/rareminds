@@ -116,16 +116,16 @@ const Services = () => {
 
                       <p
                         className={`text-sm my-5 font-[Sentient] font-normal ${
-                          hoveredDivs === null ? "mt-16" : ""
-                        } ${hoveredDivs === null ? "line-clamp-4" : ""}`}
+                          hoveredDivs === null ? "mt-16" : "mt-8"
+                        } ${hoveredDivs === null ? "line-clamp-4" : "line-clamp-6"}`}
                         dangerouslySetInnerHTML={{
-                          __html: description.substring(0, 300),
+                          __html: description,
                         }}
                       ></p>
 
                       <p
                         onClick={() => navigate(`/${ele.ContentSlug}`)}
-                        className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
+                        className={`font-[Sentient] font-bold text-[16px] leading-[21.76px] ${hoveredDivs === null ? "" : "hidden"}`}
                       >
                         ...Read More
                       </p>
