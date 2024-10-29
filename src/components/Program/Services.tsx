@@ -60,18 +60,16 @@ const Services = ({ content, services, ctaContent }) => {
 
                       <p
                         className={`text-sm my-5 font-[Sentient] font-normal ${
-                          hoveredDivs === null ? "mt-16" : ""
-                        } ${hoveredDivs === null ? "line-clamp-4" : ""}`}
+                          hoveredDivs === null ? "mt-16" : "mt-8"
+                        } ${hoveredDivs === null ? "line-clamp-4" : "line-clamp-6"}`}
                         dangerouslySetInnerHTML={{
-                          __html:
-                            description &&
-                            description.substring(0, 375) + "...",
+                          __html: description,
                         }}
                       ></p>
 
                       <p
                         onClick={() => navigate(`/${ele.ContentSlug}`)}
-                        className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
+                        className={`font-[Sentient] font-bold text-[16px] leading-[21.76px] ${hoveredDivs === null ? "" : "hidden"}`}
                       >
                         ...Read More
                       </p>
@@ -97,6 +95,8 @@ const Services = ({ content, services, ctaContent }) => {
                     return (
                       <div
                         className="item my-4 cursor-pointer font-Syne max-h-[300px] min-h-[300px]"
+                        onMouseEnter={() => setHoveredDivs(ele.ContentAcronym)}
+                        onMouseLeave={() => setHoveredDivs(null)}
                         onClick={() => navigate(`/${ele.ContentSlug}`)}
                       >
                         <div className="bg-red-400 text-white p-8 rounded-2xl item-bg">
@@ -138,7 +138,7 @@ const Services = ({ content, services, ctaContent }) => {
                         </h4>
 
                         <p
-                          className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === null ? "mt-16" : hoveredDivs === undefined ? "mt-16" : ""} ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
+                          className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === null ? "mt-16" : hoveredDivs === undefined ? "mt-16" : "mt-16"} ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : "line-clamp-6"}`}
                           dangerouslySetInnerHTML={{
                             __html: parse(ele?.Description),
                           }}

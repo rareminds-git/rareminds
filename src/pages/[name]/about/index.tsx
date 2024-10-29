@@ -20,14 +20,15 @@ const About = () => {
   const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
 
   useEffect(() => {
-    async function getPageData() {
-      await axios.get(`${import.meta.env.VITE_API_URL}about`).then((res) => {
-        setPageData(res.data);
-      });
-    }
+    const getPageData = async () =>
+      setPageData(
+        (await axios.get(`${import.meta.env.VITE_API_URL}about`)).data
+      );
 
     getPageData();
   }, []);
+
+  console.log("pageData", pageData);
 
   return (
     <>
@@ -190,125 +191,126 @@ const About = () => {
         </p>
 
         <div className="py-16 place-items-start relative">
-          {!isMobile ? (
-            <OwlCarousel
-              className="owl-theme"
-              autoplay
-              responsive={{
-                0: {
-                  items: 1,
-                  nav: false,
-                  dots: false,
-                },
-                600: {
-                  items: 1,
-                  nav: false,
-                },
-                1000: {
-                  items: 4,
-                  loop: true,
-                  dots: false,
-                },
-              }}
-              loop
-              cellPadding={120}
-              margin={100}
-              items={4}
-            >
-              {pageData &&
-                pageData?.awards?.map((ele: any, index) => {
-                  return (
-                    <div className="item">
-                      <div
-                        className={`mt-4 xxl:row-span-${index + 1} min-h-100 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
-                      >
-                        <img
-                          src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
-                          width="180px"
-                          className="rounded-full
+          {!isMobile
+            ? pageData?.awards.length > 0 && (
+                <OwlCarousel
+                  className="owl-theme"
+                  autoplay
+                  responsive={{
+                    0: {
+                      items: 1,
+                      nav: false,
+                      dots: false,
+                    },
+                    600: {
+                      items: 1,
+                      nav: false,
+                    },
+                    1000: {
+                      items: 4,
+                      loop: true,
+                      dots: false,
+                    },
+                  }}
+                  loop
+                  cellPadding={120}
+                  margin={100}
+                  items={4}
+                >
+                  {pageData?.awards?.map((ele: any, index) => {
+                    console.log("award ele", ele);
+                    return (
+                      <div className="item">
+                        <div
+                          className={`mt-4 xxl:row-span-${index + 1} min-h-100 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
+                        >
+                          <img
+                            src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
+                            width="180px"
+                            className="rounded-full
             border-[#CAF0F8] border-[17px] mx-auto my-6"
-                        />
-                        <p
-                          className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[26px] lg:leading-[35.2px] text-black-400 mx-2 text-[24px]"
-                          dangerouslySetInnerHTML={{
-                            __html: ele.Heading2,
-                          }}
-                        />
+                          />
+                          <p
+                            className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[26px] lg:leading-[35.2px] text-black-400 mx-2 text-[24px]"
+                            dangerouslySetInnerHTML={{
+                              __html: ele.Heading2,
+                            }}
+                          />
 
-                        <p
-                          className="mt-2 lg:text-[22px] text-[12px] text-center lg:leading-[43.06px] font-light"
-                          dangerouslySetInnerHTML={{
-                            __html: ele.SubHeading1,
-                          }}
-                        />
+                          <p
+                            className="mt-2 lg:text-[22px] text-[12px] text-center lg:leading-[43.06px] font-light"
+                            dangerouslySetInnerHTML={{
+                              __html: ele.SubHeading1,
+                            }}
+                          />
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
-            </OwlCarousel>
-          ) : (
-            <OwlCarousel
-              className="owl-theme"
-              autoplay
-              loop
-              margin={0}
-              items={1}
-              dots={false}
-              nav={false}
-              responsive={{
-                0: {
-                  items: 1,
-                  nav: false,
-                  dots: false,
-                },
-                600: {
-                  items: 3,
-                  nav: false,
-                  dots: false,
-                  stagePadding: 20,
-                },
-                1000: {
-                  items: 3,
-                  loop: true,
-                  dots: false,
-                },
-              }}
-            >
-              {pageData &&
-                pageData?.awards?.map((ele: any, index) => {
-                  return (
-                    <div className="item">
-                      <div
-                        className={`mt-4 xxl:row-span-${index + 1} min-h-100 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
-                      >
-                        <img
-                          src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
-                          width="180px"
-                          className="rounded-full
+                    );
+                  })}
+                </OwlCarousel>
+              )
+            : pageData && (
+                <OwlCarousel
+                  className="owl-theme"
+                  autoplay
+                  loop
+                  margin={0}
+                  items={1}
+                  dots={false}
+                  nav={false}
+                  responsive={{
+                    0: {
+                      items: 1,
+                      nav: false,
+                      dots: false,
+                    },
+                    600: {
+                      items: 3,
+                      nav: false,
+                      dots: false,
+                      stagePadding: 20,
+                    },
+                    1000: {
+                      items: 3,
+                      loop: true,
+                      dots: false,
+                    },
+                  }}
+                >
+                  {pageData?.awards?.map((ele: any, index) => {
+                    return (
+                      <div className="item">
+                        <div
+                          className={`mt-4 xxl:row-span-${index + 1} min-h-100 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
+                        >
+                          <img
+                            src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
+                            width="180px"
+                            className="rounded-full
             border-[#CAF0F8] border-[17px] mx-auto my-6"
-                        />
-                        <p
-                          className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[26px] lg:leading-[35.2px] text-black-400 mx-2 text-[24px]"
-                          dangerouslySetInnerHTML={{
-                            __html: ele.Heading2,
-                          }}
-                        />
+                          />
+                          <p
+                            className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[26px] lg:leading-[35.2px] text-black-400 mx-2 text-[24px]"
+                            dangerouslySetInnerHTML={{
+                              __html: ele.Heading2,
+                            }}
+                          />
 
-                        <p
-                          className="mt-2 lg:text-[22px] text-[12px] text-center lg:leading-[43.06px] font-light"
-                          dangerouslySetInnerHTML={{
-                            __html: ele.SubHeading1,
-                          }}
-                        />
+                          <p
+                            className="mt-2 lg:text-[22px] text-[12px] text-center lg:leading-[43.06px] font-light"
+                            dangerouslySetInnerHTML={{
+                              __html: ele.SubHeading1,
+                            }}
+                          />
+                        </div>
                       </div>
-                    </div>
-                  );
-                })}
-            </OwlCarousel>
-          )}
+                    );
+                  })}
+                </OwlCarousel>
+              )}
         </div>
 
-        <div className="logoMarqueeSection text-center md:px-4 px-2 md:py-8 py-2">
+        <div className="text-center md:px-4 px-2 md:py-8 py-2">
           <h3 className="font-Syne xxl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-2xl text-black py-4 text-center font-bold">
             Our Partners
           </h3>
