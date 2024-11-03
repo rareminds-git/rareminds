@@ -77,7 +77,7 @@ const BlogDetail = () => {
                   <p
                     className="mt-4 md:mr-20 mr-4 text-[16px] leading-[21.76px] font-[Syne] font-light BlogDetail"
                     dangerouslySetInnerHTML={{
-                      __html: parse(ele.ContentDescription),
+                      __html: ele.ContentDescription,
                     }}
                   ></p>
                 </div>

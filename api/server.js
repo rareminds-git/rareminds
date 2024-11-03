@@ -62,27 +62,6 @@ function convertToSlug(Text) {
     .replace(/[^\w-]+/g, "");
 }
 
-function encodeHTML(str) {
-  console.log("str", str);
-  const code = {
-    " ": "&nbsp;",
-    "¢": "&cent;",
-    "£": "&pound;",
-    "¥": "&yen;",
-    "€": "&euro;",
-    "©": "&copy;",
-    "®": "&reg;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "&": "&amp;",
-    "'": "&apos;",
-  };
-  return typeof str === "string"
-    ? str.replace(/[\u00A0-\u9999<>\&''""]/gm, (i) => code[i])
-    : str;
-}
-
 //Allow all requests from all domains & localhost
 app.all("/*", function (req, res, next) {
   console.log("call api");
@@ -352,19 +331,30 @@ app.post("/services/edit/:slug", async function (req, res) {
   let serviceSlug = "/services/" + slug;
 
   let serviceData = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + serviceSlug + "'",
+    sql: "SELECT * FROM rm_content WHERE ContentSlug = ?",
+    values: [serviceSlug],
   });
 
-  const contentSlug = formData.ContentSlug;
+  if (!serviceData || serviceData.length === 0) {
+    res.status(404).send({
+      status: 404,
+      message: "Service not found",
+    });
+    return;
+  }
 
+  const contentSlug = formData.ContentSlug;
   delete formData.ContentSlug;
 
   let updateString = Object.keys(formData).map((key) => {
-    return `${key} = "${encodeHTML(formData[key])}"`;
+    return `${key} = ?`;
   });
 
+  let updateValues = Object.values(formData);
+
   updateData = await mysqlQuery(con, {
-    sql: `UPDATE rm_content SET ${updateString} WHERE ContentId = "${serviceData[0].ContentId}"`,
+    sql: `UPDATE rm_content SET ${updateString.join(", ")} WHERE ContentId = ?`,
+    values: [...updateValues, serviceData[0].ContentId],
   });
 
   console.log(updateData);
@@ -377,12 +367,12 @@ app.post("/services/edit/:slug", async function (req, res) {
 
 app.post(
   "/blog/image-upload",
-  upload.single("upload"),
+  upload.single("image"),
   async function (req, res, next) {
     console.log("req files", req);
     try {
       res.json({
-        url: `${process.env.VITE_API_URL}/uploads/${req?.file?.filename}`,
+        url: `uploads/${req?.file?.filename}`,
       });
     } catch (err) {
       next(err);
@@ -405,7 +395,8 @@ app.post(
     let serviceSlug = userType + "/services/" + slug;
 
     let serviceData = await mysqlQuery(con, {
-      sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + serviceSlug + "'",
+      sql: "SELECT * FROM rm_content WHERE ContentSlug = ?",
+      values: [serviceSlug],
     });
 
     delete formData.ContentSlug;
@@ -427,10 +418,12 @@ app.post(
 
       contentData.map(async (ele) => {
         let updateString = Object.keys(ele).map((key) => {
-          return `${key} = "${encodeHTML(ele[key])}"`;
+          return `${key} = ?`;
         });
+        let updateValues = Object.values(ele);
         updateData = await mysqlQuery(con, {
-          sql: `UPDATE rm_content_details SET ${updateString} WHERE ContentDetailId = "${ele.ContentDetailId}"`,
+          sql: `UPDATE rm_content_details SET ${updateString.join(", ")} WHERE ContentDetailId = ?`,
+          values: [...updateValues, ele.ContentDetailId],
         });
       });
     } else if (contentSlug === "serviceData") {
@@ -452,20 +445,24 @@ app.post(
       let updateString = Object.keys(contentData[0]).map((key) => {
         console.log("data key", contentData[0][key]);
         if (contentData[0][key] !== undefined) {
-          return `${key} = "${encodeHTML(contentData[0][key])}"`;
+          return `${key} = ?`;
         }
       });
       console.log("update string", updateString);
+      let updateValues = Object.values(contentData[0]);
       updateData = await mysqlQuery(con, {
-        sql: `UPDATE rm_content SET ${updateString.filter(Boolean)} WHERE ContentSlug = "${serviceSlug}"`,
+        sql: `UPDATE rm_content SET ${updateString.filter(Boolean).join(", ")} WHERE ContentSlug = ?`,
+        values: [...updateValues, serviceSlug],
       });
     } else {
       let updateString = Object.keys(formData).map((key) => {
-        return `${key} = "${encodeHTML(formData[key])}"`;
+        return `${key} = ?`;
       });
+      let updateValues = Object.values(formData);
 
       updateData = await mysqlQuery(con, {
-        sql: `UPDATE rm_content SET ${updateString} WHERE ContentId = "${serviceData[0].ContentId}"`,
+        sql: `UPDATE rm_content SET ${updateString.join(", ")} WHERE ContentId = ?`,
+        values: [...updateValues, serviceData[0].ContentId],
       });
     }
 
@@ -482,7 +479,7 @@ app.post(
   "/editStudy/:userType/:slug/:contentSlug",
   upload.single("ContentImage"),
   async function (req, res) {
-    const { userType, slug } = req.params;
+    const { userType, slug, contentSlug } = req.params;
 
     const { body, file } = req;
 
@@ -493,10 +490,9 @@ app.post(
     let serviceSlug = userType + "/case-studies/" + slug;
 
     let serviceData = await mysqlQuery(con, {
-      sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + serviceSlug + "'",
+      sql: "SELECT * FROM rm_content WHERE ContentSlug = ?",
+      values: [serviceSlug],
     });
-
-    const contentSlug = formData.ContentSlug;
 
     delete formData.ContentSlug;
 
@@ -514,21 +510,25 @@ app.post(
       let updateString = Object.keys(contentData[0]).map((key) => {
         console.log("data key", contentData[0][key]);
         if (contentData[0][key] !== undefined) {
-          return `${key} = "${encodeHTML(contentData[0][key])}"`;
+          return `${key} = ?`;
         }
       });
       console.log("update string", updateString);
+      let updateValues = Object.values(contentData[0]);
       updateData = await mysqlQuery(con, {
-        sql: `UPDATE rm_content_details SET ${updateString.filter(Boolean)} WHERE ContentDetailId = "${contentData[0].ContentDetailId}"`,
+        sql: `UPDATE rm_content_details SET ${updateString.filter(Boolean).join(", ")} WHERE ContentDetailId = ?`,
+        values: [...updateValues, contentData[0].ContentDetailId],
       });
     } else {
       console.log("form data", formData);
       let updateString = Object.keys(formData).map((key) => {
-        return `${key} = "${encodeHTML(formData[key])}"`;
+        return `${key} = ?`;
       });
+      let updateValues = Object.values(formData);
 
       updateData = await mysqlQuery(con, {
-        sql: `UPDATE rm_content SET ${updateString} WHERE ContentId = "${serviceData[0].ContentId}"`,
+        sql: `UPDATE rm_content SET ${updateString.join(", ")} WHERE ContentId = ?`,
+        values: [...updateValues, serviceData[0].ContentId],
       });
     }
 
@@ -695,7 +695,8 @@ app.post("/case-studies/edit/:slug", async function (req, res) {
   let serviceSlug = "/caseStudies/" + slug;
 
   let serviceData = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + serviceSlug + "'",
+    sql: "SELECT * FROM rm_content WHERE ContentSlug = ?",
+    values: [serviceSlug],
   });
 
   const contentSlug = formData.ContentSlug;
@@ -703,11 +704,13 @@ app.post("/case-studies/edit/:slug", async function (req, res) {
   delete formData.ContentSlug;
 
   let updateString = Object.keys(formData).map((key) => {
-    return `${key} = "${encodeHTML(formData[key])}"`;
+    return `${key} = ?`;
   });
+  let updateValues = Object.values(formData);
 
   updateData = await mysqlQuery(con, {
-    sql: `UPDATE rm_content SET ${updateString} WHERE ContentId = "${serviceData[0].ContentId}"`,
+    sql: `UPDATE rm_content SET ${updateString.join(", ")} WHERE ContentId = ?`,
+    values: [...updateValues, serviceData[0].ContentId],
   });
 
   console.log(updateData);
@@ -723,55 +726,37 @@ app.post("/editPage/:slug", async function (req, res) {
   const ContentSlug = formData.ContentSlug;
   const pageSlug = req.params.slug;
   let pageData = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_pages WHERE PageSlug = '/" + pageSlug + "'",
+    sql: "SELECT * FROM rm_pages WHERE PageSlug = ?",
+    values: [pageSlug],
   });
 
-  if (formData.ContentSlug === "/metadata" || pageSlug === "about-us") {
-    delete formData.ContentSlug;
+  if (!pageData || pageData.length === 0) {
+    res.status(404).send({
+      status: 404,
+      message: "Page not found",
+    });
+    return;
   }
+
+  delete formData.ContentSlug;
 
   let updateString = Object.keys(formData).map((key) => {
-    return `${key} = "${encodeHTML(formData[key])}"`;
+    return `${key} = ?`;
   });
 
-  let updateData = "";
+  let updateValues = Object.values(formData);
 
-  if (ContentSlug === "/metadata") {
-    updateData = await mysqlQuery(con, {
-      sql: `UPDATE rm_pages SET ${updateString} WHERE PageSlug = "/${pageSlug}"`,
-    });
-  } else if (pageSlug === "contact-us" || pageSlug === "about-us") {
-    updateData = await mysqlQuery(con, {
-      sql: `UPDATE rm_content SET ${updateString} WHERE ContentId = "${formData.ContentId}"`,
-    });
-  } else if (pageSlug === "privacy-policy") {
-    updateData = await mysqlQuery(con, {
-      sql: `UPDATE rm_content SET ${updateString} WHERE ContentTypeId = 45`,
-    });
-  } else if (pageSlug === "terms-&-conditions") {
-    updateData = await mysqlQuery(con, {
-      sql: `UPDATE rm_content SET ${updateString} WHERE ContentTypeId = 46`,
-    });
-  } else {
-    updateData = await mysqlQuery(con, {
-      sql: `UPDATE rm_content SET ${updateString} WHERE ContentSlug = "${formData.ContentSlug}" AND PageId = ${pageData[0].PageId}`,
-    });
-  }
+  updateData = await mysqlQuery(con, {
+    sql: `UPDATE rm_pages SET ${updateString.join(", ")} WHERE PageId = ?`,
+    values: [...updateValues, pageData[0].PageId],
+  });
 
   console.log(updateData);
 
-  if (updateData) {
-    res.send({
-      status: 200,
-      message: "Data updated successfully",
-    });
-  } else {
-    res.send({
-      status: 500,
-      message:
-        "Details could not be submitted at this time. Please try again after sometime.",
-    });
-  }
+  res.send({
+    status: 200,
+    message: "Data updated successfully",
+  });
 });
 
 app.get("/queries", async function (req, res) {
@@ -827,10 +812,8 @@ app.post("/subscribers", async function (req, res) {
   const formData = req.body;
 
   let insertData = await mysqlQuery(con, {
-    sql:
-      "INSERT INTO `rm_subscribers` (`SubscriberEmail`) VALUES ('" +
-      formData.SubscriberEmail +
-      "')",
+    sql: "INSERT INTO `rm_subscribers` (`SubscriberEmail`) VALUES (?)",
+    values: [formData.SubscriberEmail],
   });
 
   if (insertData) {
@@ -904,40 +887,31 @@ app.post("/addBlog", upload.single("Image1"), async function (req, res) {
 
   if (Object.keys(blogData).length > 0) {
     let updateData = await mysqlQuery(con, {
-      sql:
-        "INSERT into `rm_content` (`Heading1`,  `Heading2`, `Image1`, `ContentSlug`, `PageId`, `ContentTypeId`, `MetaTitle`, `MetaDescription`, `MetaKeywords`,`OGTitle`, `OGDescription`, `CreatedOn`) VALUES ('" +
-        blogData.Heading1 +
-        "', '" +
-        blogData.Heading2 +
-        "', '" +
-        blogData.Image1 +
-        "', '" +
-        convertToSlug(blogData.Heading1) +
-        "', '9', '41', '" +
-        (metadata.MetaTitle || "") +
-        "','" +
-        (metadata.MetaDescription || "") +
-        "','" +
-        (metadata.MetaKeywords || "") +
-        "','" +
-        (metadata.OGTitle || "") +
-        "','" +
-        (metadata.OGDescription || "") +
-        "', '" +
-        (blogData.CreatedOn || "") +
-        "')",
+      sql: "INSERT into `rm_content` (`Heading1`, `Heading2`, `Image1`, `ContentSlug`, `PageId`, `ContentTypeId`, `MetaTitle`, `MetaDescription`, `MetaKeywords`, `OGTitle`, `OGDescription`, `CreatedOn`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+      values: [
+        blogData.Heading1,
+        blogData.Heading2,
+        blogData.Image1,
+        convertToSlug(blogData.Heading1),
+        "9",
+        "41",
+        metadata.MetaTitle || "",
+        metadata.MetaDescription || "",
+        metadata.MetaKeywords || "",
+        metadata.OGTitle || "",
+        metadata.OGDescription || "",
+        blogData.CreatedOn || "",
+      ],
     });
 
     if (updateData && Object.keys(blogDetails).length > 0) {
       await mysqlQuery(con, {
-        sql:
-          "INSERT into `rm_content_details` (`ContentTitle`,  `ContentDescription`, `ContentId`) VALUES ('" +
-          blogDetails.ContentTitle +
-          "', '" +
-          encodeHTML(blogDetails.ContentDescription) +
-          "', '" +
-          updateData.insertId +
-          "')",
+        sql: "INSERT into `rm_content_details` (`ContentTitle`, `ContentDescription`, `ContentId`) VALUES (?, ?, ?)",
+        values: [
+          blogDetails.ContentTitle,
+          blogDetails.ContentDescription,
+          updateData.insertId,
+        ],
       });
     }
   }
@@ -961,7 +935,8 @@ app.post(
     const formData = req.body;
 
     let blogData = await mysqlQuery(con, {
-      sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + slug + "'",
+      sql: "SELECT * FROM rm_content WHERE ContentSlug = ?",
+      values: [slug],
     });
 
     delete formData.ContentSlug;
@@ -988,26 +963,29 @@ app.post(
       let updateString = Object.keys(contentData[0]).map((key) => {
         console.log("data key", contentData[0][key]);
         if (contentData[0][key] !== undefined) {
-          return `${key} = "${encodeHTML(contentData[0][key])}"`;
+          return `${key} = ?`;
         }
       });
       console.log("update string", updateString);
       updateData = await mysqlQuery(con, {
-        sql: `UPDATE rm_content SET ${updateString.filter(Boolean)} WHERE ContentSlug = "${slug}"`,
+        sql: `UPDATE rm_content SET ${updateString.filter(Boolean).join(", ")} WHERE ContentSlug = ?`,
+        values: [...Object.values(contentData[0]), slug],
       });
     } else {
       console.log("form data", formData);
       let updateString = Object.keys(formData).map((key) => {
-        return `${key} = "${encodeHTML(formData[key])}"`;
+        return `${key} = ?`;
       });
 
       if (contentSlug === "metadata") {
         updateData = await mysqlQuery(con, {
-          sql: `UPDATE rm_content SET ${updateString.filter(Boolean)} WHERE ContentSlug = "${slug}"`,
+          sql: `UPDATE rm_content SET ${updateString.filter(Boolean).join(", ")} WHERE ContentSlug = ?`,
+          values: [...Object.values(formData), slug],
         });
       } else {
         updateData = await mysqlQuery(con, {
-          sql: `UPDATE rm_content_details SET ${updateString} WHERE ContentId = "${blogData[0].ContentId}"`,
+          sql: `UPDATE rm_content_details SET ${updateString.filter(Boolean).join(", ")} WHERE ContentId = ?`,
+          values: [...Object.values(formData), blogData[0].ContentId],
         });
       }
     }
@@ -1075,8 +1053,6 @@ app.post(
   async function (req, res) {
     const { body, file } = req;
 
-    console.log({ body, file });
-
     const formData = req.body;
 
     let testimonialData = JSON.parse(formData.testimonialDetails);
@@ -1084,16 +1060,13 @@ app.post(
 
     if (Object.keys(testimonialData).length > 0) {
       await mysqlQuery(con, {
-        sql:
-          "INSERT into `rm_content_details` (`ContentTitle`,  `ContentDescription`, `ContentId`, `AuthorImage`) VALUES ('" +
-          testimonialData.ContentTitle +
-          "', '" +
-          testimonialData.ContentDescription +
-          "', '" +
-          testimonialData.ContentId +
-          "', '" +
-          testimonialData.AuthorImage +
-          "')",
+        sql: "INSERT into `rm_content_details` (`ContentTitle`,  `ContentDescription`, `ContentId`, `AuthorImage`) VALUES (?, ?, ?, ?)",
+        values: [
+          testimonialData.ContentTitle,
+          testimonialData.ContentDescription,
+          testimonialData.ContentId,
+          testimonialData.AuthorImage,
+        ],
       });
     }
 
@@ -1110,8 +1083,6 @@ app.post(
   async function (req, res) {
     const { id } = req.params;
     const { body, file } = req;
-
-    console.log({ body, file });
 
     const formData = req.body;
 
@@ -1136,12 +1107,13 @@ app.post(
     let updateString = Object.keys(contentData[0]).map((key) => {
       console.log("data key", contentData[0][key]);
       if (contentData[0][key] !== undefined) {
-        return `${key} = "${encodeHTML(contentData[0][key])}"`;
+        return `${key} = ?`;
       }
     });
     console.log("update string", updateString);
     updateData = await mysqlQuery(con, {
-      sql: `UPDATE rm_content_details SET ${updateString.filter(Boolean)} WHERE ContentDetailId = "${id}"`,
+      sql: `UPDATE rm_content_details SET ${updateString.filter(Boolean).join(", ")} WHERE ContentDetailId = ?`,
+      values: [...Object.values(contentData[0]), id],
     });
 
     console.log(updateData);
@@ -1234,12 +1206,10 @@ app.post("/editEvent/:id", upload.single("Image1"), async function (req, res) {
   const { id } = req.params;
   const { body, file } = req;
 
-  // console.log({ body, file });
-
   const formData = req.body;
 
   let updateData = "";
-  // console.log("form data", JSON.parse(formData.eventData));
+  console.log("form data", JSON.parse(formData.eventData));
   let data = {};
   let eventData = JSON.parse(formData.eventData)[0];
   let contentData = [];
@@ -1251,51 +1221,24 @@ app.post("/editEvent/:id", upload.single("Image1"), async function (req, res) {
     });
   }
 
-  console.log("content data", eventData);
+  console.log("content data", contentData);
 
   delete eventData["CreatedOn"];
   delete eventData["ModifiedOn"];
-  eventData["EventDate"] = moment(eventData["EventDate"]).format(
-    "YYYY-MM-DD HH:mm:ss"
-  );
+  eventData["EventDate"] = moment(eventData["EventDate"]).format("YYYY-MM-DD");
 
   let updateString = Object.keys(eventData).map((key) => {
-    // console.log("data key", contentData[0][key]);
-    if (eventData[key] !== undefined) {
-      return `${key} = "${encodeHTML(eventData[key])}"`;
-    }
+    return `${key} = ?`;
   });
 
-  console.log("update string", updateString);
+  let updateValues = Object.values(eventData);
 
   updateData = await mysqlQuery(con, {
-    sql: `UPDATE rm_content SET ${updateString.filter(Boolean)} WHERE ContentId = "${id}"`,
+    sql: `UPDATE rm_events SET ${updateString.join(", ")} WHERE EventId = ?`,
+    values: [...updateValues, id],
   });
 
-  JSON.parse(formData.eventAgenda).map(async (row) => {
-    let eventAgendaString = Object.keys(row).map((key) => {
-      if (row[key] !== undefined) {
-        return `${key} = "${row[key]}"`;
-      }
-    });
-
-    await mysqlQuery(con, {
-      sql: `UPDATE rm_event_agenda SET ${eventAgendaString.filter(Boolean)} WHERE id = "${row.id}"`,
-    });
-  });
-
-  JSON.parse(formData.eventSchedule).map(async (row) => {
-    let eventScheduleString = Object.keys(row).map((key) => {
-      row["Date"] = moment(row["Date"]).format("YYYY-MM-DD HH:mm:ss");
-      if (row[key] !== undefined) {
-        return `${key} = "${row[key]}"`;
-      }
-    });
-
-    await mysqlQuery(con, {
-      sql: `UPDATE rm_event_schedule SET ${eventScheduleString.filter(Boolean)} WHERE id = "${row.id}"`,
-    });
-  });
+  console.log(updateData);
 
   res.send({
     status: 200,
