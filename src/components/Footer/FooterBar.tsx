@@ -7,6 +7,7 @@ import TwitterIcon from "../../assets/images/twitter-icon.svg";
 import LinkedInIcon from "../../assets/images/linkedin-icon.svg";
 import YoutubeIcon from "../../assets/images/youtube-icon.svg";
 import InstagramIcon from "../../assets/images/instagram-icon.svg";
+import { useNavigate } from "react-router-dom";
 
 const socialIcons = [
   {
@@ -42,7 +43,11 @@ const FooterBar = () => {
   const [subscriberEmail, setSubscriberEmail] = useState(null);
   const [successMessage, setSuccessMsg] = useState(null);
 
+  const navigate = useNavigate();
+
   const subscribeInput = useRef();
+
+  const userType = localStorage.getItem("currentUserType");
 
   useEffect(() => {
     async function getData() {
@@ -56,7 +61,7 @@ const FooterBar = () => {
     }
 
     getData();
-  }, []);
+  }, [userType]);
 
   const submitSubscription = () => {
     if (subscriberEmail) {
@@ -118,18 +123,49 @@ const FooterBar = () => {
                   </ul>
                 </div>
                 <div className="row-span-1">
-                  <ul className="mx-10 text-[20px] leading-[24px] font-Syne">
+                  <ul className="mx-10 text-[20px] leading-[24px] font-Syne cursor-pointer">
                     <li>
-                      <a href="/corporate">Corporate Program </a>
+                      <a
+                        onClick={() => {
+                          localStorage.setItem("currentUserType", "corporate");
+                          navigate("/corporate");
+                        }}
+                      >
+                        Corporate Program{" "}
+                      </a>
                     </li>
                     <li>
-                      <a href="/institutions">Institutions Program</a>
+                      <a
+                        onClick={() => {
+                          localStorage.setItem(
+                            "currentUserType",
+                            "institutions"
+                          );
+                          navigate("/institutions");
+                        }}
+                      >
+                        Institutions Program
+                      </a>
                     </li>
                     <li>
-                      <a href="/government">Government Program</a>
+                      <a
+                        onClick={() => {
+                          localStorage.setItem("currentUserType", "government");
+                          navigate("/government");
+                        }}
+                      >
+                        Government Program
+                      </a>
                     </li>
                     <li>
-                      <a href="/schools">School Program</a>
+                      <a
+                        onClick={() => {
+                          localStorage.setItem("currentUserType", "schools");
+                          navigate("/schools");
+                        }}
+                      >
+                        School Program
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -252,18 +288,46 @@ const FooterBar = () => {
               </ul>
             </div>
             <div className="col-span-2 md:col-span-1">
-              <ul>
+              <ul className="cursor-pointer">
                 <li>
-                  <a href="/corporate">Corporate Program </a>
+                  <a
+                    onClick={() => {
+                      localStorage.setItem("currentUserType", "corporate");
+                      navigate("/corporate");
+                    }}
+                  >
+                    Corporate Program{" "}
+                  </a>
                 </li>
                 <li>
-                  <a href="/institutions">Institutions Program</a>
+                  <a
+                    onClick={() => {
+                      localStorage.setItem("currentUserType", "institutions");
+                      navigate("/institutions");
+                    }}
+                  >
+                    Institutions Program
+                  </a>
                 </li>
                 <li>
-                  <a href="/government">Government Program</a>
+                  <a
+                    onClick={() => {
+                      localStorage.setItem("currentUserType", "government");
+                      navigate("/government");
+                    }}
+                  >
+                    Government Program
+                  </a>
                 </li>
                 <li>
-                  <a href="/schools">School Program</a>
+                  <a
+                    onClick={() => {
+                      localStorage.setItem("currentUserType", "schools");
+                      navigate("/schools");
+                    }}
+                  >
+                    School Program
+                  </a>
                 </li>
               </ul>
             </div>

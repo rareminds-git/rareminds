@@ -29,6 +29,11 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
             {content.map((ele, index) => {
               return (
                 <>
+                <div className="hidden md:block lg:block xl:hidden">
+                      {index === 0 && isMobile && (
+                        <CTA content={ctaContent} contactPage={true} />
+                      )}
+                    </div>
                   <div className="md:px-10 xl:px-32 my-10">
                     <p
                       className="text-[#FF2C2C] font-bold font-Syne text-[36px] leading-[43.2px] "
@@ -108,9 +113,11 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
                     <div className="w-full h-px bg-black my-5"></div>
                   </div>
 
-                  {index === 0 && isMobile && (
-                    <CTA content={ctaContent} contactPage={true} />
-                  )}
+                  <div className="md:hidden">
+                    {index === 0 && isMobile && (
+                      <CTA content={ctaContent} contactPage={true} />
+                    )}
+                  </div>
                 </>
               );
             })}
