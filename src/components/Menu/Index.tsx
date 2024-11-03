@@ -215,7 +215,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   </li>
                   <li className="nav-li py-2">
                     <a
-                      href={`${localStorage.getItem("currentUserType")}/services`}
+                      href={`/${localStorage.getItem("currentUserType")}/services`}
                       className="nav-link text-4xl font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);

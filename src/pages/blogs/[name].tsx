@@ -45,21 +45,20 @@ const BlogDetail = () => {
             {blogData?.blogData?.Heading1}
           </h1>
 
-          <div className="grid md:grid-cols-3 sm:grid-cols-1 xl:grid-cols-3 md:grid-rows-1 sm:grid-rows-2 border-b-2 md:border-black mb-10 py-5">
-            <div className="col-span-1 md:col-span-2 xl:col-span-2 inline-block lg:w-[60%] xl:w-[45%] md:w-[60%]">
+          <div className="grid md:grid-cols-3 sm:grid-cols-1 xl:grid-cols-3 md:grid-rows-1 sm:grid-rows-2 border-b-0 md:border-b-2 md:border-black border-0 mb-3 md:mb-5 py-1">
+            <div className="col-span-1 md:col-span-2 xl:col-span-2 flex items-center lg:w-[60%] xl:w-[45%] md:w-[60%]">
               <img
                 src={AuthorImg}
-                height="75"
-                width="75"
-                className="rounded-full border-4 float-left"
+                height="100"
+                width="100"
+                className="rounded-full mr-2"
               />
-
-              <h3 className="float-left mx-2 my-2">The Art of Gaming</h3>
-              <p className="float-left mx-2 my-2 xxl:my-1 text-gray-500">
-                Social Media Manager
-              </p>
+              <div className="flex flex-col">
+                <h3>The Art of Gaming</h3>
+                <p className="text-gray-500">Social Media Manager</p>
+              </div>
             </div>
-            <h4 className="md:text-right text-red-600 row-span-1 md:text-[15px] col-span-1 xl:col-span-1 md:my-6 sm:my-2 sm:border-t-2 sm:border-black md:border-0 sm:py-4">
+            <h4 className="md:text-right text-[#FF2C2C] row-span-1 md:text-[15px] col-span-1 xl:col-span-1 md:my-6 sm:my-2 sm:border-t-2 sm:border-black md:border-0 border-0 sm:py-4">
               Published:{" "}
               {moment(blogData?.blogData?.CreatedOn).format("MMM Do YYYY")}
             </h4>
@@ -68,14 +67,13 @@ const BlogDetail = () => {
           <div className="rounded-md">
             <img
               src={`${import.meta.env.VITE_API_URL}uploads/${blogData?.blogData?.Image1}`}
-              className="rounded-lg text-center align-middle justify-center h-96 w-full h-full"
+              className="rounded-lg text-center align-middle justify-center h-96 w-full object-cover"
             />
           </div>
           <div className="grid grid-cols-1 grid-flow-row gap-4">
-            {/* <div className="grid grid-flow-row gap-4"> */}
             {blogData?.blogDetails?.map((ele: any) => {
               return (
-                <div className="row-span-1 mt-16">
+                <div className="row-span-1 mt-16" key={ele.id}>
                   <p
                     className="mt-4 md:mr-20 mr-4 text-[16px] leading-[21.76px] font-[Syne] font-light BlogDetail"
                     dangerouslySetInnerHTML={{
@@ -85,7 +83,6 @@ const BlogDetail = () => {
                 </div>
               );
             })}
-            {/* </div> */}
           </div>
         </section>
       </div>
