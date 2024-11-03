@@ -963,13 +963,17 @@ app.post(
       let updateString = Object.keys(contentData[0]).map((key) => {
         console.log("data key", contentData[0][key]);
         if (contentData[0][key] !== undefined) {
+          console.log("inside if", contentData[0][key]);
           return `${key} = ?`;
         }
       });
-      console.log("update string", updateString);
+      console.log("update string", updateString.filter(Boolean).join(", "));
+      console.log("Object values", Object.values(contentData[0]));
+      let updatedcontentData = Object.values(contentData[0]).filter(Boolean);
+      updateString = updateString.filter(Boolean);
       updateData = await mysqlQuery(con, {
         sql: `UPDATE rm_content SET ${updateString.filter(Boolean).join(", ")} WHERE ContentSlug = ?`,
-        values: [...Object.values(contentData[0]), slug],
+        values: [...Object.values(updatedcontentData), slug],
       });
     } else {
       console.log("form data", formData);
