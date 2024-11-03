@@ -64,7 +64,7 @@ const BlogDetail = () => {
             </h4>
           </div>
 
-          <div className="rounded-md">
+          <div className="rounded-2xl mt-16">
             <img
               src={`${import.meta.env.VITE_API_URL}uploads/${blogData?.blogData?.Image1}`}
               className="rounded-lg text-center align-middle justify-center max-h-[430px] w-full"
