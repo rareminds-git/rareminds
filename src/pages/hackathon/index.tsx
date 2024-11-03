@@ -13,7 +13,7 @@ const Events = () => {
   const navigate = useNavigate();
   const [pageData, setPageData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage, setPostsPerPage] = useState(11);
 
   const handlePagination = (pageNumber) => {
     setCurrentPage(pageNumber);

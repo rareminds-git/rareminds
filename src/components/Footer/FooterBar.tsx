@@ -276,7 +276,7 @@ const FooterBar = () => {
                   <a href="/walloffame">Wall Of Fame</a>
                 </li>
                 <li>
-                  <a href="/walloffame">Events</a>
+                  <a href="/events">Events</a>
                 </li>
               </ul>
             </div>

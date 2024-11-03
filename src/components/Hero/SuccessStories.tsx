@@ -28,7 +28,7 @@ const SuccessStories = ({ content, pageData }) => {
           {!isMobile ? (
             <OwlCarousel
               className="owl-theme"
-              autoplay
+              // autoplay
               loop
               items={1.5}
               margin={40}
@@ -44,6 +44,7 @@ const SuccessStories = ({ content, pageData }) => {
                   >
                     <img
                       src={`/images/${ele.Image1}`}
+                      className="rounded-2xl"
                       style={{ width: "975px", height: "575px" }}
                     />
 
