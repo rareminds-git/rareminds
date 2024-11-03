@@ -17,7 +17,7 @@ const Index = () => {
 
   const [showLoader, setShowLoader] = useState(true);
 
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
 
   const [pages, setPages] = useState<any[]>([]);
 
@@ -147,16 +147,16 @@ const Index = () => {
         </div>
       ) : (
         <>
-          <div className="mt-8 mx-auto flex justify-center items-center">
+          <div className="mt-8 mx-auto flex justify-center items-center rounded-2xl">
             <img src={Logo} alt="Rareminds" />
           </div>
-          <div className="banner">
+          <div className="banner md:mx-12 rounded-2xl">
             <div className="banner-grid h-screen">
               <div className="grid grid-rows-4 grid-cols-1 grid-flow-col gap-6 h-screen">
                 {pages.map((ele: any) => {
                   return (
                     <div
-                      className={`banner`}
+                      className={`banner md:py-12 md:px-4 rounded-2xl`}
                       style={{
                         backgroundImage: `url(${ele.PageSlug === "/corporate" ? CorporateBanner : ele.PageSlug === "/institutions" ? InstitutionsBanner : ele.PageSlug === "/government" ? GovernmentBanner : SchoolsBanner})`,
                       }}
@@ -168,7 +168,7 @@ const Index = () => {
                         For {ele.PageName}
                       </h3>
                       <p
-                        className="xs:mt-10 sm:mt-20 mt-20 text-white font-[Poppins-Medium]"
+                        className="xs:mt-10 md:mt-40 sm:mt-20 mt-20 md:text-2xl text-white font-[Poppins-Medium]"
                         dangerouslySetInnerHTML={{
                           __html: ele.PageSubTitle,
                         }}

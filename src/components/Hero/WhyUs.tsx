@@ -1,4 +1,4 @@
-import WhyUsImg from "../../assets/images/whyus.svg";
+import WhyUsImg from "../../assets/images/whyus-home.webp";
 import { useNavigate } from "react-router-dom";
 import parse from "html-react-parser";
 

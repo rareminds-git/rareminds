@@ -1,5 +1,5 @@
-import HeroImg1 from "../../assets/images/hero.svg";
-import HeroSun from "../../assets/images/hero-sun.svg";
+import HeroImg1 from "../../assets/images/homepage-hero.webp";
+import HeroSun from "../../assets/images/sunhome.webp";
 import HeroIlls from "../../assets/images/HeroIlls.svg";
 import Line from "../../assets/images/line.svg";
 import Ellipsis from "../../assets/images/ellipse.svg";

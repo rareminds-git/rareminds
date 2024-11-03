@@ -31,7 +31,7 @@ const Testimonials = ({
 
   return (
     <>
-      <div className="xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:py-16 lg:py-20 md:py-16 py-8">
+      <div className="xl:px-28 lg:px-20 md:px-16 md:pt-0 lg:pt-0 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:py-16 lg:py-20 md:py-16 py-8">
         {tabs?.length > 0 && (
           <CustomTabs
             testimonials={testimonials}
