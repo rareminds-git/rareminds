@@ -17,7 +17,7 @@ const Achievements = ({ content, achievements }) => {
           />
 
           <p
-            className="lg:text-[22px] lg:leading-[33px] text-[14px] leading-[21px] xl:px-[4rem] lg:mb-20 mx-20 text-center font-[Poppins-Regular]"
+            className="lg:text-[22px] lg:leading-[33px] text-[14px] leading-[21px] xl:px-[4rem] lg:mb-20 mx-4 lg:mx-20 text-center font-[Poppins-Regular]"
             dangerouslySetInnerHTML={{
               __html: content && content[0]?.Description,
             }}
