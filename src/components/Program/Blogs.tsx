@@ -11,7 +11,7 @@ const Blogs = ({ pageData, content }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(10);
+  const [postsPerPage, setPostsPerPage] = useState(11);
 
   const handlePagination = (pageNumber) => {
     setCurrentPage(pageNumber);

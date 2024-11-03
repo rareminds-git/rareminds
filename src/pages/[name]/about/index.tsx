@@ -136,7 +136,7 @@ const About = () => {
             />
 
             <p
-              className="mt-2 lg:text-[22px] text-[18px] lg:leading-[43.06px] font-light"
+              className="mt-2 lg:text-[22px] text-[18px] lg:leading-[43.06px] font-light text-center"
               dangerouslySetInnerHTML={{
                 __html:
                   pageData?.visionMission &&
@@ -176,7 +176,7 @@ const About = () => {
             />
 
             <p
-              className="mt-2 lg:text-[22px] text-[18px] lg:leading-[43.06px] font-light"
+              className="mt-2 lg:text-[22px] text-[18px] lg:leading-[43.06px] font-light text-center"
               dangerouslySetInnerHTML={{
                 __html:
                   pageData?.visionMission &&
@@ -320,12 +320,12 @@ const About = () => {
               autoplay
               responsive={{
                 0: {
-                  items: 4,
+                  items: 1,
                   nav: false,
                   dots: false,
                 },
                 600: {
-                  items: 4,
+                  items: 2,
                   nav: false,
                   dots: false,
                 },

@@ -424,7 +424,7 @@ const QueryForm = ({ pageData, content }) => {
 
             <div></div>
             <div></div>
-            <div className="text-[16px] leading-[20px] font-bold font-Syne flex items-center">
+            <div className="text-[16px] leading-[20px] font-bold font-Syne flex items-center justify-end">
               <img
                 className="flex-inline mr-2"
                 src={BackArrow}

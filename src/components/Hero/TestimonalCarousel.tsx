@@ -47,13 +47,13 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
             border-[#CAF0F8] border-[17px]"
                     />
                     <p
-                      className="font-[Sentient] font-normal text-wrap lg:text-[30px] text-[20px] lg:leading-[40.8px] my-8 lg:pr-44"
+                      className="font-[Sentient] font-normal text-wrap lg:text-[30px] text-[20px] lg:leading-[40.8px] my-8 lg:pr-24"
                       dangerouslySetInnerHTML={{
                         __html: item.ContentTitle,
                       }}
                     />
                     <p
-                      className="font-[Sentient] font-normal text-balance text-[18px] leading-[24.48px] pb-5 lg:pr-44 Hero"
+                      className="font-[Sentient] font-normal text-balance text-[18px] leading-[24.48px] pb-5 lg:pr-24 Hero"
                       dangerouslySetInnerHTML={{
                         __html: item.ContentDescription,
                       }}

@@ -62,7 +62,7 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
                           />
                         </div>
                       </div>
-                      <div className="grid place-items-end my-5">
+                      <div className="grid place-items-end">
                         <div className="md-col-span-6 col-span-3 place-items-end">
                           <p
                             className="md:text-xl text-xl text-black-400 font-Syne"
@@ -83,7 +83,7 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
                     <div className="w-full h-px bg-black my-5"></div>
 
                     <div className="grid grid-cols-2 gap-4 md:py-12">
-                      <div className="grid my-5">
+                      <div className="grid">
                         <div className="md:col-span-6 col-span-9">
                           <p
                             className="md:text-xl text-xl font-bold"
@@ -93,7 +93,7 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
                           />
                         </div>
                       </div>
-                      <div className="grid place-items-end my-5">
+                      <div className="grid place-items-end">
                         <div className="md-col-span-6 col-span-3 place-items-end">
                           <p
                             className="md:text-xl text-xl text-black-400 font-Syne"
