@@ -125,7 +125,7 @@ const ServiceName = () => {
 
           <div className="rounded-md row-span-1">
             <img
-              src={ProgramImg}
+              src={`/images/uploads/${serviceData?.serviceData?.Image1}`}
               className="col-span-5"
               width={"350px"}
               height={"400px"}
