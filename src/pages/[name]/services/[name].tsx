@@ -119,7 +119,7 @@ const ServiceName = () => {
           <p
             className="text-[14px] leading-[21px] font-[Poppins-Regular] row-span-1 capitalize mb-12 mt-12"
             dangerouslySetInnerHTML={{
-              __html: serviceData?.serviceData?.Description,
+              __html: htmlDecode(serviceData?.serviceData?.Description),
             }}
           ></p>
 
@@ -145,9 +145,12 @@ const ServiceName = () => {
           {serviceData?.servicePrograms?.map((ele: any) => {
             return (
               <div className="mt-6">
-                <h3 className="lg:text-4xl text-xl font-bold font-Syne">
-                  {ele.ContentTitle}
-                </h3>
+                <h3
+                  className="lg:text-4xl text-xl font-bold font-Syne"
+                  dangerouslySetInnerHTML={{
+                    __html: htmlDecode(ele.ContentTitle),
+                  }}
+                ></h3>
                 <p
                   className="mt-4"
                   dangerouslySetInnerHTML={{ __html: ele.ContentDescription }}
