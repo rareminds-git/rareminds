@@ -34,7 +34,7 @@ const CustomTabs = ({ testimonials, tabs, categories }) => {
         console.log("testimonials data", testimonialData);
         return (
           <TabPanel key={title}>
-            <h5 className="font-Syne text-center my-12 lg:mb-10 place-items-center text-[#ff2c2c] lg:text-[70px] text-[28px] leading-[30px] ">
+            <h5 className="font-Syne text-center my-12 md:my-2 lg:mb-10 place-items-center text-[#ff2c2c] lg:text-[70px] text-[28px] leading-[30px] ">
               Testimonials - {title}
             </h5>
             <TestimonialCarousel testimonials={testimonialData} />
