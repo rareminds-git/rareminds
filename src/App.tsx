@@ -14,6 +14,7 @@ import EventDetail from "./pages/hackathon/[name]";
 import WallofFame from "./pages/walloffame";
 import CourseDetail from "./pages/courses/[name]/6th-sem-20204";
 import Events from "./pages/hackathon";
+import ImageGallery from "./pages/hackathon/gallery";
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
             />
             <Route path="/about" element={<About />} />
             <Route path="/events" element={<Events />} />
+            <Route path="/events/gallery" element={<ImageGallery />} />
             <Route path="/blogs/:slug" element={<BlogDetail />} />
             <Route
               path="/hackathon/:eventCategory/:slug"
