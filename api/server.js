@@ -500,8 +500,7 @@ app.post(
     let updateData = "";
     if (contentSlug === "studyDetails") {
       console.log("form data", formData);
-      if(formData.ContentDetailId === undefined) {
-        
+      if (formData.ContentDetailId === undefined) {
       }
       let data = {};
       let contentData = Object.keys(formData).map((key) => {
