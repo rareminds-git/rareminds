@@ -920,4 +920,105 @@
     position: absolute;
     display: inline-block;
   }
+  .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .image-gallery-item {
+    margin: 10px;
+    width: calc(33.33% - 20px);
+  }
+
+  .image-gallery-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .image-gallery-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-gallery-overlay img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+
+  .overlay-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .overlay-controls button {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .overlay-controls button:hover {
+    background-color: #ccc;
+  }
+
+  .image-gallery-overlay .close-button {
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .image-gallery-overlay .close-button:hover {
+    background-color: #ccc;
+  }
+
+  .prev-button {
+    left: 10px;
+  }
+
+  .next-button {
+    right: 10px;
+  }
+
+  .prev-button,
+  .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .prev-button:hover,
+  .next-button:hover {
+    background-color: #ccc;
+  }
 }
