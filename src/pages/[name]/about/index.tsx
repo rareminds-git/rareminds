@@ -228,8 +228,7 @@ const About = () => {
                           <img
                             src={`${import.meta.env.VITE_PUBLIC_URL}images/${ele.Image1}`}
                             width="180px"
-                            className="rounded-full
-            border-[#CAF0F8] border-[17px] mx-auto my-6"
+                            className="mx-auto my-6"
                           />
                           <p
                             className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[26px] lg:leading-[35.2px] text-black-400 mx-2 text-[24px]"
@@ -288,8 +287,7 @@ const About = () => {
                           <img
                             src={`${import.meta.env.VITE_PUBLIC_URL}images/${ele.Image1}`}
                             width="180px"
-                            className="rounded-full
-            border-[#CAF0F8] border-[17px] mx-auto my-6"
+                            className="mx-auto my-6"
                           />
                           <p
                             className="mb-4 font-Syne lg:mt-6 mt-12 text-center font-medium lg:text-[26px] lg:leading-[35.2px] text-black-400 mx-2 text-[24px]"
