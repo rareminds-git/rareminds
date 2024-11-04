@@ -500,6 +500,9 @@ app.post(
     let updateData = "";
     if (contentSlug === "studyDetails") {
       console.log("form data", formData);
+      if(formData.ContentDetailId === undefined) {
+        
+      }
       let data = {};
       let contentData = Object.keys(formData).map((key) => {
         data[key] = formData[key];
@@ -514,7 +517,7 @@ app.post(
           return `${key} = ?`;
         }
       });
-      console.log("update string", updateString);
+      // console.log("update string", updateString);
       let updateValues = Object.values(contentData[0]).filter(Boolean);
       updateData = await mysqlQuery(con, {
         sql: `UPDATE rm_content_details SET ${updateString.filter(Boolean).join(", ")} WHERE ContentDetailId = ?`,

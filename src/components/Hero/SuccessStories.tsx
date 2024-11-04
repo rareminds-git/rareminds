@@ -28,6 +28,7 @@ const SuccessStories = ({ content, pageData }) => {
           {!isMobile ? (
             <OwlCarousel
               className="owl-theme"
+              nav={true}
               // autoplay
               loop
               items={1.5}
@@ -67,6 +68,7 @@ const SuccessStories = ({ content, pageData }) => {
           ) : (
             <OwlCarousel
               className="owl-theme"
+              nav={true}
               autoplay
               loop
               items={1.2}

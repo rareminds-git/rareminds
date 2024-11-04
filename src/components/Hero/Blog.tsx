@@ -16,16 +16,17 @@ const Blog = ({ content }) => {
           </h5>
           <OwlCarousel
             className="owl-theme"
+            nav={true}
             autoplay
             responsive={{
               0: {
                 items: 1,
-                nav: false,
+                nav: true,
                 dots: false,
               },
               600: {
                 items: 2,
-                nav: false,
+                nav: true,
                 dots: false,
                 stagePadding: 20,
               },
@@ -101,12 +102,12 @@ const Blog = ({ content }) => {
             responsive={{
               0: {
                 items: 2,
-                nav: false,
+                nav: true,
                 dots: false,
               },
               600: {
                 items: 3.5,
-                nav: false,
+                nav: true,
                 dots: false,
                 stagePadding: 20,
               },

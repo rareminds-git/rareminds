@@ -13,16 +13,17 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
       {!isMobile ? (
         <OwlCarousel
           className="owl-theme"
+          nav={true}
           autoplay
           responsive={{
             0: {
               items: 1,
-              nav: false,
+              nav: true,
               dots: false,
             },
             600: {
               items: 1,
-              nav: false,
+              nav: true,
             },
             1000: {
               items: 1,
@@ -74,6 +75,7 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
       ) : (
         <OwlCarousel
           className="owl-theme"
+          nav={true}
           autoplay
           loop
           margin={20}

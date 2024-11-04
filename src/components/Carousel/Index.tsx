@@ -5,7 +5,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 const Carousel = () => {
   return (
     <>
-      <OwlCarousel className="owl-theme" loop margin={10} nav>
+      <OwlCarousel className="owl-theme" nav={true} loop margin={10} nav>
         <div className="item">
           <h4>1</h4>
         </div>
