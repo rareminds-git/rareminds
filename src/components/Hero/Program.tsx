@@ -12,6 +12,7 @@ const Program = ({ showCTA }) => {
       {!isMobile ? (
         <OwlCarousel
           className="owl-theme"
+          nav={true}
           autoplay
           loop
           margin={20}
@@ -74,6 +75,7 @@ const Program = ({ showCTA }) => {
       ) : (
         <OwlCarousel
           className="owl-theme"
+          nav={true}
           autoplay
           loop
           items={1.2}

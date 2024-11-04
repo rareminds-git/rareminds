@@ -195,16 +195,17 @@ const About = () => {
             ? pageData?.awards && (
                 <OwlCarousel
                   className="owl-theme"
+                  nav={true}
                   autoplay
                   responsive={{
                     0: {
                       items: 1,
-                      nav: false,
+                      nav: true,
                       dots: false,
                     },
                     600: {
                       items: 1,
-                      nav: false,
+                      nav: true,
                     },
                     1000: {
                       items: 4,
@@ -225,7 +226,7 @@ const About = () => {
                           className={`mt-4 xxl:row-span-${index + 1} min-h-100 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
                         >
                           <img
-                            src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
+                            src={`${import.meta.env.VITE_PUBLIC_URL}images/${ele.Image1}`}
                             width="180px"
                             className="rounded-full
             border-[#CAF0F8] border-[17px] mx-auto my-6"
@@ -252,6 +253,7 @@ const About = () => {
             : pageData.awards && (
                 <OwlCarousel
                   className="owl-theme"
+                  nav={true}
                   autoplay
                   loop
                   margin={0}
@@ -261,12 +263,12 @@ const About = () => {
                   responsive={{
                     0: {
                       items: 1,
-                      nav: false,
+                      nav: true,
                       dots: false,
                     },
                     600: {
                       items: 3,
-                      nav: false,
+                      nav: true,
                       dots: false,
                       stagePadding: 20,
                     },
@@ -284,7 +286,7 @@ const About = () => {
                           className={`mt-4 xxl:row-span-${index + 1} min-h-100 px-2 py-3 rounded overflow-hidden shadow-xl mx-3`}
                         >
                           <img
-                            src={`${import.meta.env.VITE_PUBLIC_URL}images/uploads/${ele.Image1}`}
+                            src={`${import.meta.env.VITE_PUBLIC_URL}images/${ele.Image1}`}
                             width="180px"
                             className="rounded-full
             border-[#CAF0F8] border-[17px] mx-auto my-6"
@@ -318,23 +320,24 @@ const About = () => {
             {pageData.partners && (
               <OwlCarousel
                 className="owl-theme"
+                nav={true}
                 autoplay
                 responsive={{
                   0: {
                     items: 1,
-                    nav: false,
+                    nav: true,
                     dots: false,
                   },
                   600: {
                     items: 2,
-                    nav: false,
+                    nav: true,
                     dots: false,
                   },
                   1000: {
                     items: 4,
                     loop: true,
                     dots: false,
-                    nav: false,
+                    nav: true,
                   },
                 }}
                 loop

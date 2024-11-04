@@ -83,6 +83,7 @@ const Services = ({ content, services, ctaContent }) => {
               <div className="md:hidden">
                 <OwlCarousel
                   className="owl-theme"
+                  nav={true}
                   // autoplay
                   loop
                   margin={10}
