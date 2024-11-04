@@ -10,7 +10,7 @@ const Blog = ({ content }) => {
   return (
     <>
       {!isMobile ? (
-        <div className="xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:py-16 lg:py-20 md:py-16 py-8">
+        <div className="xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:py-16 lg:py-20 md:py-16 py-8 bg-[#CABE9E1A]">
           <h5 className="font-Syne mx-auto text-black font-bold mb-20 text-[59px] leading-[70.8px] text-center">
             Blog
           </h5>
@@ -147,7 +147,7 @@ const Blog = ({ content }) => {
                       />
                       <span
                         onClick={() => navigate(`/blogs/${ele.ContentSlug}`)}
-                        className="text-black font-bold cursor-pointer"
+                        className="text-black font-extrabold cursor-pointer"
                       >
                         Read more
                       </span>

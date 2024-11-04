@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable @typescript-eslint/no-var-requires */
+require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var mysql = require("mysql");
@@ -194,7 +195,7 @@ app.get("/pages/:pageSlug", async function (req, res) {
       sql:
         "SELECT * FROM rm_content WHERE PageId = " +
         pageData[0].PageId +
-        " AND ContentTypeId != 38",
+        " AND ContentTypeId != 38 order by UNIX_TIMESTAMP(CreatedOn) DESC",
     });
     sectionData.map(async (ele) => {
       let contentData = await mysqlQuery(con, {
@@ -367,12 +368,12 @@ app.post("/services/edit/:slug", async function (req, res) {
 
 app.post(
   "/blog/image-upload",
-  upload.single("image"),
+  upload.single("upload"),
   async function (req, res, next) {
     console.log("req files", req);
     try {
       res.json({
-        url: `uploads/${req?.file?.filename}`,
+        url: `${process.env.VITE_API_URL}uploads/${req?.file?.filename}`,
       });
     } catch (err) {
       next(err);
@@ -449,7 +450,7 @@ app.post(
         }
       });
       console.log("update string", updateString);
-      let updateValues = Object.values(contentData[0]);
+      let updateValues = Object.values(contentData[0]).filter(Boolean);
       updateData = await mysqlQuery(con, {
         sql: `UPDATE rm_content SET ${updateString.filter(Boolean).join(", ")} WHERE ContentSlug = ?`,
         values: [...updateValues, serviceSlug],
@@ -458,7 +459,7 @@ app.post(
       let updateString = Object.keys(formData).map((key) => {
         return `${key} = ?`;
       });
-      let updateValues = Object.values(formData);
+      let updateValues = Object.values(formData).filter(Boolean);
 
       updateData = await mysqlQuery(con, {
         sql: `UPDATE rm_content SET ${updateString.join(", ")} WHERE ContentId = ?`,
@@ -514,7 +515,7 @@ app.post(
         }
       });
       console.log("update string", updateString);
-      let updateValues = Object.values(contentData[0]);
+      let updateValues = Object.values(contentData[0]).filter(Boolean);
       updateData = await mysqlQuery(con, {
         sql: `UPDATE rm_content_details SET ${updateString.filter(Boolean).join(", ")} WHERE ContentDetailId = ?`,
         values: [...updateValues, contentData[0].ContentDetailId],
@@ -524,7 +525,7 @@ app.post(
       let updateString = Object.keys(formData).map((key) => {
         return `${key} = ?`;
       });
-      let updateValues = Object.values(formData);
+      let updateValues = Object.values(formData).filter(Boolean);
 
       updateData = await mysqlQuery(con, {
         sql: `UPDATE rm_content SET ${updateString.join(", ")} WHERE ContentId = ?`,
@@ -631,7 +632,8 @@ app.get("/:slug/case-studies", async function (req, res) {
   let studyDetails = await mysqlQuery(con, {
     sql:
       "SELECT * FROM rm_content WHERE ContentTypeId = 40 AND PageId = " +
-      pageData[0].PageId,
+      pageData[0].PageId +
+      " order by UNIX_TIMESTAMP(CreatedOn) DESC",
   });
 
   res.send({
@@ -1115,9 +1117,10 @@ app.post(
       }
     });
     console.log("update string", updateString);
+    let updatedcontentData = Object.values(contentData[0]).filter(Boolean);
     updateData = await mysqlQuery(con, {
       sql: `UPDATE rm_content_details SET ${updateString.filter(Boolean).join(", ")} WHERE ContentDetailId = ?`,
-      values: [...Object.values(contentData[0]), id],
+      values: [updatedcontentData, id],
     });
 
     console.log(updateData);
@@ -1216,20 +1219,13 @@ app.post("/editEvent/:id", upload.single("Image1"), async function (req, res) {
   console.log("form data", JSON.parse(formData.eventData));
   let data = {};
   let eventData = JSON.parse(formData.eventData)[0];
-  let contentData = [];
-  if (Object.keys(eventData).length > 0) {
-    Object.keys(eventData).map((key) => {
-      data[key] = eventData[key];
-      data.Image1 = req?.file ? req?.file?.filename : eventData["Image1"];
-      contentData.push(data);
-    });
-  }
-
-  console.log("content data", contentData);
+  let eventSchedule = JSON.parse(formData.eventSchedule);
+  let eventAgenda = JSON.parse(formData.eventAgenda);
 
   delete eventData["CreatedOn"];
   delete eventData["ModifiedOn"];
   eventData["EventDate"] = moment(eventData["EventDate"]).format("YYYY-MM-DD");
+  eventData["Image1"] = req?.file?.filename;
 
   let updateString = Object.keys(eventData).map((key) => {
     return `${key} = ?`;
@@ -1238,11 +1234,48 @@ app.post("/editEvent/:id", upload.single("Image1"), async function (req, res) {
   let updateValues = Object.values(eventData);
 
   updateData = await mysqlQuery(con, {
-    sql: `UPDATE rm_events SET ${updateString.join(", ")} WHERE EventId = ?`,
+    sql: `UPDATE rm_content SET ${updateString.join(", ")} WHERE ContentId = ?`,
     values: [...updateValues, id],
   });
 
-  console.log(updateData);
+  if (updateData && Object.keys(eventSchedule).length > 0) {
+    await mysqlQuery(con, {
+      sql: "DELETE FROM `rm_event_schedule` WHERE EventId = '" + id + "'",
+    });
+    eventSchedule?.map(async (rowData) => {
+      await mysqlQuery(con, {
+        sql:
+          "INSERT into `rm_event_schedule` (`Title`,  `Date`, `EventId`) VALUES ('" +
+          rowData.Title +
+          "', '" +
+          moment(rowData.Date).format("YYYY-MM-DD") +
+          "', '" +
+          id +
+          "')",
+      });
+    });
+  }
+
+  if (updateData && Object.keys(eventAgenda).length > 0) {
+    await mysqlQuery(con, {
+      sql: "DELETE FROM `rm_event_agenda` WHERE EventId = '" + id + "'",
+    });
+
+    eventAgenda?.map(async (rowData) => {
+      await mysqlQuery(con, {
+        sql:
+          "INSERT into `rm_event_agenda` (`Title`,  `Time`, `Description`, `EventId`) VALUES ('" +
+          rowData.Title +
+          "', '" +
+          rowData.Time +
+          "', '" +
+          rowData.Description +
+          "', '" +
+          id +
+          "')",
+      });
+    });
+  }
 
   res.send({
     status: 200,

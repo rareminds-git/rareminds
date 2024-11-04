@@ -67,7 +67,7 @@ const CaseStudyDetail = () => {
                     <p
                       className="mr-20 caseStudyDetail lg:text-[18px] lg:leading-[24.48px]"
                       dangerouslySetInnerHTML={{
-                        __html: parse(ele.ContentDescription),
+                        __html: ele.ContentDescription,
                       }}
                     ></p>
                   </div>
@@ -98,7 +98,7 @@ const CaseStudyDetail = () => {
                     <p
                       className="mt-4 caseStudyDetail font-[Sentient] font-normal text-2xl"
                       dangerouslySetInnerHTML={{
-                        __html: parse(ele.ContentDescription),
+                        __html: ele.ContentDescription,
                       }}
                     ></p>
                   </div>
