@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ServiceIllsImg from "../../../assets/images/serviceIlls.svg";
-import ProgramImg from "../../../assets/images/programImg.svg";
 import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import CTA from "@/common/CTA";
 import { Helmet } from "react-helmet";
-import parse from "html-react-parser";
 
 const ServiceName = () => {
   const { userType, serviceName } = useParams();
@@ -63,7 +61,7 @@ const ServiceName = () => {
           <p
             className="text-md font-[Sentient] text-[24px] leading-[32.84px] font-light capitalize ml-72 mr-16 mt-12 mb-12"
             dangerouslySetInnerHTML={{
-              __html: htmlDecode(serviceData?.serviceData?.Description),
+              __html: serviceData?.serviceData?.Description,
             }}
           ></p>
 
@@ -95,7 +93,7 @@ const ServiceName = () => {
                     <p
                       className="text-xl lg:text-[36px] lg:leading-[42px] font-[Syne] font-semibold"
                       dangerouslySetInnerHTML={{
-                        __html: htmlDecode(ele.ContentTitle),
+                        __html: ele.ContentTitle,
                       }}
                     />
                     <span
@@ -119,7 +117,7 @@ const ServiceName = () => {
           <p
             className="text-[14px] leading-[21px] font-[Poppins-Regular] row-span-1 capitalize mb-12 mt-12"
             dangerouslySetInnerHTML={{
-              __html: htmlDecode(serviceData?.serviceData?.Description),
+              __html: serviceData?.serviceData?.Description,
             }}
           ></p>
 
@@ -148,7 +146,7 @@ const ServiceName = () => {
                 <h3
                   className="lg:text-4xl text-xl font-bold font-Syne"
                   dangerouslySetInnerHTML={{
-                    __html: htmlDecode(ele.ContentTitle),
+                    __html: ele.ContentTitle,
                   }}
                 ></h3>
                 <p

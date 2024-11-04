@@ -717,6 +717,10 @@
     list-style: disc !important;
   }
 
+  .BlogDetail strong {
+    font-weight: bold !important;
+  }
+
   .marquee-wrapper:hover .marquee {
     animation-play-state: paused !important;
   }

@@ -233,7 +233,7 @@ const FooterBar = () => {
               </button>
 
               {successMessage && (
-                <span className="text-white flex text-2xl justify-end text-left mt-4 py-4">
+                <span className="text-white flex text-[16px] justify-end text-left mt-4 py-4">
                   {successMessage}
                 </span>
               )}
@@ -244,9 +244,9 @@ const FooterBar = () => {
               <p>@rareminds 2024</p>
             </div>
             <div className="flex items-end row-span-1 justify-center md:flex md:justify-end mr-10">
-              <a href="/terms-&-conditions" className="underline mx-10 text">
+              {/* <a href="/terms-&-conditions" className="underline mx-10 text">
                 Terms & Conditions
-              </a>
+              </a> */}
               <a href="/privacy-policy" className="underline">
                 Privacy
               </a>
@@ -266,8 +266,8 @@ const FooterBar = () => {
             </button>
           </div>
 
-          <div className="grid grid-cols-3 md:grid-cols-4 mx-10 py-10 gap-4">
-            <div className="col-span-1 md:col-span-1">
+          <div className="grid grid-cols-4 md:grid-cols-4 mx-10 py-10 gap-4">
+            <div className="col-span-2 md:col-span-1">
               <ul>
                 <li>
                   <a href="/">Home</a>
@@ -331,7 +331,7 @@ const FooterBar = () => {
                 </li>
               </ul>
             </div>
-            <div className="col-span-1 md:col-span-1 md:items-center">
+            <div className="col-span-2 md:col-span-1 md:items-center">
               <ul>
                 <li>
                   <a href="/blogs">Blog</a>
@@ -379,10 +379,10 @@ const FooterBar = () => {
               <p>@rareminds 2024</p>
             </div>
             <div className="col-span-2">
-              <a href="/terms-&-conditions" className="text">
+              {/* <a href="/terms-&-conditions" className="text">
                 Terms & Conditions
-              </a>
-              <br />
+              </a> */}
+              {/* <br /> */}
               <a href="/privacy-policy">Privacy</a>
             </div>
           </div>

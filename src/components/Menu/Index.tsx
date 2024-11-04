@@ -198,7 +198,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
               : "opacity-0 -translate-x-full"
           }`}
         >
-          <div className="grid grid-cols-1 mx-20 my-12">
+          <div className="grid grid-cols-1 ml-12 mr-8 my-12">
             <div className="grid">
               <div className="col-span-6">
                 <ul className="w-full flex flex-col items-start">
@@ -296,13 +296,13 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                 <p className="text-white font-Syne text-xl mt-32">
                   <a href="mailto:info@rareminds.in">info@rareminds.in</a>
                 </p>
-                <p className="text-2xl font-Syne text-white mt-32">
+                <p className="text-xl font-Syne text-white mt-12">
                   Follow us:{" "}
                   {socialIcons.map((socialIcon) => {
                     const { icon, id, link } = socialIcon;
                     return (
                       <span
-                        className="text-white text-2xl rounded inline-block"
+                        className="text-white text-xl inline-block"
                         key={id}
                       >
                         <FooterIcon

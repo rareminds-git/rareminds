@@ -92,6 +92,7 @@ const Services = ({ content, services, ctaContent }) => {
                 >
                   {services.map((ele: any) => {
                     const description = parse(ele?.Description);
+                    console.log(description);
                     return (
                       <div
                         className="item my-4 cursor-pointer font-Syne max-h-[300px] min-h-[300px]"
@@ -104,11 +105,7 @@ const Services = ({ content, services, ctaContent }) => {
                             {ele.Heading1}
                           </h3>
 
-                          <p className="text-sm my-5">
-                            {description &&
-                              description.replace("<p>", "").substring(0, 150) +
-                                "..."}
-                          </p>
+                          <p className="text-sm my-5">{description}</p>
                           <p
                             onClick={() => navigate(`/${ele.ContentSlug}`)}
                             className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"

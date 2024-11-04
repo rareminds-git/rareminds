@@ -43,6 +43,11 @@ const QueryForm = ({ pageData, content }) => {
 
     if (!data.PhoneNumber.trim()) {
       errors.PhoneNumber = "Phone Number is required";
+    } else if (data.PhoneNumber.length < 10) {
+      errors.PhoneNumber =
+        "Phone Number is invalid. Minimum 10 digits required";
+    } else if (data.PhoneNumber.length > 12) {
+      errors.PhoneNumber = "Phone Number is invalid. Maximum 12 digits allowed";
     }
 
     return errors;
@@ -119,7 +124,7 @@ const QueryForm = ({ pageData, content }) => {
               __html: content[0]?.Heading2,
             }}
           />
-          <h3 className="mt-20 text-3xl md:text-center text-left font-bold md:text-5xl">
+          <h3 className="mt-20 text-3xl md:text-center text-left font-bold md:text-5xl z-10">
             {successMessage}
           </h3>
         </div>
@@ -162,7 +167,7 @@ const QueryForm = ({ pageData, content }) => {
                 type="text"
                 placeholder="Type your name"
                 onChange={(e) => {
-                  const re = /^[A-Za-z]+$/;
+                  const re = /^[A-Za-z\s]+$/;
 
                   if (e.target.value === "" || re.test(e.target.value)) {
                     setFormData({ ...formData, FullName: e.target.value });
@@ -187,7 +192,7 @@ const QueryForm = ({ pageData, content }) => {
                 type="text"
                 placeholder="Type your company"
                 onChange={(e) => {
-                  const re = /^[A-Za-z]+$/;
+                  const re = /^[A-Za-z\s]+$/;
 
                   if (e.target.value === "" || re.test(e.target.value)) {
                     setFormData({ ...formData, CompanyName: e.target.value });
@@ -255,7 +260,7 @@ const QueryForm = ({ pageData, content }) => {
                 type="text"
                 placeholder="Type your job title"
                 onChange={(e) => {
-                  const re = /^[A-Za-z]+$/;
+                  const re = /^[A-Za-z\s]+$/;
 
                   if (e.target.value === "" || re.test(e.target.value)) {
                     setFormData({ ...formData, JobTitle: e.target.value });

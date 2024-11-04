@@ -249,7 +249,7 @@ const About = () => {
                   })}
                 </OwlCarousel>
               )
-            : pageData && (
+            : pageData.awards && (
                 <OwlCarousel
                   className="owl-theme"
                   autoplay
@@ -315,50 +315,52 @@ const About = () => {
             Our Partners
           </h3>
           <div className="container">
-            <OwlCarousel
-              className="owl-theme"
-              autoplay
-              responsive={{
-                0: {
-                  items: 1,
-                  nav: false,
-                  dots: false,
-                },
-                600: {
-                  items: 2,
-                  nav: false,
-                  dots: false,
-                },
-                1000: {
-                  items: 4,
-                  loop: true,
-                  dots: false,
-                  nav: false,
-                },
-              }}
-              loop
-              cellPadding={10}
-              margin={10}
-              items={4}
-            >
-              {pageData &&
-                pageData?.partners?.map((ele) => {
-                  return (
-                    <div className="item">
-                      <a target="_blank">
-                        <img
-                          src={`${import.meta.env.VITE_PUBLIC_URL}images/${ele.Image1}`}
-                          title=""
-                          className="marqueelogo"
-                          alt="Rareminds"
-                          width={!isMobile ? 350 : 250}
-                          height={!isMobile ? 200 : 100}
-                        />
-                      </a>
-                    </div>
-                  );
-                })}
-            </OwlCarousel>
+            {pageData.partners && (
+              <OwlCarousel
+                className="owl-theme"
+                autoplay
+                responsive={{
+                  0: {
+                    items: 1,
+                    nav: false,
+                    dots: false,
+                  },
+                  600: {
+                    items: 2,
+                    nav: false,
+                    dots: false,
+                  },
+                  1000: {
+                    items: 4,
+                    loop: true,
+                    dots: false,
+                    nav: false,
+                  },
+                }}
+                loop
+                cellPadding={10}
+                margin={10}
+                items={4}
+              >
+                {pageData &&
+                  pageData?.partners?.map((ele) => {
+                    return (
+                      <div className="item">
+                        <a target="_blank">
+                          <img
+                            src={`${import.meta.env.VITE_PUBLIC_URL}images/${ele.Image1}`}
+                            title=""
+                            className="marqueelogo"
+                            alt="Rareminds"
+                            width={!isMobile ? 350 : 250}
+                            height={!isMobile ? 200 : 100}
+                          />
+                        </a>
+                      </div>
+                    );
+                  })}
+              </OwlCarousel>
+            )}
           </div>
         </div>
       </section>
