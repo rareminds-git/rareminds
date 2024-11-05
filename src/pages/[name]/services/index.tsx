@@ -73,15 +73,13 @@ const Services = () => {
           <p
             className="text-[24px] lg:text-[22px] leading-[32.6px] row-span-1 mt-12 font-[Sentient] font-light ml-60 lg:ml-12 mb-12 md:px-52 lg:px-4 xl:px-32"
             dangerouslySetInnerHTML={{
-              __html:
-                serviceData?.servicePageData?.Description &&
-                htmlDecode(serviceData?.servicePageData?.Description),
+              __html: serviceData?.servicePageData?.Description,
             }}
           ></p>
           <div className="flex service-list">
             {serviceData &&
               serviceData?.serviceData?.map((ele: any) => {
-                const description = parse(ele.Description);
+                const description = ele.Description;
                 return (
                   <div
                     key={ele.ContentAcronym}
@@ -147,9 +145,7 @@ const Services = () => {
           <p
             className="text-[16px] leading-[22.6px] row-span-1 mt-12 font-[Sentient] font-light mb-12 "
             dangerouslySetInnerHTML={{
-              __html:
-                serviceData?.servicePageData?.Description &&
-                htmlDecode(serviceData?.servicePageData?.Description),
+              __html: serviceData?.servicePageData?.Description,
             }}
           ></p>
           {serviceData?.serviceData?.length > 0 && (
@@ -167,7 +163,7 @@ const Services = () => {
                 >
                   {serviceData &&
                     serviceData?.serviceData?.map((ele: any) => {
-                      const description = parse(ele?.Description);
+                      const description = ele?.Description;
                       return (
                         <div
                           className="item my-4 cursor-pointer font-Syne max-h-[300px] min-h-[300px]"
@@ -179,9 +175,7 @@ const Services = () => {
                             </h3>
 
                             <p className="text-sm my-5">
-                              {description
-                                .replace("<p>", "")
-                                .substring(0, 150) + "..."}
+                              {description.substring(0, 150) + "..."}
                             </p>
                             <p
                               onClick={() => navigate(`/${ele.ContentSlug}`)}
@@ -215,7 +209,7 @@ const Services = () => {
                           <p
                             className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === null ? "mt-16" : hoveredDivs === undefined ? "mt-16" : ""} ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
                             dangerouslySetInnerHTML={{
-                              __html: parse(ele?.Description),
+                              __html: ele?.Description,
                             }}
                           ></p>
 
