@@ -45,9 +45,9 @@ const Achievements = ({ content, achievements }) => {
                         }}
                       ></p>
                     </div>
-                    {index > 0 && <div className="col-span-1"></div>}
+                    {/* {index > 0 && <div className="col-span-1"></div>} */}
                     <div
-                      className={`grid lg:col-span-1 ${index < 2 ? "content-center" : "content-start"}`}
+                      className={`grid lg:col-span-2 ${index < 2 ? "content-center" : "content-start"}`}
                     >
                       <h5
                         className={`${index < 2 ? "lg:text-[162px] leading-[171px]" : "lg:text-[62px] leading-[71px]"} text-right text-[60px] text-blue-400 font-[Poppins-Regular]`}
