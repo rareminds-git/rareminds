@@ -187,11 +187,11 @@ const Hero = ({ content }) => {
               {isInViewport && (
                 <>
                   <img src={HeroImg1} alt="hero-user-img" />
-                  <img
+                  {/* <img
                     src={HeroSun}
                     className="absolute top-[30px] -z-10 right-[60px] "
                     alt="hero-sun"
-                  />
+                  /> */}
                 </>
               )}
             </div>
@@ -230,11 +230,11 @@ const Hero = ({ content }) => {
                 <div className="lg:col-span-6 place-items-start hero-img relative float">
                   <img src={HeroImg1} alt="hero-user-img" />
 
-                  <img
+                  {/* <img
                     src={HeroSun}
                     className="absolute top-0 -z-10 right-0"
                     alt="hero-sun"
-                  />
+                  /> */}
                 </div>
               </div>
             </div>
