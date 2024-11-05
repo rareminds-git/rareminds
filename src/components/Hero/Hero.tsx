@@ -104,11 +104,11 @@ const Hero = ({ content }) => {
               {isInViewport && (
                 <>
                   <img src={HeroImg1} alt="hero-user-img" />
-                  <img
+                  {/* <img
                     src={HeroSun}
                     className="absolute top-[180px] -z-10 right-[60px] scale-150"
                     alt="hero-sun"
-                  />
+                  /> */}
                 </>
               )}
             </div>
