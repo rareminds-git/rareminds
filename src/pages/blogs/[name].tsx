@@ -51,7 +51,7 @@ const BlogDetail = () => {
                 src={AuthorImg}
                 height="100"
                 width="100"
-                className="rounded-full mr-2"
+                className="rounded-full mr-2 object-cover"
               />
               <div className="flex flex-col">
                 <h3>The Art of Gaming</h3>
