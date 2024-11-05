@@ -156,7 +156,7 @@ const Index = () => {
                 {pages.map((ele: any) => {
                   return (
                     <div
-                      className={`banner md:py-12 md:px-4 rounded-2xl`}
+                      className={`banner md:py-8 md:px-4 rounded-2xl`}
                       style={{
                         backgroundImage: `url(${ele.PageSlug === "/corporate" ? CorporateBanner : ele.PageSlug === "/institutions" ? InstitutionsBanner : ele.PageSlug === "/government" ? GovernmentBanner : SchoolsBanner})`,
                       }}
@@ -168,7 +168,7 @@ const Index = () => {
                         For {ele.PageName}
                       </h3>
                       <p
-                        className="xs:mt-10 md:mt-24 sm:mt-20 mt-20 md:text-2xl text-white font-[Poppins-Medium]"
+                        className="xs:mt-10 md:mt-40 sm:mt-20 mt-20 md:text-2xl text-white font-[Poppins-Medium]"
                         dangerouslySetInnerHTML={{
                           __html: ele.PageSubTitle,
                         }}
