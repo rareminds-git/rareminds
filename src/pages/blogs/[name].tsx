@@ -51,7 +51,7 @@ const BlogDetail = () => {
                 src={AuthorImg}
                 height="100"
                 width="100"
-                className="rounded-full mr-2 object-cover"
+                className="rounded-full mr-2"
               />
               <div className="flex flex-col">
                 <h3>The Art of Gaming</h3>
@@ -67,7 +67,7 @@ const BlogDetail = () => {
           <div className="rounded-2xl mt-16">
             <img
               src={`${import.meta.env.VITE_API_URL}uploads/${blogData?.blogData?.Image1}`}
-              className="rounded-lg text-center align-middle justify-center max-h-[430px] w-full"
+              className="rounded-lg text-center align-middle justify-center max-h-[430px] w-full  object-cover"
             />
           </div>
           <div className="grid grid-cols-1 grid-flow-row gap-4">
