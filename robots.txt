@@ -1,0 +1,8 @@
+# robots.txt for Rareminds
+User-agent: *
+Disallow: /build/
+Disallow: /node_modules/
+Disallow: /public/static/
+Disallow: /src/
+
+Allow: /

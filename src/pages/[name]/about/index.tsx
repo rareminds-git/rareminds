@@ -118,8 +118,8 @@ const About = () => {
           </div>
         )}
 
-        <div className="grid md:py-24 py-8 place-items-start relative md:grid-cols-3 md:gap-4 grid-cols-1 xl:mx-36 xl:text-center">
-          <div className="mt-4 col-span-2 md:col-span-1">
+        <div className="grid md:pt-24 py-8 place-items-start relative md:grid-cols-7 md:gap-4 grid-cols-1 xl:mx-36 xl:text-center">
+          <div className="mt-4 col-span-1 md:col-span-3">
             <img
               src={VisionImg}
               width="180px"
@@ -159,7 +159,7 @@ const About = () => {
             </>
           </div>
 
-          <div className="mt-4 col-span-2 md:col-span-1">
+          <div className="mt-4 col-span-2 md:col-span-3">
             <img
               src={MissionImg}
               width="180px"
@@ -186,11 +186,11 @@ const About = () => {
           </div>
         </div>
 
-        <p className="font-Syne md:text-6xl text-3xl text-black py-4 text-center font-bold">
+        {/* <p className="font-Syne md:text-6xl text-3xl text-black py-4 text-center font-bold">
           Awards and Recognitions
-        </p>
+        </p> */}
 
-        <div className="py-16 place-items-start relative">
+        {/* <div className="py-16 place-items-start relative">
           {!isMobile
             ? pageData?.awards && (
                 <OwlCarousel
@@ -215,7 +215,7 @@ const About = () => {
                   }}
                   loop
                   cellPadding={120}
-                  margin={100}
+                  margin={10}
                   items={4}
                 >
                   {pageData?.awards?.map((ele: any, index) => {
@@ -308,9 +308,9 @@ const About = () => {
                   })}
                 </OwlCarousel>
               )}
-        </div>
+        </div> */}
 
-        <div className="text-center md:px-4 px-2 md:py-8 py-2">
+        <div className="text-center md:px-4 px-2 md:py-8 xl:pt-4 xl:pb-2 py-2">
           <h3 className="font-Syne xxl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-2xl text-black py-4 text-center font-bold">
             Our Partners
           </h3>
