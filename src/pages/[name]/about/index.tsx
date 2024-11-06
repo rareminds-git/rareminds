@@ -332,7 +332,7 @@ const About = () => {
                     dots: false,
                   },
                   1000: {
-                    items: 4,
+                    items: 3,
                     loop: true,
                     dots: false,
                     nav: true,
@@ -341,7 +341,7 @@ const About = () => {
                 loop
                 cellPadding={10}
                 margin={10}
-                items={4}
+                items={3}
               >
                 {pageData &&
                   pageData?.partners?.map((ele) => {
