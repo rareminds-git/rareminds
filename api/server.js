@@ -728,21 +728,14 @@ app.post("/case-studies/edit/:slug", async function (req, res) {
 app.post("/editPage/:slug", async function (req, res) {
   let formData = req.body;
   const ContentSlug = formData.ContentSlug;
-  const pageSlug = "/" + req.params.slug;
+  const pageSlug = req.params.slug;
   let pageData = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_pages WHERE PageSlug = ?",
-    values: [pageSlug],
+    sql: "SELECT * FROM rm_pages WHERE PageSlug = '/" + pageSlug + "'",
   });
 
-  if (!pageData || pageData.length === 0) {
-    res.status(404).send({
-      status: 404,
-      message: "Page not found",
-    });
-    return;
+  if (formData.ContentSlug === "/metadata" || pageSlug === "about-us") {
+    delete formData.ContentSlug;
   }
-
-  delete formData.ContentSlug;
 
   let updateString = Object.keys(formData).map((key) => {
     return `${key} = ?`;
@@ -755,12 +748,43 @@ app.post("/editPage/:slug", async function (req, res) {
     values: [...updateValues, pageData[0].PageId],
   });
 
+  if (ContentSlug === "/metadata") {
+    updateData = await mysqlQuery(con, {
+      sql: `UPDATE rm_pages SET ${updateString.join(", ")} WHERE PageSlug = ?`,
+      values: [...updateValues, pageSlug],
+    });
+  } else if (pageSlug === "contact-us" || pageSlug === "about-us") {
+    updateData = await mysqlQuery(con, {
+      sql: `UPDATE rm_content SET ${updateString} WHERE ContentId = "${formData.ContentId}"`,
+    });
+  } else if (pageSlug === "privacy-policy") {
+    updateData = await mysqlQuery(con, {
+      sql: `UPDATE rm_content SET ${updateString} WHERE ContentTypeId = 45`,
+    });
+  } else if (pageSlug === "terms-&-conditions") {
+    updateData = await mysqlQuery(con, {
+      sql: `UPDATE rm_content SET ${updateString} WHERE ContentTypeId = 46`,
+    });
+  } else {
+    updateData = await mysqlQuery(con, {
+      sql: `UPDATE rm_content SET ${updateString} WHERE ContentSlug = "${formData.ContentSlug}" AND PageId = ${pageData[0].PageId}`,
+    });
+  }
+
   console.log(updateData);
 
-  res.send({
-    status: 200,
-    message: "Data updated successfully",
-  });
+  if (updateData) {
+    res.send({
+      status: 200,
+      message: "Data updated successfully",
+    });
+  } else {
+    res.send({
+      status: 500,
+      message:
+        "Details could not be submitted at this time. Please try again after sometime.",
+    });
+  }
 });
 
 app.get("/queries", async function (req, res) {
