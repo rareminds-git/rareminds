@@ -171,7 +171,7 @@ const Name = () => {
 
       {sections.includes("/privacy") ||
         sections.includes("/t&amp;c") ||
-        (sections.includes("/career") && (
+        (pageData.pageData.PageType === 3 && (
           <section className="md:px-20 px-10 py-10">
             <div className="flex">
               <div className="grid">
