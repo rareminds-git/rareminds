@@ -750,19 +750,23 @@ app.post("/editPage/:slug", async function (req, res) {
     });
   } else if (pageSlug === "contact-us" || pageSlug === "about-us") {
     updateData = await mysqlQuery(con, {
-      sql: `UPDATE rm_content SET ${updateString} WHERE ContentId = "${formData.ContentId}"`,
+      sql: `UPDATE rm_content SET ${updateString} WHERE ContentId = ?`,
+      values: [...updateValues, formData.ContentId],
     });
   } else if (pageSlug === "privacy-policy") {
     updateData = await mysqlQuery(con, {
-      sql: `UPDATE rm_content SET ${updateString} WHERE ContentTypeId = 45`,
+      sql: `UPDATE rm_content SET ${updateString} WHERE ContentTypeId = ?`,
+      values: [...updateValues, 45],
     });
   } else if (pageSlug === "terms-&-conditions") {
     updateData = await mysqlQuery(con, {
-      sql: `UPDATE rm_content SET ${updateString} WHERE ContentTypeId = 46`,
+      sql: `UPDATE rm_content SET ${updateString} WHERE ContentTypeId = ?`,
+      values: [...updateValues, 45],
     });
   } else {
     updateData = await mysqlQuery(con, {
-      sql: `UPDATE rm_content SET ${updateString} WHERE ContentSlug = "${formData.ContentSlug}" AND PageId = ${pageData[0].PageId}`,
+      sql: `UPDATE rm_content SET ${updateString} WHERE ContentSlug = ? AND PageId = ?`,
+      values: [...updateValues, formData.ContentSlug, pageData[0].PageId],
     });
   }
 
