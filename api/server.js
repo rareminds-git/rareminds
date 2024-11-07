@@ -745,8 +745,8 @@ app.post("/editPage/:slug", async function (req, res) {
 
   if (ContentSlug === "/metadata") {
     updateData = await mysqlQuery(con, {
-      sql: `UPDATE rm_pages SET ${updateString.join(", ")} WHERE PageSlug = ?`,
-      values: [...updateValues, pageSlug],
+      sql: `UPDATE rm_pages SET ${updateString.join(", ")} WHERE PageId = ?`,
+      values: [...updateValues, pageData[0].PageId],
     });
   } else if (pageSlug === "contact-us" || pageSlug === "about-us") {
     updateData = await mysqlQuery(con, {
