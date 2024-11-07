@@ -743,11 +743,6 @@ app.post("/editPage/:slug", async function (req, res) {
 
   let updateValues = Object.values(formData);
 
-  updateData = await mysqlQuery(con, {
-    sql: `UPDATE rm_pages SET ${updateString.join(", ")} WHERE PageId = ?`,
-    values: [...updateValues, pageData[0].PageId],
-  });
-
   if (ContentSlug === "/metadata") {
     updateData = await mysqlQuery(con, {
       sql: `UPDATE rm_pages SET ${updateString.join(", ")} WHERE PageSlug = ?`,
