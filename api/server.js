@@ -728,7 +728,7 @@ app.post("/case-studies/edit/:slug", async function (req, res) {
 app.post("/editPage/:slug", async function (req, res) {
   let formData = req.body;
   const ContentSlug = formData.ContentSlug;
-  const pageSlug = req.params.slug;
+  const pageSlug = req.params.slug.replace("/");
   let pageData = await mysqlQuery(con, {
     sql: "SELECT * FROM rm_pages WHERE PageSlug = ?",
     values: [pageSlug],
