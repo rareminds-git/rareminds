@@ -181,7 +181,7 @@ const Name = () => {
                 <p
                   className="text-[16px] mb-20"
                   dangerouslySetInnerHTML={{
-                    __html: parse(pageData.sectionData[0]?.Description),
+                    __html: pageData.sectionData[0]?.Description,
                   }}
                 ></p>
               </div>
