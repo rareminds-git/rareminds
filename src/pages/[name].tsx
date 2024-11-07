@@ -169,23 +169,25 @@ const Name = () => {
         />
       )}
 
-      {(sections.includes("/privacy") || sections.includes("/t&amp;c")) && (
-        <section className="md:px-20 px-10 py-10">
-          <div className="flex">
-            <div className="grid">
-              <h1 className="mb-20 mt-20 text-2xl text-left font-bold md:text-5xl">
-                {pageData?.pageData?.PageName}
-              </h1>
-              <p
-                className="text-[16px] mb-20"
-                dangerouslySetInnerHTML={{
-                  __html: parse(pageData.sectionData[0]?.Description),
-                }}
-              ></p>
+      {sections.includes("/privacy") ||
+        sections.includes("/t&amp;c") ||
+        (sections.includes("/career") && (
+          <section className="md:px-20 px-10 py-10">
+            <div className="flex">
+              <div className="grid">
+                <h1 className="mb-20 mt-20 text-2xl text-left font-bold md:text-5xl">
+                  {pageData?.pageData?.PageName}
+                </h1>
+                <p
+                  className="text-[16px] mb-20"
+                  dangerouslySetInnerHTML={{
+                    __html: parse(pageData.sectionData[0]?.Description),
+                  }}
+                ></p>
+              </div>
             </div>
-          </div>
-        </section>
-      )}
+          </section>
+        ))}
 
       {sections.length === 0 && (
         <section className="md:px-20 px-10 py-10">
