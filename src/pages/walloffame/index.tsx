@@ -113,7 +113,7 @@ const WallofFame = () => {
           </p>
           <br />
           <a
-            href="#"
+            href="/unlock-your-potential"
             className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-5 rounded font-bold mr-0"
           >
             Nominate Now
