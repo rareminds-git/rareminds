@@ -28,15 +28,17 @@ const CareerWebDev = () => {
         </div>
       </section>
 
-      <section className="xl:px-28 lg:px-24 md:px-16 px-8 xl:py-16 lg:py-12 md:py-16 py-4 pb-8 bg-gray-100 font-Syne">
+      <section className="xl:px-28 lg:px-24 md:px-16 px-8 xl:py-16 lg:py-12 md:py-16 py-4 pb-8 bg-black font-Syne">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">Why Join Us?</h2>
+          <h2 className="text-3xl text-white font-bold mb-8 text-center">
+            Why Join Us?
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-lg shadow-md p-6 text-center">
               <svg
                 className="w-12 h-12 mx-auto mb-4 text-primary"
                 fill="none"
-                stroke="currentColor"
+                stroke="#ff2c2c"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -56,7 +58,7 @@ const CareerWebDev = () => {
               <svg
                 className="w-12 h-12 mx-auto mb-4 text-primary"
                 fill="none"
-                stroke="currentColor"
+                stroke="#ff2c2c"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -77,7 +79,7 @@ const CareerWebDev = () => {
               <svg
                 className="w-12 h-12 mx-auto mb-4 text-primary"
                 fill="none"
-                stroke="currentColor"
+                stroke="#ff2c2c"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -95,7 +97,7 @@ const CareerWebDev = () => {
               <svg
                 className="w-12 h-12 mx-auto mb-4 text-primary"
                 fill="none"
-                stroke="currentColor"
+                stroke="#ff2c2c"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -159,9 +161,9 @@ const CareerWebDev = () => {
         </div>
       </section>
 
-      <section className="xl:px-28 lg:px-24 md:px-16 px-8 xl:py-16 lg:py-12 md:py-16 py-4 pb-8 bg-gray-100 font-Syne">
+      <section className="xl:px-28 lg:px-24 md:px-16 px-8 xl:py-16 lg:py-12 md:py-16 py-4 pb-8 bg-black font-Syne">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-8 text-center">
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">
             What Our Interns Say
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -190,9 +192,9 @@ const CareerWebDev = () => {
           <h2 className="text-3xl font-bold mb-8 text-center">
             Application Process
           </h2>
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto md:px-20 xl:px-28">
             <div className="flex items-start mb-8">
-              <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
+              <div className="bg-[#ff2c2c] text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
                 1
               </div>
               <div>
@@ -206,7 +208,7 @@ const CareerWebDev = () => {
               </div>
             </div>
             <div className="flex items-start mb-8">
-              <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
+              <div className="bg-[#ff2c2c] text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
                 2
               </div>
               <div>
@@ -220,7 +222,7 @@ const CareerWebDev = () => {
               </div>
             </div>
             <div className="flex items-start mb-8">
-              <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
+              <div className="bg-[#ff2c2c] text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
                 3
               </div>
               <div>
@@ -231,7 +233,7 @@ const CareerWebDev = () => {
               </div>
             </div>
             <div className="flex items-start mb-8">
-              <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
+              <div className="bg-[#ff2c2c] text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
                 4
               </div>
               <div>
@@ -241,25 +243,8 @@ const CareerWebDev = () => {
             </div>
             <div className="text-center mt-12">
               <a href="https://forms.gle/268zSv6PtMkwx5Lp7">
-                <button
-                  id="applyNowBtn"
-                  className="bg-primary text-white hover:bg-primary-dark font-bold py-3 px-8 rounded-lg text-lg transition duration-300 flex items-center justify-center mx-auto"
-                >
+                <button className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-3 rounded font-bold">
                   Apply Now
-                  <svg
-                    className="w-5 h-5 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    ></path>
-                  </svg>
                 </button>
               </a>
             </div>
