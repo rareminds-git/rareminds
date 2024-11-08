@@ -14,13 +14,9 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
         <meta property="og:description" content={pageData?.OGDescription} />
       </Helmet>
       <section className="xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:py-16 lg:py-20 md:py-16 py-8 font-Syne">
-        <div className="flex items-start">
-          <div className="grid space-y-10 place-items-start">
-            <h1 className="font-bold text-5xl sm:text-3xl">
-              {pageData?.PageSubTitle}
-            </h1>
-          </div>
-        </div>
+        <h1 className="text-xl md:text-[70px] leading-[74px] font-Syne font-medium place-items-start text-[#000000] capitalize">
+          {pageData?.PageSubTitle}
+        </h1>
 
         {!isMobile && <CTA content={ctaContent} contactPage={true} />}
 
@@ -29,11 +25,11 @@ const ContactUs = ({ content, ctaContent, pageData }) => {
             {content.map((ele, index) => {
               return (
                 <>
-                <div className="hidden md:block lg:block xl:hidden">
-                      {index === 0 && isMobile && (
-                        <CTA content={ctaContent} contactPage={true} />
-                      )}
-                    </div>
+                  <div className="hidden md:block lg:block xl:hidden">
+                    {index === 0 && isMobile && (
+                      <CTA content={ctaContent} contactPage={true} />
+                    )}
+                  </div>
                   <div className="md:px-10 xl:px-32 my-10">
                     <p
                       className="text-[#FF2C2C] font-bold font-Syne text-[36px] leading-[43.2px] "

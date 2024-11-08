@@ -14,6 +14,7 @@ import EventDetail from "./pages/hackathon/[name]";
 import WallofFame from "./pages/walloffame";
 import CourseDetail from "./pages/courses/[name]/6th-sem-20204";
 import Events from "./pages/hackathon";
+import CareersWebDev from "./pages/careers/web-developer-intern";
 import ImageGallery from "./pages/hackathon/gallery";
 
 const App = () => {
@@ -43,6 +44,10 @@ const App = () => {
               element={<EventDetail />}
             />
             <Route path="/walloffame/" element={<WallofFame />} />
+            <Route
+              path="/careers/web-developer-intern"
+              element={<CareersWebDev />}
+            />
             <Route
               path="courses/:name/6th-sem-2024"
               element={<CourseDetail />}
