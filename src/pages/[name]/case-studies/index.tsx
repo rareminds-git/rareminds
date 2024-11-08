@@ -35,14 +35,9 @@ const CaseStudies = () => {
         <meta property="og:description" content={pageData?.OGDescription} />
       </Helmet>
       <section className="xl:px-28 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8">
-        <div className="flex">
-          <div className="grid">
-            <h1 className="lg:mb-8 mt-10 mb-8 text-3xl text-left font-bold lg:text-5xl">
-              {pageData?.Heading1}
-            </h1>
-            {/* <p className="text-2xl mb-20">{content?.Description}</p> */}
-          </div>
-        </div>
+        <h1 className="text-xl md:text-[70px] leading-[74px] font-Syne font-medium place-items-start text-[#000000] capitalize">
+          {pageData?.Heading1}
+        </h1>
 
         <div className="grid sm:grid-cols-1 md:grid-cols-5 gap-4 mb-10">
           {content.map((ele, index) => (
