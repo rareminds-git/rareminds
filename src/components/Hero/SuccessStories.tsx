@@ -1,8 +1,8 @@
-import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import { useNavigate } from "react-router-dom";
+import OwlCarousel from "react-owl-carousel";
 import { useMediaQuery } from "react-responsive";
+import { useNavigate } from "react-router-dom";
 
 const SuccessStories = ({ content, pageData }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
@@ -34,7 +34,6 @@ const SuccessStories = ({ content, pageData }) => {
               items={1.5}
               margin={40}
               dots={false}
-              nav={false}
             >
               {content?.map((ele: any) => {
                 console.log("Slug", ele.ContentSlug);
@@ -75,7 +74,6 @@ const SuccessStories = ({ content, pageData }) => {
               // stagePadding={60}
               margin={20}
               dots={false}
-              nav={false}
             >
               {content.map((ele: any) => {
                 return (
