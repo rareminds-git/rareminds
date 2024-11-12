@@ -1,10 +1,10 @@
 import { useMediaQuery } from "react-responsive";
-import FooterIcon from "../Footer/FooterIcon";
 import FaceBookIcon from "../../assets/images/fb-icon.svg";
-import TwitterIcon from "../../assets/images/twitter-icon.svg";
-import LinkedInIcon from "../../assets/images/linkedin-icon.svg";
-import YoutubeIcon from "../../assets/images/youtube-icon.svg";
 import InstagramIcon from "../../assets/images/instagram-icon.svg";
+import LinkedInIcon from "../../assets/images/linkedin-icon.svg";
+import TwitterIcon from "../../assets/images/twitter-icon.svg";
+import YoutubeIcon from "../../assets/images/youtube-icon.svg";
+import FooterIcon from "../Footer/FooterIcon";
 
 const socialIcons = [
   {

@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "owl.carousel/dist/assets/owl.carousel.css";
-import { useNavigate } from "react-router-dom";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useMediaQuery } from "react-responsive";
-import Button from "react-bootstrap/Button";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import BackArrow from "../../assets/images/back-arrow.svg";
 
 const QueryForm = ({ pageData, content }) => {
@@ -132,7 +132,7 @@ const QueryForm = ({ pageData, content }) => {
     </section>
   ) : (
     <>
-      <section className="xl:px-32 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8 cursor-pointer">
+      <section className="xl:px-32 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8">
         <div className="flex justify-center">
           <div className="grid space-y-10 text-center font-Syne">
             <h1
@@ -429,7 +429,7 @@ const QueryForm = ({ pageData, content }) => {
 
             <div></div>
             <div></div>
-            <div className="text-[16px] leading-[20px] font-bold font-Syne flex items-center justify-end">
+            <div className="text-[16px] leading-[20px] font-bold font-Syne flex items-center ml-auto cursor-pointer px-5" onClick={()=> {navigate(-1)}}>
               <img
                 className="flex-inline mr-2"
                 src={BackArrow}

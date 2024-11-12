@@ -1,9 +1,8 @@
-import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import TestimonialImg from "../../assets/images/testimonial.svg";
-import TestimonialIlls from "../../assets/images/testimonialIlls.svg";
+import OwlCarousel from "react-owl-carousel";
 import { useMediaQuery } from "react-responsive";
+import TestimonialIlls from "../../assets/images/testimonialIlls.svg";
 
 const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
@@ -81,7 +80,6 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
           margin={20}
           items={1}
           dots={false}
-          nav={false}
         >
           {testimonials?.map((item: any) => {
             return (

@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
-import ServicesImg from "../../../assets/images/servicesImg.svg";
-import { useMediaQuery } from "react-responsive";
-import axios from "axios";
 import CTA from "@/common/CTA";
-import { useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet";
-import parse from "html-react-parser";
-import OwlCarousel from "react-owl-carousel";
+import axios from "axios";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
+import OwlCarousel from "react-owl-carousel";
+import { useMediaQuery } from "react-responsive";
+import { useNavigate } from "react-router-dom";
+import ServicesImg from "../../../assets/images/servicesImg.svg";
 
 const htmlDecode = (input) => {
   const e = document.createElement("div");
@@ -159,7 +158,6 @@ const Services = () => {
                   margin={10}
                   items={1.1}
                   dots={false}
-                  nav={false}
                 >
                   {serviceData &&
                     serviceData?.serviceData?.map((ele: any) => {
