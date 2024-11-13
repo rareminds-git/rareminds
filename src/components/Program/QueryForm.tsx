@@ -10,6 +10,7 @@ import BackArrow from "../../assets/images/back-arrow.svg";
 
 const QueryForm = ({ pageData, content }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
+  const [isChecked, setIsChecked] = useState(false);
   const [formData, setFormData] = useState({
     FullName: "",
     CompanyName: "",
@@ -49,6 +50,10 @@ const QueryForm = ({ pageData, content }) => {
     } else if (data.PhoneNumber.length > 12) {
       errors.PhoneNumber = "Phone Number is invalid. Maximum 12 digits allowed";
     }
+
+    if (!isChecked) {
+      errors.terms = 'You must agree to the terms and conditions';
+    } 
 
     return errors;
   };
@@ -278,7 +283,7 @@ const QueryForm = ({ pageData, content }) => {
           </div>
 
           <h3 className="sm:text-[22px] md:text-[26px] leading-[42.12px] font-medium mt-24 font-Syne">
-            Which of Rareminds' services are you most interested in? <br />
+            Which of Rareminds' services are you most interested in?* <br />
             <span className="text-[20px] leading-[32.4px] font-normal font-Syne">
               (Select all that apply)
             </span>
@@ -403,8 +408,10 @@ const QueryForm = ({ pageData, content }) => {
 
           <Form.Check // prettier-ignore
             type="checkbox"
-            label="By submitting this form, you agree to be contacted by our team representative to discuss a customised talent solution for your organisation. Rest assured, your information will be kept confidential."
+            checked={isChecked}
+            label="By submitting this form, you agree to be contacted by our team representative to discuss a customised talent solution for your organisation. Rest assured, your information will be kept confidential.*"
             className="text-[18px] leading-[24px] font-normal md:w-[75%] font-Syne checkbox mt-10"
+            onChange={(e) => setIsChecked(e.target.checked)}
           />
 
           <h2 className="md:text-[26px] sm:text-[18px] leading-[29px] md:w-[60%] xl:w-[60%] xxl:w-[75%] sm:w-[100%] mt-24 sm:pr-12 pr-56 font-Syne font-bold">
