@@ -16,7 +16,7 @@ const SuccessStories = ({ content, pageData }) => {
               Success Stories so far
             </h4>
             <p
-              className="text-[22px] leading-[33px] mb-10 font-[Poppins-Regular]"
+              className="text-[22px] leading-[33px] mb-10 font-playfair"
               dangerouslySetInnerHTML={{
                 __html: pageData?.Description,
               }}
@@ -48,7 +48,7 @@ const SuccessStories = ({ content, pageData }) => {
                       style={{ width: "975px", height: "575px" }}
                     />
 
-                    <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
+                    <h4 className="font-bold font-playfair md:text-2xl mt-5 text-sm text-red-500">
                       {ele.Heading1}
                     </h4>
                     <p className="text-sm">
@@ -88,7 +88,7 @@ const SuccessStories = ({ content, pageData }) => {
                       className="rounded-2xl"
                     />
 
-                    <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
+                    <h4 className="font-bold font-playfair md:text-2xl mt-5 text-sm text-red-500">
                       {ele.Heading1}
                     </h4>
                     <p className="text-sm">{ele.Heading2}</p>

@@ -17,7 +17,7 @@ const Services = ({ content, services, ctaContent }) => {
   return (
     <>
       <section className="xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:py-16 lg:py-20 md:py-16 py-8 servicesSection">
-        <h3 className="md:mb-20 text-5xl text-left md:font-semibold font-[Sentient] font-semibold text-black">
+        <h3 className="md:mb-20 text-5xl text-left md:font-semibold font-semibold text-black">
           {content?.Heading1}
         </h3>
 
@@ -56,10 +56,10 @@ const Services = ({ content, services, ctaContent }) => {
                           : ""
                       }`}
                     >
-                      <h4 className="text-5xl font-Syne">{ele.Heading1}</h4>
+                      <h4 className="text-5xl ">{ele.Heading1}</h4>
 
                       <p
-                        className={`text-sm my-5 font-[Sentient] font-normal ${
+                        className={`text-sm my-5 font-playfair font-normal ${
                           hoveredDivs === null ? "mt-16" : "mt-8"
                         } ${hoveredDivs === null ? "line-clamp-4" : "line-clamp-6"}`}
                         dangerouslySetInnerHTML={{
@@ -69,7 +69,7 @@ const Services = ({ content, services, ctaContent }) => {
 
                       <p
                         onClick={() => navigate(`/${ele.ContentSlug}`)}
-                        className={`font-[Sentient] font-bold text-[16px] leading-[21.76px] ${hoveredDivs === null ? "" : "hidden"}`}
+                        className={`font-playfair font-bold text-[16px] leading-[21.76px] ${hoveredDivs === null ? "" : "hidden"}`}
                       >
                         ...Read More
                       </p>
@@ -95,7 +95,7 @@ const Services = ({ content, services, ctaContent }) => {
                     console.log(description);
                     return (
                       <div
-                        className="item my-4 cursor-pointer font-Syne max-h-[300px] min-h-[300px]"
+                        className="item my-4 cursor-pointer font-playfair max-h-[300px] min-h-[300px]"
                         onMouseEnter={() => setHoveredDivs(ele.ContentAcronym)}
                         onMouseLeave={() => setHoveredDivs(null)}
                         onClick={() => navigate(`/${ele.ContentSlug}`)}
@@ -113,7 +113,7 @@ const Services = ({ content, services, ctaContent }) => {
                           ></p>
                           <p
                             onClick={() => navigate(`/${ele.ContentSlug}`)}
-                            className="font-[Sentient] font-bold text-[16px] mt-8 leading-[21.76px]"
+                            className="font-playfair font-bold text-[16px] mt-8 leading-[21.76px]"
                           >
                             ..Read More
                           </p>
@@ -135,12 +135,12 @@ const Services = ({ content, services, ctaContent }) => {
                       <div
                         className={` text-white p-8 xl:py-12 xl:px-10 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
                       >
-                        <h4 className="lg:text-3xl md:text-2xl font-Syne">
+                        <h4 className="lg:text-3xl md:text-2xl font-playfair">
                           {ele.Heading1}
                         </h4>
 
                         <p
-                          className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === null ? "mt-16" : hoveredDivs === undefined ? "mt-16" : "mt-16"} ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : "line-clamp-6"}`}
+                          className={`text-sm my-5  font-normal ${hoveredDivs === null ? "mt-16" : hoveredDivs === undefined ? "mt-16" : "mt-16"} ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : "line-clamp-6"}`}
                           dangerouslySetInnerHTML={{
                             __html: ele?.Description.substring(0, 120),
                           }}
@@ -148,7 +148,7 @@ const Services = ({ content, services, ctaContent }) => {
 
                         <p
                           onClick={() => navigate(`/${ele.ContentSlug}`)}
-                          className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
+                          className="font-playfair font-bold text-[16px] leading-[21.76px]"
                         >
                           ...Read More
                         </p>
