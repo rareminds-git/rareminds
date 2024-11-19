@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&family=Syne:wght@400..800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,38 +8,40 @@
 @layer base {
   body {
     @apply font-Inter w-full min-h-screen;
+      font-family: 'Playfair Display', serif;
+    
   }
 
   @font-face {
-    font-family: "Poppins-Regular";
-    src: url("../../../fonts/Poppins-Regular.ttf") format("truetype");
+    font-family: 'Playfair Display', serif;
+    src: url("../../../fonts/Playfair_144pt-Bold.ttf") format("truetype");
     font-weight: 200;
     font-display: swap;
     font-style: normal;
   }
 
   @font-face {
-    font-family: "Poppins-Medium";
-    src: url("../../../fonts/Poppins-Medium.ttf") format("truetype");
+    font-family: 'Playfair Display', serif;
+    src: url("../../../fonts/Playfair_144pt-Bold.ttf") format("truetype");
     font-weight: 400;
     font-display: swap;
     font-style: normal;
   }
 
   @font-face {
-    font-family: "Sentient";
+    font-family: 'Playfair Display', serif;
     src:
-      url("../../../fonts/Sentient-Variable.woff2") format("woff2"),
-      url("../../../fonts/Sentient-Variable.woff") format("woff"),
-      url("../../../fonts/Sentient-Variable.ttf") format("truetype");
+      url("../../../fonts/Playfair_144pt-Bold.ttf") format("woff2"),
+      url("../../../fonts/Playfair_144pt-Bold.ttf") format("woff"),
+      url("../../../fonts/Playfair_144pt-Bold.ttf") format("truetype");
     font-weight: 200 700;
     font-display: swap;
     font-style: normal;
   }
 
   @font-face {
-    font-family: "Urbanist";
-    src: url("../../../fonts/Urbanist-VariableFont_wght.ttf") format("truetype");
+    font-family: 'Playfair Display', serif;
+    src: url("../../../fonts/Playfair_144pt-Bold.ttf") format("truetype");
     font-weight: 200 700;
     font-display: swap;
     font-style: normal;
@@ -57,18 +61,18 @@
   */
 
   @font-face {
-    font-family: "Sentient-VariableItalic";
+    font-family: 'Playfair Display', serif;
     src:
-      url("../../../fonts/Sentient-VariableItalic.woff2") format("woff2"),
-      url("../../../fonts/Sentient-VariableItalic.woff") format("woff"),
-      url("../../../fonts/Sentient-VariableItalic.ttf") format("truetype");
+      url("../../../fonts/Playfair_144pt-Bold.ttf") format("woff2"),
+      url("../../../fonts/Playfair_144pt-Bold.ttf") format("woff"),
+      url("../../../fonts/Playfair_144pt-Bold.ttf") format("truetype");
     font-weight: 200 700;
     font-display: swap;
     font-style: italic;
   }
 
   @font-face {
-    font-family: "Sentient-Extralight";
+    font-family: 'Playfair Display', serif;
     src:
       url("../../../fonts/Sentient-Extralight.woff2") format("woff2"),
       url("../../../fonts/Sentient-Extralight.woff") format("woff"),
@@ -79,7 +83,7 @@
   }
 
   @font-face {
-    font-family: "Sentient-ExtralightItalic";
+    font-family: 'Playfair Display', serif;
     src:
       url("../../../fonts/Sentient-ExtralightItalic.woff2") format("woff2"),
       url("../../../fonts/Sentient-ExtralightItalic.woff") format("woff"),
@@ -90,7 +94,7 @@
   }
 
   @font-face {
-    font-family: "Sentient-Light";
+    font-family: 'Playfair Display', serif;
     src:
       url("../../../fonts/Sentient-Light.woff2") format("woff2"),
       url("../../../fonts/Sentient-Light.woff") format("woff"),
@@ -101,7 +105,7 @@
   }
 
   @font-face {
-    font-family: "Sentient-LightItalic";
+    font-family: 'Playfair Display', serif;
     src:
       url("../../../fonts/Sentient-LightItalic.woff2") format("woff2"),
       url("../../../fonts/Sentient-LightItalic.woff") format("woff"),
@@ -112,7 +116,7 @@
   }
 
   @font-face {
-    font-family: "Sentient-Regular";
+    font-family: 'Playfair Display', serif;
     src:
       url("../../../fonts/Sentient-Regular.woff2") format("woff2"),
       url("../../../fonts/Sentient-Regular.woff") format("woff"),
@@ -123,7 +127,7 @@
   }
 
   @font-face {
-    font-family: "Sentient-Italic";
+    font-family: 'Playfair Display', serif;
     src:
       url("../../../fonts/Sentient-Italic.woff2") format("woff2"),
       url("../../../fonts/Sentient-Italic.woff") format("woff"),
@@ -134,7 +138,7 @@
   }
 
   @font-face {
-    font-family: "Sentient-Medium";
+    font-family: 'Playfair Display', serif;
     src:
       url("../../../fonts/Sentient-Medium.woff2") format("woff2"),
       url("../../../fonts/Sentient-Medium.woff") format("woff"),

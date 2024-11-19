@@ -10,7 +10,7 @@ const CareerWebDev = () => {
       >
         <div className=""></div>
       </header>
-      <section className="intro-section font-Syne">
+      <section className="intro-section font-playfair">
         <div className="container mx-auto xl:px-28 lg:px-24 md:px-16 px-8 xl:py-16 lg:py-12 md:py-16 py-4 pb-8">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Your First Step to a Web Development Career Starts Here!
@@ -21,14 +21,14 @@ const CareerWebDev = () => {
             that set you apart.
           </p>
           <a href="https://forms.gle/268zSv6PtMkwx5Lp7">
-            <button className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-3 rounded font-bold">
+            <button className="btn font-playfair bg-[#CAF0F8] text-black p-2 mt-3 rounded font-bold">
               Apply Now
             </button>
           </a>
         </div>
       </section>
 
-      <section className="xl:px-28 lg:px-24 md:px-16 px-8 xl:py-16 lg:py-12 md:py-16 py-4 pb-8 bg-black font-Syne">
+      <section className="xl:px-28 lg:px-24 md:px-16 px-8 xl:py-16 lg:py-12 md:py-16 py-4 pb-8 bg-black font-playfair">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl text-white font-bold mb-8 text-center">
             Why Join Us?
@@ -118,7 +118,7 @@ const CareerWebDev = () => {
         </div>
       </section>
 
-      <section className="xl:px-28 lg:px-24 md:px-16 px-8 xl:py-16 lg:py-12 md:py-16 py-4 pb-8 font-Syne">
+      <section className="xl:px-28 lg:px-24 md:px-16 px-8 xl:py-16 lg:py-12 md:py-16 py-4 pb-8 font-playfair">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">
             Internship Overview
@@ -161,7 +161,7 @@ const CareerWebDev = () => {
         </div>
       </section>
 
-      <section className="xl:px-28 lg:px-24 md:px-16 px-8 xl:py-16 lg:py-12 md:py-16 py-4 pb-8 bg-black font-Syne">
+      <section className="xl:px-28 lg:px-24 md:px-16 px-8 xl:py-16 lg:py-12 md:py-16 py-4 pb-8 bg-black font-playfair">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-white mb-8 text-center">
             What Our Interns Say
@@ -187,7 +187,7 @@ const CareerWebDev = () => {
         </div>
       </section>
 
-      <section className="xl:px-28 lg:px-24 md:px-16 px-8 xl:py-16 lg:py-12 md:py-16 py-4 pb-8 font-Syne">
+      <section className="xl:px-28 lg:px-24 md:px-16 px-8 xl:py-16 lg:py-12 md:py-16 py-4 pb-8 font-playfair">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">
             Application Process

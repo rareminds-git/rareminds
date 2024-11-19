@@ -126,12 +126,12 @@ const Index = () => {
                       setActiveBanner(ele.PageSlug.replace("/", ""));
                     }}
                   >
-                    <h3 className="text-white font-bold font-[Poppins-Regular] text-[36px] leading-[38px]">
+                    <h3 className="text-white font-bold font-playfair text-[36px] leading-[38px]">
                       For {ele.PageName}
                     </h3>
                     {activeBanner === ele.PageSlug.replace("/", "") ? (
                       <p
-                        className="mt-60 mr-16 text-white font-[Urbanist] text-[20px] leading-[26px] font-semibold absolute bottom-10"
+                        className="mt-60 mr-16 text-white font-playfair text-[20px] leading-[26px] font-semibold absolute bottom-10"
                         dangerouslySetInnerHTML={{
                           __html: ele.PageSubTitle,
                         }}
@@ -164,11 +164,11 @@ const Index = () => {
                         redirectToPage(ele.PageSlug.replace("/", ""));
                       }}
                     >
-                      <h3 className="text-white font-extrabold font-[Poppins-Medium] text-2xl">
+                      <h3 className="text-white font-extrabold font-playfair text-2xl">
                         For {ele.PageName}
                       </h3>
                       <p
-                        className="xs:mt-10 md:mt-40 sm:mt-20 mt-20 md:text-2xl text-white font-[Poppins-Medium]"
+                        className="xs:mt-10 md:mt-40 sm:mt-20 mt-20 md:text-2xl text-white font-playfair"
                         dangerouslySetInnerHTML={{
                           __html: ele.PageSubTitle,
                         }}

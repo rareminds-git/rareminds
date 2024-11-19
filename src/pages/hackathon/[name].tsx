@@ -48,7 +48,7 @@ const EventDetail = () => {
 
   return (
     <>
-      <section className="xl:px-28 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8 relative font-Syne">
+      <section className="xl:px-28 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8 relative font-playfair">
         <div className="flex">
           <div className="grid">
             <h1 className="text-3xl text-left font-bold md:text-5xl">
@@ -104,7 +104,7 @@ const EventDetail = () => {
             </h3>
           </div>
         </div> */}
-        <div className="text-center font-Syne">
+        <div className="text-center font-playfair">
           <p>Online event starts in</p>
           <br />
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 max-w-[600px] mx-auto">
@@ -142,7 +142,7 @@ const EventDetail = () => {
             </div>
           </div>
         </div>
-        <div className="grid md:grid-cols-2 mt-10 gap-5 lg:mx-48 font-Syne">
+        <div className="grid md:grid-cols-2 mt-10 gap-5 lg:mx-48 font-playfair grid-cols-2">
           <div className="p-5 min-w-[300px] rounded-xl border-[#ff2c2c] border-2 text-[#ff2c2c] flex flex-col items-center md:items-center bg-gradient-to-b md:bg-gradient-to-r from-[#ffffff] to-[#ffffff] shadow-[0_0px_15px_0px_rgba(0,0,0,0.1)]">
             <p className="font-semibold text-2xl">When</p>
             <p className="text-center md:text-center">
@@ -165,8 +165,7 @@ const EventDetail = () => {
             <br />
           </div>
         </div>
-
-        <div className="text-center py-10 my-10 pb-[4px] lg:pb-[4px] font-Syne">
+        <div className="text-center py-10 my-10 pb-[4px] lg:pb-[4px] font-playfair">
           <p className="lg:text-5xl text-2xl font-bold">
             Join as at the{" "}
             {eventData && eventData.eventData
@@ -185,7 +184,7 @@ const EventDetail = () => {
       </section>
       <section className="cursor-pointer xl:pt-0">
         <div className="grid space-y-10 lg:grid-cols-3 my-12 md:my-5 lg:mx-32 mx-12 sm:mx-4 place-items-center border-y-[#FF2C2C] border-2 border-x-0">
-          <h3 className="lg:col-span-3 mb-4 relative text-left mt-4 font-Syne font-bold inline-block lg:text-[50px] lg:leading-[58px] text-[#FF2C2C] lg:mx-8 text-[22px] leading-[28.4px] py-4 px-12 lg:px-4 lg:py-4">
+          <h3 className="lg:col-span-3 mb-4 relative text-left mt-4 font-playfair font-bold inline-block lg:text-[50px] lg:leading-[58px] text-[#FF2C2C] lg:mx-8 text-[22px] leading-[28.4px] py-4 px-12 lg:px-4 lg:py-4">
             Registrations{" "}
             {eventData && eventData.eventData && eventData.eventData.Status
               ? "Open"
@@ -195,11 +194,11 @@ const EventDetail = () => {
         </div>
       </section>
 
-      <section className="mb-[60px] lg:mb-[100px] xxl:px-[150px] my-20 font-Syne">
+      <section className="mb-[60px] lg:mb-[100px] xxl:px-[150px] my-20 font-playfair">
         <div className="container px-5 xl:px-[80px] mx-auto flex flex-col items-center">
           <h2 className="text-4xl font-semibold">Event Schedule</h2>
           <p>A Representation of Event Planning</p>
-          <div className="w-full flex flex-col mt-10 gap-5 font-Syne">
+          <div className="w-full flex flex-col mt-10 gap-5 font-playfair">
             {eventData?.eventSchedule?.map((row) => {
               return (
                 <>
@@ -225,7 +224,7 @@ const EventDetail = () => {
           </div>
         </div>
       </section>
-      <section className="bg-gradient-to-r from-[#000] to-[#000] py-[100px] xl:mx-20 lg:mx-20 rounded-xl font-Syne">
+      <section className="bg-gradient-to-r from-[#000] to-[#000] py-[100px] xl:mx-20 lg:mx-20 rounded-xl font-playfair">
         <div className="px-5 container xl:px-[80px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="order-[2] lg:order-[1] font-Syne">
@@ -290,7 +289,7 @@ const EventDetail = () => {
           </div>
         </div>
       </section>
-      <section className="my-[60px] lg:my-[100px] xxl:px-[150px] font-Syne">
+      <section className="my-[60px] lg:my-[100px] xxl:px-[150px] font-playfair">
         <div className="container mx-auto xl:px-[80px] px-5">
           <h2 className="text-4xl font-semibold text-center mb-10">
             Hackathon Agenda
@@ -323,7 +322,7 @@ const EventDetail = () => {
           })}
         </div>
       </section>
-      <section className="pb-[60px] lg:pb-[100px] font-Syne">
+      <section className="pb-[60px] lg:pb-[100px] font-playfair">
         <div className="container mx-auto xl:px-[80px] px-5 flex flex-col">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10">
             <div>

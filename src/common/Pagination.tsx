@@ -19,7 +19,7 @@ const Pagination = ({
         <button
           key={pageNumber}
           onClick={() => handlePagination(pageNumber)}
-          className={`${currentPage === pageNumber ? "active bg-[#FF2C2C] text-white" : ""} rounded-xl font-Syne text-lg text-center w-[40px] h-[40px]`}
+          className={`${currentPage === pageNumber ? "active bg-[#FF2C2C] text-white" : ""} rounded-xl font-playfair text-lg text-center w-[40px] h-[40px]`}
         >
           {pageNumber}
         </button>

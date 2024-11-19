@@ -5,6 +5,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        playfair: ['Playfair Display', 'serif'],
         Inter: "Inter",
         Syne: "Syne",
         Poppins: "Poppins",

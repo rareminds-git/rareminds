@@ -52,14 +52,14 @@ const ServiceName = () => {
         <section className="xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:py-16 lg:py-20 md:py-16 py-8">
           <div className="grid grid-cols-6 gap-0">
             <h1
-              className="lg:text-[70px] leading-[74px] text-5xl grid-cols-1 py-4 col-span-2 font-[Sentient] mr-100 place-items-start border-b-[1px] border-black text-[#FF2C2C] font-medium capitalize"
+              className="lg:text-[70px] leading-[74px] text-5xl grid-cols-1 py-4 col-span-2 font-playfair mr-100 place-items-start border-b-[1px] border-black text-[#FF2C2C] font-medium capitalize"
               style={{ wordSpacing: "9999px" }}
             >
               {serviceData?.serviceData?.Heading1}
             </h1>
           </div>
           <p
-            className="text-md font-[Sentient] text-[24px] leading-[32.84px] font-light capitalize ml-72 mr-16 mt-12 mb-12"
+            className="text-md font-playfair text-[24px] leading-[32.84px] font-light capitalize ml-72 mr-16 mt-12 mb-12"
             dangerouslySetInnerHTML={{
               __html: serviceData?.serviceData?.Description,
             }}
@@ -84,20 +84,20 @@ const ServiceName = () => {
                 className="absolute -left-24 top-10"
                 alt="Line"
               />
-              <h2 className="text-[#FF2C2C] font-bold mb-10 capitalize lg:text-[36px] lg:leading-[42px] text-3xl mt-36 font-Syne">
+              <h2 className="text-[#FF2C2C] font-bold mb-10 capitalize lg:text-[36px] lg:leading-[42px] text-3xl mt-36 font-playfair">
                 Program Details
               </h2>
               {serviceData?.servicePrograms?.map((ele: any) => {
                 return (
                   <div className="row-span-1">
                     <p
-                      className="text-xl lg:text-[36px] lg:leading-[42px] font-[Syne] font-semibold"
+                      className="text-xl lg:text-[36px] lg:leading-[42px]  font-semibold"
                       dangerouslySetInnerHTML={{
                         __html: ele.ContentTitle,
                       }}
                     />
                     <span
-                      className="mt-4 mr-20 lg:text-[16px] lg:leading-[21.76px] font-[Sentient] font-light serviceProgramList"
+                      className="mt-4 mr-20 lg:text-[16px] lg:leading-[21.76px]  font-light serviceProgramList"
                       dangerouslySetInnerHTML={{
                         __html: ele.ContentDescription,
                       }}
@@ -115,7 +115,7 @@ const ServiceName = () => {
           </h1>
 
           <p
-            className="text-[14px] leading-[21px] font-[Poppins-Regular] row-span-1 capitalize mb-12 mt-12"
+            className="text-[14px] leading-[21px] row-span-1 capitalize mb-12 mt-12"
             dangerouslySetInnerHTML={{
               __html: serviceData?.serviceData?.Description,
             }}
@@ -136,7 +136,7 @@ const ServiceName = () => {
             />
           </div>
 
-          <h2 className="text-[#FF2C2C] font-bold capitalize text-3xl mt-8 font-Syne">
+          <h2 className="text-[#FF2C2C] font-bold capitalize text-3xl mt-8 ">
             Program Details
           </h2>
 
@@ -144,7 +144,7 @@ const ServiceName = () => {
             return (
               <div className="mt-6">
                 <h3
-                  className="lg:text-4xl text-xl font-bold font-Syne"
+                  className="lg:text-4xl text-xl font-bold font-playfair"
                   dangerouslySetInnerHTML={{
                     __html: ele.ContentTitle,
                   }}

@@ -1,10 +1,10 @@
 import { useMediaQuery } from "react-responsive";
-import FooterIcon from "../Footer/FooterIcon";
 import FaceBookIcon from "../../assets/images/fb-icon.svg";
-import TwitterIcon from "../../assets/images/twitter-icon.svg";
-import LinkedInIcon from "../../assets/images/linkedin-icon.svg";
-import YoutubeIcon from "../../assets/images/youtube-icon.svg";
 import InstagramIcon from "../../assets/images/instagram-icon.svg";
+import LinkedInIcon from "../../assets/images/linkedin-icon.svg";
+import TwitterIcon from "../../assets/images/twitter-icon.svg";
+import YoutubeIcon from "../../assets/images/youtube-icon.svg";
+import FooterIcon from "../Footer/FooterIcon";
 
 const socialIcons = [
   {
@@ -53,7 +53,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href="/"
-                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
+                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -64,7 +64,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href={`/${localStorage.getItem("currentUserType")}/services`}
-                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
+                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -75,7 +75,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href={`/about`}
-                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
+                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -97,7 +97,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href="/contact-us"
-                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
+                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -108,7 +108,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href="/blogs"
-                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] font-bold text-white"
+                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-playfair font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -117,7 +117,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                     </a>
                   </li>
 
-                  <li className="nav-li text-[22px] leading-[20px] font-semibold pt-12 font-Syne text-white">
+                  <li className="nav-li text-[22px] leading-[20px] font-semibold pt-12  text-white">
                     <a href="mailto:info@rareminds.in">info@rareminds.in</a>
                   </li>
                 </ul>
@@ -130,7 +130,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href="/events"
-                      className="nav-link text-[60px] leading-[81.6px] lg:text-[56px] lg:leading-[61.6px] font-[Sentient] font-bold text-white"
+                      className="nav-link text-[60px] leading-[81.6px] lg:text-[56px] lg:leading-[61.6px] font-playfair font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -141,7 +141,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href="/walloffame"
-                      className="nav-link text-[60px] leading-[81.6px] lg:text-[56px] lg:leading-[61.6px] font-[Sentient] font-bold text-white"
+                      className="nav-link text-[60px] leading-[81.6px] lg:text-[56px] lg:leading-[61.6px] font-playfair font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -152,7 +152,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href="/events"
-                      className="nav-link text-[60px] leading-[81.6px] lg:text-[56px] lg:leading-[61.6px] font-[Sentient] font-bold text-white"
+                      className="nav-link text-[60px] leading-[81.6px] lg:text-[56px] lg:leading-[61.6px] font-playfair font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -163,7 +163,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href="/walloffame"
-                      className="nav-link text-[60px] leading-[81.6px] lg:text-[56px] lg:leading-[61.6px] font-[Sentient] font-bold text-white"
+                      className="nav-link text-[60px] leading-[81.6px] lg:text-[56px] lg:leading-[61.6px] font-playfair font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -171,7 +171,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       Wall of Fame
                     </a>
                   </li>
-                  <li className="nav-li text-[20px] leading-[20px] mt-6 flex items-center font-semibold lg:pt-20 pt-24 text-white font-Syne">
+                  <li className="nav-li text-[20px] leading-[20px] mt-6 flex items-center font-semibold lg:pt-20 pt-24 text-white font-playfair">
                     <span className="inline-flex mr-1">Follow us:</span>
                     {socialIcons.map((socialIcon) => {
                       const { icon, id, link } = socialIcon;
@@ -205,7 +205,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href="/"
-                      className="nav-link text-3xl md:text-4xl font-[Sentient] text-white font-bold"
+                      className="nav-link text-3xl md:text-4xl font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -216,7 +216,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href={`/${localStorage.getItem("currentUserType")}/services`}
-                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
+                      className="nav-link text-4xl font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -227,7 +227,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href={`/about`}
-                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
+                      className="nav-link text-4xl font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -249,7 +249,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href="/contact-us"
-                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
+                      className="nav-link text-4xl font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -261,7 +261,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href="/blogs"
-                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
+                      className="nav-link text-4xl font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -293,10 +293,10 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   </li> */}
                 </ul>
 
-                <p className="text-white font-Syne text-xl mt-32">
+                <p className="text-white  text-xl mt-32">
                   <a href="mailto:info@rareminds.in">info@rareminds.in</a>
                 </p>
-                <p className="text-xl font-Syne text-white mt-12">
+                <p className="text-xl text-white mt-12">
                   Follow us:{" "}
                   {socialIcons.map((socialIcon) => {
                     const { icon, id, link } = socialIcon;

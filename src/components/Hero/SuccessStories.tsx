@@ -1,8 +1,8 @@
-import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import { useNavigate } from "react-router-dom";
+import OwlCarousel from "react-owl-carousel";
 import { useMediaQuery } from "react-responsive";
+import { useNavigate } from "react-router-dom";
 
 const SuccessStories = ({ content, pageData }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
@@ -16,7 +16,7 @@ const SuccessStories = ({ content, pageData }) => {
               Success Stories so far
             </h4>
             <p
-              className="text-[22px] leading-[33px] mb-10 font-[Poppins-Regular]"
+              className="text-[22px] leading-[33px] mb-10 font-playfair"
               dangerouslySetInnerHTML={{
                 __html: pageData?.Description,
               }}
@@ -34,7 +34,6 @@ const SuccessStories = ({ content, pageData }) => {
               items={1.5}
               margin={40}
               dots={false}
-              nav={false}
             >
               {content?.map((ele: any) => {
                 console.log("Slug", ele.ContentSlug);
@@ -49,7 +48,7 @@ const SuccessStories = ({ content, pageData }) => {
                       style={{ width: "975px", height: "575px" }}
                     />
 
-                    <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
+                    <h4 className="font-bold font-playfair md:text-2xl mt-5 text-sm text-red-500">
                       {ele.Heading1}
                     </h4>
                     <p className="text-sm">
@@ -75,7 +74,6 @@ const SuccessStories = ({ content, pageData }) => {
               // stagePadding={60}
               margin={20}
               dots={false}
-              nav={false}
             >
               {content.map((ele: any) => {
                 return (
@@ -90,7 +88,7 @@ const SuccessStories = ({ content, pageData }) => {
                       className="rounded-2xl"
                     />
 
-                    <h4 className="font-bold font-Syne md:text-2xl mt-5 text-sm text-red-500">
+                    <h4 className="font-bold font-playfair md:text-2xl mt-5 text-sm text-red-500">
                       {ele.Heading1}
                     </h4>
                     <p className="text-sm">{ele.Heading2}</p>

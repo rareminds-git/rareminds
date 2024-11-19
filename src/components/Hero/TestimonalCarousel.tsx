@@ -1,9 +1,8 @@
-import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import TestimonialImg from "../../assets/images/testimonial.svg";
-import TestimonialIlls from "../../assets/images/testimonialIlls.svg";
+import OwlCarousel from "react-owl-carousel";
 import { useMediaQuery } from "react-responsive";
+import TestimonialIlls from "../../assets/images/testimonialIlls.svg";
 
 const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
@@ -48,13 +47,13 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
             border-[#CAF0F8] border-[17px]"
                     />
                     <p
-                      className="font-[Sentient] font-normal text-wrap lg:text-[30px] text-[20px] lg:leading-[40.8px] my-8 lg:pr-24"
+                      className="font-playfair font-normal text-wrap lg:text-[30px] text-[20px] lg:leading-[40.8px] my-8 lg:pr-24"
                       dangerouslySetInnerHTML={{
                         __html: item.ContentTitle,
                       }}
                     />
                     <p
-                      className="font-[Sentient] font-normal text-balance text-[18px] leading-[24.48px] pb-5 lg:pr-24 Hero"
+                      className="font-playfair font-normal text-balance text-[18px] leading-[24.48px] pb-5 lg:pr-24 Hero"
                       dangerouslySetInnerHTML={{
                         __html: item.ContentDescription,
                       }}
@@ -81,7 +80,6 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
           margin={20}
           items={1}
           dots={false}
-          nav={false}
         >
           {testimonials?.map((item: any) => {
             return (
@@ -98,13 +96,13 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
                   </div>
                   <div className="col-span-2">
                     <p
-                      className="font-Inter text-xl font-bold my-8"
+                      className="font-playfair text-xl font-bold my-8"
                       dangerouslySetInnerHTML={{
                         __html: item.ContentTitle,
                       }}
                     />
                     <p
-                      className="font-Inter text-sm pb-5 mr-4 font-thin"
+                      className="font-playfair text-sm pb-5 mr-4 font-thin"
                       dangerouslySetInnerHTML={{
                         __html: item.ContentDescription,
                       }}

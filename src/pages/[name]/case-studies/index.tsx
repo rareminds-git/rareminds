@@ -35,7 +35,7 @@ const CaseStudies = () => {
         <meta property="og:description" content={pageData?.OGDescription} />
       </Helmet>
       <section className="xl:px-28 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8">
-        <h1 className="text-xl md:text-[70px] leading-[74px] font-Syne font-medium place-items-start text-[#000000] capitalize">
+        <h1 className="text-xl md:text-[70px] leading-[74px] font-playfair font-medium place-items-start text-[#000000] capitalize">
           {pageData?.Heading1}
         </h1>
 
@@ -62,7 +62,7 @@ const CaseStudies = () => {
                 alt={ele.Heading1}
               />
 
-              <h4 className="font-bold font-Syne lg:text-2xl mt-5 text-sm text-red-500">
+              <h4 className="font-bold font-playfair lg:text-2xl mt-5 text-sm text-red-500">
                 {ele.Heading1}
               </h4>
               <p className="text-sm">{ele.Heading2}</p>
