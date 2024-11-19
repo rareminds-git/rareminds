@@ -105,12 +105,12 @@ const FooterBar = () => {
   return (
     <>
       {!isMobile ? (
-        <div className="bg-black text-white font-Syne py-10">
+        <div className="bg-black text-white font-playfair py-10">
           <div className="grid grid-flow-col grid-rows-1 mx-10 py-10 gap-4">
             <div className="row-span-1">
               <div className="grid grid-rows-1 grid-flow-col">
                 <div className="row-span-1">
-                  <ul className="mx-10 text-[20px] leading-[24px] font-Syne">
+                  <ul className="mx-10 text-[20px] leading-[24px] font-playfair">
                     <li>
                       <a href="/">Home</a>
                     </li>
@@ -123,7 +123,7 @@ const FooterBar = () => {
                   </ul>
                 </div>
                 <div className="row-span-1">
-                  <ul className="mx-10 text-[20px] leading-[24px] font-Syne cursor-pointer">
+                  <ul className="mx-10 text-[20px] leading-[24px] font-playfair cursor-pointer">
                     <li>
                       <a
                         onClick={() => {
@@ -212,7 +212,7 @@ const FooterBar = () => {
               </div>
             </div>
             <div className="row-span-1 place-items-end text-right">
-              <h3 className="text-[30px] leading-[40.8px] font-light font-[Sentient] text-left xl:ml-[4.5rem] lg:ml-[3.5rem] xxl:ml-[8rem] md:ml-[32rem]">
+              <h3 className="text-[30px] leading-[40.8px] font-light font-playfair text-left xl:ml-[4.5rem] lg:ml-[3.5rem] xxl:ml-[8rem] md:ml-[32rem]">
                 Sign up to receive <br /> latest news.
               </h3>
               <input
@@ -226,7 +226,7 @@ const FooterBar = () => {
               />
 
               <button
-                className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-5 rounded font-bold mr-0"
+                className="btn font-playfair bg-[#CAF0F8] text-black p-2 mt-5 rounded font-bold mr-0"
                 onClick={() => submitSubscription()}
               >
                 Subscribe
@@ -254,14 +254,14 @@ const FooterBar = () => {
           </div>
         </div>
       ) : (
-        <div className="bg-black text-white py-12 font-Syne pt-10">
+        <div className="bg-black text-white py-12 font-playfair pt-10">
           <div className="row-span-1 mx-10 my-5">
             <h3 className="text-3xl">Sign up to receive the latest news.</h3>
             <input
               className="rounded p-2 mt-3 bg-transparent border-[#CAF0F8]-400 border w-[60%] md:w-[80%] lg:w-[85%] xl:w-[100%] xxl:w-[100%] mr-[10px]"
               placeholder="Enter your email"
             />
-            <button className="btn font-Syne bg-[#CAF0F8] text-black p-2 mt-3 rounded font-bold">
+            <button className="btn font-playfair bg-[#CAF0F8] text-black p-2 mt-3 rounded font-bold">
               Subscribe
             </button>
           </div>

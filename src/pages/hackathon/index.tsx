@@ -37,7 +37,7 @@ const Events = () => {
 
   return (
     <>
-      <section className="xl:px-28 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8 relative font-Syne">
+      <section className="xl:px-28 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8 relative font-playfair">
         <div className="flex">
           <div className="grid space-y-10">
             <h1 className="mb-20 text-3xl text-left font-bold md:text-5xl">
@@ -64,18 +64,18 @@ const Events = () => {
             />
 
             <h4
-              className="font-Syne md:text-[26px] leading-[31.2px] mt-5 my-3 text-sm text-black font-bold"
+              className="font-playfair md:text-[26px] leading-[31.2px] mt-5 my-3 text-sm text-black font-bold"
               dangerouslySetInnerHTML={{
                 __html: currentPosts && currentPosts[0].Heading1,
               }}
             />
             <p
-              className="text-[16px] leading-[24px] font-Syne my-3 line-clamp-2 font-normal"
+              className="text-[16px] leading-[24px] font-playfair my-3 line-clamp-2 font-normal"
               dangerouslySetInnerHTML={{
                 __html: currentPosts && currentPosts[0].Heading2,
               }}
             />
-            <p className="text-[16px] leading-[21.76px] my-3 font-[Sentient]">
+            <p className="text-[16px] leading-[21.76px] my-3 font-playfair">
               {moment(currentPosts && currentPosts[0].EventDate).format(
                 "DD MMM YYYY"
               )}
@@ -107,18 +107,18 @@ const Events = () => {
               />
 
               <h4
-                className="font-Syne md:text-[26px] leading-[31.2px] mt-5 my-3 text-sm text-black font-bold"
+                className="font-playfair md:text-[26px] leading-[31.2px] mt-5 my-3 text-sm text-black font-bold"
                 dangerouslySetInnerHTML={{
                   __html: ele.Heading1,
                 }}
               />
               <p
-                className="text-[16px] leading-[24px] font-Syne my-3 line-clamp-2 font-normal"
+                className="text-[16px] leading-[24px] font-playfair my-3 line-clamp-2 font-normal"
                 dangerouslySetInnerHTML={{
                   __html: ele.Heading2,
                 }}
               />
-              <p className="text-[16px] leading-[21.76px] my-3 font-[Sentient]">
+              <p className="text-[16px] leading-[21.76px] my-3 font-playfair">
                 {moment(ele.CreatedOn).format("DD MMM YYYY")}
               </p>
             </div>

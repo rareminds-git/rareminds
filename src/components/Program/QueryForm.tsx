@@ -111,7 +111,7 @@ const QueryForm = ({ pageData, content }) => {
   return successMessage ? (
     <section className="xl:px-28 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8 cursor-pointer">
       <div className="flex">
-        <div className="grid space-y-10 text-center font-Syne">
+        <div className="grid space-y-10 text-center ">
           <h1
             className="mt-20 text-3xl md:text-center text-left font-bold md:text-5xl"
             dangerouslySetInnerHTML={{
@@ -134,7 +134,7 @@ const QueryForm = ({ pageData, content }) => {
     <>
       <section className="xl:px-32 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8 cursor-pointer">
         <div className="flex justify-center">
-          <div className="grid space-y-10 text-center font-Syne">
+          <div className="grid space-y-10 text-center ">
             <h1
               className="text-3xl md:text-center text-left font-bold md:text-5xl"
               dangerouslySetInnerHTML={{
@@ -149,7 +149,7 @@ const QueryForm = ({ pageData, content }) => {
             />
 
             <h3
-              className={`text-xl mt-8 px-24 md:text-center text-left text-red-500 font-bold font-Syne fixed ${errorMessage ? "bg-gray-300" : "transparent"} top-10 left-0 w-full p-5 xl:p-0 z-50`}
+              className={`text-xl mt-8 px-24 md:text-center text-left text-red-500 font-bold font-playfair fixed ${errorMessage ? "bg-gray-300" : "transparent"} top-10 left-0 w-full p-5 xl:p-0 z-50`}
             >
               {errorMessage}
             </h3>
@@ -277,9 +277,9 @@ const QueryForm = ({ pageData, content }) => {
             </Form.Group>
           </div>
 
-          <h3 className="sm:text-[22px] md:text-[26px] leading-[42.12px] font-medium mt-24 font-Syne">
+          <h3 className="sm:text-[22px] md:text-[26px] leading-[42.12px] font-medium mt-24 ">
             Which of Rareminds' services are you most interested in? <br />
-            <span className="text-[20px] leading-[32.4px] font-normal font-Syne">
+            <span className="text-[20px] leading-[32.4px] font-normal">
               (Select all that apply)
             </span>
           </h3>
@@ -297,7 +297,7 @@ const QueryForm = ({ pageData, content }) => {
             <Form.Check // prettier-ignore
               type="checkbox"
               label="Talent Management"
-              className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal checkbox font-Syne"
+              className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal checkbox font-playfair"
               value={"TM"}
               onChange={(e) => {
                 setCheckBoxValue(e);
@@ -306,7 +306,7 @@ const QueryForm = ({ pageData, content }) => {
             <Form.Check // prettier-ignore
               type="checkbox"
               label="Talent Development"
-              className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal checkbox font-Syne"
+              className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal checkbox font-playfair"
               value={"TD"}
               onChange={(e) => {
                 setCheckBoxValue(e);
@@ -314,7 +314,7 @@ const QueryForm = ({ pageData, content }) => {
             />
           </div>
 
-          <h3 className="sm:text-[22px] text-[26px] leading-[42.12px] font-medium mt-24 font-Syne">
+          <h3 className="sm:text-[22px] text-[26px] leading-[42.12px] font-medium mt-24 ">
             How did you hear about Rareminds?
           </h3>
 
@@ -327,7 +327,7 @@ const QueryForm = ({ pageData, content }) => {
                 }
                 name="example-radio"
                 value="option1"
-                className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal radio text-black font-Syne"
+                className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal radio text-black font-playfair"
               />
               <span className="radio"></span>
               Website
@@ -340,7 +340,7 @@ const QueryForm = ({ pageData, content }) => {
                 }
                 name="example-radio"
                 value="option1"
-                className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal radio text-black font-Syne"
+                className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal radio text-black font-playfair"
               />
               <span className="radio"></span>
               Referral
@@ -353,7 +353,7 @@ const QueryForm = ({ pageData, content }) => {
                 }
                 name="example-radio"
                 value="option1"
-                className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal radio text-black font-Syne"
+                className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal radio text-black font-playfair"
               />
               <span className="radio"></span>
               Social Media
@@ -366,7 +366,7 @@ const QueryForm = ({ pageData, content }) => {
                 }
                 name="example-radio"
                 value="option1"
-                className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal radio text-black font-Syne"
+                className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal radio text-black font-playfair"
               />
               <span className="radio"></span>
               Industry Event
@@ -379,14 +379,14 @@ const QueryForm = ({ pageData, content }) => {
                 }
                 name="example-radio"
                 value="option1"
-                className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal radio text-black font-Syne"
+                className="sm:text-[18px] md:text-[30px] leading-[36px] font-normal radio text-black font-playfair"
               />
               <span className="radio"></span>
               Other
             </label>
           </div>
 
-          <h3 className="text-[18px] leading-[24px] font-medium mt-24 font-Syne">
+          <h3 className="text-[18px] leading-[24px] font-medium mt-24 font-playfair">
             Feel free to share any additional information or questions you have
             for the Rareminds team:
           </h3>
@@ -404,21 +404,21 @@ const QueryForm = ({ pageData, content }) => {
           <Form.Check // prettier-ignore
             type="checkbox"
             label="By submitting this form, you agree to be contacted by our team representative to discuss a customised talent solution for your organisation. Rest assured, your information will be kept confidential."
-            className="text-[18px] leading-[24px] font-normal md:w-[75%] font-Syne checkbox mt-10"
+            className="text-[18px] leading-[24px] font-normal md:w-[75%] font-playfair checkbox mt-10"
           />
 
-          <h2 className="md:text-[26px] sm:text-[18px] leading-[29px] md:w-[60%] xl:w-[60%] xxl:w-[75%] sm:w-[100%] mt-24 sm:pr-12 pr-56 font-Syne font-bold">
+          <h2 className="md:text-[26px] sm:text-[18px] leading-[29px] md:w-[60%] xl:w-[60%] xxl:w-[75%] sm:w-[100%] mt-24 sm:pr-12 pr-56 font-bold">
             {content[0]?.SubHeading1}
           </h2>
 
-          <h2 className="text-[26px] leading-[42.12px] font-medium mt-12 font-Syne">
+          <h2 className="text-[26px] leading-[42.12px] font-medium mt-12">
             {content[0]?.SubHeading2}
           </h2>
 
           <div className="grid grid-cols-4 gap-4 mt-8">
             <div>
               <Button
-                className=" bg-[#CAF0F8] px-10 py-2 font-bold font-Syne text-xl rounded-md"
+                className=" bg-[#CAF0F8] px-10 py-2 font-bold font-playfair text-xl rounded-md"
                 variant="primary"
                 size="lg"
                 onClick={() => submitQueryForm()}
@@ -429,7 +429,7 @@ const QueryForm = ({ pageData, content }) => {
 
             <div></div>
             <div></div>
-            <div className="text-[16px] leading-[20px] font-bold font-Syne flex items-center justify-end">
+            <div className="text-[16px] leading-[20px] font-bold font-playfair flex items-center justify-end">
               <img
                 className="flex-inline mr-2"
                 src={BackArrow}

@@ -7,17 +7,17 @@ const Achievements = ({ content, achievements }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
   return (
     <>
-      <section className="xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:pt-0 lg:py-20 md:py-16 py-8 place-items-center font-Syne">
+      <section className="xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:pt-0 lg:py-20 md:py-16 py-8 place-items-center ">
         <div className="items-center px-1 py-5">
           <p
-            className="mt-0 font-bold text-center ml-0 text-[24px] leading-[28.8px] lg:text-[49px] lg:leading-[73.5px] py-10 text-black-500 font-[Poppins-Regular]"
+            className="mt-0 font-bold text-center ml-0 text-[24px] leading-[28.8px] lg:text-[49px] lg:leading-[73.5px] py-10 text-black-500 font-playfair"
             dangerouslySetInnerHTML={{
               __html: content && content[0]?.Heading1,
             }}
           />
 
           <p
-            className="lg:text-[22px] lg:leading-[33px] text-[14px] leading-[21px] xl:px-[4rem] lg:mb-20 mx-4 lg:mx-20 text-center font-[Poppins-Regular]"
+            className="lg:text-[22px] lg:leading-[33px] text-[14px] leading-[21px] xl:px-[4rem] lg:mb-20 mx-4 lg:mx-20 text-center font-playfair"
             dangerouslySetInnerHTML={{
               __html: content && content[0]?.Description,
             }}
@@ -33,13 +33,13 @@ const Achievements = ({ content, achievements }) => {
                   >
                     <div className="col-span-2">
                       <h5
-                        className="text-[52px] leading-[58px] font-Syne font-bold"
+                        className="text-[52px] leading-[58px] font-playfair font-bold"
                         dangerouslySetInnerHTML={{
                           __html: ele.ContentTitle,
                         }}
                       ></h5>
                       <p
-                        className="text-[16px] leading-[21.76px] mt-5 font-[Sentient] font-light"
+                        className="text-[16px] leading-[21.76px] mt-5 font-playfair font-light"
                         dangerouslySetInnerHTML={{
                           __html: ele.ContentDescription,
                         }}
@@ -50,7 +50,7 @@ const Achievements = ({ content, achievements }) => {
                       className={`grid lg:col-span-2 ${index < 2 ? "content-center" : "content-start"}`}
                     >
                       <h5
-                        className={`${index < 2 ? "lg:text-[162px] leading-[171px]" : "lg:text-[62px] leading-[71px]"} text-right text-[60px] text-blue-400 font-[Poppins-Regular]`}
+                        className={`${index < 2 ? "lg:text-[162px] leading-[171px]" : "lg:text-[62px] leading-[71px]"} text-right text-[60px] text-blue-400 font-playfair`}
                       >
                         {isInViewport && (
                           <CountUp
@@ -76,14 +76,14 @@ const Achievements = ({ content, achievements }) => {
                     <div className="row-span-1 grid grid-cols-3">
                       <div className="col-span-1 mt-4">
                         <h5
-                          className="text-[16px] leading-[18px] lg:text-[24px] lg:leading-[32px] font-Syne font-bold"
+                          className="text-[16px] leading-[18px] lg:text-[24px] lg:leading-[32px] font-playfair font-bold"
                           dangerouslySetInnerHTML={{
                             __html: ele.ContentTitle,
                           }}
                         ></h5>
                       </div>
                       <div className="col-span-2 mt-4">
-                        <h5 className="text-right lg:text-[40px] leading-[42px] text-blue-400 font-Poppins}">
+                        <h5 className="text-right lg:text-[40px] leading-[42px] text-blue-400 font-playfair}">
                           <CountUp
                             end={ele.ContentSubDescription.replace(",", "")}
                             duration={5}
@@ -94,7 +94,7 @@ const Achievements = ({ content, achievements }) => {
                     </div>
                     <div className="row-span-1 lg:w-[50%]">
                       <p
-                        className="text-[13px] leading-[17.66px] mb-4 font-[Sentient] font-light"
+                        className="text-[13px] leading-[17.66px] mb-4 font-playfair font-light"
                         dangerouslySetInnerHTML={{
                           __html: ele.ContentDescription,
                         }}

@@ -67,11 +67,11 @@ const Services = () => {
       </Helmet>
       {!isMobile ? (
         <section className="xl:px-28 lg:px-24 md:px-20 px-8 xl:pb-16 lg:pb-12 md:pb-8 pb-4 xl:py-16 lg:py-12 md:py-8 py-8 grid w-full min-h-screen">
-          <h1 className="text-xl md:text-[70px] leading-[74px] font-Syne font-medium place-items-start text-[#000000] capitalize">
+          <h1 className="text-xl md:text-[70px] leading-[74px]  font-medium place-items-start text-[#000000] capitalize">
             {serviceData?.servicePageData?.Heading1}
           </h1>
           <p
-            className="text-[24px] lg:text-[22px] leading-[32.6px] row-span-1 mt-12 font-[Sentient] font-light ml-60 lg:ml-12 mb-12 md:px-52 lg:px-4 xl:px-32"
+            className="text-[24px] lg:text-[22px] leading-[32.6px] row-span-1 mt-12  font-light ml-60 lg:ml-12 mb-12 md:px-52 lg:px-4 xl:px-32"
             dangerouslySetInnerHTML={{
               __html: serviceData?.servicePageData?.Description,
             }}
@@ -110,10 +110,10 @@ const Services = () => {
                           : ""
                       }`}
                     >
-                      <h4 className="text-5xl font-Syne">{ele.Heading1}</h4>
+                      <h4 className="text-5xl ">{ele.Heading1}</h4>
 
                       <p
-                        className={`text-sm my-5 font-[Sentient] font-normal ${
+                        className={`text-sm my-5 font-normal ${
                           hoveredDivs === null ? "mt-16" : "mt-8"
                         } ${hoveredDivs === null ? "line-clamp-4" : "line-clamp-6"}`}
                         dangerouslySetInnerHTML={{
@@ -123,7 +123,7 @@ const Services = () => {
 
                       <p
                         onClick={() => navigate(`/${ele.ContentSlug}`)}
-                        className={`font-[Sentient] font-bold text-[16px] leading-[21.76px] ${hoveredDivs === null ? "" : "hidden"}`}
+                        className={`font-bold text-[16px] leading-[21.76px] ${hoveredDivs === null ? "" : "hidden"}`}
                       >
                         ...Read More
                       </p>
@@ -139,11 +139,11 @@ const Services = () => {
         </section>
       ) : (
         <section className="px-8 pb-4 py-8 md:px-16 md:pb-8 md:py-16 w-6/6">
-          <h1 className="text-[34px] leading-[34px] font-Syne font-medium place-items-start text-[#000000] capitalize">
+          <h1 className="text-[34px] leading-[34px]  font-medium place-items-start text-[#000000] capitalize">
             {serviceData?.servicePageData?.Heading1}
           </h1>
           <p
-            className="text-[16px] leading-[22.6px] row-span-1 mt-12 font-[Sentient] font-light mb-12 "
+            className="text-[16px] leading-[22.6px] row-span-1 mt-12 font-light mb-12 "
             dangerouslySetInnerHTML={{
               __html: serviceData?.servicePageData?.Description,
             }}
@@ -166,7 +166,7 @@ const Services = () => {
                       const description = ele?.Description;
                       return (
                         <div
-                          className="item my-4 cursor-pointer font-Syne max-h-[300px] min-h-[300px]"
+                          className="item my-4 cursor-pointer max-h-[300px] min-h-[300px]"
                           onClick={() => navigate(`/${ele.ContentSlug}`)}
                         >
                           <div className="bg-red-400 text-white p-8 rounded-2xl item-bg">
@@ -179,7 +179,7 @@ const Services = () => {
                             </p>
                             <p
                               onClick={() => navigate(`/${ele.ContentSlug}`)}
-                              className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
+                              className="font-bold text-[16px] leading-[21.76px]"
                             >
                               Read More
                             </p>
@@ -202,12 +202,12 @@ const Services = () => {
                         <div
                           className={` text-white p-8 xl:py-12 xl:px-10 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
                         >
-                          <h4 className="lg:text-3xl md:text-2xl font-Syne">
+                          <h4 className="lg:text-3xl md:text-2xl">
                             {ele.Heading1}
                           </h4>
 
                           <p
-                            className={`text-sm my-5 font-[Sentient] font-normal ${hoveredDivs === null ? "mt-16" : hoveredDivs === undefined ? "mt-16" : ""} ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
+                            className={`text-sm my-5 font-normal ${hoveredDivs === null ? "mt-16" : hoveredDivs === undefined ? "mt-16" : ""} ${hoveredDivs === null ? "line-clamp-4" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
                             dangerouslySetInnerHTML={{
                               __html: ele?.Description,
                             }}
@@ -215,7 +215,7 @@ const Services = () => {
 
                           <p
                             onClick={() => navigate(`/${ele.ContentSlug}`)}
-                            className="font-[Sentient] font-bold text-[16px] leading-[21.76px]"
+                            className="font-bold text-[16px] leading-[21.76px]"
                           >
                             ...Read More
                           </p>

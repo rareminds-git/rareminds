@@ -48,13 +48,13 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
             border-[#CAF0F8] border-[17px]"
                     />
                     <p
-                      className="font-[Sentient] font-normal text-wrap lg:text-[30px] text-[20px] lg:leading-[40.8px] my-8 lg:pr-24"
+                      className="font-playfair font-normal text-wrap lg:text-[30px] text-[20px] lg:leading-[40.8px] my-8 lg:pr-24"
                       dangerouslySetInnerHTML={{
                         __html: item.ContentTitle,
                       }}
                     />
                     <p
-                      className="font-[Sentient] font-normal text-balance text-[18px] leading-[24.48px] pb-5 lg:pr-24 Hero"
+                      className="font-playfair font-normal text-balance text-[18px] leading-[24.48px] pb-5 lg:pr-24 Hero"
                       dangerouslySetInnerHTML={{
                         __html: item.ContentDescription,
                       }}
@@ -98,13 +98,13 @@ const TestimonialCarousel = ({ testimonials }: { testimonials: any }) => {
                   </div>
                   <div className="col-span-2">
                     <p
-                      className="font-Inter text-xl font-bold my-8"
+                      className="font-playfair text-xl font-bold my-8"
                       dangerouslySetInnerHTML={{
                         __html: item.ContentTitle,
                       }}
                     />
                     <p
-                      className="font-Inter text-sm pb-5 mr-4 font-thin"
+                      className="font-playfair text-sm pb-5 mr-4 font-thin"
                       dangerouslySetInnerHTML={{
                         __html: item.ContentDescription,
                       }}

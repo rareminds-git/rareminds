@@ -32,7 +32,7 @@ const Hero = ({ name }) => {
 
               <div className="grid grid-flow-row gap-8">
                 <div className="row-span-1 mt-36">
-                  <h3 className="text-4xl font-bold font-Syne">
+                  <h3 className="text-4xl font-bold ">
                     Staying Relevant:
                   </h3>
                   <p className="mt-4">
@@ -43,7 +43,7 @@ const Hero = ({ name }) => {
                   </p>
                 </div>
                 <div className="row-span-1 mt-1">
-                  <h3 className="text-4xl font-bold font-Syne">
+                  <h3 className="text-4xl font-bold ">
                     Career Advancement:
                   </h3>
                   <p className="mt-4">
@@ -55,7 +55,7 @@ const Hero = ({ name }) => {
                   </p>
                 </div>
                 <div className="row-span-1 mt-1">
-                  <h3 className="text-4xl font-bold font-Syne">
+                  <h3 className="text-4xl font-bold ">
                     Personal Fulfillment:
                   </h3>
                   <p className="mt-4">
@@ -67,7 +67,7 @@ const Hero = ({ name }) => {
                   </p>
                 </div>
                 <div className="row-span-1 mt-1">
-                  <h3 className="text-4xl font-bold font-Syne">
+                  <h3 className="text-4xl font-bold ">
                     Adaptability:
                   </h3>
                   <p className="mt-4">
@@ -78,7 +78,7 @@ const Hero = ({ name }) => {
                   </p>
                 </div>
                 <div className="row-span-1 mt-1">
-                  <h3 className="text-4xl font-bold font-Syne">
+                  <h3 className="text-4xl font-bold ">
                     Adaptability and Innovation:
                   </h3>
                   <p className="mt-4">
@@ -116,7 +116,7 @@ const Hero = ({ name }) => {
             </div>
 
             <div className="mt-6">
-              <h3 className="md:text-4xl text-3xl font-bold font-Syne">
+              <h3 className="md:text-4xl text-3xl font-bold ">
                 Staying Relevant:
               </h3>
               <p className="mt-4 mr-32">
@@ -127,7 +127,7 @@ const Hero = ({ name }) => {
               </p>
             </div>
             <div className="mt-2">
-              <h3 className="md:text-4xl text-3xl font-bold font-Syne">
+              <h3 className="md:text-4xl text-3xl font-bold ">
                 Career Advancement:
               </h3>
               <p className="mt-4 mr-32">
@@ -138,7 +138,7 @@ const Hero = ({ name }) => {
               </p>
             </div>
             <div className="mt-2">
-              <h3 className="md:text-4xl text-3xl font-bold font-Syne">
+              <h3 className="md:text-4xl text-3xl font-bold ">
                 Personal Fulfillment:
               </h3>
               <p className="mt-4 mr-32">
@@ -149,7 +149,7 @@ const Hero = ({ name }) => {
               </p>
             </div>
             <div className="mt-1">
-              <h3 className="md:text-4xl text-3xl font-bold font-Syne">
+              <h3 className="md:text-4xl text-3xl font-bold ">
                 Adaptability:
               </h3>
               <p className="mt-4 mr-32">
@@ -159,7 +159,7 @@ const Hero = ({ name }) => {
               </p>
             </div>
             <div className="mt-1">
-              <h3 className="md:text-4xl mr-16 text-3xl font-bold font-Syne">
+              <h3 className="md:text-4xl mr-16 text-3xl font-bold">
                 Adaptability and Innovation:
               </h3>
               <p className="mt-4 mr-32 mb-8">

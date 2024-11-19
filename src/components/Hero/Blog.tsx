@@ -11,7 +11,7 @@ const Blog = ({ content }) => {
     <>
       {!isMobile ? (
         <div className="xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:py-16 lg:py-20 md:py-16 py-8 bg-[#CABE9E1A]">
-          <h5 className="font-Syne mx-auto text-black font-bold mb-20 text-[59px] leading-[70.8px] text-center">
+          <h5 className="font-playfair mx-auto text-black font-bold mb-20 text-[59px] leading-[70.8px] text-center">
             Blog
           </h5>
           <OwlCarousel
@@ -58,13 +58,13 @@ const Blog = ({ content }) => {
                         className={`${index % 2 === 0 ? "rounded-tl-[20px] rounded-tr-[180px] rounded-bl-[20px] rounded-br-[20px] object-cover" : "rounded-tl-[80px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] object-cover"}`}
                       />
                       <p
-                        className="font-Syne text-[16px] mt-4 leading-[18px] pb-5 mr-4 font-bold"
+                        className="font-playfair text-[16px] mt-4 leading-[18px] pb-5 mr-4 font-bold"
                         dangerouslySetInnerHTML={{
                           __html: ele.Heading1,
                         }}
                       />
                       <p
-                        className="font-Syne font-normal text-[16px] leading-[18px] line-clamp-3"
+                        className="font-playfair font-normal text-[16px] leading-[18px] line-clamp-3"
                         dangerouslySetInnerHTML={{
                           __html: ele.Heading2,
                         }}
@@ -75,7 +75,7 @@ const Blog = ({ content }) => {
                       >
                         Read more
                       </span>
-                      <p className="font-Syne font-normal text-[16px] leading-[18px] mt-3">
+                      <p className="font-playfair font-normal text-[16px] leading-[18px] mt-3">
                         {moment(ele.CreatedOn).format("MMM Do YYYY")}
                       </p>
                     </div>
@@ -87,7 +87,7 @@ const Blog = ({ content }) => {
         </div>
       ) : (
         <div className="bg-[#cabe9e1f] px-8 pb-4 py-8 md:px-16 md:pb-8 md:py-16">
-          <h5 className="font-Syne mx-auto text-red-400 text-center font-bold text-3xl">
+          <h5 className="font-playfair mx-auto text-red-400 text-center font-bold text-3xl">
             Blog
           </h5>
           <OwlCarousel
@@ -135,13 +135,13 @@ const Blog = ({ content }) => {
                         className={`${index % 2 === 0 ? "rounded-tl-[20px] rounded-tr-[180px] rounded-bl-[20px] rounded-br-[20px] object-cover" : "rounded-tl-[80px] rounded-tr-[20px] rounded-bl-[20px] rounded-br-[20px] object-cover"}`}
                       />
                       <p
-                        className="font-Syne text-[16px] leading-[18px] pb-5 mr-4 mt-4 font-bold"
+                        className="font-playfair text-[16px] leading-[18px] pb-5 mr-4 mt-4 font-bold"
                         dangerouslySetInnerHTML={{
                           __html: ele.Heading1,
                         }}
                       />
                       <p
-                        className="font-Syne font-normal text-[16px] leading-[18px] line-clamp-3"
+                        className="font-playfair font-normal text-[16px] leading-[18px] line-clamp-3"
                         dangerouslySetInnerHTML={{
                           __html: ele.Heading2 + "Read more",
                         }}
@@ -152,7 +152,7 @@ const Blog = ({ content }) => {
                       >
                         Read more
                       </span>
-                      <p className="font-Syne font-normal text-[16px] leading-[18px] mt-3">
+                      <p className="font-playfair font-normal text-[16px] leading-[18px] mt-3">
                         {moment(ele.CreatedOn).format("MMM Do YYYY")}
                       </p>
                     </div>

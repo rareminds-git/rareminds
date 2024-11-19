@@ -31,7 +31,7 @@ const Program = ({ showCTA }) => {
                 />
               </div>
               <div className="grid my-4 place-items-center">
-                <h2 className="font-bold font-Syne md:text-5xl col-span-4 text-red-500">
+                <h2 className="font-bold font-playfair md:text-5xl col-span-4 text-red-500">
                   Individual Program
                 </h2>
               </div>
@@ -48,7 +48,7 @@ const Program = ({ showCTA }) => {
                 />
               </div>
               <div className="grid my-4 place-items-center">
-                <h2 className="font-bold font-Syne md:text-5xl col-span-4 text-red-500">
+                <h2 className="font-bold  md:text-5xl col-span-4 text-red-500">
                   School Program
                 </h2>
               </div>
@@ -65,7 +65,7 @@ const Program = ({ showCTA }) => {
                 />
               </div>
               <div className="grid my-4 place-items-center">
-                <h2 className="font-bold font-Syne md:text-5xl col-span-4 text-red-500">
+                <h2 className="font-bold  md:text-5xl col-span-4 text-red-500">
                   Institute Program
                 </h2>
               </div>
@@ -92,7 +92,7 @@ const Program = ({ showCTA }) => {
                 />
               </div>
               <div className="grid my-4 place-items-center">
-                <h2 className="font-bold font-Syne md:text-5xl col-span-4 text-red-500">
+                <h2 className="font-bold md:text-5xl col-span-4 text-red-500">
                   Individual Program
                 </h2>
               </div>
@@ -108,7 +108,7 @@ const Program = ({ showCTA }) => {
                 />
               </div>
               <div className="grid my-4 place-items-center">
-                <h2 className="font-bold font-Syne md:text-5xl col-span-4 text-red-500">
+                <h2 className="font-bold md:text-5xl col-span-4 text-red-500">
                   School Program
                 </h2>
               </div>
@@ -124,7 +124,7 @@ const Program = ({ showCTA }) => {
                 />
               </div>
               <div className="grid my-4 place-items-center">
-                <h2 className="font-bold font-Syne md:text-5xl col-span-4 text-red-500">
+                <h2 className="font-bold md:text-5xl col-span-4 text-red-500">
                   Institute Program
                 </h2>
               </div>

@@ -47,11 +47,11 @@ const About = () => {
       </Helmet>
 
       <section className="xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:py-16 lg:py-20 md:py-16 py-8">
-        <h1 className="text-[30px] leading-[74px] md:text-[70px] font-Syne font-medium place-items-start text-[#000000] capitalize">
+        <h1 className="text-[30px] leading-[74px] md:text-[70px] !font-playfair font-medium place-items-start text-[#000000] capitalize">
           {pageData?.pageData?.Heading1}
         </h1>
         <p
-          className="text-[18px] md:text-[20px] xl:text-[24px] xxl:text-[18px] leading-[32.6px] row-span-1 mt-12 font-[Sentient] font-light mb-12 md:px-8 xl:px-32 xxl:px-2"
+          className="text-[18px] md:text-[20px] xl:text-[24px] xxl:text-[18px] leading-[32.6px] row-span-1 mt-12 font-light mb-12 md:px-8 xl:px-32 xxl:px-2"
           dangerouslySetInnerHTML={{
             __html:
               pageData?.pageData?.Description &&
@@ -59,7 +59,7 @@ const About = () => {
           }}
         ></p>
 
-        <p className="font-Syne md:text-6xl text-3xl text-black py-4 text-center font-bold">
+        <p className="font-playfair md:text-6xl text-3xl text-black py-4 text-center font-bold">
           Our Values
         </p>
 
@@ -76,10 +76,10 @@ const About = () => {
                     <div
                       className={` text-white pt-32 pb-12 xl:py-20 xl:px-10 xxl:py-20 xxl:px-8 md:px-8 md:pt-12 px-20 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
                     >
-                      <h4 className="text-5xl font-Syne">{ele.Heading2}</h4>
+                      <h4 className="text-5xl font-playfair">{ele.Heading2}</h4>
 
                       <p
-                        className={`text-sm my-12 font-[Sentient] font-normal ${hoveredDivs === null ? "line-clamp-2" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
+                        className={`text-sm my-12 font-playfair font-normal ${hoveredDivs === null ? "line-clamp-2" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
                         dangerouslySetInnerHTML={{
                           __html: ele?.Description,
                         }}
@@ -102,12 +102,12 @@ const About = () => {
               pageData?.coreValues?.map((ele: any) => {
                 return (
                   <div className="bg-red-400 text-white md:p-6 p-10 my-4 rounded-lg item-bg">
-                    <h4 className="text-5xl md:text-3xl font-Syne">
+                    <h4 className="text-5xl md:text-3xl font-playfair">
                       {ele.Heading2}
                     </h4>
 
                     <p
-                      className={`text-sm my-12 font-[Sentient] font-normal ${hoveredDivs === null ? "line-clamp-2" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
+                      className={`text-sm my-12 font-playfair font-normal ${hoveredDivs === null ? "line-clamp-2" : hoveredDivs === undefined ? "line-clamp-4" : ""}`}
                       dangerouslySetInnerHTML={{
                         __html: ele?.Description,
                       }}
@@ -176,7 +176,7 @@ const About = () => {
             />
 
             <p
-              className="mt-2 lg:text-[22px] text-[18px] lg:leading-[43.06px] font-light text-center"
+              className="mt-2 lg:text-[22px] text-[18px] lg:leading-[43.06px] font-playfair text-center"
               dangerouslySetInnerHTML={{
                 __html:
                   pageData?.visionMission &&
@@ -311,7 +311,7 @@ const About = () => {
         </div> */}
 
         <div className="text-center md:px-4 px-2 md:py-8 xl:pt-4 xl:pb-2 py-2">
-          <h3 className="font-Syne xxl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-2xl text-black py-4 text-center font-bold">
+          <h3 className="font-playfair xxl:text-6xl xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-2xl text-black py-4 text-center font-bold">
             Our Partners
           </h3>
           <div className="container">
