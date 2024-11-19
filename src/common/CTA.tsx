@@ -1,6 +1,6 @@
+import { useMediaQuery } from "react-responsive";
 import { useNavigate } from "react-router-dom";
 import NortgImg from "../../public/images/north.svg";
-import { useMediaQuery } from "react-responsive";
 
 const CTA = ({ content, contactPage }) => {
   const navigate = useNavigate();
