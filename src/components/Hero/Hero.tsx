@@ -33,7 +33,7 @@ const Hero = ({ content }) => {
           <div className="flex items-center justify-center">
             <div className="grid space-y-10 place-items-center">
               <h1
-                className="mb-4 mt-8 text-[32px] leading-10 text-center font-[Sentient] font-medium lg:text-[55px] lg:leading-[74px] text-[#ff2c2c]"
+                className="mb-4 mt-8 text-[32px] leading-10 text-center font-playfair font-medium lg:text-[55px] lg:leading-[74px] text-[#ff2c2c]"
                 dangerouslySetInnerHTML={{
                   __html: content.Heading1,
                 }}
@@ -44,7 +44,7 @@ const Hero = ({ content }) => {
           <div className="grid space-y-10 place-items-start grid-cols-5">
             <div className="place-items-start col-span-2">
               <p
-                className="mb-4 font-Syne lg:mt-16 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px] pl-2"
+                className="mb-4 font-playfair lg:mt-16 mt-12 font-bold lg:text-[46px] lg:leading-[55.2px] text-black-400 mx-2 text-[24px] pl-2"
                 dangerouslySetInnerHTML={{
                   __html: content.Heading2,
                 }}
@@ -56,7 +56,7 @@ const Hero = ({ content }) => {
                 }}
               />
               <p
-                className="mt-2 font-Syne lg:text-[32px] text-[20px] lg:leading-[53.06px] font-mediumn pl-2"
+                className="mt-2 font-playfair lg:text-[32px] text-[20px] lg:leading-[53.06px] font-mediumn pl-2"
                 dangerouslySetInnerHTML={{
                   __html: content.SubHeading2,
                 }}
@@ -118,7 +118,7 @@ const Hero = ({ content }) => {
         <section className="px-8 pb-4 py-12 md:px-16 md:pb-8 md:py-16 lg:px-20 lg:pb-12 lg:py-20 bg-hero-gradient">
           <div className="flex items-center justify-center">
             <div className="grid place-items-center">
-              <h1 className="mb-4 mt-10 text-[22px] leading-[28px] md:text-[32px] md:leading-[44px] font-medium text-center font-[Sentient] text-[#ff2c2c]">
+              <h1 className="mb-4 mt-10 text-[22px] leading-[28px] md:text-[32px] md:leading-[44px] font-medium text-center font-playfair text-[#ff2c2c]">
                 {content.Heading1}
               </h1>
             </div>
@@ -127,7 +127,7 @@ const Hero = ({ content }) => {
           <div className="space-y-10 place-items-start grid-cols-5 md:grid hidden">
             <div className="place-items-start col-span-2">
               <p
-                className="mb-4 font-Syne lg:mt-16 mt-12 font-bold lg:text-[32px] lg:leading-[53.06px] text-black-400  text-[24px] pl-2"
+                className="mb-4 font-playfair lg:mt-16 mt-12 font-bold lg:text-[32px] lg:leading-[53.06px] text-black-400  text-[24px] pl-2"
                 dangerouslySetInnerHTML={{
                   __html: content.Heading2,
                 }}
@@ -139,7 +139,7 @@ const Hero = ({ content }) => {
                 }}
               />
               <p
-                className="lg:mt-0 font-Syne lg:text-[23px] text-[20px] lg:leading-[33.06px] font-mediumn pl-2"
+                className="lg:mt-0 font-playfair lg:text-[23px] text-[20px] lg:leading-[33.06px] font-mediumn pl-2"
                 dangerouslySetInnerHTML={{
                   __html: content.SubHeading2,
                 }}
@@ -208,19 +208,19 @@ const Hero = ({ content }) => {
               </div>
               <div className="grid place-items-center">
                 <p
-                  className="mb-4 font-Syne mt-8 text-[28px] leading-[33.6px] font-medium text-black-400 text-center"
+                  className="mb-4 font-playfair mt-8 text-[28px] leading-[33.6px] font-medium text-black-400 text-center"
                   dangerouslySetInnerHTML={{
                     __html: content.Heading2,
                   }}
                 />
                 <p
-                  className="mt-2 py-1 font-Syne text-[20px] leading-[33.16px] font-semibold"
+                  className="mt-2 py-1 font-playfair text-[20px] leading-[33.16px] font-semibold"
                   dangerouslySetInnerHTML={{
                     __html: content.SubHeading2,
                   }}
                 />
                 <p
-                  className="font-Syne text-[20px] leading-[33.16px] font-semibold"
+                  className="font-playfair text-[20px] leading-[33.16px] font-semibold"
                   dangerouslySetInnerHTML={{
                     __html: content.SubHeading1,
                   }}

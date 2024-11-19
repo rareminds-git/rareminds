@@ -32,7 +32,7 @@ const CaseStudies = ({ pageData, ctaContent, content }) => {
                   alt={ele.Heading1}
                 />
 
-                <h4 className="font-bold font-Syne lg:text-2xl mt-5 text-sm text-red-500">
+                <h4 className="font-bold lg:text-2xl mt-5 text-sm text-red-500">
                   {ele.Heading1}
                 </h4>
                 <p className="text-sm">{ele.Heading2}</p>
