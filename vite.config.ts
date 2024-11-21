@@ -125,11 +125,6 @@ export default defineConfig({
       ],
     }),
   ],
-  build: {
-    rollupOptions: {
-      external: ["owl.carousel/dist/assets/owl.carousel.css"],
-    },
-  },
   test: {
     globals: true,
     environment: "happy-dom",

@@ -10,8 +10,10 @@ lerna-debug.log*
 node_modules
 # dist
 dist-ssr
+dist
 *.local
 package-lock.json
+api/package-lock.json
 
 # Editor directories and files
 .vscode/*
@@ -23,5 +25,3 @@ package-lock.json
 *.njsproj
 *.sln
 *.sw?
-
-.env
