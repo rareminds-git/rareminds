@@ -1366,4 +1366,6 @@ app.get("/events/hackathon/:eventCategory/:slug", async function (req, res) {
   });
 });
 
-app.listen(6069);
+app.listen(6069, () => {
+  console.log("Server is running on port 6069");
+});
