@@ -3,11 +3,14 @@ import react from "@vitejs/plugin-react";
 import { fileURLToPath, URL } from "node:url";
 import AutoImport from "unplugin-auto-import/vite";
 import Pages from "vite-plugin-pages";
+import svgr from "vite-plugin-svgr";
 import { defineConfig } from "vitest/config";
+
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
+    svgr(),
     Pages(),
     AutoImport({
       dts: true,
