@@ -1,14 +1,15 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
-        playfair: ['Playfair Display', 'serif'],
+        playfair: ["Playfair Display", "serif"],
         Inter: "Inter",
         Syne: "Syne",
-        Poppins: "Poppins",
+        poppins: ["Poppins", "sans-serif"],
         Sentient: "Sentient",
         Urbanist: "Urbanist",
       },
@@ -21,6 +22,7 @@ export default {
       },
       colors: {
         "placeholder-red": "#D9D9D9", // or any shade of red you prefer
+        "overlay-color": "#000000e6",
       },
     },
     screens: {

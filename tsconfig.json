@@ -24,7 +24,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-    "suppressImplicitAnyIndexErrors": true
+    // "suppressImplicitAnyIndexErrors": true
   },
   "include": ["src", "auto-imports.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]

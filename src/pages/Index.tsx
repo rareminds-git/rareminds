@@ -6,6 +6,8 @@ import Youtube from "@/assets/socials-svg/Youtube";
 import LoaderComponent from "@/components/LoaderComponent";
 import { AppDispatch } from "@/redux/store";
 import axios from "axios";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useMediaQuery } from "react-responsive";
@@ -14,7 +16,7 @@ import CorporateBanner from "../assets/images/banners/corporate-landing.webp";
 import GovernmentBanner from "../assets/images/banners/GovernmentBanner.png";
 import InstitutionsBanner from "../assets/images/banners/InstitutionBanner.png";
 import SchoolsBanner from "../assets/images/banners/SchoolsBanner.png";
-import Logo from "../assets/images/logo.svg";
+import Logo from "../assets/images/logo.png";
 import Counselling from "../components/landing/career-counselling";
 import College from "../components/landing/college";
 import Corporate from "../components/landing/corporate";
@@ -26,11 +28,49 @@ const Index = () => {
 
   const [showLoader, setShowLoader] = useState(true);
 
-  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
+  const isMobile = useMediaQuery({ query: `(max-width: 1124px)` });
 
   const [pages, setPages] = useState<any[]>([]);
 
   const dispatch: AppDispatch = useDispatch();
+
+  const [partHover, setPartHover] = useState(false);
+
+  const togglePartHover = (value: boolean) => {
+    setPartHover(value);
+  };
+
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const [activePart, setActivePart] = useState<UserType>("none");
+
+  const [content, setContent] = useState([
+    {
+      heading: "Government collaborations",
+      description:
+        "Collaborating on government skill development initiatives with customized training programs to uplift students beyond traditional curriculums.",
+    },
+    {
+      heading: "Industries and firms",
+      description:
+        "Revolutionizing the corporate world with tailored corporate training solutions and talent development to drive innovation and connect you with top talent.",
+    },
+    {
+      heading: "Academia",
+      description:
+        "Transforming education through innovative learning solutions and advanced curriculum design, fostering impactful educational institution partnerships.",
+    },
+    {
+      heading: "University network",
+      description:
+        "Bridging skill gaps and enhancing capabilities to create a future-ready workforce through transformative partnerships with colleges and universities.",
+    },
+    {
+      heading: "Career counselling",
+      description:
+        "Boosting career development with expert career counselling, employability skills, and personalized training for success.",
+    },
+  ]);
 
   const navigate = useNavigate();
 
@@ -69,7 +109,7 @@ const Index = () => {
     getPages();
   }, []);
 
-  console.log("active banner", activeBanner);
+  // console.log("active banner", activeBanner);
 
   return showLoader ? (
     <LoaderComponent />
@@ -99,40 +139,119 @@ const Index = () => {
       </Helmet>
       {!isMobile ? (
         <>
-          <div className="w-full">
-            <div className="flex items-center container mx-auto py-8">
-              <img src={Logo} alt="logo" />
-              <div className="ml-auto">
-                <div className="flex gap-x-2 text-[#3C3C3B]">
-                  <span className="w-[40px] h-[40px]">
-                    <Fb />
-                  </span>
-                  <span className="w-[40px] h-[40px]">
-                    <LinkedIn />
-                  </span>
-                  <span className="w-[40px] h-[40px]">
-                    <Youtube />
-                  </span>
-                  <span className="w-[40px] h-[40px]">
-                    <X />
-                  </span>
-                  <span className="w-[40px] h-[40px]">
-                    <Insta />
-                  </span>
+          <div className="w-full brain-container ">
+            <AnimatePresence>
+              {isNavOpen && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1, transition: { duration: 0.1 } }}
+                  exit={{ opacity: 0, transition: { duration: 0.1 } }}
+                  className={`fixed w-full min-h-[100vh] z-[15] bg-overlay-color backdrop-blur-md top-0`}
+                >
+                  <div className="container mx-auto text-white/90 font-bold text-3xl mt-[200px] xxl:px-[80px] flex flex-col items-center gap-5">
+                    <Link
+                      to="/careers"
+                      className="hover:text-red-600 transition-colors duration-150"
+                    >
+                      Careers
+                    </Link>
+                    <Link
+                      to="/blogs"
+                      className="hover:text-red-600 transition-colors duration-150"
+                    >
+                      Blogs
+                    </Link>
+                    <Link
+                      to="/contact-us"
+                      className="hover:text-red-600 transition-colors duration-150"
+                    >
+                      Contact us
+                    </Link>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <div
+              className={`relative container mx-auto py-8 px-5 ${isNavOpen ? "sticky top-0  z-[20]" : ""}`}
+            >
+              <div className="flex items-center">
+                <img src={Logo} alt="logo" className="w-[250px]" />
+                <div className="ml-auto">
+                  <div
+                    className={`flex gap-x-2 transition-all duration-300 ${isNavOpen ? "text-[#ffffffcc]" : "text-[#3C3C3B]"}`}
+                  >
+                    <span className="w-[40px] h-[40px]">
+                      <Fb />
+                    </span>
+                    <span className="w-[40px] h-[40px]">
+                      <LinkedIn />
+                    </span>
+                    <span className="w-[40px] h-[40px]">
+                      <Youtube />
+                    </span>
+                    <span className="w-[40px] h-[40px]">
+                      <X />
+                    </span>
+                    <span className="w-[40px] h-[40px]">
+                      <Insta />
+                    </span>
+                  </div>
                 </div>
               </div>
+              <button
+                className="bg-black rounded-full text-white flex items-center px-5 py-2 ml-2"
+                onClick={() => setIsNavOpen(!isNavOpen)}
+              >
+                <Menu size="24px" className="rotate-90" color="white" />
+                <span className="ml-2">MENU</span>
+              </button>
             </div>
-            <div className="container mx-auto flex justify-center">
-              <div className="flex w-min -translate-x-[32%] -mt-[40px] scale-75 xxl:mt-10 xxl:scale-100">
-                <Govt onAction={redirectToPage} />
-                <Corporate onAction={redirectToPage} />
-                <College onAction={redirectToPage} />
-                <School onAction={redirectToPage} />
-                <Counselling />
+            <div className={`flex justify-center`}>
+              <div className="relative flex w-min -translate-x-[25%] xxl:-translate-x-[25%] -mt-[40px] scale-75 xxl:-mt-5 xxl:scale-75">
+                <Govt
+                  onAction={redirectToPage}
+                  overlayActive={togglePartHover}
+                  partHover={partHover}
+                  activePart={activePart}
+                  setActivePart={setActivePart}
+                  content={content[0]}
+                />
+                <Corporate
+                  onAction={redirectToPage}
+                  overlayActive={togglePartHover}
+                  partHover={partHover}
+                  activePart={activePart}
+                  setActivePart={setActivePart}
+                  content={content[1]}
+                />
+                <College
+                  onAction={redirectToPage}
+                  overlayActive={togglePartHover}
+                  partHover={partHover}
+                  setActivePart={setActivePart}
+                  content={content[3]}
+                  activePart={activePart}
+                />
+                <School
+                  onAction={redirectToPage}
+                  overlayActive={togglePartHover}
+                  partHover={partHover}
+                  setActivePart={setActivePart}
+                  content={content[2]}
+                  activePart={activePart}
+                />
+                <Counselling
+                  onAction={redirectToPage}
+                  overlayActive={togglePartHover}
+                  partHover={partHover}
+                  setActivePart={setActivePart}
+                  activePart={activePart}
+                  content={content[4]}
+                />
               </div>
             </div>
-            <div className="container flex justify-center mx-auto mt-[120px] xxl:mt-[210px] pb-[80px]">
-              <div className="max-w-[500px] xxl:max-w-[600px] -translate-x-[45%]">
+            <div className="container flex justify-center mx-auto mt-[120px] pb-[80px]">
+              <div className="max-w-[500px] xxl:max-w-[600px] -translate-x-[35%] xxl:-translate-x-[45%]">
                 <h1 className="text-2xl font-semibold">
                   Rareminds: Empowering Minds, Shaping Futures
                 </h1>
@@ -149,62 +268,6 @@ const Index = () => {
           </div>
         </>
       ) : (
-        // <div className="banner" style={{ backgroundImage: `url(${Baner})` }}>
-        //   <div className="banner-grid h-screen bg-black opacity-55">
-        //     <div className="grid grid-rows-2 grid-flow-col gap-0 h-screen">
-        //       <div
-        //         className="mt-8 mx-8 row-span-2 md:col-span-2"
-        //         onMouseOver={() => {
-        //           console.log("mouse over");
-        //           setActiveBanner("home");
-        //         }}
-        //       >
-        //         <img src={Logo} alt="Rareminds" />
-        //       </div>
-        //       <div
-        //         className="p-12 cursor-pointer row-span-2 md:hidden"
-        //         onMouseOver={() => {
-        //           console.log("mouse over");
-        //           setActiveBanner("home");
-        //         }}
-        //       >
-        //         <h3 className="text-white hidden">For Government</h3>
-        //         <p className="mt-24 text-white hidden">
-        //           Where giants excel and aspirations become a reality
-        //         </p>
-        //       </div>
-        //       {pages.map((ele: any, index: any) => {
-        //         return (
-        //           <div
-        //             className={`p-8 cursor-pointer relative ${activeBanner === ele.PageSlug.replace("/", "") && "bannerSelected"} border-white border border-t-0 border-r-0`}
-        //             onClick={() => {
-        //               setActiveBanner(ele.PageSlug.replace("/", "")),
-        //                 dispatch(selectBanner(ele.PageSlug.replace("/", "")));
-        //               redirectToPage(ele.PageSlug.replace("/", ""));
-        //             }}
-        //             onMouseOver={() => {
-        //               setActiveBanner(ele.PageSlug.replace("/", ""));
-        //             }}
-        //           >
-        //             <h3 className="text-white font-bold font-playfair text-[36px] leading-[38px]">
-        //               For {ele.PageName}
-        //             </h3>
-        //             {activeBanner === ele.PageSlug.replace("/", "") ? (
-        //               <p
-        //                 className="mt-60 mr-16 text-white font-playfair text-[20px] leading-[26px] font-semibold absolute bottom-10"
-        //                 dangerouslySetInnerHTML={{
-        //                   __html: ele.PageSubTitle,
-        //                 }}
-        //               />
-        //             ) : (
-        //               ""
-        //             )}
-        //           </div>
-        //         );
-        //       })}
-        //     </div>
-        //   </div>
-        // </div>
         <>
           <div className="mt-8 mx-auto flex justify-center items-center rounded-2xl">
             <img src={Logo} alt="Rareminds" />
@@ -212,9 +275,10 @@ const Index = () => {
           <div className="banner md:mx-12 rounded-2xl">
             <div className="banner-grid h-screen">
               <div className="grid grid-rows-4 grid-cols-1 grid-flow-col gap-6 h-screen">
-                {pages.map((ele: any) => {
+                {pages.map((ele: any, i: number) => {
                   return (
                     <div
+                      key={i}
                       className={`banner md:py-8 md:px-4 rounded-2xl`}
                       style={{
                         backgroundImage: `url(${ele.PageSlug === "/corporate" ? CorporateBanner : ele.PageSlug === "/institutions" ? InstitutionsBanner : ele.PageSlug === "/government" ? GovernmentBanner : SchoolsBanner})`,
