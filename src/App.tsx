@@ -15,7 +15,9 @@ import WallofFame from "./pages/walloffame";
 import CourseDetail from "./pages/courses/[name]/6th-sem-20204";
 import Events from "./pages/hackathon";
 import CareersWebDev from "./pages/careers/web-developer-intern";
+import Jobportal from "./pages/careers/job-portal";
 import ImageGallery from "./pages/hackathon/gallery";
+import EventsGalleryPage from "./pages/events-gallery/events";
 
 const App = () => {
   return (
@@ -49,8 +51,16 @@ const App = () => {
               element={<CareersWebDev />}
             />
             <Route
+              path='https://rareminds.zohorecruit.in/jobs/Careers'
+              element={<Jobportal />}
+            />
+            <Route
               path="courses/:name/6th-sem-2024"
               element={<CourseDetail />}
+            />
+            <Route
+              path="events-gallery/events"
+              element={<EventsGalleryPage/>}
             />
           </Routes>
         </Suspense>
