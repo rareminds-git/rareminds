@@ -1,0 +1,32 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - master  # Trigger the workflow only on pushes to the 'dev' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Check out the repository
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    # Step 2: Set up SSH access
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    # Step 3: Deploy to EC2
+    - name: Deploy to EC2
+      run: |
+        ssh -o StrictHostKeyChecking=no ubuntu@ec2-13-232-9-77.ap-south-1.compute.amazonaws.com << 'EOF'
+        cd /var/www/html/rareminds  # Repository path on the EC2 instance
+        git reset --hard
+        git pull origin master
+        npm install --production  # Install dependencies if using Node.js
+        pm2 restart all  # Restart the application if using PM2
+        EOF
