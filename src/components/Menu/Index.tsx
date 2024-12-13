@@ -74,6 +74,17 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   </li>
                   <li className="nav-li">
                     <a
+                      href="https://rareminds.zohorecruit.in/jobs/Careers"
+                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
+                      onClick={() => {
+                        setNavbarOpen(false);
+                      }}
+                    >
+                      Job Portal
+                    </a>
+                  </li>
+                  <li className="nav-li">
+                    <a
                       href={`/about`}
                       className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-playfair text-white font-bold"
                       onClick={() => {
@@ -222,6 +233,17 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       }}
                     >
                       Our Services
+                    </a>
+                  </li>
+                  <li className="nav-li py-2">
+                    <a
+                      href="https://rareminds.zohorecruit.in/jobs/Careers"
+                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
+                      onClick={() => {
+                        setNavbarOpen(false);
+                      }}
+                    >
+                      Job Portal
                     </a>
                   </li>
                   <li className="nav-li py-2">
