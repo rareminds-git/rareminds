@@ -75,7 +75,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href={`/events-gallery/events`}
-                      className="nav-link text-[30px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
+                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -249,7 +249,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href={`/events-gallery/events`}
-                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
+                      className="nav-link text-4xl font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -260,7 +260,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href={`/careers/job-portal`}
-                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
+                      className="nav-link text-4xl font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
