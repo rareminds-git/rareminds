@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Check Source Branch
         run: |
-          if [ "${{ github.base_ref }}" != "dev" ]; then
+          if [ "${{ github.compare_ref }}" != "dev" ]; then
             echo "This PR must come from 'dev'."
             echo github.base_ref
             exit 1
