@@ -1,0 +1,15 @@
+name: Validate Merge Source
+on:
+  pull_request:
+    branches:
+      - master
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Source Branch
+        run: |
+          if [ "${{ github.base_ref }}" != "dev" ]; then
+            echo "This PR must come from 'dev'."
+            exit 1
+          fi
