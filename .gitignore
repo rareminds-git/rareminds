@@ -10,9 +10,8 @@ package-lock.json
 api/package-lock.json
 
 node_modules
-# dist
 dist-ssr
-# dist
+dist
 *.local
 
 # Editor directories and files

@@ -1,8 +1,8 @@
-import OwlCarousel from "react-owl-carousel";
+import moment from "moment";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
+import OwlCarousel from "react-owl-carousel";
 import { useMediaQuery } from "react-responsive";
-import moment from "moment";
 
 const Blog = ({ content }) => {
   const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
