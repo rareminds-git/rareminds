@@ -156,7 +156,7 @@ const Index = () => {
                       Careers
                     </Link>
                     <Link
-                      to="/blogs"
+                      to="/blog"
                       className="hover:text-red-600 transition-colors duration-150"
                     >
                       Blogs

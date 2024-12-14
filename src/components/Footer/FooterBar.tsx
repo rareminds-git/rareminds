@@ -1,13 +1,12 @@
-import React, { useEffect, useState, useRef } from "react";
-import FooterIcon from "./FooterIcon"; // Assuming you have a component for icons
-import { useMediaQuery } from "react-responsive";
 import axios from "axios";
+import { useEffect, useRef, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import { useNavigate } from "react-router-dom";
 import FaceBookIcon from "../../assets/images/fb-icon.svg";
-import TwitterIcon from "../../assets/images/twitter-icon.svg";
-import LinkedInIcon from "../../assets/images/linkedin-icon.svg";
-import YoutubeIcon from "../../assets/images/youtube-icon.svg";
 import InstagramIcon from "../../assets/images/instagram-icon.svg";
+import LinkedInIcon from "../../assets/images/linkedin-icon.svg";
+import TwitterIcon from "../../assets/images/twitter-icon.svg";
+import YoutubeIcon from "../../assets/images/youtube-icon.svg";
 
 const socialIcons = [
   { id: 1, icon: FaceBookIcon, link: "https://www.facebook.com/raremindsgroup" },
@@ -102,7 +101,7 @@ const FooterBar = () => {
         <div>
           <h2 className="font-bold mb-2 uppercase tracking-wider">Case Study</h2>
           <ul className="text-[16px] leading-[20px]">
-            <li className="mb-2"><a href="/blogs">Blog</a></li>
+            <li className="mb-2"><a href="/blog">Blog</a></li>
             <li className="mb-2"><a href="/walloffame">Wall of Fame</a></li>
             <li className="mb-2"><a href="/events">Events</a></li>
           </ul>
