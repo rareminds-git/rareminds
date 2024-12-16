@@ -16,6 +16,9 @@ import CourseDetail from "./pages/courses/[name]/6th-sem-20204";
 import Events from "./pages/hackathon";
 import CareersWebDev from "./pages/careers/web-developer-intern";
 import ImageGallery from "./pages/hackathon/gallery";
+import EventsGalleryPage from "./pages/events-gallery/events";
+
+
 
 const App = () => {
   return (
@@ -48,10 +51,16 @@ const App = () => {
               path="/careers/web-developer-intern"
               element={<CareersWebDev />}
             />
+            
             <Route
               path="courses/:name/6th-sem-2024"
               element={<CourseDetail />}
             />
+            <Route
+              path="events-gallery/events"
+              element={<EventsGalleryPage/>}
+            />
+            
           </Routes>
         </Suspense>
       </DefaultLayout>
