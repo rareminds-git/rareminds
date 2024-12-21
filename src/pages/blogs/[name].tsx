@@ -28,6 +28,7 @@ const BlogDetail = () => {
     <>
       <Helmet>
         <title>{blogData?.blogData?.MetaTitle}</title>
+        <meta name="title" content={blogData?.blogData?.MetaTitle} />
         <meta
           name="description"
           content={blogData?.blogData?.MetaDescription}
