@@ -1,19 +1,19 @@
 import "owl.carousel/dist/assets/owl.carousel.css";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import "owl.carousel/dist/assets/owl.theme.default.css";
-import { useMediaQuery } from "react-responsive";
+// import { useMediaQuery } from "react-responsive";
 import Pagination from "@/common/Pagination";
 import moment from "moment";
 import axios from "axios";
 
-const PageSize = 10;
+// const PageSize = 10;
 
 const Events = () => {
-  const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
-  const navigate = useNavigate();
+  // const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
+  // const navigate = useNavigate();
   const [pageData, setPageData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(11);
+  const postsPerPage= 6;
 
   const handlePagination = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -47,20 +47,24 @@ const Events = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 mb-20">
-          <div
-            className="cursor-pointer"
-            onClick={() =>
-              window.open(
-                `${import.meta.env.VITE_PUBLIC_URL}${currentPosts && currentPosts[0].ContentSlug}`,
-                "_self"
-              )
-            }
+
+        <div className="grid sm:grid-cols-1 md:grid-cols-4 gap-4 ">
+        {/* <div className="grid grid-cols-2 mb-20"> */}
+        <Link className="cursor-pointer md:mt-4 col-span-2" to={currentPosts && `/${currentPosts[0].ContentSlug}`}>
+          <div 
+            
+            // onClick={() =>
+              // window.open(
+              //   `${import.meta.env.VITE_PUBLIC_URL}${currentPosts && currentPosts[0].ContentSlug}`,
+              //   "_self"
+              // )
+            // }
           >
             <img
               src={`${import.meta.env.VITE_API_URL}uploads/${currentPosts && currentPosts[0].Image1}`}
               width={"100%"}
-              className="rounded-xl object-cover max-h-[300px]"
+              // height={"100%"}
+              className="rounded-xl object-cover xl:min-h-[300px] xl:max-h-[300px]"
             />
 
             <h4
@@ -81,17 +85,17 @@ const Events = () => {
               )}
             </p>
           </div>
-        </div>
+          </Link>
+        {/* </div> */}
 
-        <div className="grid sm:grid-cols-1 md:grid-cols-5 gap-4 mb-10">
           {currentPosts?.slice(1).map((ele, index) => (
             <div
               key={index}
               className={`cursor-pointer md:my-4 ${
                 // Adjust column span based on row pattern
                 index % 4 === 0 || index % 4 === 3
-                  ? "col-span-2" // 60% width for large image in odd rows
-                  : "col-span-3" // 40% width for small image in odd rows
+                   ? "col-span-2" // 60% width for large image in odd rows
+                   : "col-span-2" // 40% width for small image in odd rows
               }`}
               onClick={() => window.open(`/${ele.ContentSlug}`, "_self")}
             >
@@ -100,9 +104,12 @@ const Events = () => {
                 width="100%"
                 className={`rounded-xl object-cover ${
                   index % 4 === 0 || index % 4 === 3
-                    ? "xl:min-h-[250px] xl:max-h-[250px]" // Large image height
-                    : "xl:min-h-[400px] xl:max-h-[400px]" // Small image height
-                }`}
+                    ? "xl:min-h-[300px] xl:max-h-[300px]" // Large image height max-h-[300px]
+                    : "xl:min-h-[300px] xl:max-h-[300px]" // Small image height
+                    // ? "h-[200px]" // Large image height 
+                    // : "max-h-[300px]" // Small image height
+
+                  }`}
                 alt={ele.Heading1}
               />
 
