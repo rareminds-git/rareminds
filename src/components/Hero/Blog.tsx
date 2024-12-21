@@ -45,7 +45,7 @@ const Blog = ({ content }) => {
               return (
                 <div
                   className="item cursor-pointer"
-                  onClick={() => navigate(`/blogs/${ele.ContentSlug}`)}
+                  onClick={() => navigate(`/blog/${ele.ContentSlug}`)}
                 >
                   <div className="grid grid-flow-col place-items-start">
                     <div className="row-span-3 my-4 mx-4 place-items-start">
@@ -70,7 +70,7 @@ const Blog = ({ content }) => {
                         }}
                       />
                       <span
-                        onClick={() => navigate(`/blogs/${ele.ContentSlug}`)}
+                        onClick={() => navigate(`/blog/${ele.ContentSlug}`)}
                         className="text-black font-bold cursor-pointer"
                       >
                         Read more
@@ -122,7 +122,7 @@ const Blog = ({ content }) => {
               return (
                 <div
                   className="item cursor-pointer"
-                  onClick={() => navigate(`/blogs/${ele.ContentSlug}`)}
+                  onClick={() => navigate(`/blog/${ele.ContentSlug}`)}
                 >
                   <div className="grid grid-flow-col place-items-start">
                     <div className="row-span-3 my-4 mx-4 place-items-start">
@@ -147,7 +147,7 @@ const Blog = ({ content }) => {
                         }}
                       />
                       <span
-                        onClick={() => navigate(`/blogs/${ele.ContentSlug}`)}
+                        onClick={() => navigate(`/blog/${ele.ContentSlug}`)}
                         className="text-black font-extrabold cursor-pointer"
                       >
                         Read more
