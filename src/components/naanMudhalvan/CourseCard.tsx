@@ -27,7 +27,7 @@ export function CourseCard({ course, onClick }: CourseCardProps) {
       <div className="p-6">
         <h3 className="text-xl font-semibold text-gray-900">{course.name}</h3>
         <p className="mt-2 text-sm text-gray-600 line-clamp-2">{course.description}</p>
-        <div className="mt-4 flex items-center gap-4">
+        {/* <div className="mt-4 flex items-center gap-4">
           <div className="flex items-center text-sm text-gray-500">
             <Clock className="mr-1 h-4 w-4" />
             {course.duration}
@@ -36,7 +36,7 @@ export function CourseCard({ course, onClick }: CourseCardProps) {
             <BookOpen className="mr-1 h-4 w-4" />
             {course.level}
           </div>
-        </div>
+        </div> */}
       </div>
     </motion.div>
   );
