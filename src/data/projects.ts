@@ -8,7 +8,7 @@ export const projects = [
     year: '2025',
     location: 'TamilNadu',
     technologies: ['React', 'Node.js', 'TensorFlow', 'MongoDB'],
-    imageUrl: '/src/assets/images/nanmudhalvan.jpg',
+    imageUrl: '/images/nanmudhalvan.jpg',
     timeline: 'Jan 2025 - Present',
     team: [],
     goals: []
@@ -36,7 +36,7 @@ export const projects = [
     year: '2024',
     location: 'TamilNadu',
     technologies: ['Vue.js', 'Python', 'D3.js', 'MySQL'],
-    imageUrl: '/src/assets/images/nanmudhalvan.jpg',
+    imageUrl: '/images/nanmudhalvan.jpg',
     timeline: 'Jan 2024',
     team: ['Lisa Thompson', 'James Wilson', 'Maria Garcia'],
     goals: ['Improve patient outcomes', 'Optimize resource allocation', 'Enhance decision making']
