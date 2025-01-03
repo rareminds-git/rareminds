@@ -96,7 +96,7 @@ export function CourseSection({ title, description, courses }: CourseSectionProp
               640: { slidesPerView: 2 },
               1024: { slidesPerView: 3 },
             }}
-            className="!pb-12 course-swiper"
+            className="!overflow-visible !overflow-x-hidden !pb-12 course-swiper"
           >
             {filteredCourses.map((course) => (
               <SwiperSlide key={course.id}>
