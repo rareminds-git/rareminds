@@ -1,9 +1,9 @@
-import "owl.carousel/dist/assets/owl.carousel.css";
-import { useNavigate } from "react-router-dom";
-import "owl.carousel/dist/assets/owl.theme.default.css";
-import { useMediaQuery } from "react-responsive";
 import Pagination from "@/common/Pagination";
 import moment from "moment";
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+import { useMediaQuery } from "react-responsive";
+import { useNavigate } from "react-router-dom";
 
 const PageSize = 10;
 
@@ -31,7 +31,7 @@ const Blogs = ({ pageData, content }) => {
         <div className="grid grid-cols-1 mt-20 mb-20">
           <div
             className="cursor-pointer"
-            onClick={() => navigate(`/blogs/${currentPosts[0].PageSlug}`)}
+            onClick={() => navigate(`/blog/${currentPosts[0].PageSlug}`)}
           >
             <img
               src={`${import.meta.env.VITE_API_URL}uploads/${currentPosts[0].Image1}`}
@@ -67,7 +67,7 @@ const Blogs = ({ pageData, content }) => {
                   ? "col-span-2" // 60% width for large image in odd rows
                   : "col-span-3" // 40% width for small image in odd rows
               }`}
-              onClick={() => navigate(`/blogs/${ele.PageSlug}`)}
+              onClick={() => navigate(`/blog/${ele.PageSlug}`)}
             >
               <img
                 src={`${import.meta.env.VITE_API_URL}uploads/${ele.Image1}`}

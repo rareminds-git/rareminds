@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
-import AuthorImg from "../../assets/images/author-image.svg";
-import { useMediaQuery } from "react-responsive";
 import axios from "axios";
-import CTA from "@/common/CTA";
 import moment from "moment";
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import parse from "html-react-parser";
+import { useMediaQuery } from "react-responsive";
+import AuthorImg from "../../assets/images/author-image.svg";
 
 const BlogDetail = () => {
   const { slug } = useParams();
@@ -28,6 +26,7 @@ const BlogDetail = () => {
     <>
       <Helmet>
         <title>{blogData?.blogData?.MetaTitle}</title>
+        <meta name="title" content={blogData?.blogData?.MetaTitle} />
         <meta
           name="description"
           content={blogData?.blogData?.MetaDescription}
