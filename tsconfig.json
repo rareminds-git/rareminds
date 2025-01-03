@@ -26,6 +26,6 @@
 
     // "suppressImplicitAnyIndexErrors": true
   },
-  "include": ["src", "auto-imports.d.ts"],
+  "include": ["src", "auto-imports.d.ts","src/global.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

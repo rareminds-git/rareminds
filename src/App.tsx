@@ -15,6 +15,10 @@ import CourseDetail from "./pages/courses/[name]/6th-sem-20204";
 import Events from "./pages/hackathon";
 import EventDetail from "./pages/hackathon/[name]";
 import ImageGallery from "./pages/hackathon/gallery";
+import EventsGalleryPage from "./pages/events-gallery/events";
+import ProjectsPage from "./pages/projects/projectlist";
+import Naan from "./pages/projects/[name]";
+
 import WallofFame from "./pages/walloffame";
 
 const App = () => {
@@ -48,10 +52,26 @@ const App = () => {
               path="/careers/web-developer-intern"
               element={<CareersWebDev />}
             />
+            
             <Route
               path="courses/:name/6th-sem-2024"
               element={<CourseDetail />}
             />
+            <Route
+              path="events-gallery/events"
+              element={<EventsGalleryPage/>}
+            />
+            
+            <Route
+              path="/projects/projectlist/"
+              element={<ProjectsPage />}
+            />
+
+             <Route
+              path="/projects/:name"
+              element={<Naan />}
+            />
+
           </Routes>
         </Suspense>
       </DefaultLayout>

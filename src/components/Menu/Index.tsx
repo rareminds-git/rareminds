@@ -64,12 +64,23 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href={`/${localStorage.getItem("currentUserType")}/services`}
-                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-playfair text-white font-bold"
+                      className="nav-link text-[30px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
                     >
                       Our Services
+                    </a>
+                  </li>
+                  <li className="nav-li">
+                    <a
+                      href={`/events-gallery/events`}
+                      className="nav-link text-[30px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
+                      onClick={() => {
+                        setNavbarOpen(false);
+                      }}
+                    >
+                      Events Gallery
                     </a>
                   </li>
                   <li className="nav-li">
@@ -92,6 +103,18 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       }}
                     >
                       About
+                    </a>
+                  </li>
+
+                  <li className="nav-li">
+                    <a
+                      href={`/projects/projectlist`}
+                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-playfair text-white font-bold"
+                      onClick={() => {
+                        setNavbarOpen(false);
+                      }}
+                    >
+                      Project
                     </a>
                   </li>
                   {/* <li className="nav-li">
@@ -237,6 +260,17 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   </li>
                   <li className="nav-li py-2">
                     <a
+                      href={`/events-gallery/events`}
+                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
+                      onClick={() => {
+                        setNavbarOpen(false);
+                      }}
+                    >
+                      Events Gallery
+                    </a>
+                  </li>
+                  <li className="nav-li py-2">
+                    <a
                       href="https://rareminds.zohorecruit.in/jobs/Careers"
                       className="nav-link text-4xl font-[Sentient] text-white font-bold"
                       onClick={() => {
@@ -246,6 +280,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       Job Portal
                     </a>
                   </li>
+
                   <li className="nav-li py-2">
                     <a
                       href={`/about`}
@@ -255,6 +290,18 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       }}
                     >
                       About
+                    </a>
+                  </li>
+
+                  <li className="nav-li">
+                    <a
+                      href={`/projects/projectlist`}
+                      className="nav-link text-4xl font-playfair text-white font-bold"
+                      onClick={() => {
+                        setNavbarOpen(false);
+                      }}
+                    >
+                      Project
                     </a>
                   </li>
                   {/* <li className="nav-li py-2">
