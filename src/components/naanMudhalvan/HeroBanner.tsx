@@ -15,7 +15,7 @@ export function HeroBanner({hero_data}) {
           backgroundAttachment: 'fixed'
         }}
       /> */}
-      <img src="/images/naan_Mudhalvan/Naan-Mudalvan_banner.jpg" alt="" width={1600} height={600} className='object-center'  />
+      <img src="/images/naan_Mudhalvan/Naan-Mudalvan_banner.jpg" alt="" width="100%" height={600} className='object-center'  />
       <div className="absolute inset-0 bg-gradient-to-br" />
       
        
@@ -139,7 +139,8 @@ export function HeroBanner({hero_data}) {
               href="#work-with-us"
               className="inline-flex items-center px-8 py-4 border-2 border-white text-lg font-medium rounded-full text-white hover:bg-white/10 transition-colors duration-300"
             >
-              Work With Us
+              <Link to="/">Work With Us</Link>
+              
             </motion.a>
           </motion.div>
         </motion.div>
