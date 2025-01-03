@@ -17,6 +17,8 @@ import Events from "./pages/hackathon";
 import CareersWebDev from "./pages/careers/web-developer-intern";
 import ImageGallery from "./pages/hackathon/gallery";
 import EventsGalleryPage from "./pages/events-gallery/events";
+import ProjectsPage from "./pages/projects/projectlist";
+import Naan from "./pages/projects/[name]";
 
 
 
@@ -61,6 +63,16 @@ const App = () => {
               element={<EventsGalleryPage/>}
             />
             
+            <Route
+              path="/projects/projectlist/"
+              element={<ProjectsPage />}
+            />
+
+             <Route
+              path="/projects/:name"
+              element={<Naan />}
+            />
+
           </Routes>
         </Suspense>
       </DefaultLayout>

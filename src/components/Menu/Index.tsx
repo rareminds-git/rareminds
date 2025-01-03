@@ -105,6 +105,18 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       About
                     </a>
                   </li>
+
+                  <li className="nav-li">
+                    <a
+                      href={`/projects/projectlist`}
+                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-playfair text-white font-bold"
+                      onClick={() => {
+                        setNavbarOpen(false);
+                      }}
+                    >
+                      Project
+                    </a>
+                  </li>
                   {/* <li className="nav-li">
                     <a
                       href="/case-studies"
@@ -278,6 +290,18 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                       }}
                     >
                       About
+                    </a>
+                  </li>
+
+                  <li className="nav-li">
+                    <a
+                      href={`/projects/projectlist`}
+                      className="nav-link text-4xl font-playfair text-white font-bold"
+                      onClick={() => {
+                        setNavbarOpen(false);
+                      }}
+                    >
+                      Project
                     </a>
                   </li>
                   {/* <li className="nav-li py-2">
