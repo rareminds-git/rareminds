@@ -88,26 +88,29 @@ export function HeroBanner({hero_data}) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-3xl "
+          className="max-w-4xl "
         >
           <motion.h1
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
+            className="text-4xl font-bold leading-loose tracking-tight sm:text-5xl lg:text-6xl"
+
           >
             {/* Naan Mudhalvan Upskilling Program (Powered by Rareminds) */}
            {hero_data.pname} 
 
           </motion.h1>
+
+ 
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 }}
-            className="mt-8  leading-8 text-blue-100 text-[16px]"
+            className="mt-8 font-semibold  leading-8 text-blue-100 text-[16px]"
           >
             {/* Rareminds, in collaboration with the Government of Tamil Nadu, proudly launches the Naan Mudhalvan 2025 Program—a flagship initiative designed to equip over 30,000 students with industry-specific skills across 18 specialized courses. */}
-              {hero_data.description}
+              {hero_data.stname}
           </motion.p>
           <motion.p
             initial={{ opacity: 0, x: -20 }}
@@ -115,9 +118,60 @@ export function HeroBanner({hero_data}) {
             transition={{ delay: 0.5 }}
             className="mt-8 text-[16px] leading-8 text-blue-100"
           >
-            This groundbreaking program bridges the gap between education and employability, empowering students to achieve their career aspirations while supporting the state’s vision for a skilled workforce.
-
           </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 }}
+            className="mt-8  leading-8 text-blue-100 text-[16px]"
+          >
+            {/* Rareminds, in collaboration with the Government of Tamil Nadu, proudly launches the Naan Mudhalvan 2025 Program—a flagship initiative designed to equip over 30,000 students with industry-specific skills across 18 specialized courses. */}
+              {hero_data.description1}
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 }}
+            className="mt-8 text-[16px] leading-8 text-blue-100"
+          >
+          </motion.p>
+
+          
+          <motion.p
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 }}
+            className="mt-8  leading-8 text-blue-100 text-[16px]"
+          >
+            {/* Rareminds, in collaboration with the Government of Tamil Nadu, proudly launches the Naan Mudhalvan 2025 Program—a flagship initiative designed to equip over 30,000 students with industry-specific skills across 18 specialized courses. */}
+              {hero_data.description2}
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 }}
+            className="mt-8 text-[16px] leading-8 text-blue-100"
+          >
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 }}
+            className="mt-8  leading-8 text-blue-100 text-[16px]"
+          >
+            {/* Rareminds, in collaboration with the Government of Tamil Nadu, proudly launches the Naan Mudhalvan 2025 Program—a flagship initiative designed to equip over 30,000 students with industry-specific skills across 18 specialized courses. */}
+              {hero_data.description3}
+          </motion.p>
+          <motion.p
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 }}
+            className="mt-8 text-[16px] leading-8 text-blue-100"
+          >
+          </motion.p>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
