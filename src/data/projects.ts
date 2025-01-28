@@ -1,7 +1,7 @@
 export const projects = [
   {
-    id: '1',
-    name: 'Naan Mudhalvan 2025 Upskilling Program (Powered by Rareminds)',
+    pid:1,
+    name: 'Rareminds & Naan Mudhalvan Upskilling Program 2025',
     description: '',
     category: 'Naan Mudhalvan',
     status: 'Active',
@@ -28,8 +28,8 @@ export const projects = [
   //   goals: []
   // },
   {
-    id: '3',
-    name: 'Naan Mudhalvan 2024 Upskilling Program (Powered by Rareminds)',
+    pid:2,
+    name: 'Naan Mudhalvan 2024  6th Sem Upskilling Program (Powered by Rareminds)',
     description: '',
     category: 'Naan Mudhalvan',
     status: 'Completed',
@@ -38,6 +38,21 @@ export const projects = [
     technologies: ['Vue.js', 'Python', 'D3.js', 'MySQL'],
     imageUrl: '/images/nanmudhalvan.jpg',
     timeline: 'Jan 2024',
+    team: ['Lisa Thompson', 'James Wilson', 'Maria Garcia'],
+    goals: ['Improve patient outcomes', 'Optimize resource allocation', 'Enhance decision making']
+  },
+
+  {
+    pid:3,
+    name: 'Naan Mudhalvan 2024  5th Sem Upskilling Program (Powered by Rareminds)',
+    description: '',
+    category: 'Naan Mudhalvan',
+    status: 'Completed',
+    year: '2024',
+    location: 'TamilNadu',
+    technologies: ['Vue.js', 'Python', 'D3.js', 'MySQL'],
+    imageUrl: '/images/nanmudhalvan.jpg',
+    timeline: 'June 2024',
     team: ['Lisa Thompson', 'James Wilson', 'Maria Garcia'],
     goals: ['Improve patient outcomes', 'Optimize resource allocation', 'Enhance decision making']
   }

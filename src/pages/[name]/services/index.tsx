@@ -8,6 +8,10 @@ import OwlCarousel from "react-owl-carousel";
 import { useMediaQuery } from "react-responsive";
 import { useNavigate } from "react-router-dom";
 import ServicesImg from "../../../assets/images/servicesImg.svg";
+import TalentAcquisition from '../../../components/Services/TalentAcquisition'
+
+// Your component code...
+
 
 const htmlDecode = (input) => {
   const e = document.createElement("div");
@@ -19,7 +23,7 @@ const Services = () => {
   const { userType, serviceName } = useParams();
   const [serviceData, setData] = useState<any>({});
   const [hoveredDivs, setHoveredDivs] = useState<any>(null);
-
+  console.log(userType)
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -135,7 +139,26 @@ const Services = () => {
           <div className="flex justify-center mt-40">
             <img src={ServicesImg} alt="Services" />
           </div>
+
+
+           {/* New Talent Acquisition section */}
+           <section className="mb-16 mt-8 w-full px-4">
+        <div className="w-full h-auto ">
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4 text-center text-black mt-6 sm:mt-10">Talent Acquisition</h2>
+          <p className="text-base sm:text-lg text-gray-700 mb-6 text-center sm:text-left">
+            Find the perfect match for your company or kickstart your career with our talent acquisition services.
+            We connect skilled professionals with innovative companies.
+          </p>
+        </div>
+        
+        <div className="sm:mt-8">
+    <TalentAcquisition />
+  </div>
+      </section>
         </section>
+        
+
+        
       ) : (
         <section className="px-8 pb-4 py-8 md:px-16 md:pb-8 md:py-16 w-6/6">
           <h1 className="text-[34px] leading-[34px]  font-medium place-items-start text-[#000000] capitalize">
@@ -225,11 +248,44 @@ const Services = () => {
             </>
           )}
 
-          <div className="flex justify-center mt-10">
+          <div className="flex justify-center mt-10 ">
             <img src={ServicesImg} alt="Services" />
           </div>
+
+
+           {/* New Talent Acquisition section */}
+           {/* <section className="mb-8 mt-16">
+            <div className="w-full h-auto">
+            <h2 className="text-3xl font-semibold mb-8 text-center text-blue-400">Talent Acquisition</h2>
+          <p className="text-lg text-gray-700 mb-8">
+            Find the perfect match for your company or kickstart your career with our talent acquisition services.
+            We connect skilled professionals with innovative companies.
+          </p>
+            </div>
+          
+          <TalentAcquisition />
+        </section> */}
+
+        {userType === "corporate" && (
+        <section className="mb-16 mt-16 w-full">
+        <div className="w-full h-auto ">
+          <h2 className="text-3xl font-semibold mb-8 text-center text-black mt-10">Talent Acquisition</h2>
+          <p className="text-lg text-gray-700 mb-8">
+            Find the perfect match for your company or kickstart your career with our talent acquisition services.
+            We connect skilled professionals with innovative companies.
+          </p>
+        </div>
+        
+        <TalentAcquisition />
+      </section>
+)}
         </section>
+
+        //intern * Company pools 
+
+
       )}
+      
       <CTA content={""} />
     </>
   );

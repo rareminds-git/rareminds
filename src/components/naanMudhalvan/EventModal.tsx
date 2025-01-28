@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Calendar, MapPin, Users } from 'lucide-react';
-import { EventLocation } from '../../components/types/event';
+import { EventLocation } from '../types/event';
 
 interface EventModalProps {
   isOpen: boolean;

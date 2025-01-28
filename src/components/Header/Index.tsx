@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Logo from "../../assets/images/logo.svg";
+// import Logo from "../../assets/images/logo.svg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
@@ -38,7 +38,7 @@ const Header = ({ navbarOpen, setNavbarOpen }) => {
       <div className="text-white align-middle items-center flex-grow z-20 ">
         <a href="/">
           <img
-            src={Logo}
+            src="/images/RareMinds.png"
             alt="Rareminds"
             className="sm:mt-2"
             width={!isMobile ? 211 : 200}

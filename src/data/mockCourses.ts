@@ -35,6 +35,34 @@ export const naamMudhalvanCourses = [
       category: 'Technology',
       imageUrl: '/images/naan_Mudhalvan/Food-Analysis-QC-and-QA.jpg?auto=format&fit=crop&q=80&w=800',
     },
+    {
+      id: '5',
+      name: 'Sustainability and Green Chemistry in the EV Sector',
+      description: 'Gain expertise in sustainable farming practices for organic food production. This course explores soil health, crop management, and eco-friendly techniques to produce high-quality organic food while protecting the environment.',
+      duration: '8 weeks',
+      level: 'Advanced',
+      category: 'Technology',
+      imageUrl: '/images/naan_Mudhalvan/chemistry.jpg?auto=format&fit=crop&q=80&w=800',
+    },
+    {
+      id: '6',
+      name: 'Food Analysis, Preservation, and Processing',
+      description: 'This course covers key techniques in food analysis, preservation, and processing. Learn how to ensure food safety, extend shelf life, and maintain quality while adhering to industry standards and sustainability practices.',
+      duration: '8 weeks',
+      level: 'Advanced',
+      category: 'Technology',
+      imageUrl: '/images/naan_Mudhalvan/Food Analysis.jpg?auto=format&fit=crop&q=80&w=800',
+    },
+    {
+      id: '7',
+      name: 'Organic Food Production',
+      description: 'Gain expertise in sustainable farming practices for organic food production. This course explores soil health, crop management, and eco-friendly techniques to produce high-quality organic food while protecting the environment.',
+      duration: '8 weeks',
+      level: 'Advanced',
+      category: 'Technology',
+      imageUrl: '/images/naan_Mudhalvan/Organic_food_Production.jpg?auto=format&fit=crop&q=80&w=800',
+    },
+   
   ];
   
   export const otherCourses = [
