@@ -31,7 +31,7 @@ const Counselling: React.FC<ChildProps> = ({
             "grayscale-0 blur-none scale-[1.1] cursor-pointer z-[1]",
           activePart !== part && partHover && "grayscale blur-sm"
         )}
-        onClick={() => onAction("")}
+        onClick={() => (window.location.href = "https://career.rareminds.in/")}
         onMouseEnter={() => {
           overlayActive(true);
           setActivePart(part);
