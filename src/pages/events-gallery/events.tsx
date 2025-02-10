@@ -1,24 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react";
 import PhotoLoader from "@/components/PhotoLoader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilter, faSearch, faCircleChevronLeft, faCircleChevronRight, faPlus, faMinus, faDownLeftAndUpRightToCenter,faMagnifyingGlassMinus } from "@fortawesome/free-solid-svg-icons";
+import { faTrashAlt, faInfoCircle,faFilter, faSearch, faCircleChevronLeft, faCircleChevronRight, faPlus, faMinus, faDownLeftAndUpRightToCenter,faMagnifyingGlassMinus } from "@fortawesome/free-solid-svg-icons";
 import { useInView } from 'react-intersection-observer';
 
-const universities = [
-  "Alagappa University",
-  "Annamalai University",
-  "Bharathidasan University",
-  "Bharathiyar University",
-  "Madurai Kamaraj University",
-  "Manonmaniam University",
-  "Periyar University",
-  "Thiruvalluvar University",
-  "University of Madras",
-];
-
-const years = Array.from({ length: 2 }, (_, i) => (2024 + i).toString());
-
-const categories = ["Panelists", "Winners", "Awards"];
 
 const eventPlaceholders = [
   "Food Tech Innovators",
@@ -27,22 +12,38 @@ const eventPlaceholders = [
   "Agri Innovators",
 ];
 
-const LazyImage = ({ src, alt }: { src: string; alt: string }) => {
+const LazyImage = ({ src, alt , metadata }: { src: string; alt: string; metadata: any }) => {
   const { ref, inView } = useInView({
     triggerOnce: true, // Load image only once
     threshold: 0.1,    // Trigger when 10% of the image is visible
   });
 
+
+
   return (
-    <div ref={ref} className="rounded-lg overflow-hidden shadow-lg">
+    <div ref={ref} className="group relative rounded-lg overflow-hidden shadow-lg">
       {inView ? (
         <img src={src} alt={alt} className="w-full h-48 object-cover" />
       ) : (
         <div className="w-full h-48 bg-gray-200 animate-pulse" /> // Placeholder
       )}
+
+      {/* Metadata Overlay (Visible on hover) */}
+      <div
+        className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transform translate-y-6 transition-all duration-300 ease-in-out"
+      >
+        <p className="text-lg font-semibold">{alt}</p>
+        <p className="text-sm">University: {metadata.university}</p>
+        <p className="text-sm">Event: {metadata.event_name || "N/A"}</p>
+        <p className="text-sm">Date: {metadata.event_date}</p>
+        <p className="text-sm">Year: {metadata.year}</p>
+        <p className="text-sm">Sem: {metadata.semester}</p>
+        <p className="text-sm">Course: {metadata.course}</p>
+      </div>
     </div>
   );
 };
+    
 
 const EventsGalleryPage: React.FC = () => {
   const [images, setImages] = useState<string[]>([]);
@@ -50,13 +51,20 @@ const EventsGalleryPage: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [showFilters, setShowFilters] = useState<boolean>(false);
   const [searchFilters, setSearchFilters] = useState({
+    search:"",
+    event_name:"",
     university: "",
     year: "",
-    category: "",
+    course: "",
+    semester: "",
   });
+  const [searchLoading, setSearchLoading] = useState(false);
+const [filterLoading, setFilterLoading] = useState(false);
+
   const [visibleImages, setVisibleImages] = useState<string[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [placeholderIndex, setPlaceholderIndex] = useState<number>(0);
+  const [showMetadata, setShowMetadata] = useState(false);
 
   // Modal state
   const [currentImage, setCurrentImage] = useState<string | null>(null);
@@ -64,6 +72,8 @@ const EventsGalleryPage: React.FC = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
   const [zoomLevel, setZoomLevel] = useState<number>(1);
   const observer = useRef<IntersectionObserver | null>(null);
+  const [currentMetadata, setCurrentMetadata] = useState<any>(null);
+
   
   const loadMore = () => {
     // Load the next batch of 20 images
@@ -86,10 +96,35 @@ const EventsGalleryPage: React.FC = () => {
     [filteredImages]
   );
 
+  const [metadataOptions, setMetadataOptions] = useState({
+    universities: [],
+    years: [],
+    courses: [],
+    semesters: [],
+  });
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}api/metadata`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setMetadataOptions({
+          universities: (data.universities || []).sort(),
+          years: data.years || [],
+          courses: (data.courses || []).sort(),
+          semesters: data.semesters || [],
+        });
+      })
+      .catch((error) => console.error("Error fetching metadata:", error.message));
+  }, []);
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:6069/api/images")
+    fetch(`${import.meta.env.VITE_API_URL}api/images`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -100,7 +135,7 @@ const EventsGalleryPage: React.FC = () => {
         const allImages = data.images || [];
         setImages(allImages);
         setFilteredImages(allImages);
-        setVisibleImages(allImages.slice(0, 20));
+        setVisibleImages(allImages.slice(0, 6));
       })
       .catch((error) => {
         console.error("Error fetching images:", error.message);
@@ -127,39 +162,80 @@ const EventsGalleryPage: React.FC = () => {
   };
 
   const applyFilters = () => {
+    setFilterLoading(true);
     let updatedImages = images;
 
-    if (searchFilters.university) {
-      updatedImages = updatedImages.filter((image) =>
-        image.toLowerCase().includes(searchFilters.university.toLowerCase())
-      );
-    }
+     // Filter by University
+  if (searchFilters.university) {
+    updatedImages = updatedImages.filter((image) =>
+      image.university?.toString().includes(searchFilters.university)
+    );
+  }
 
-    if (searchFilters.year) {
-      updatedImages = updatedImages.filter((image) => image.includes(searchFilters.year));
-    }
+  // Filter by Year
+  if (searchFilters.year) {
+    updatedImages = updatedImages.filter((image) =>
+      image.year && image.year.toString().includes(searchFilters.year)
+    );
+  }
 
-    if (searchFilters.category) {
-      updatedImages = updatedImages.filter((image) =>
-        image.toLowerCase().includes(searchFilters.category.toLowerCase())
-      );
-    }
+  // Filter by Course
+  if (searchFilters.course) {
+    updatedImages = updatedImages.filter((image) =>
+      image.course?.toString().includes(searchFilters.course)
+    );
+  }
 
-    if (searchQuery) {
-      updatedImages = updatedImages.filter((image) =>
-        image.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    }
+  // Filter by Semester
+  if (searchFilters.semester) {
+    updatedImages = updatedImages.filter((image) =>
+      image.semester && image.semester.toString().includes(searchFilters.semester)
+    );
+  }
 
-    setFilteredImages(updatedImages);
-    setVisibleImages(updatedImages.slice(0, 9)); 
-  };
+  setFilteredImages(updatedImages);
+  setVisibleImages(updatedImages.slice(0, 6));
+  setFilterLoading(false); // Show the first 6 images after filtering
+};
+
+const removeFilters = () => {
+  setSearchFilters({
+    search: "",
+    event_name: "",
+    university: "",
+    year: "",
+    course: "",
+    semester: "",
+  });
+  setFilteredImages(images);
+  setVisibleImages(images.slice(0, 6)); // Reset to show the first 6 images
+};
+
+const handleSearch = () => {
+  setSearchLoading(true);
+  let updatedImages = images;
+
+  if (searchQuery) {
+    updatedImages = updatedImages.filter((image) =>
+      image.event_name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      image.course?.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }
+
+  setFilteredImages(updatedImages);
+  setVisibleImages(updatedImages.slice(0, 6));
+  setFilterLoading(false); // Reset the visible images after search
+};
 
   // Modal functions
   const openModal = (image: string, index: number) => {
+    const metadata = filteredImages[index];
     setCurrentImage(image);
     setCurrentIndex(index);
     setShowModal(true);
+    setShowMetadata(true);
+    setCurrentMetadata(metadata);
+    
   };
 
   const closeModal = () => {
@@ -170,15 +246,19 @@ const EventsGalleryPage: React.FC = () => {
 
   const showNextImage = () => {
     if (currentIndex < filteredImages.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-      setCurrentImage(filteredImages[currentIndex + 1]);
+      const newIndex = currentIndex + 1;
+      setCurrentIndex(newIndex);
+      setCurrentImage(filteredImages[newIndex].image_url); // Ensure you access the correct property
+      setCurrentMetadata(filteredImages[newIndex]);
     }
   };
 
   const showPreviousImage = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-      setCurrentImage(filteredImages[currentIndex - 1]);
+      const newIndex = currentIndex - 1;
+      setCurrentIndex(newIndex);
+      setCurrentImage(filteredImages[newIndex].image_url); // Ensure you access the correct property
+      setCurrentMetadata(filteredImages[newIndex]);
     }
   };
 
@@ -189,13 +269,16 @@ const EventsGalleryPage: React.FC = () => {
   const handleKeyDown = useCallback(
     (event: KeyboardEvent) => {
       if (!showModal) return;
-
+      
       if (event.key === "ArrowRight") {
         showNextImage();
       } else if (event.key === "ArrowLeft") {
         showPreviousImage();
       } else if (event.key === "Escape") {
         closeModal();
+      }
+      else if (event.key.toLowerCase() === "i") {
+      setShowMetadata((prev) => !prev); // Toggle metadata visibility
       }
     },
     [showModal, currentIndex, filteredImages]
@@ -234,13 +317,13 @@ const EventsGalleryPage: React.FC = () => {
         <div className="flex items-center border rounded-md shadow-md w-[60%]">
           <input
             type="text"
-            placeholder={`Search event name: ${eventPlaceholders[placeholderIndex]}`}
+            placeholder={`Search Event / Course Name: ${eventPlaceholders[placeholderIndex]}`}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="p-2 w-full focus:outline-none"
           />
           <button
-            onClick={applyFilters}
+            onClick={handleSearch}
             className="p-2 bg-blue-500 text-white rounded-r-md hover:bg-blue-600"
           >
             <FontAwesomeIcon icon={faSearch} />
@@ -255,14 +338,14 @@ const EventsGalleryPage: React.FC = () => {
         }`}
       >
         <div className="bg-gray-100 p-4 rounded-md shadow-md mb-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <select
               value={searchFilters.university}
               onChange={(e) => handleFilterChange("university", e.target.value)}
               className="p-2 border rounded-md"
             >
               <option value="">Select University</option>
-              {universities.map((university) => (
+              {metadataOptions.universities.map((university) => (
                 <option key={university} value={university}>
                   {university}
                 </option>
@@ -275,7 +358,7 @@ const EventsGalleryPage: React.FC = () => {
               className="p-2 border rounded-md"
             >
               <option value="">Select Year</option>
-              {years.map((year) => (
+              {metadataOptions.years.map((year) => (
                 <option key={year} value={year}>
                   {year}
                 </option>
@@ -283,25 +366,44 @@ const EventsGalleryPage: React.FC = () => {
             </select>
 
             <select
-              value={searchFilters.category}
-              onChange={(e) => handleFilterChange("category", e.target.value)}
+              value={searchFilters.course}
+              onChange={(e) => handleFilterChange("course", e.target.value)}
               className="p-2 border rounded-md"
             >
-              <option value="">Select Category</option>
-              {categories.map((category) => (
-                <option key={category} value={category}>
-                  {category}
+              <option value="">Select Course</option>
+              {metadataOptions.courses.map((course) => (
+                <option key={course} value={course}>
+                  {course}
+                </option>
+              ))}
+            </select>
+            <select
+              value={searchFilters.semester}
+              onChange={(e) => handleFilterChange("semester", e.target.value)}
+              className="p-2 border rounded-md"
+            >
+              <option value="">Select Semester</option>
+              {metadataOptions.semesters.map((semester) => (
+                <option key={semester} value={semester}>
+                  {semester}
                 </option>
               ))}
             </select>
           </div>
 
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center mt-4 gap-4">
             <button
               onClick={applyFilters}
               className="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
             >
               Apply
+            </button>
+            <button
+              onClick={removeFilters}
+              className="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 flex items-center gap-2"
+            >
+              <FontAwesomeIcon icon={faTrashAlt} /> {/* Trash Icon */}
+              Filters
             </button>
           </div>
         </div>
@@ -313,17 +415,17 @@ const EventsGalleryPage: React.FC = () => {
       <PhotoLoader />
       </div>
       ) : filteredImages.length > 0 ? (
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-9">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-9 py-10">
       {visibleImages.map((image, index) => {
       const isLastImage = index === visibleImages.length - 1; // Check if it's the last image
       return (
         <div
           key={index}
           className="rounded-lg overflow-hidden shadow-lg cursor-pointer"
-          onClick={() => openModal(image, index)}
+          onClick={() => openModal(image.image_url, index)}
           ref={isLastImage ? lastImageRef : null} // Attach observer to the last image
         >
-          <LazyImage src={image} alt={`Image ${index + 1}`} />
+          <LazyImage src={image.image_url} alt={`Image ${index + 1}`} metadata={image}/>
         </div>
       );
     })}
@@ -344,6 +446,7 @@ const EventsGalleryPage: React.FC = () => {
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center z-50">
           <div className="relative max-w-4xl w-full h-auto pb-10">
+      
             <img
               src={currentImage || ""}
               alt="Current"
@@ -351,6 +454,26 @@ const EventsGalleryPage: React.FC = () => {
               style={{ transform: `scale(${zoomLevel})` }}
             />
           </div>
+
+
+          <button
+            className="absolute top-4 left-4 text-gray-400 hover:text-white text-2xl z-50"
+            onClick={() => setShowMetadata((prev) => !prev)} // Toggle metadata visibility
+          >
+            <FontAwesomeIcon icon={faInfoCircle} /> 
+          </button>   
+
+          {/* Metadata Information */}
+           {showMetadata && currentMetadata && ( // Conditionally render metadata
+           <div className="absolute top-16 left-4 bg-black bg-opacity-70 text-white p-4 rounded-md text-sm z-50">
+            <p className="text-sm">University: {currentMetadata.university}</p>
+            <p className="text-sm">Event: {currentMetadata.event_name || "N/A"}</p>
+            <p className="text-sm">Date: {currentMetadata.event_date}</p>
+            <p className="text-sm">Year: {currentMetadata.year}</p>
+            <p className="text-sm">Sem: {currentMetadata.semester || "N/A"}</p>
+            <p className="text-sm">Course: {currentMetadata.course || "N/A"}</p>
+           </div>
+          )} 
 
           <button
             className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-white text-4xl z-50"
