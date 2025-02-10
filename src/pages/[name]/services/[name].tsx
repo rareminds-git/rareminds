@@ -4,11 +4,13 @@ import { useMediaQuery } from "react-responsive";
 import axios from "axios";
 import CTA from "@/common/CTA";
 import { Helmet } from "react-helmet";
+import TalentAcquisition from "../../../components/Services/TalentAcquisition";
 
 const ServiceName = () => {
   const { userType, serviceName } = useParams();
   const [serviceData, setData] = useState<any>({});
-
+  const [pageId, setPageId] = useState<number | null>(null);
+  
   useEffect(() => {
     async function getData() {
       await axios
@@ -21,9 +23,10 @@ const ServiceName = () => {
     }
 
     getData();
+    
   }, []);
-
-  const htmlDecode = (input) => {
+ 
+  const htmlDecode = (input:string) => {
     const e = document.createElement("div");
     e.innerHTML = input;
     return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
@@ -158,6 +161,8 @@ const ServiceName = () => {
           })}
         </section>
       )}
+
+     
       <CTA content={""} />
     </>
   );
