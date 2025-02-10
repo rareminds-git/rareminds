@@ -25,9 +25,9 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no ubuntu@ec2-13-232-9-77.ap-south-1.compute.amazonaws.com << 'EOF'
         cd /var/www/html/rareminds  # Repository path on the EC2 instance
-        git reset --hard
-        git pull origin dev
-        npm install
-        npm run build
+        sudo git reset --hard
+        sudo git pull origin dev
+        sudo npm install
+        sudo npm run build
         pm2 restart all  # Restart the application if using PM2
         EOF
