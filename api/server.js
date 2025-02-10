@@ -163,6 +163,10 @@ app.get("/dashboard", async function (req, res) {
   let blogsData = await mysqlQuery(con, {
     sql: "SELECT * FROM rm_content WHERE ContentTypeId = 41 order by UNIX_TIMESTAMP(CreatedOn) DESC",
   });
+  
+  let generalEventData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = 51 order by UNIX_TIMESTAMP(CreatedOn) DESC",
+  });
 
   let subscribers = await mysqlQuery(con, {
     sql: "SELECT * FROM rm_subscribers",
@@ -172,10 +176,16 @@ app.get("/dashboard", async function (req, res) {
     sql: "SELECT * FROM rm_queries",
   });
 
+  let galleryData = await mysqlQuery(con, {
+    sql: "SELECT * FROM gallery",
+  });
+
   res.send({
     blogsData,
+    generalEventData,
     subscribers,
     queries,
+    galleryData,
   });
 });
 
@@ -230,6 +240,10 @@ app.get("/pages/:pageSlug", async function (req, res) {
     sql: "SELECT * FROM rm_content WHERE ContentTypeId = 41 order by UNIX_TIMESTAMP(CreatedOn) DESC LIMIT 6 ",
   });
 
+  let generalEventData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = 51 order by UNIX_TIMESTAMP(CreatedOn) DESC LIMIT 6 ",
+  });
+
   let achievementsData = await mysqlQuery(con, {
     sql:
       "SELECT * FROM rm_content WHERE PageId = " +
@@ -279,10 +293,11 @@ app.get("/pages/:pageSlug", async function (req, res) {
     serviceData,
     studyData,
     blogsData,
+    generalEventData,
     testimonialData,
     categories,
     achievementsData:
-      achievementsData[0] && achievementsData[0]["achievements"],
+    achievementsData[0] && achievementsData[0]["achievements"],
   });
 });
 
@@ -1166,6 +1181,172 @@ app.post(
   }
 );
 
+//General Events 
+
+app.get("/generalEvents", async function (req, res) {
+  let generalEventData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentTypeId = '51' order by UNIX_TIMESTAMP(CreatedOn) DESC",
+  });
+
+  let generalEventDetails = [];
+
+  await asyncForEach(generalEventData, async (ele) => {
+    let data = await mysqlQuery(con, {
+      sql: "SELECT * FROM rm_content_details WHERE ContentId = " + ele.ContentId,
+    });
+
+    generalEventDetails.push(data[0]);
+  });
+
+  res.send({
+    generalEventData,
+    generalEventDetails,
+  });
+});
+
+app.get("/generalEvents/:slug", async function (req, res) {
+  const { slug } = req.params;
+
+  let generalEventData = await mysqlQuery(con, {
+    sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + slug + "'",
+  });
+
+  let generalEventDetails = await mysqlQuery(con, {
+    sql:
+      "SELECT * FROM rm_content_details WHERE ContentId = " +
+      generalEventData[0].ContentId,
+  });
+
+  res.send({
+    generalEventData: generalEventData[0],
+    generalEventDetails,
+  });
+});
+
+app.post("/addGeneralEvent", upload.single("Image1"), async function (req, res) {
+  const { body, file } = req;
+
+  const formData = req.body;
+
+  let generalEventData = JSON.parse(formData.generalEventData);
+  generalEventData.Image1 = req.file.filename;
+  let generalEventDetails = JSON.parse(formData.generalEventDetails);
+  let metadata = JSON.parse(formData.metadata);
+
+  if (Object.keys(generalEventData).length > 0) {
+    let updateData = await mysqlQuery(con, {
+      sql: "INSERT into `rm_content` (`Heading1`, `Heading2`, `Image1`, `ContentSlug`, `PageId`, `ContentTypeId`, `MetaTitle`, `MetaDescription`, `MetaKeywords`, `OGTitle`, `OGDescription`, `CreatedOn`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+      values: [
+        generalEventData.Heading1,
+        generalEventData.Heading2,
+        generalEventData.Image1,
+        convertToSlug(generalEventData.Heading1),
+        "5", // PageId, adjust as needed
+        "51", // ContentTypeId for general event
+        metadata.MetaTitle || "",
+        metadata.MetaDescription || "",
+        metadata.MetaKeywords || "",
+        metadata.OGTitle || "",
+        metadata.OGDescription || "",
+        generalEventData.CreatedOn || "",
+      ],
+    });
+
+    if (updateData && Object.keys(generalEventDetails).length > 0) {
+      await mysqlQuery(con, {
+        sql: "INSERT into `rm_content_details` (`ContentTitle`, `ContentDescription`, `ContentId`) VALUES (?, ?, ?)",
+        values: [
+          generalEventDetails.ContentTitle,
+          generalEventDetails.ContentDescription,
+          updateData.insertId,
+        ],
+      });
+    }
+  }
+
+  res.send({
+    status: 200,
+    message: "Data updated successfully",
+  });
+});
+
+app.post(
+  "/editGeneralEvent/:slug/:contentSlug",
+  upload.single("Image1"),
+  async function (req, res) {
+    const { slug, contentSlug } = req.params;
+
+    const { body, file } = req;
+    console.log({ body, file });
+
+    const formData = req.body;
+
+    let generalEventData = await mysqlQuery(con, {
+      sql: "SELECT * FROM rm_content WHERE ContentSlug = ?",
+      values: [slug],
+    });
+
+    delete formData.ContentSlug;
+
+    let updateData = "";
+    if (contentSlug === "generalEventData") {
+      let data = {};
+      let contentData = [];
+      if (Object.keys(formData).length > 0) {
+        Object.keys(formData).map((key) => {
+          data[key] = formData[key];
+          data.Image1 = req?.file?.filename;
+          contentData.push(data);
+        });
+      } else {
+        contentData.push({
+          Image1: req?.file?.filename,
+        });
+      }
+      console.log("content data", contentData);
+
+
+      let updateString = Object.keys(contentData[0]).map((key) => {
+        console.log("data key", contentData[0][key]);
+        if (contentData[0][key] !== undefined) {
+          console.log("inside if", contentData[0][key]);
+          return `${key} = ?`;
+        }
+      });
+      console.log("update string", updateString.filter(Boolean).join(", "));
+      console.log("Object values", Object.values(contentData[0]));
+      let updatedcontentData = Object.values(contentData[0]).filter(Boolean);
+      updateString = updateString.filter(Boolean);
+      updateData = await mysqlQuery(con, {
+        sql: `UPDATE rm_content SET ${updateString.filter(Boolean).join(", ")} WHERE ContentSlug = ?`,
+        values: [...Object.values(updatedcontentData), slug],
+      });
+    } else {
+      let updateString = Object.keys(formData).map((key) => {
+        return `${key} = ?`;
+      });
+
+      if (contentSlug === "metadata") {
+        updateData = await mysqlQuery(con, {
+          sql: `UPDATE rm_content SET ${updateString.filter(Boolean).join(", ")} WHERE ContentSlug = ?`,
+          values: [...Object.values(formData), slug],
+        });
+      } else {
+        updateData = await mysqlQuery(con, {
+          sql: `UPDATE rm_content_details SET ${updateString.filter(Boolean).join(", ")} WHERE ContentId = ?`,
+          values: [...Object.values(formData), generalEventData[0].ContentId],
+        });
+      }
+    }
+    console.log(updateData);
+    res.send({
+      status: 200,
+      message: "Data updated successfully",
+    });
+  }
+);
+//-----------------//
+
 app.post("/addEvent", upload.single("Image1"), async function (req, res) {
   const { body, file } = req;
 
@@ -1375,107 +1556,6 @@ app.get("/events/hackathon/:eventCategory/:slug", async function (req, res) {
   });
 });
 
-app.use(session({
-  secret: 'your-secret-key', // Replace with a secure secret key
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false } // Set secure: true if using HTTPS in production
-}));
-
-const CLIENT_ID = process.env.ZOHO_CLIENT_ID;
-const CLIENT_SECRET = process.env.ZOHO_CLIENT_SECRET;
-const REDIRECT_URI = process.env.ZOHO_REDIRECT_URI;
-
-// Endpoint for OAuth callback and token exchange
-app.get("/auth/zoho/callback", async (req, res) => {
-  const authCode = req.query.code;
-  if (!authCode) {
-    return res.status(400).send("Authorization code is missing.");
-  }
-
-  try {
-    const response = await axios.post(
-      "https://accounts.zoho.com/oauth/v2/token",
-      qs.stringify({
-        code: authCode,
-        client_id: CLIENT_ID,
-        client_secret: CLIENT_SECRET,
-        redirect_uri: REDIRECT_URI,
-        grant_type: "authorization_code", // Grant type is authorization_code for exchanging the code for tokens
-      })
-    );
-
-    // Save the access and refresh tokens in the session
-    req.session.accessToken = response.data.access_token;
-    req.session.refreshToken = response.data.refresh_token;
-
-    console.log("Access Token:", response.data.access_token);
-    console.log("Refresh Token:", response.data.refresh_token);
-
-    res.redirect("/jobs"); // Redirect to the job listings page or a page of your choice
-  } catch (error) {
-    console.error("Error exchanging authorization code for tokens:", error.response?.data || error);
-    res.status(500).send("Failed to authenticate.");
-  }
-});
-
-// Endpoint to fetch job listings from Zoho Recruit
-app.get("/api/jobs", async (req, res) => {
-  let accessToken = req.session.accessToken; // Get access token from session
-  let refreshToken = req.session.refreshToken; // Get refresh token from session
-
-  if (!accessToken) return res.status(401).send("Unauthorized. Access token is missing.");
-
-  try {
-    // Try to fetch job listings
-    const response = await axios.get("https://recruit.zoho.com/recruit/v2/JobOpenings", {
-      headers: {
-        Authorization: `Bearer ${accessToken}`, // Send the access token in the Authorization header
-      },
-    });
-
-    const jobListings = response.data.data; // Get the job postings
-    res.json(jobListings); // Send the job listings as JSON to the frontend
-
-  } catch (error) {
-    // If the access token has expired, refresh it using the refresh token
-    if (error.response?.status === 401) {
-      console.log("Access token expired, refreshing...");
-
-      const refreshResponse = await axios.post(
-        "https://accounts.zoho.com/oauth/v2/token",
-        qs.stringify({
-          refresh_token: refreshToken,
-          client_id: CLIENT_ID,
-          client_secret: CLIENT_SECRET,
-          grant_type: "refresh_token", // Grant type for refreshing the token
-        })
-      );
-
-      const newAccessToken = refreshResponse.data.access_token;
-      const newRefreshToken = refreshResponse.data.refresh_token;
-
-      // Save the new tokens in the session
-      req.session.accessToken = newAccessToken;
-      req.session.refreshToken = newRefreshToken;
-
-      // Retry fetching the job listings with the new access token
-      const retryResponse = await axios.get("https://recruit.zoho.com/recruit/v2/JobOpenings", {
-        headers: {
-          Authorization: `Bearer ${newAccessToken}`,
-        },
-      });
-
-      const jobListings = retryResponse.data.data;
-      res.json(jobListings); // Send the job listings as JSON
-    } else {
-      // Handle any other errors
-      console.error("Error fetching job postings:", error.response?.data || error);
-      res.status(500).send("Failed to fetch job postings.");
-    }
-  }
-});
-
 // Sample route for event data (your existing code)
 app.get("/events/hackathon/:eventCategory/:slug", async function (req, res) {
   let eventSlug = "hackathon/" + req.params.eventCategory + "/" + req.params.slug;
@@ -1498,7 +1578,7 @@ app.get("/events/hackathon/:eventCategory/:slug", async function (req, res) {
   });
 });
 
-// AWS S3 Configuration
+// ------------------------ AWS S3 Configuration ------------------------
 if (
   !process.env.AWS_ACCESS_KEY_ID ||
   !process.env.AWS_SECRET_ACCESS_KEY ||
@@ -1518,37 +1598,221 @@ AWS.config.update({
 const s3 = new AWS.S3();
 const bucketName = process.env.S3_BUCKET_NAME;
 
-// Middleware
-app.use(cors({
-  origin: ["http://localhost:5173", "https://rareminds.in"],  // Ensure the frontend URLs are allowed
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"], // You may need to add more headers depending on your app
-}));
+
+// ------------------------ Middleware ------------------------
+app.use(
+  cors({
+    origin: ["*"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization","Accept"],
+  })
+);
 app.use(bodyParser.json());
 
-// Helper function to fetch images from S3
+// ------------------------ Helper Function to Fetch Distinct Filter Options ------------------------
+const fetchFilterOptions = async () => {
+  try {
+    const filterQuery = `
+      SELECT DISTINCT university, year, semester, course
+      FROM gallery
+    `;
+    const filterResult = await mysqlQuery(con, { sql: filterQuery });
+    
+    // Extract distinct values for each filter
+    const universities = [...new Set(filterResult.map(item => item.university))];
+    const years = [...new Set(filterResult.map(item => item.year))];
+    const semesters = [...new Set(filterResult.map(item => item.semester))];
+    const courses = [...new Set(filterResult.map(item => item.course))];
+
+    return { universities, years, semesters, courses };
+  } catch (error) {
+    console.error("Failed to fetch filter options:", error.message);
+    throw new Error("Failed to fetch filter options.");
+  }
+};
+// ------------------------ Routes ------------------------
+
+// Route to fetch filter options
+app.get("/api/filter-options", async (req, res) => {
+  try {
+    const filterOptions = await fetchFilterOptions();
+    res.json(filterOptions);
+  } catch (error) {
+    console.error("Failed to fetch filter options:", error.message);
+    res.status(500).json({ error: "Failed to fetch filter options." });
+  }
+});
+
+app.get("/api/metadata", async (req, res) => {
+  try {
+    const filterOptions = await fetchFilterOptions();
+    res.json(filterOptions); // Return the metadata in the expected format
+  } catch (error) {
+    console.error("Failed to fetch metadata:", error.message);
+    res.status(500).json({ error: "Failed to fetch metadata." });
+  }
+});
+
+
+// Route to fetch images with dynamic filters
+app.get("/api/images", async (req, res) => {
+  const { search, event_name, university, year, semester, course } = req.query;
+
+  try {
+    // Build the SQL query dynamically based on provided filters
+    let sqlQuery = "SELECT image_url, event_name, event_date, university, year, semester, course FROM gallery WHERE 1=1";
+
+    // Add filters to the query if provided
+    if (search) {
+      sqlQuery += ` AND event_name LIKE '%${search}%'`; // Search by event name (partial match)
+    }
+    if (event_name) {
+      sqlQuery += ` AND event_name LIKE '%${event_name}%'`;
+    }
+    if (university) {
+      sqlQuery += ` AND university = '${university}'`;
+    }
+    if (year) {
+      sqlQuery += ` AND year = '${year}'`;
+    }
+    if (semester) {
+      sqlQuery += ` AND semester = '${semester}'`;
+    }
+    if (course) {
+      sqlQuery += ` AND course = '${course}'`;
+    }
+
+    // Fetch images from S3 (as before)
+    const images = await fetchImagesFromS3();
+
+    // Fetch gallery metadata from MySQL
+    const metadataResult = await mysqlQuery(con, { sql: sqlQuery });
+
+    // Combine image URLs with metadata
+    const galleryData = images.map((image) => {
+      const metadata = metadataResult.find((item) => item.image_url === image);
+      return {
+        image_url: image,
+        event_name: metadata ? metadata.event_name : "Unknown",
+        event_date: metadata ? metadata.event_date : "Unknown",
+        university: metadata ? metadata.university : "Unknown",
+        year: metadata ? metadata.year : "Unknown",
+        semester: metadata ? metadata.semester : "Unknown",
+        course: metadata ? metadata.course : "Unknown",
+      };
+    });
+
+    res.json({ images: galleryData });
+  } catch (error) {
+    console.error("Failed to fetch images and metadata:", error.message);
+    res.status(500).json({ error: "Failed to fetch images and metadata from the database." });
+  }
+});
+
+// ------------------------ Route for Gallery(admin dashboard)------------------------
+
+app.get("/gallery", async (req, res) => {
+  console.log("Gallery API endpoint hit"); 
+  const { page = 1, limit = 10 } = req.query; 
+  try {
+    // Query to fetch paginated gallery data with metadata
+    const galleryQuery = `
+      SELECT image_url, event_name, event_date, university, course, semester, year
+      FROM gallery
+      ORDER BY event_date DESC
+      LIMIT ?,?;
+    `;
+    const metadataQuery = `
+      SELECT COUNT(*) as total_count FROM gallery;
+    `;
+
+    const limitValue = parseInt(limit, 10); 
+    const offsetValue = (parseInt(page, 10) - 1) * limitValue;
+
+    // Fetch the data for the current page
+    let galleryData = await mysqlQuery(con, { sql: "SELECT * FROM gallery" });
+    if (!Array.isArray(galleryData)) {
+      throw new Error('Expected galleryData to be an array');
+    }
+
+    // Fetch total count for pagination
+    const [totalData] = await mysqlQuery(con, { sql: metadataQuery });
+
+    // Format the data in the way the frontend expects
+    const formattedGalleryData = galleryData.map((item) => ({
+      ImageURL: item.image_url,
+      EventName: item.event_name,
+      EventDate: item.event_date,
+      University: item.university,
+      Course: item.course,
+      Semester: item.semester,
+      Year: item.year,
+    }));
+
+    // Send the data as a response
+    res.json({
+      galleryData: formattedGalleryData,
+      totalCount: totalData.total_count,
+    });
+  } catch (error) {
+    console.error("Error fetching gallery data:", error.message);
+    res.status(500).json({ error: "Failed to fetch gallery data." });
+  }
+});
+
+// ------------------------ Route to Delete Gallery Item ------------------------
+app.delete("/gallery/:ImageURL", async (req, res) => {
+  const { ImageURL } = req.params;
+  console.log(`Attempting to delete gallery item : ${ImageURL}`); 
+
+  try {
+    // Step 1: Fetch the image URL from MySQL based on the given ID
+    const query = "SELECT image_url FROM gallery WHERE image_url = ?";
+    const result = await mysqlQuery(con, { sql: query, values: [ImageURL] });
+
+    if (result.length === 0) {
+      console.log(`No gallery item found with ID: ${ImageURL}`);
+      return res.status(404).json({ error: "Gallery item not found." });
+    }
+
+    const imageUrl = result[0].image_url;
+    console.log(`Image URL fetched: ${imageUrl}`);
+
+    // Step 2: Delete the image from S3
+    const s3Key = imageUrl.split('amazonaws.com/')[1];  // Extract the S3 key from the URL
+    const s3Params = {
+      Bucket: bucketName,
+      Key: s3Key
+    };
+
+    await s3.deleteObject(s3Params).promise(); 
+    console.log(`Image deleted from S3 with key: ${s3Key}`); // Delete the image from S3
+
+    // Step 3: Delete the gallery item metadata from MySQL
+    const deleteQuery = "DELETE FROM gallery WHERE image_url = ?";
+    await mysqlQuery(con, { sql: deleteQuery, values: [imageUrl] });
+
+    // Step 4: Respond to the client
+    res.status(200).json({ message: "Gallery item deleted successfully." });
+  } catch (error) {
+    console.error("Error deleting gallery item:", error.message);
+    res.status(500).json({ error: "Failed to delete gallery item." });
+  }
+});
+
+// ------------------------ Helper Functions ------------------------
 const fetchImagesFromS3 = async () => {
   const params = {
     Bucket: bucketName,
-    Prefix: "images/",  // Fetch all images from the "images" directory
+    Prefix: "images/",
   };
-
-  console.log("Fetching S3 images with params:", params);
 
   try {
     const data = await s3.listObjectsV2(params).promise();
-
-    // Filter files to include only images and return their URLs
-    return data.Contents.filter(
-      (item) =>
-        item.Key.endsWith(".jpg") ||
-        item.Key.endsWith(".jpeg") ||
-        item.Key.endsWith(".png") ||
-        item.Key.endsWith(".JPG")
+    return data.Contents.filter((item) =>
+      [".jpg", ".jpeg", ".png", ".JPG"].some((ext) => item.Key.endsWith(ext))
     ).map((item) => {
-      // Encode only the necessary parts of the key
-      const encodedKey = item.Key.split("/").map((segment) => encodeURIComponent(segment)).join("/");
-
+      const encodedKey = item.Key.split("/").map(encodeURIComponent).join("/");
       return `https://${bucketName}.s3.${process.env.AWS_REGION}.amazonaws.com/${encodedKey}`;
     });
   } catch (err) {
@@ -1557,16 +1821,241 @@ const fetchImagesFromS3 = async () => {
   }
 };
 
+const uploadImageToS3 = async (file) => {
+  if (!file || !file.buffer) {
+    throw new Error("No file or file buffer is missing.");
+  }
+
+  const params = {
+    Bucket: bucketName,
+    Key: `images/${Date.now()}_${file.originalname}`,
+    Body: file.buffer,
+    ContentType: file.mimetype,
+    ACL: "public-read",
+  };
+
+  try {
+    const data = await s3.upload(params).promise();
+    return data.Location;
+  } catch (err) {
+    console.error("Error uploading image to S3:", err.message);
+    throw new Error("Failed to upload image to S3.");
+  }
+};
+
+// ------------------------ Routes ------------------------
+
 // Route to fetch images for the events gallery page
 app.get("/api/images", async (req, res) => {
-  try {
+  const { search, event_name, university, year, semester, course } = req.query;
+  const queryParams = [];
+  let sqlQuery = "SELECT image_url, event_name, event_date, university, year, semester, course FROM gallery WHERE 1=1";
+
+  // Add filters to the query if provided
+  if (search) {
+    sqlQuery += ` AND event_name LIKE ?`; // Use placeholders
+    queryParams.push(`%${search}%`);
+  }
+  if (event_name) {
+    sqlQuery += ` AND event_name LIKE ?`;
+    queryParams.push(`%${event_name}%`);
+  }
+  if (university) {
+    sqlQuery += ` AND university = ?`;
+    queryParams.push(university);
+  }
+  if (year) {
+    sqlQuery += ` AND year = ?`;
+    queryParams.push(year);
+  }
+  if (semester) {
+    sqlQuery += ` AND semester = ?`;
+    queryParams.push(semester);
+  }
+  if (course) {
+    sqlQuery += ` AND course = ?`;
+    queryParams.push(course);
+  }
+
+    try{
+    // Fetch image URLs from S3 (as before)
     const images = await fetchImagesFromS3();
-    res.json({ images });  // Return images array
+
+    // Fetch gallery metadata from MySQL
+    const metadataQuery = "SELECT image_url, event_name, event_date, university, year, semester, course FROM gallery";
+    const metadataResult = await mysqlQuery(con, { sql: metadataQuery });
+
+    // Combine image URLs with metadata
+    const galleryData = images.map((image) => {
+      const metadata = metadataResult.find((item) => item.image_url === image);
+      return {
+        image_url: image,
+        event_name: metadata ? metadata.event_name : "Unknown",
+        event_date: metadata ? metadata.event_date : "Unknown",
+        university: metadata ? metadata.university : "Unknown",
+        year: metadata ? metadata.year : "Unknown",
+        semester: metadata ? metadata.semester : "Unknown",
+        course: metadata ? metadata.course : "Unknown",
+      };
+    });
+
+    res.json({ images: galleryData });
   } catch (error) {
-    console.error("Failed to fetch images:", error.message);
-    res.status(500).json({ error: "Failed to fetch images from S3." });
+    console.error("Failed to fetch images and metadata:", error.message);
+    res.status(500).json({ error: "Failed to fetch images and metadata from the database." });
   }
 });
 
-// Start the server
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+
+
+// Multer configuration for handling file uploads
+const imgupload = multer({
+  storage: multer.memoryStorage(),
+  limits: { fieldSize: 1024 * 1024 * 5 },
+});
+
+// Route to handle gallery data submission and image upload
+app.post("/addGallery", imgupload.single("image"), async (req, res) => {
+  const { eventName, event_date, university, year, semester, course } = req.body;
+
+  // Validate required fields
+  if (!eventName || !event_date || !university || !year || !semester || !course || !req.file) {
+    return res.status(400).json({ error: "All fields, including an image, are required." });
+  }
+
+  try {
+    // Upload the file to S3 and get the URL
+    const imageUrl = await uploadImageToS3(req.file);
+
+    // Insert gallery metadata into MySQL
+    const insertQuery = `
+      INSERT INTO gallery (image_url, event_name, event_date, university, year, semester, course)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `;
+
+    await mysqlQuery(con, {
+      sql: insertQuery,
+      values: [imageUrl, eventName, event_date, university, year, semester, course],
+    });
+
+    res.status(200).json({ message: "Gallery data added successfully", imageUrl });
+  } catch (error) {
+    console.error("Failed to upload image and insert metadata:", error.message);
+    res.status(500).json({ error: "Failed to upload image and insert metadata into the gallery." });
+  }
+});
+
+// Backend for Zoho Recruits Dashboard using API 
+
+// Middleware
+const corsOptions = {
+  origin: 'http://localhost:5173', // Adjust if necessary to match the frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
+app.use(express.json());
+
+// Environment Variables
+let ACCESS_TOKEN = process.env.ACCESS_TOKEN;
+const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
+const ZOHO_REGION = process.env.ZOHO_REGION;
+
+// Function to refresh access token
+const refreshAccessToken = async () => {
+    try {
+        const response = await axios.post(`https://${ZOHO_REGION}/oauth/v2/token`, null, {
+            params: {
+                grant_type: "refresh_token",
+                client_id: CLIENT_ID,
+                client_secret: CLIENT_SECRET,
+                refresh_token: REFRESH_TOKEN,
+            },
+        });
+
+        ACCESS_TOKEN = response.data.access_token;
+        console.log("✅ New Access Token Generated");
+    } catch (error) {
+        console.error("❌ Error refreshing token:", error.response?.data || error);
+    }
+};
+
+// Middleware to handle API requests with token refresh
+const fetchWithAuth = async (url) => {
+  try {
+      const response = await axios.get(url, {
+          headers: { Authorization: `Bearer ${ACCESS_TOKEN}` },
+      });
+      return response.data;
+  } catch (error) {
+      if (error.response?.data?.code === "INVALID_TOKEN") {
+          console.log("🔄 Token expired, refreshing...");
+          await refreshAccessToken();
+          return await fetchWithAuth(url);
+      }
+      throw new Error("Failed to fetch data.");
+  }
+};
+
+// Function to fetch all candidates using pagination
+const fetchAllCandidates = async (page = 1, accumulatedData = []) => {
+    try {
+        const response = await fetchWithAuth(`https://recruit.zoho.in/recruit/v2/Candidates?page=${page}&per_page=200`);
+
+        if (response.data && response.data.length > 0) {
+            accumulatedData = accumulatedData.concat(response.data);
+            console.log(`✅ Fetched page ${page}, total records: ${accumulatedData.length}`);
+
+            // If 200 records were returned, fetch the next page
+            if (response.data.length === 200) {
+                return fetchAllCandidates(page + 1, accumulatedData);
+            }
+        }
+
+        return accumulatedData; // Return all records once all pages are fetched
+    } catch (error) {
+        console.error("❌ Error fetching paginated candidates:", error.message);
+        throw new Error("Failed to fetch all candidates.");
+    }
+};
+
+// API to get all candidates (handles pagination)
+app.get("/api/candidates", async (req, res) => {
+    console.log("📢 Received request for /api/candidates");
+    try {
+        const candidates = await fetchAllCandidates();
+        res.json({ data: candidates });
+    } catch (error) {
+        console.error("❌ Error fetching candidates:", error.message);
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// API to fetch analytics (status-wise count)
+app.get("/api/analytics", async (req, res) => {
+    try {
+        const candidates = await fetchAllCandidates();
+        const reports = {};
+
+        // Generate report based on candidate status
+        candidates.forEach((candidate) => {
+            const status = candidate.Status || "Unknown";
+            reports[status] = (reports[status] || 0) + 1;
+        });
+
+        res.json({
+            reports: Object.entries(reports).map(([status, count]) => ({ Status: status, Count: count })),
+        });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Refresh token every 55 minutes
+setInterval(refreshAccessToken, 55 * 60 * 1000);
+
+// ------------------------ Start the Server ------------------------
+app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
