@@ -10,6 +10,7 @@ import { MapSection } from '../../components/naanMudhalvan/MapSection';
 import { Header } from '../../components/naanMudhalvan/Header';
 import { resolvePackageData } from 'vite';
 import { Calendar, MapPin, Users } from 'lucide-react';
+import { Disclaimer } from '../../components/naanMudhalvan/Disclaimer';
 
 function Naan() {
   const [data, setData] = useState<any>([
@@ -125,6 +126,26 @@ function Naan() {
     <div className="min-h-screen bg-white">
     {/* <Header /> */}
     <HeroBanner hero_data={pageData} />
+    <div className="max-w-2xl mx-auto my-8">
+
+
+      <Disclaimer />
+    </div>
+
+    {/* <div className="max-w-6xl mx-auto my-8 px-4">
+      <div className="flex flex-col md:flex-row gap-8 items-center">
+        <div className="w-full md:w-1/2">
+          <img 
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
+            alt="Team collaboration"
+            className="rounded-lg shadow-lg object-cover w-full aspect-4/3"
+          />
+        </div>
+        <div className="w-full md:w-1/2">
+          <Disclaimer />
+        </div>
+      </div>
+    </div> */}
     <Stats />
     <Future f_data={pageData} />
     <CourseSection
