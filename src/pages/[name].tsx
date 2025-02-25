@@ -14,6 +14,7 @@ import Blogs from "@/components/Program/Blogs";
 import QueryForm from "@/components/Program/QueryForm";
 import { Helmet } from "react-helmet";
 import parse from "html-react-parser";
+import "../assets/css/styles.css";
 
 const Name = () => {
   const { name } = useParams();
@@ -56,14 +57,34 @@ const Name = () => {
         />
       </Helmet>
       {sections.includes("hero") && (
-        <Hero
-          content={
-            pageData.sectionData.filter(
-              (ele: any) => ele.ContentSlug === "hero" && ele
-            )[0]
-          }
-          key={pageData.sectionData.hero}
-        />
+        <>
+          <div className="py-3 overflow-hidden bg-yellow-400 flex">
+            <div className="flex whitespace-nowrap animate-marquee">
+              <p className="font-bold text-red-500 px-3">
+                Rareminds No Fees Policy: We provide free skill development,
+                training, internships, and placement support under Naan
+                Mudhalvan & other programs. We do not charge students, faculty,
+                or colleges. Report any fraudulent fee collection to 9902326951.
+                Stay vigilant! 🚀
+              </p>
+              <p className="font-bold text-red-500 px-3">
+                Rareminds No Fees Policy: We provide free skill development,
+                training, internships, and placement support under Naan
+                Mudhalvan & other programs. We do not charge students, faculty,
+                or colleges. Report any fraudulent fee collection to 9902326951.
+                Stay vigilant! 🚀
+              </p>
+            </div>
+          </div>
+          <Hero
+            content={
+              pageData.sectionData.filter(
+                (ele: any) => ele.ContentSlug === "hero" && ele
+              )[0]
+            }
+            key={pageData.sectionData.hero}
+          />
+        </>
       )}
       {sections.includes("cta") && (
         <CTA
