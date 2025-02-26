@@ -15,6 +15,7 @@ import QueryForm from "@/components/Program/QueryForm";
 import { Helmet } from "react-helmet";
 import parse from "html-react-parser";
 import "../assets/css/styles.css";
+import Alert from "@/components/alert/alert";
 
 const Name = () => {
   const { name } = useParams();
@@ -29,7 +30,7 @@ const Name = () => {
         .then((res) => {
           setPageData(res.data);
           const sectionKeys = res.data.sectionData.map(
-            (ele: any) => ele.ContentSlug || ele.PageSlug
+            (ele: any) => ele.ContentSlug || ele.PageSlug,
           );
 
           setSections(sectionKeys);
@@ -58,28 +59,11 @@ const Name = () => {
       </Helmet>
       {sections.includes("hero") && (
         <>
-          <div className="py-3 overflow-hidden bg-yellow-400 flex">
-            <div className="flex whitespace-nowrap animate-marquee">
-              <p className="font-bold text-red-500 px-3">
-                Rareminds No Fees Policy: We provide free skill development,
-                training, internships, and placement support under Naan
-                Mudhalvan & other programs. We do not charge students, faculty,
-                or colleges. Report any fraudulent fee collection to 9902326951.
-                Stay vigilant! 🚀
-              </p>
-              <p className="font-bold text-red-500 px-3">
-                Rareminds No Fees Policy: We provide free skill development,
-                training, internships, and placement support under Naan
-                Mudhalvan & other programs. We do not charge students, faculty,
-                or colleges. Report any fraudulent fee collection to 9902326951.
-                Stay vigilant! 🚀
-              </p>
-            </div>
-          </div>
+          <Alert />
           <Hero
             content={
               pageData.sectionData.filter(
-                (ele: any) => ele.ContentSlug === "hero" && ele
+                (ele: any) => ele.ContentSlug === "hero" && ele,
               )[0]
             }
             key={pageData.sectionData.hero}
@@ -90,7 +74,7 @@ const Name = () => {
         <CTA
           content={
             pageData.sectionData.filter(
-              (ele: any) => ele.ContentSlug === "cta" && ele
+              (ele: any) => ele.ContentSlug === "cta" && ele,
             )[0]
           }
           key={pageData.sectionData.cta}
@@ -100,7 +84,7 @@ const Name = () => {
         <WhyUs
           content={
             pageData.sectionData.filter(
-              (ele: any) => ele.ContentSlug === "whyus" && ele
+              (ele: any) => ele.ContentSlug === "whyus" && ele,
             )[0]
           }
         />
@@ -109,12 +93,12 @@ const Name = () => {
         <Services
           content={
             pageData.sectionData.filter(
-              (ele: any) => ele.ContentSlug === "services" && ele
+              (ele: any) => ele.ContentSlug === "services" && ele,
             )[0]
           }
           services={pageData.serviceData}
           ctaContent={pageData.sectionData.filter(
-            (ele: any) => ele.ContentSlug === "cta" && ele
+            (ele: any) => ele.ContentSlug === "cta" && ele,
           )}
         />
       )}
@@ -123,7 +107,7 @@ const Name = () => {
           content={pageData.studyData}
           pageData={
             pageData.sectionData.filter(
-              (ele: any) => ele.ContentSlug === "successstories" && ele
+              (ele: any) => ele.ContentSlug === "successstories" && ele,
             )[0]
           }
         />
@@ -131,7 +115,7 @@ const Name = () => {
       {sections.includes("achievements") && (
         <Achievements
           content={pageData.sectionData.filter(
-            (ele: any) => ele.ContentSlug === "achievements" && ele
+            (ele: any) => ele.ContentSlug === "achievements" && ele,
           )}
           achievements={pageData.achievementsData}
         />
@@ -139,7 +123,7 @@ const Name = () => {
       {pageData.pageData.PageType === 1 && (
         <Testimonials
           content={pageData.sectionData.filter(
-            (ele: any) => ele.ContentSlug === "testimonials" && ele
+            (ele: any) => ele.ContentSlug === "testimonials" && ele,
           )}
           testimonials={pageData?.testimonialData}
           categories={pageData?.categories}
@@ -153,10 +137,10 @@ const Name = () => {
         <ContactUs
           pageData={pageData.pageData}
           content={pageData.sectionData.filter(
-            (ele: any) => ele.ContentSlug === "contactus" && ele
+            (ele: any) => ele.ContentSlug === "contactus" && ele,
           )}
           ctaContent={pageData.sectionData.filter(
-            (ele: any) => ele.ContentSlug === "cta" && ele
+            (ele: any) => ele.ContentSlug === "cta" && ele,
           )}
         />
       )}
@@ -176,7 +160,7 @@ const Name = () => {
         <Blogs
           pageData={pageData.pageData}
           content={pageData.sectionData.filter(
-            (ele: any) => ele.ContentSlug === "blogs" && ele
+            (ele: any) => ele.ContentSlug === "blogs" && ele,
           )}
         />
       )}
@@ -185,7 +169,7 @@ const Name = () => {
         <QueryForm
           pageData={pageData.pageData}
           content={pageData.sectionData.filter(
-            (ele: any) => ele.ContentSlug === "queryform" && ele
+            (ele: any) => ele.ContentSlug === "queryform" && ele,
           )}
         />
       )}

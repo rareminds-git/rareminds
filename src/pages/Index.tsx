@@ -16,7 +16,7 @@ import CorporateBanner from "../assets/images/banners/corporate-landing.webp";
 import GovernmentBanner from "../assets/images/banners/GovernmentBanner.png";
 import InstitutionsBanner from "../assets/images/banners/InstitutionBanner.png";
 import SchoolsBanner from "../assets/images/banners/SchoolsBanner.png";
-import Logo from "../assets/images/logo.png";
+import Logo from "../assets/images/RareMinds.png";
 import Counselling from "../components/landing/career-counselling";
 import College from "../components/landing/college";
 import Corporate from "../components/landing/corporate";

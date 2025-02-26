@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Logo from "../../assets/images/logo.svg";
+import Logo from "../../assets/images/logo-new.png";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
@@ -34,7 +34,7 @@ const Header = ({ navbarOpen, setNavbarOpen }) => {
   };
 
   return (
-    <header className="w-full fixed top-0 left-0 px-2 py-4 sm:py-0 flex z-20 bg-white overflow-hidden">
+    <header className="w-full fixed top-0 left-0 px-2 py-4 sm:py-0 flex z-20 bg-white shadow-md overflow-hidden">
       <div className="text-white align-middle items-center flex-grow z-20 ">
         <a href="/">
           <img
