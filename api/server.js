@@ -8,12 +8,12 @@ const multer = require("multer");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const moment = require("moment");
-const http = require('http');
+const http = require("http");
 require("dotenv").config();
 const axios = require("axios");
 const qs = require("qs");
 const session = require("express-session");
-const AWS = require('aws-sdk');
+const AWS = require("aws-sdk");
 const cors = require("cors");
 
 const app = express();
@@ -78,7 +78,7 @@ app.all("/*", function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
-    "X-Requested-With, Content-Type, Accept"
+    "X-Requested-With, Content-Type, Accept",
   );
   res.header("Access-Control-Allow-Methods", "POST, GET");
   next();
@@ -93,7 +93,7 @@ const generateAccessToken = (userId) => {
   return jwt.sign(
     { userId },
     "1e43ec24f7ddefb1a824fe6dba87cfb8e387924d8126262bc38b2978c06dddb7",
-    { expiresIn: "7d" }
+    { expiresIn: "7d" },
   );
 };
 
@@ -121,7 +121,7 @@ app.post("/login", async function (req, res) {
     const existingUser = await checkRecordExists(
       "rm_admin_users",
       "AdminLoginId",
-      email
+      email,
     );
 
     if (existingUser) {
@@ -132,7 +132,7 @@ app.post("/login", async function (req, res) {
 
       const passwordMatch = await bcrypt.compare(
         password,
-        existingUser.AdminLoginPassword
+        existingUser.AdminLoginPassword,
       );
 
       if (passwordMatch) {
@@ -387,7 +387,7 @@ app.post(
     } catch (err) {
       next(err);
     }
-  }
+  },
 );
 
 app.post(
@@ -482,7 +482,7 @@ app.post(
       status: 200,
       message: "Data updated successfully",
     });
-  }
+  },
 );
 
 app.post(
@@ -510,6 +510,7 @@ app.post(
     if (contentSlug === "studyDetails") {
       console.log("form data", formData);
       if (formData.ContentDetailId === undefined) {
+        true;
       }
       let data = {};
       let contentData = Object.keys(formData).map((key) => {
@@ -550,7 +551,7 @@ app.post(
       status: 200,
       message: "Data updated successfully",
     });
-  }
+  },
 );
 
 app.get("/services/:slug", async function (req, res) {
@@ -697,7 +698,7 @@ app.get(
       studyData: studyData[0],
       studyDetails,
     });
-  }
+  },
 );
 
 app.post("/case-studies/edit/:slug", async function (req, res) {
@@ -1036,7 +1037,7 @@ app.post(
       status: 200,
       message: "Data updated successfully",
     });
-  }
+  },
 );
 
 app.get("/testimonialCategories", async function (req, res) {
@@ -1114,7 +1115,7 @@ app.post(
       status: 200,
       message: "Data updated successfully",
     });
-  }
+  },
 );
 
 app.post(
@@ -1163,7 +1164,7 @@ app.post(
       status: 200,
       message: "Data updated successfully",
     });
-  }
+  },
 );
 
 app.post("/addEvent", upload.single("Image1"), async function (req, res) {
@@ -1375,12 +1376,14 @@ app.get("/events/hackathon/:eventCategory/:slug", async function (req, res) {
   });
 });
 
-app.use(session({
-  secret: 'your-secret-key', // Replace with a secure secret key
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false } // Set secure: true if using HTTPS in production
-}));
+app.use(
+  session({
+    secret: "your-secret-key", // Replace with a secure secret key
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }, // Set secure: true if using HTTPS in production
+  }),
+);
 
 const CLIENT_ID = process.env.ZOHO_CLIENT_ID;
 const CLIENT_SECRET = process.env.ZOHO_CLIENT_SECRET;
@@ -1402,7 +1405,7 @@ app.get("/auth/zoho/callback", async (req, res) => {
         client_secret: CLIENT_SECRET,
         redirect_uri: REDIRECT_URI,
         grant_type: "authorization_code", // Grant type is authorization_code for exchanging the code for tokens
-      })
+      }),
     );
 
     // Save the access and refresh tokens in the session
@@ -1414,7 +1417,10 @@ app.get("/auth/zoho/callback", async (req, res) => {
 
     res.redirect("/jobs"); // Redirect to the job listings page or a page of your choice
   } catch (error) {
-    console.error("Error exchanging authorization code for tokens:", error.response?.data || error);
+    console.error(
+      "Error exchanging authorization code for tokens:",
+      error.response?.data || error,
+    );
     res.status(500).send("Failed to authenticate.");
   }
 });
@@ -1424,19 +1430,22 @@ app.get("/api/jobs", async (req, res) => {
   let accessToken = req.session.accessToken; // Get access token from session
   let refreshToken = req.session.refreshToken; // Get refresh token from session
 
-  if (!accessToken) return res.status(401).send("Unauthorized. Access token is missing.");
+  if (!accessToken)
+    return res.status(401).send("Unauthorized. Access token is missing.");
 
   try {
     // Try to fetch job listings
-    const response = await axios.get("https://recruit.zoho.com/recruit/v2/JobOpenings", {
-      headers: {
-        Authorization: `Bearer ${accessToken}`, // Send the access token in the Authorization header
+    const response = await axios.get(
+      "https://recruit.zoho.com/recruit/v2/JobOpenings",
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`, // Send the access token in the Authorization header
+        },
       },
-    });
+    );
 
     const jobListings = response.data.data; // Get the job postings
     res.json(jobListings); // Send the job listings as JSON to the frontend
-
   } catch (error) {
     // If the access token has expired, refresh it using the refresh token
     if (error.response?.status === 401) {
@@ -1449,7 +1458,7 @@ app.get("/api/jobs", async (req, res) => {
           client_id: CLIENT_ID,
           client_secret: CLIENT_SECRET,
           grant_type: "refresh_token", // Grant type for refreshing the token
-        })
+        }),
       );
 
       const newAccessToken = refreshResponse.data.access_token;
@@ -1460,17 +1469,23 @@ app.get("/api/jobs", async (req, res) => {
       req.session.refreshToken = newRefreshToken;
 
       // Retry fetching the job listings with the new access token
-      const retryResponse = await axios.get("https://recruit.zoho.com/recruit/v2/JobOpenings", {
-        headers: {
-          Authorization: `Bearer ${newAccessToken}`,
+      const retryResponse = await axios.get(
+        "https://recruit.zoho.com/recruit/v2/JobOpenings",
+        {
+          headers: {
+            Authorization: `Bearer ${newAccessToken}`,
+          },
         },
-      });
+      );
 
       const jobListings = retryResponse.data.data;
       res.json(jobListings); // Send the job listings as JSON
     } else {
       // Handle any other errors
-      console.error("Error fetching job postings:", error.response?.data || error);
+      console.error(
+        "Error fetching job postings:",
+        error.response?.data || error,
+      );
       res.status(500).send("Failed to fetch job postings.");
     }
   }
@@ -1478,17 +1493,21 @@ app.get("/api/jobs", async (req, res) => {
 
 // Sample route for event data (your existing code)
 app.get("/events/hackathon/:eventCategory/:slug", async function (req, res) {
-  let eventSlug = "hackathon/" + req.params.eventCategory + "/" + req.params.slug;
+  let eventSlug =
+    "hackathon/" + req.params.eventCategory + "/" + req.params.slug;
   let eventData = await mysqlQuery(con, {
     sql: "SELECT * FROM rm_content WHERE ContentSlug = '" + eventSlug + "/'",
   });
 
   console.log("event data", eventData);
   let eventSchedule = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_event_schedule WHERE EventId = " + eventData[0].ContentId,
+    sql:
+      "SELECT * FROM rm_event_schedule WHERE EventId = " +
+      eventData[0].ContentId,
   });
   let eventAgenda = await mysqlQuery(con, {
-    sql: "SELECT * FROM rm_event_agenda WHERE EventId = " + eventData[0].ContentId,
+    sql:
+      "SELECT * FROM rm_event_agenda WHERE EventId = " + eventData[0].ContentId,
   });
 
   res.send({
@@ -1519,18 +1538,20 @@ const s3 = new AWS.S3();
 const bucketName = process.env.S3_BUCKET_NAME;
 
 // Middleware
-app.use(cors({
-  origin: ["http://localhost:5173", "https://rareminds.in"],  // Ensure the frontend URLs are allowed
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"], // You may need to add more headers depending on your app
-}));
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://rareminds.in"], // Ensure the frontend URLs are allowed
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"], // You may need to add more headers depending on your app
+  }),
+);
 app.use(bodyParser.json());
 
 // Helper function to fetch images from S3
 const fetchImagesFromS3 = async () => {
   const params = {
     Bucket: bucketName,
-    Prefix: "images/",  // Fetch all images from the "images" directory
+    Prefix: "images/", // Fetch all images from the "images" directory
   };
 
   console.log("Fetching S3 images with params:", params);
@@ -1544,10 +1565,12 @@ const fetchImagesFromS3 = async () => {
         item.Key.endsWith(".jpg") ||
         item.Key.endsWith(".jpeg") ||
         item.Key.endsWith(".png") ||
-        item.Key.endsWith(".JPG")
+        item.Key.endsWith(".JPG"),
     ).map((item) => {
       // Encode only the necessary parts of the key
-      const encodedKey = item.Key.split("/").map((segment) => encodeURIComponent(segment)).join("/");
+      const encodedKey = item.Key.split("/")
+        .map((segment) => encodeURIComponent(segment))
+        .join("/");
 
       return `https://${bucketName}.s3.${process.env.AWS_REGION}.amazonaws.com/${encodedKey}`;
     });
@@ -1561,7 +1584,7 @@ const fetchImagesFromS3 = async () => {
 app.get("/api/images", async (req, res) => {
   try {
     const images = await fetchImagesFromS3();
-    res.json({ images });  // Return images array
+    res.json({ images }); // Return images array
   } catch (error) {
     console.error("Failed to fetch images:", error.message);
     res.status(500).json({ error: "Failed to fetch images from S3." });
@@ -1569,4 +1592,6 @@ app.get("/api/images", async (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+app.listen(PORT, () =>
+  console.log(`Server running on http://localhost:${PORT}`),
+);
