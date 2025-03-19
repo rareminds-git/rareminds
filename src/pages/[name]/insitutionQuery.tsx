@@ -106,8 +106,8 @@ const InstitutionsQueryForm = () => {
         );
 
         if (response.status === 201) {
-          setShowSuccessModal(true);
           resetForm();
+          setShowSuccessModal(true);
         }
       } catch (error) {
         console.error("Error submitting form:", error);
