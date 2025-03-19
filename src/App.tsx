@@ -18,6 +18,8 @@ import ImageGallery from "./pages/hackathon/gallery";
 import EventsGalleryPage from "./pages/events-gallery/events";
 import ProjectsPage from "./pages/projects/projectlist";
 import Naan from "./pages/projects/[name]";
+import GeneralEventDetail from "./pages/hackathon/general-event";
+import CandidatesDashboard from "./pages/job_dashboard/dashboard";
 
 import WallofFame from "./pages/walloffame";
 import InstitutionsQueryForm from "./pages/[name]/insitutionQuery";
@@ -45,6 +47,10 @@ const App = () => {
             <Route path="/events/gallery" element={<ImageGallery />} />
             <Route path="/blog/:slug" element={<BlogDetail />} />
             <Route
+              path="/general-event/:slug"
+              element={<GeneralEventDetail />}
+            />
+            <Route
               path="/hackathon/:eventCategory/:slug"
               element={<EventDetail />}
             />
@@ -66,6 +72,9 @@ const App = () => {
             <Route path="/projects/projectlist/" element={<ProjectsPage />} />
 
             <Route path="/projects/:name" element={<Naan />} />
+            <Route
+              path="/job_dashboard/dashboard"
+              element={<CandidatesDashboard />} />
             <Route
               path="/institutions/query"
               element={<InstitutionsQueryForm />}
