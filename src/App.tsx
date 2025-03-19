@@ -18,6 +18,8 @@ import ImageGallery from "./pages/hackathon/gallery";
 import EventsGalleryPage from "./pages/events-gallery/events";
 import ProjectsPage from "./pages/projects/projectlist";
 import Naan from "./pages/projects/[name]";
+import GeneralEventDetail from "./pages/hackathon/general-event";
+import CandidatesDashboard from "./pages/job_dashboard/dashboard";
 
 import WallofFame from "./pages/walloffame";
 
@@ -44,6 +46,10 @@ const App = () => {
             <Route path="/events/gallery" element={<ImageGallery />} />
             <Route path="/blog/:slug" element={<BlogDetail />} />
             <Route
+              path="/general-event/:slug"
+              element={<GeneralEventDetail />}
+            />
+            <Route
               path="/hackathon/:eventCategory/:slug"
               element={<EventDetail />}
             />
@@ -52,26 +58,23 @@ const App = () => {
               path="/careers/web-developer-intern"
               element={<CareersWebDev />}
             />
-            
+
             <Route
               path="courses/:name/6th-sem-2024"
               element={<CourseDetail />}
             />
             <Route
               path="events-gallery/events"
-              element={<EventsGalleryPage/>}
+              element={<EventsGalleryPage />}
             />
-            
+
+            <Route path="/projects/projectlist/" element={<ProjectsPage />} />
+
+            <Route path="/projects/:name" element={<Naan />} />
             <Route
-              path="/projects/projectlist/"
-              element={<ProjectsPage />}
+              path="/job_dashboard/dashboard"
+              element={<CandidatesDashboard />}
             />
-
-             <Route
-              path="/projects/:name"
-              element={<Naan />}
-            />
-
           </Routes>
         </Suspense>
       </DefaultLayout>

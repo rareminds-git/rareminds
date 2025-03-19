@@ -53,7 +53,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href="/"
-                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-playfair text-white font-bold"
+                      className="nav-link text-[24px] lg:text-[40px] lg:leading-[48px] leading-[60px] font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -64,7 +64,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href={`/${localStorage.getItem("currentUserType")}/services`}
-                      className="nav-link text-[30px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
+                      className="nav-link text-[24px] lg:text-[40px] lg:leading-[48px] leading-[60px] font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -75,7 +75,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href={`/events-gallery/events`}
-                      className="nav-link text-[30px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
+                      className="nav-link text-[24px] lg:text-[40px] lg:leading-[48px] leading-[60px] font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -85,8 +85,19 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   </li>
                   <li className="nav-li">
                     <a
+                      href={`/job_dashboard/dashboard`}
+                      className="nav-link text-[24px] lg:text-[40px] lg:leading-[48px] leading-[60px] font-playfair text-white font-bold"
+                      onClick={() => {
+                        setNavbarOpen(false);
+                      }}
+                    >
+                      Dashboard
+                    </a>
+                  </li>
+                  <li className="nav-li">
+                    <a
                       href="https://rareminds.zohorecruit.in/jobs/Careers"
-                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-[Sentient] text-white font-bold"
+                      className="nav-link text-[24px] lg:text-[40px] lg:leading-[48px] leading-[60px] font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -97,7 +108,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href={`/about`}
-                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-playfair text-white font-bold"
+                      className="nav-link text-[24px] lg:text-[40px] lg:leading-[48px] leading-[60px] font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -109,7 +120,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href={`/projects/projectlist`}
-                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-playfair text-white font-bold"
+                      className="nav-link text-[24px] lg:text-[40px] lg:leading-[48px] leading-[60px] font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -131,7 +142,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href="/contact-us"
-                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-playfair text-white font-bold"
+                      className="nav-link text-[24px] lg:text-[40px] lg:leading-[48px] leading-[60px] font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -142,7 +153,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href="/blog"
-                      className="nav-link text-[60px] lg:text-[56px] lg:leading-[61.6px] leading-[81.6px] font-playfair font-bold text-white"
+                      className="nav-link text-[24px] lg:text-[40px] lg:leading-[48px] leading-[60px] font-playfair font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -164,7 +175,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href="/events"
-                      className="nav-link text-[60px] leading-[81.6px] lg:text-[56px] lg:leading-[61.6px] font-playfair font-bold text-white"
+                      className="nav-link text-[30px] leading-[81.6px] lg:text-[56px] lg:leading-[61.6px] font-playfair font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -175,7 +186,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href="/walloffame"
-                      className="nav-link text-[60px] leading-[81.6px] lg:text-[56px] lg:leading-[61.6px] font-playfair font-bold text-white"
+                      className="nav-link text-[30px] leading-[81.6px] lg:text-[56px] lg:leading-[61.6px] font-playfair font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -186,7 +197,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href="/events"
-                      className="nav-link text-[60px] leading-[81.6px] lg:text-[56px] lg:leading-[61.6px] font-playfair font-bold text-white"
+                      className="nav-link text-[30px] leading-[81.6px] lg:text-[56px] lg:leading-[61.6px] font-playfair font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -197,7 +208,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li opacity-0">
                     <a
                       href="/walloffame"
-                      className="nav-link text-[60px] leading-[81.6px] lg:text-[56px] lg:leading-[61.6px] font-playfair font-bold text-white"
+                      className="nav-link text-[30px] leading-[81.6px] lg:text-[56px] lg:leading-[61.6px] font-playfair font-bold text-white"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -239,7 +250,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href="/"
-                      className="nav-link text-3xl md:text-4xl font-playfair text-white font-bold"
+                      className="nav-link text-xl md:text-xl font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -250,7 +261,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href={`/${localStorage.getItem("currentUserType")}/services`}
-                      className="nav-link text-4xl font-playfair text-white font-bold"
+                      className="nav-link text-xl md:text-xl font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -261,7 +272,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href={`/events-gallery/events`}
-                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
+                      className="nav-link text-xl md:text-xl font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -271,8 +282,19 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   </li>
                   <li className="nav-li py-2">
                     <a
+                      href={`/job_dashboard/dashboard`}
+                      className="nav-link text-xl md:text-xl font-playfair text-white font-bold"
+                      onClick={() => {
+                        setNavbarOpen(false);
+                      }}
+                    >
+                      Dashboard
+                    </a>
+                  </li>
+                  <li className="nav-li py-2">
+                    <a
                       href="https://rareminds.zohorecruit.in/jobs/Careers"
-                      className="nav-link text-4xl font-[Sentient] text-white font-bold"
+                      className="nav-link text-xl md:text-xl font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -284,7 +306,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href={`/about`}
-                      className="nav-link text-4xl font-playfair text-white font-bold"
+                      className="nav-link text-xl md:text-xl font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -296,7 +318,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li">
                     <a
                       href={`/projects/projectlist`}
-                      className="nav-link text-4xl font-playfair text-white font-bold"
+                      className="nav-link text-xl md:text-xl font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -318,7 +340,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href="/contact-us"
-                      className="nav-link text-4xl font-playfair text-white font-bold"
+                      className="nav-link text-xl md:text-xl font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -330,7 +352,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   <li className="nav-li py-2">
                     <a
                       href="/blog"
-                      className="nav-link text-4xl font-playfair text-white font-bold"
+                      className="nav-link text-xl md:text-xl font-playfair text-white font-bold"
                       onClick={() => {
                         setNavbarOpen(false);
                       }}
@@ -362,7 +384,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                   </li> */}
                 </ul>
 
-                <p className="text-white  text-xl mt-32">
+                <p className="text-white font-playfair text-xl mt-32">
                   <a href="mailto:info@rareminds.in">info@rareminds.in</a>
                 </p>
                 <p className="text-xl text-white mt-12">
@@ -371,7 +393,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
                     const { icon, id, link } = socialIcon;
                     return (
                       <span
-                        className="text-white text-xl inline-block"
+                        className="text-white font-playfair text-xl mt-32 inline-block"
                         key={id}
                       >
                         <FooterIcon
