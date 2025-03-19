@@ -10,9 +10,10 @@ import {
   CheckCircle,
   X,
 } from "lucide-react";
+import axios from "axios";
 
 interface FormData {
-  name: string;
+  fullName: string;
   collegeName: string;
   course: string;
   email: string;
@@ -27,7 +28,7 @@ interface FormErrors {
 
 const InstitutionsQueryForm = () => {
   const [formData, setFormData] = useState<FormData>({
-    name: "",
+    fullName: "",
     collegeName: "",
     course: "",
     email: "",
@@ -50,7 +51,7 @@ const InstitutionsQueryForm = () => {
   const validateForm = () => {
     const newErrors: FormErrors = {};
 
-    if (!formData.name.trim()) {
+    if (!formData.fullName.trim()) {
       newErrors.name = "Name is required";
     }
 
@@ -91,11 +92,28 @@ const InstitutionsQueryForm = () => {
 
     if (Object.keys(newErrors).length === 0) {
       setIsSubmitting(true);
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setIsSubmitting(false);
-      setShowSuccessModal(true);
-      // Reset form after modal is closed
+
+      try {
+        console.log(`${import.meta.env.VITE_API_URL}/enquiries/institutions`);
+        const response = await axios.post(
+          `${import.meta.env.VITE_API_URL}enquiries/institutions`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          },
+        );
+
+        if (response.status === 201) {
+          setShowSuccessModal(true);
+          resetForm();
+        }
+      } catch (error) {
+        console.error("Error submitting form:", error);
+      } finally {
+        setIsSubmitting(false);
+      }
     } else {
       setErrors(newErrors);
     }
@@ -121,7 +139,7 @@ const InstitutionsQueryForm = () => {
 
   const resetForm = () => {
     setFormData({
-      name: "",
+      fullName: "",
       collegeName: "",
       course: "",
       email: "",
@@ -224,8 +242,8 @@ const InstitutionsQueryForm = () => {
                   <input
                     type="text"
                     id="name"
-                    name="name"
-                    value={formData.name}
+                    name="fullName"
+                    value={formData.fullName}
                     onChange={handleChange}
                     className={`${inputClasses} ${
                       errors.name
