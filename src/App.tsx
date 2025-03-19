@@ -22,6 +22,7 @@ import GeneralEventDetail from "./pages/hackathon/general-event";
 import CandidatesDashboard from "./pages/job_dashboard/dashboard";
 
 import WallofFame from "./pages/walloffame";
+import InstitutionsQueryForm from "./pages/[name]/insitutionQuery";
 
 const App = () => {
   return (
@@ -73,7 +74,10 @@ const App = () => {
             <Route path="/projects/:name" element={<Naan />} />
             <Route
               path="/job_dashboard/dashboard"
-              element={<CandidatesDashboard />}
+              element={<CandidatesDashboard />} />
+            <Route
+              path="/institutions/query"
+              element={<InstitutionsQueryForm />}
             />
           </Routes>
         </Suspense>

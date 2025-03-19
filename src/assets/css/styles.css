@@ -12,3 +12,23 @@
   min-width: max-content;
   animation: marquee 30s linear infinite;
 }
+
+/* Reduce gap between slides and dots */
+.owl-theme .owl-dots {
+  margin-top: -20px !important; /* Adjust as needed */
+}
+
+/* Adjust navigation arrows closer */
+.owl-theme .owl-nav {
+  display: none;
+  margin-top: -30px !important; /* Adjust as needed */
+}
+
+.owl-theme .owl-nav [class*="owl-"] {
+  font-size: 24px !important; /* Increase arrow size */
+  margin: 0 5px !important; /* Reduce space between arrows */
+  padding: 5px 10px !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  color: white !important;
+  border-radius: 50% !important;
+}
