@@ -6,12 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        playfair: ["Playfair Display", "serif"],
-        Inter: "Inter",
-        Syne: "Syne",
         poppins: ["Poppins", "sans-serif"],
-        Sentient: "Sentient",
-        Urbanist: "Urbanist",
       },
       backgroundImage: {
         "hero-gradient":
@@ -45,4 +40,3 @@ export default {
   },
   plugins: [],
 };
-
