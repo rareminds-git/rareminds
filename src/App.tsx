@@ -20,6 +20,7 @@ import ProjectsPage from "./pages/projects/projectlist";
 import Naan from "./pages/projects/[name]";
 
 import WallofFame from "./pages/walloffame";
+import InstitutionsQueryForm from "./pages/[name]/insitutionQuery";
 
 const App = () => {
   return (
@@ -52,26 +53,23 @@ const App = () => {
               path="/careers/web-developer-intern"
               element={<CareersWebDev />}
             />
-            
+
             <Route
               path="courses/:name/6th-sem-2024"
               element={<CourseDetail />}
             />
             <Route
               path="events-gallery/events"
-              element={<EventsGalleryPage/>}
+              element={<EventsGalleryPage />}
             />
-            
+
+            <Route path="/projects/projectlist/" element={<ProjectsPage />} />
+
+            <Route path="/projects/:name" element={<Naan />} />
             <Route
-              path="/projects/projectlist/"
-              element={<ProjectsPage />}
+              path="/institutions/query"
+              element={<InstitutionsQueryForm />}
             />
-
-             <Route
-              path="/projects/:name"
-              element={<Naan />}
-            />
-
           </Routes>
         </Suspense>
       </DefaultLayout>

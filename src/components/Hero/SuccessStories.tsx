@@ -35,12 +35,13 @@ const SuccessStories = ({ content, pageData }) => {
               margin={40}
               dots={false}
             >
-              {content?.map((ele: any) => {
+              {content?.map((ele: any, i: number) => {
                 console.log("Slug", ele.ContentSlug);
                 return (
                   <div
                     className="cursor-pointer item"
                     onClick={() => navigate(`/${ele.ContentSlug}`)}
+                    key={i}
                   >
                     <img
                       src={`/images/${ele.Image1}`}
@@ -75,11 +76,12 @@ const SuccessStories = ({ content, pageData }) => {
               margin={20}
               dots={false}
             >
-              {content.map((ele: any) => {
+              {content.map((ele: any, i: number) => {
                 return (
                   <div
                     className="cursor-pointer item rounded-2xl"
                     onClick={() => navigate(`/${ele.ContentSlug}`)}
+                    key={i}
                   >
                     <img
                       src={`/images/${ele.Image1}`}

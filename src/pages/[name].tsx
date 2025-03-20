@@ -13,12 +13,17 @@ import ContactUs from "@/components/Hero/ContactUs";
 import Blogs from "@/components/Program/Blogs";
 import QueryForm from "@/components/Program/QueryForm";
 import { Helmet } from "react-helmet";
-import parse from "html-react-parser";
+// import parse from "html-react-parser";
 import "../assets/css/styles.css";
 import Alert from "@/components/alert/alert";
+import InstitutionHeroSection from "@/components/Carousel/InstitutionHeroSection";
+import InstitutionWhyRareminds from "@/components/whyUs/institutionWhyUs";
+import InstitutionServices from "@/components/services/InstitutionServices";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 const Name = () => {
   const { name } = useParams();
+  // console.log("name : ", name);
   const [pageData, setPageData] = useState<any>([]);
 
   const [sections, setSections] = useState<any>([]);
@@ -32,6 +37,7 @@ const Name = () => {
           const sectionKeys = res.data.sectionData.map(
             (ele: any) => ele.ContentSlug || ele.PageSlug,
           );
+          // console.log("sectionKey : ", sectionKeys);
 
           setSections(sectionKeys);
         });
@@ -40,7 +46,9 @@ const Name = () => {
     getPageData();
   }, [name]);
 
-  console.log("sections", sections);
+  // console.log("sections", sections);
+
+  if (!name) return <></>;
 
   return pageData.sectionData !== undefined ? (
     <>
@@ -60,14 +68,18 @@ const Name = () => {
       {sections.includes("hero") && (
         <>
           <Alert />
-          <Hero
-            content={
-              pageData.sectionData.filter(
-                (ele: any) => ele.ContentSlug === "hero" && ele,
-              )[0]
-            }
-            key={pageData.sectionData.hero}
-          />
+          {name == "institutions" ? (
+            <InstitutionHeroSection />
+          ) : (
+            <Hero
+              content={
+                pageData.sectionData.filter(
+                  (ele: any) => ele.ContentSlug === "hero" && ele,
+                )[0]
+              }
+              key={pageData.sectionData.hero}
+            />
+          )}
         </>
       )}
       {sections.includes("cta") && (
@@ -78,30 +90,44 @@ const Name = () => {
             )[0]
           }
           key={pageData.sectionData.cta}
-        />
-      )}
-      {sections.includes("whyus") && (
-        <WhyUs
-          content={
-            pageData.sectionData.filter(
-              (ele: any) => ele.ContentSlug === "whyus" && ele,
-            )[0]
+          path={
+            name == "institutions"
+              ? "/institutions/query"
+              : "/unlock-your-potential"
           }
         />
       )}
-      {sections.includes("services") && (
-        <Services
-          content={
-            pageData.sectionData.filter(
-              (ele: any) => ele.ContentSlug === "services" && ele,
-            )[0]
-          }
-          services={pageData.serviceData}
-          ctaContent={pageData.sectionData.filter(
-            (ele: any) => ele.ContentSlug === "cta" && ele,
-          )}
-        />
-      )}
+      {sections.includes("whyus") &&
+        (name == "institutions" ? (
+          <InstitutionWhyRareminds />
+        ) : (
+          <WhyUs
+            content={
+              pageData.sectionData.filter(
+                (ele: any) => ele.ContentSlug === "whyus" && ele,
+              )[0]
+            }
+          />
+        ))}
+      {sections.includes("services") &&
+        (name == "" ? (
+          // (name == "institutions" ? (
+          <ErrorBoundary>
+            <InstitutionServices />
+          </ErrorBoundary>
+        ) : (
+          <Services
+            content={
+              pageData.sectionData.filter(
+                (ele: any) => ele.ContentSlug === "services" && ele,
+              )[0]
+            }
+            services={pageData.serviceData}
+            ctaContent={pageData.sectionData.filter(
+              (ele: any) => ele.ContentSlug === "cta" && ele,
+            )}
+          />
+        ))}
       {sections.includes("successstories") && (
         <SuccessStories
           content={pageData.studyData}
