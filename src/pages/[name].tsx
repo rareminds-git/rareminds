@@ -19,6 +19,7 @@ import Alert from "@/components/alert/alert";
 import InstitutionHeroSection from "@/components/Carousel/InstitutionHeroSection";
 import InstitutionWhyRareminds from "@/components/whyUs/institutionWhyUs";
 import InstitutionServices from "@/components/services/InstitutionServices";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 const Name = () => {
   const { name } = useParams();
@@ -110,7 +111,9 @@ const Name = () => {
         ))}
       {sections.includes("services") &&
         (name == "institutions" ? (
-          <InstitutionServices />
+          <ErrorBoundary>
+            <InstitutionServices />
+          </ErrorBoundary>
         ) : (
           <Services
             content={

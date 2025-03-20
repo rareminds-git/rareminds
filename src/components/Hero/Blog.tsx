@@ -46,6 +46,7 @@ const Blog = ({ content }) => {
                 <div
                   className="item cursor-pointer"
                   onClick={() => navigate(`/blog/${ele.ContentSlug}`)}
+                  key={index}
                 >
                   <div className="grid grid-flow-col place-items-start">
                     <div className="row-span-3 my-4 mx-4 place-items-start">
@@ -123,6 +124,7 @@ const Blog = ({ content }) => {
                 <div
                   className="item cursor-pointer"
                   onClick={() => navigate(`/blog/${ele.ContentSlug}`)}
+                  key={index}
                 >
                   <div className="grid grid-flow-col place-items-start">
                     <div className="row-span-3 my-4 mx-4 place-items-start">

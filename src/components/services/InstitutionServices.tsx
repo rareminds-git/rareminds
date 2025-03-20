@@ -1,3 +1,4 @@
+import OwlCarousel from "react-owl-carousel";
 import { useMediaQuery } from "react-responsive";
 
 const InstitutionServices = () => {
@@ -5,7 +6,13 @@ const InstitutionServices = () => {
 
   const isMobile = useMediaQuery({ query: `(max-width: 1200px)` });
 
-  const services = [
+  interface Service {
+    id: number;
+    title: string;
+    description: string;
+  }
+
+  const services: Service[] = [
     {
       id: 1,
       title: "Job-Ready Training",
@@ -63,7 +70,7 @@ const InstitutionServices = () => {
         in today’s job market.
       </p>
 
-      {!isMobile && (
+      {!isMobile ? (
         <div>
           <div className="flex py-2 gap-5 transition-all">
             {services.slice(0, 3).map((service) => (
@@ -101,6 +108,48 @@ const InstitutionServices = () => {
               </div>
             ))}
           </div>
+        </div>
+      ) : (
+        <div className="">
+          <OwlCarousel
+            className="owl-theme"
+            nav={true}
+            autoplay
+            loop
+            margin={10}
+            items={1.1}
+            dots={false}
+          >
+            {services.map((ele: Service) => {
+              return (
+                <div
+                  className="item my-4 cursor-pointer font-playfair max-h-[300px] min-h-[300px]"
+                  onClick={() =>
+                    navigate(`/institutions/services/${ele.title}`)
+                  }
+                >
+                  <div className="bg-red-400 text-white p-8 rounded-2xl item-bg">
+                    <h3 className="text-3xl font-semibold">{ele.title}</h3>
+
+                    <p
+                      className="text-sm my-5"
+                      dangerouslySetInnerHTML={{
+                        __html: ele?.description.substring(0, 80) + "...",
+                      }}
+                    ></p>
+                    <p
+                      onClick={() =>
+                        navigate(`/institutions/services/${ele.title}`)
+                      }
+                      className="font-playfair font-bold text-[16px] mt-8 leading-[21.76px]"
+                    >
+                      ..Read More
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </OwlCarousel>
         </div>
       )}
     </section>

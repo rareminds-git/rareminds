@@ -25,9 +25,9 @@ const Achievements = ({ content, achievements }) => {
         </div>
         {!isMobile ? (
           <>
-            {achievements?.map((ele: any, index) => {
+            {achievements?.map((ele: any, index: number) => {
               return (
-                <div className="container" ref={ref}>
+                <div className="container" ref={ref} key={index}>
                   <div
                     className={`grid grid-cols-4 gap-4 lg:px-4 lg:py-4 py-10 px-10 ${index === 0 ? "border-y-black border-2" : ""} ${index === 2 ? "border-t-black border-2 border-b-0" : ""} border-x-0`}
                   >
@@ -69,7 +69,7 @@ const Achievements = ({ content, achievements }) => {
           <>
             {achievements?.map((ele: any, index: any) => {
               return (
-                <div className="container">
+                <div className="container" key={index}>
                   <div
                     className={`grid md:grid-rows-1 grid-rows-1 gap-4 ${index === 0 ? "border-y-black border-2" : ""} ${index === 2 ? "border-t-black border-2 border-b-0" : ""} border-x-0`}
                   >
