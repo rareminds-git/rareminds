@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import ArrowIcon from "../../public/images/north.svg";
+import { ArrowRight } from "lucide-react";
 
 const CTA2 = ({ path }) => {
   const navigate = useNavigate();
@@ -28,13 +28,7 @@ const CTA2 = ({ path }) => {
         </h3>
         <div className="flex justify-center items-center space-x-2">
           <span className="text-white font-semibold text-lg">Start Now</span>
-          <motion.img
-            src={ArrowIcon}
-            alt="Arrow"
-            className="w-6 h-6 filter invert"
-            animate={{ x: [0, 5, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-          />
+          <ArrowRight className="w-6 h-6 text-white" />
         </div>
       </motion.div>
     </motion.section>

@@ -154,7 +154,7 @@ const ServiceDetail = () => {
         <motion.img
           src={service.image}
           alt={serviceName}
-          className="rounded-xl shadow-2xl w-full h-auto"
+          className="rounded-xl w-full h-auto"
           initial="hidden"
           animate="visible"
           variants={fadeIn}

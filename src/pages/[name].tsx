@@ -111,8 +111,8 @@ const Name = () => {
           />
         ))}
       {sections.includes("services") &&
-        (name == "" ? (
-          // (name == "institutions" ? (
+        // (name == "" ? (
+        (name == "institutions" ? (
           <ErrorBoundary>
             <InstitutionServices />
           </ErrorBoundary>
