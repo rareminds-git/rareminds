@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import CTA from "@/common/CTA";
+import CTA2 from "@/common/CTA2";
 import Achievements from "@/components/Hero/Achievements";
 import Blog from "@/components/Hero/Blog";
 import Hero from "@/components/Hero/Hero";
@@ -82,7 +82,7 @@ const Name = () => {
         </>
       )}
       {sections.includes("cta") && (
-        <CTA
+        <CTA2
           content={
             pageData.sectionData.filter(
               (ele: any) => ele.ContentSlug === "cta" && ele,
@@ -94,6 +94,7 @@ const Name = () => {
               ? "/institutions/query"
               : "/unlock-your-potential"
           }
+          contactPage={undefined}
         />
       )}
       {sections.includes("whyus") &&

@@ -3,6 +3,7 @@ import axios from "axios";
 import { FaSearch } from "react-icons/fa";
 import PhotoLoader from "@/components/PhotoLoader";
 import AnalyticsPage from "./analytics";
+import BackToTop from "./BackToTop";
 
 const PAGE_SIZE = 30;
 
@@ -240,6 +241,7 @@ const CandidatesDashboard = () => {
           )}
         </>
       )}
+      <BackToTop />
     </div>
   );
 };

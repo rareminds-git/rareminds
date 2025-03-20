@@ -1,4 +1,5 @@
 import { useMediaQuery } from "react-responsive";
+import { useNavigate } from "react-router-dom";
 
 const InstitutionServices = () => {
   const navigate = useNavigate();
@@ -8,7 +9,7 @@ const InstitutionServices = () => {
   const services = [
     {
       id: 1,
-      title: "Job-Ready Training",
+      title: "Job Ready Training",
       description:
         "Skills that make you stand out! Learn what top companies want—AI, Digital Marketing, EV Technology, Cybersecurity, Business Strategy, and more. Our courses help you build expertise, master real-world projects, and get certified.",
     },
@@ -47,7 +48,7 @@ const InstitutionServices = () => {
   return (
     <section className="xl:px-28 lg:px-20 md:px-16 px-8 xl:pb-16 lg:pb-16 md:pb-8 pb-4 xl:py-16 lg:py-20 md:py-16 py-8 servicesSection">
       <h2 className="mb-5 text-4xl md:text-5xl md:font-semibold font-semibold text-black text-center">
-        Our Services – Your Career, Your Future!
+        Our Services - Your Career, Your Future!
       </h2>
       <p className="text-center text-lg text-gray-600 max-w-3xl mx-auto mb-10">
         At <span className="font-bold text-black">Rareminds</span>, we offer
@@ -71,7 +72,9 @@ const InstitutionServices = () => {
                 key={service.id}
                 className="bg-red-500 p-8 flex-1 hover:flex-[10] transition-all duration-700 rounded-3xl text-white group h-[276px] flex flex-col cursor-pointer"
                 onClick={() =>
-                  navigate(`/institutions/services/${service.title}`)
+                  navigate(
+                    `/institutions/services/${service.title.replace(/\s+/g, "-")}`,
+                  )
                 }
               >
                 <h3 className="text-3xl font-semibold my-auto group-hover:my-0">
