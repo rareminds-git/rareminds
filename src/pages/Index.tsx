@@ -137,6 +137,7 @@ const Index = () => {
           content="Rareminds offers tailored solutions for corporate, government, institutional and school sectors. Specializing in talent acquisition, management and development."
         />
       </Helmet>
+      
       {!isMobile ? (
         <>
           <div className="w-full brain-container ">
