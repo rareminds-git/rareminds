@@ -24,6 +24,7 @@ import ServiceDetails from "./components/services/ServiceDetails";
 
 import WallofFame from "./pages/walloffame";
 import InstitutionsQueryForm from "./pages/[name]/insitutionQuery";
+import QueryForm from "./components/Program/QueryForm";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="/" element={<Index />} />
             <Route path="/:name" element={<Name />} />
             <Route path="/:userType/services" element={<Services />} />
+            <Route path="/form" element={<QueryForm/>} />
             <Route
               path="/:userType/services/:serviceName"
               element={<ServiceName />}
@@ -43,7 +45,7 @@ const App = () => {
               path="/:userType/case-studies/:slug"
               element={<CaseStudyDetail />}
             />
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About />} /> 
             <Route path="/events" element={<Events />} />
             <Route path="/events/gallery" element={<ImageGallery />} />
             <Route path="/blog/:slug" element={<BlogDetail />} />
@@ -93,3 +95,6 @@ const App = () => {
 };
 
 export default App;
+
+
+
