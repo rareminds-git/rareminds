@@ -7,119 +7,114 @@ import job from "@/assets/images/services/job-ready.jpg";
 import internship from "@/assets/images/services/internship.jpg";
 import entrepreneurship from "@/assets/images/services/entrepreneurship.jpg";
 import brand from "@/assets/images/services/branding.jpg";
+import { useNavigate } from "react-router-dom";
 
 const ServiceDetail = () => {
   const { serviceName } = useParams();
   const formattedServiceName = serviceName?.replace(/-/g, " ");
+  const navigate = useNavigate();
 
   const services = {
     "Job Ready Training": {
       image: job,
-      intro:
-        "Stand out in today’s competitive job market with skills that employers crave!",
+      intro: "Your skills are your biggest strength!",
       description:
-        "Our Job Ready Training program equips you with cutting-edge expertise in AI, Digital Marketing, EV Technology, Cybersecurity, and Business Strategy. Gain hands-on experience, work on real-world projects, and earn certifications that set you apart.",
+        "At Rareminds, we help you build practical, in-demand skills that companies are actively looking for. No matter where you are, you can gain expertise in AI, Digital Marketing, EV Repair, Retail, Healthcare, Cybersecurity, and more to launch a rewarding career.",
       points: [
-        "Learn from industry experts with years of practical experience.",
-        "Master in-demand skills through hands-on projects and case studies.",
-        "Earn certifications recognized by top companies worldwide.",
+        "Step-by-step learning for easy understanding",
+        "Hands-on training to gain real experience",
+        "Job-focused courses tailored to industry needs",
       ],
-      whyChooseUs: [
-        "Mentorship from professionals who’ve been in your shoes.",
-        "Access to a global network of industry leaders and recruiters.",
-        "Personalized career guidance and job placement support.",
-      ],
+      whyChooseUs: {
+        title: "What makes this powerful?",
+        desc: "Every skill you gain today brings you one step closer to a great career. With Rareminds, you develop expertise that makes you stand out in any field.",
+      },
       cta: "Ready to future-proof your career? Enroll now and take the first step toward success!",
     },
     "Internships & Placement Support": {
       image: internship,
-      intro:
-        "Kickstart your career with real-world experience and exclusive opportunities!",
+      intro: "Jumpstart your career with internships!",
       description:
-        "Our Internships & Placement Support program connects you with top companies and startups. Gain hands-on experience, build your resume, and secure your dream job with our extensive corporate network.",
+        "Gain valuable hands-on experience through paid internships, apprenticeships, and real-world projects that prepare you for the professional world. Our strong network connects students with top companies across multiple industries.",
       points: [
-        "Access to premium internships with leading organizations.",
-        "Placement assistance with top recruiters and hiring managers.",
-        "Resume building and interview preparation tailored to your goals.",
+        "Internship & work opportunities in both local and global companies",
+        "Placements in government and private sectors",
+        "Industry-specific training in AgriTech, Dairy, Tourism, IT, and Logistics",
       ],
-      whyChooseUs: [
-        "Strong partnerships with Fortune 500 companies and startups.",
-        "Dedicated career coaches to guide you through every step.",
-        "Exclusive job openings and hiring events just for our students.",
-      ],
+      whyChooseUs: {
+        title: "Why this matters?",
+        desc: "Real-world experience boosts confidence and career readiness. With the right exposure, you’ll step into the workforce feeling prepared and in control of your future.",
+      },
       cta: "Turn your potential into opportunity. Apply now and land your dream job!",
     },
     "Interview & Resume Mastery": {
       image: resume,
-      intro:
-        "Your resume and interview skills are your ticket to success—make them unbeatable!",
+      intro: "Your story matters—tell it with impact!",
       description:
-        "Our Interview & Resume Mastery program teaches you how to craft a standout resume, ace interviews, and impress recruiters. With mock interviews, HR insights, and AI-powered feedback, you’ll be unstoppable.",
+        "We help you build strong communication skills, create a winning resume, and approach interviews with confidence. Our expert-led sessions ensure you are ready to make the best impression.",
       points: [
-        "Resume writing workshops with customizable templates.",
-        "Mock interviews with industry professionals and HR experts.",
-        "Aptitude test prep and career coaching to boost your confidence.",
+        "Learn interview techniques that make you stand out",
+        "Simple and effective resume-building strategies",
+        "Mock interviews with real recruiters for hands-on practice",
       ],
-      whyChooseUs: [
-        "Expert-led sessions to refine your resume and interview skills.",
-        "AI-powered tools to analyze and optimize your resume.",
-        "Proven strategies to stand out in competitive job markets.",
-      ],
+      whyChooseUs: {
+        title: "Why this is a game-changer?",
+        desc: "Every opportunity is a chance to grow. With the right guidance, you can walk into any interview with the confidence to showcase your strengths and land the job you deserve.",
+      },
       cta: "Ready to impress recruiters? Join now and master your job search!",
     },
-    "Entrepreneurship & Freelancers": {
+    "Entrepreneurship & Freelancing": {
       image: entrepreneurship,
-      intro: "Turn your ideas into a thriving business or freelance career!",
+      intro: "Turn your ideas into income!",
       description:
-        "Our Entrepreneurship & Freelancers program provides the tools, strategies, and mentorship you need to succeed. Learn business planning, digital monetization, and financial independence from seasoned entrepreneurs.",
+        "Whether you dream of starting your own business or working on your own terms, our training equips you with the knowledge to succeed in entrepreneurship and freelancing.",
       points: [
-        "Step-by-step guides to launch and grow your business.",
-        "Financial planning and funding strategies for startups.",
-        "Networking opportunities with investors and industry leaders.",
+        "Learn how to start and grow your business",
+        "Opportunities in online freelancing, digital work, and local businesses",
+        "Access to government schemes & funding support",
       ],
-      whyChooseUs: [
-        "Access to a network of successful entrepreneurs and mentors.",
-        "Practical tools and resources to build your business from scratch.",
-        "Guidance on scaling your business and achieving long-term success.",
-      ],
+      whyChooseUs: {
+        title: "Why this empowers you?",
+        desc: "You don’t have to wait for success—it’s something you can create! With the right mindset and skills, you can build a thriving career doing what you love.",
+      },
       cta: "Start your entrepreneurial journey today. Enroll now and make your dreams a reality!",
     },
-    "Soft Skills & Personal Branding": {
+    "English for Employment": {
       image: brand,
-      intro:
-        "Unlock your full potential with confidence, communication, and leadership skills!",
+      intro: "Strong communication leads to bigger opportunities!",
       description:
-        "Our Soft Skills & Personal Branding program helps you develop the essential skills to thrive in any career. From public speaking to emotional intelligence, you’ll learn how to stand out and lead with impact.",
+        "Mastering English for the workplace helps you grow professionally, interact with clients, and secure higher-paying jobs.",
       points: [
-        "Enhance your communication and presentation skills.",
-        "Build a powerful personal and professional brand.",
-        "Develop leadership and emotional intelligence strategies.",
+        "Practical English training for workplace communication",
+        "Speaking & presentation skills for career success",
+        "Professional writing skills for emails and reports",
       ],
-      whyChooseUs: [
-        "Expert coaches with real-world experience in leadership and branding.",
-        "Interactive workshops and live feedback sessions.",
-        "Practical tools to apply your skills in any professional setting.",
-      ],
+      whyChooseUs: {
+        title: "How this makes a difference?",
+        desc: "Communication opens doors. By improving your English skills, you can connect with more people, access better opportunities, and grow in your career.",
+      },
       cta: "Elevate your career with soft skills mastery. Join now and lead with confidence!",
     },
-    "Your Success Starts Here!": {
+    "Personal Branding": {
       image: successhere,
-      intro:
-        "At Rareminds, we don’t just prepare you for a job—we prepare you for a lifetime of success.",
+      intro: "Your personal brand sets you apart!",
       description:
-        "Our comprehensive programs are designed to help you stay ahead, upskill, and seize opportunities in a rapidly changing world. With Rareminds, your future is limitless.",
+        "Employers look for confident, well-prepared candidates. We help you develop a strong professional presence, both online and offline, so you’re always in demand.",
       points: [
-        "Tailored training programs to meet industry demands.",
-        "Lifelong learning resources and career development support.",
-        "A dedicated community of peers and professionals to guide you.",
+        "Create a strong professional identity on job platforms",
+        "Learn how to network and build valuable industry connections",
+        "Boost your confidence and make lasting impressions",
       ],
-      whyChooseUs: [
-        "Continuous support to help you achieve long-term career goals.",
-        "Exclusive access to high-quality learning materials and tools.",
-        "A network of mentors and peers to inspire and motivate you.",
-      ],
+      whyChooseUs: {
+        title: "Why this gives you an edge?",
+        desc: "The way you present yourself defines your opportunities. With the right skills, confidence, and branding, you can attract exciting job offers and career growth.",
+      },
       cta: "Your journey to success begins now. Enroll today and take the first step!",
     },
+  };
+
+  const redirectToCareer = () => {
+    navigate("https://rareminds.zohorecruit.in/jobs/Careers");
   };
 
   const service = services[formattedServiceName]; // Use formatted name for lookup
@@ -195,7 +190,7 @@ const ServiceDetail = () => {
         variants={fadeInUp}
       >
         <h2 className="text-3xl font-bold text-gray-900 mb-6">
-          Why Choose Rareminds?
+          {service.whyChooseUs.title}
         </h2>
         <motion.ul
           className="list-disc list-inside space-y-4 text-gray-700"
@@ -203,11 +198,9 @@ const ServiceDetail = () => {
           initial="hidden"
           animate="visible"
         >
-          {service.whyChooseUs.map((reason, index) => (
-            <motion.li key={index} className="text-lg" variants={fadeInUp}>
-              {reason}
-            </motion.li>
-          ))}
+          <motion.p className="text-lg" variants={fadeInUp}>
+            {service.whyChooseUs.desc}
+          </motion.p>
         </motion.ul>
       </motion.div>
       <motion.div
@@ -219,13 +212,16 @@ const ServiceDetail = () => {
         <p className="text-2xl font-semibold text-gray-900 mb-6">
           {service.cta}
         </p>
-        <motion.button
-          className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Get Started
-        </motion.button>
+        <a href="https://rareminds.zohorecruit.in/jobs/Careers">
+          <motion.button
+            className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            // onClick={() => redirectToCareer()}
+          >
+            Get Started
+          </motion.button>
+        </a>
       </motion.div>
     </section>
   );
