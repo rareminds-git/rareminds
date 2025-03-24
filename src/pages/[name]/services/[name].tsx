@@ -13,7 +13,7 @@ const ServiceName = () => {
     async function getData() {
       await axios
         .get(
-          `${import.meta.env.VITE_API_URL}services/${userType}/${serviceName}`
+          `${import.meta.env.VITE_API_URL}services/${userType}/${serviceName}`,
         )
         .then((res) => {
           setData(res.data);
@@ -87,9 +87,9 @@ const ServiceName = () => {
               <h2 className="text-[#FF2C2C] font-bold mb-10 capitalize lg:text-[36px] lg:leading-[42px] text-3xl mt-36 font-playfair">
                 Program Details
               </h2>
-              {serviceData?.servicePrograms?.map((ele: any) => {
+              {serviceData?.servicePrograms?.map((ele: any, i: number) => {
                 return (
-                  <div className="row-span-1">
+                  <div className="row-span-1" key={i}>
                     <p
                       className="text-xl lg:text-[36px] lg:leading-[42px]  font-semibold"
                       dangerouslySetInnerHTML={{
@@ -140,9 +140,9 @@ const ServiceName = () => {
             Program Details
           </h2>
 
-          {serviceData?.servicePrograms?.map((ele: any) => {
+          {serviceData?.servicePrograms?.map((ele: any, i: number) => {
             return (
-              <div className="mt-6">
+              <div className="mt-6" key={i}>
                 <h3
                   className="lg:text-4xl text-xl font-bold font-playfair"
                   dangerouslySetInnerHTML={{

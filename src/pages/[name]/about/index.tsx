@@ -22,7 +22,7 @@ const About = () => {
   useEffect(() => {
     const getPageData = async () =>
       setPageData(
-        (await axios.get(`${import.meta.env.VITE_API_URL}about`)).data
+        (await axios.get(`${import.meta.env.VITE_API_URL}about`)).data,
       );
 
     getPageData();
@@ -66,12 +66,13 @@ const About = () => {
         {!isMobile ? (
           <div className="flex service-list pt-20 my-8">
             {pageData &&
-              pageData?.coreValues?.map((ele: any) => {
+              pageData?.coreValues?.map((ele: any, i: any) => {
                 return (
                   <div
                     className={`item mx-2 rounded-lg bg-red-400 cursor-pointer`}
                     onMouseEnter={() => setHoveredDivs(ele.ContentAcronym)}
                     onMouseLeave={() => setHoveredDivs(undefined)}
+                    key={i}
                   >
                     <div
                       className={` text-white pt-32 pb-12 xl:py-20 xl:px-10 xxl:py-20 xxl:px-8 md:px-8 md:pt-12 px-20 rounded-lg item-bg ${hoveredDivs === null ? "" : hoveredDivs !== undefined && hoveredDivs !== ele.ContentAcronym ? "active" : ""}`}
@@ -99,9 +100,12 @@ const About = () => {
         ) : (
           <div className="item my-4 cursor-pointer md:inline-flex md:gap-4">
             {pageData &&
-              pageData?.coreValues?.map((ele: any) => {
+              pageData?.coreValues?.map((ele: any, i: number) => {
                 return (
-                  <div className="bg-red-400 text-white md:p-6 p-10 my-4 rounded-lg item-bg">
+                  <div
+                    className="bg-red-400 text-white md:p-6 p-10 my-4 rounded-lg item-bg"
+                    key={i}
+                  >
                     <h4 className="text-5xl md:text-3xl font-playfair">
                       {ele.Heading2}
                     </h4>
@@ -344,9 +348,9 @@ const About = () => {
                 items={3}
               >
                 {pageData &&
-                  pageData?.partners?.map((ele) => {
+                  pageData?.partners?.map((ele, i) => {
                     return (
-                      <div className="item">
+                      <div className="item" key={i}>
                         <a target="_blank">
                           <img
                             src={`${import.meta.env.VITE_PUBLIC_URL}images/${ele.Image1}`}

@@ -1,8 +1,10 @@
 import appReducer from "@/redux/features/appSlice";
+import servicesReducer from "./features/servicesSlice";
 
 const store = configureStore({
   reducer: {
     bannerSelected: appReducer,
+    services: servicesReducer,
   },
 });
 

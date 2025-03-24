@@ -70,9 +70,9 @@ const BlogDetail = () => {
             />
           </div>
           <div className="grid grid-cols-1 grid-flow-row gap-4">
-            {blogData?.blogDetails?.map((ele: any) => {
+            {blogData?.blogDetails?.map((ele: any, i: number) => {
               return (
-                <div className="row-span-1 mt-16" key={ele.id}>
+                <div className="row-span-1 mt-16" key={i}>
                   <p
                     className="mt-4 md:mr-20 mr-4 text-[16px] leading-[21.76px] font-playfair font-light BlogDetail"
                     dangerouslySetInnerHTML={{
