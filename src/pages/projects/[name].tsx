@@ -11,6 +11,8 @@ import { Header } from "../../components/naanMudhalvan/Header";
 import { resolvePackageData } from "vite";
 import { Calendar, MapPin, Users } from "lucide-react";
 import { Disclaimer } from "../../components/naanMudhalvan/Disclaimer";
+import ClientsSection from "../../components/naanMudhalvan/ClientsSection";
+
 
 function Naan() {
   const [data, setData] = useState<any>([
@@ -164,6 +166,10 @@ function Naan() {
     />  
     {pageData?.event_time_line?.length > 0 ? <Timeline t_data={pageData}/>: <></>}
     <MapSection /> */}
+
+
+    <ClientsSection/>
+    
 
       <CallToAction />
     </div>
