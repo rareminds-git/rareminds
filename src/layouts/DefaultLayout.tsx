@@ -15,9 +15,7 @@ const DefaultLayout: React.FC<{ children: React.ReactNode }> = ({
     <div>
       <Header navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} />
       <Menu navbarOpen={navbarOpen} setNavbarOpen={setNavbarOpen} />
-      <div className="App w-full h-full xl:pt-16 md:pt-16 pt-12">
-        {children}
-      </div>
+      <div className="App w-full h-full pt-[80px]">{children}</div>
       <FooterBar />
 
       {/* <CookieConsent

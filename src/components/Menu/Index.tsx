@@ -40,7 +40,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
     <>
       {!isMobile ? (
         <nav
-          className={`fixed flex top-0 left-0 w-full px-10 z-10 md:h-screen pt-12 bg-[#FF6363] transform delay-100 transition-all duration-300 ${
+          className={`fixed flex top-0 left-0 w-full px-10 z-50 md:h-screen pt-12 bg-[#FF6363] transform delay-100 transition-all duration-300 ${
             navbarOpen
               ? "opacity-100 translate-x-0"
               : "opacity-0 -translate-x-full"
@@ -226,7 +226,7 @@ const Menu = ({ navbarOpen, setNavbarOpen }) => {
         </nav>
       ) : (
         <nav
-          className={`fixed flex h-full w-full top-0 left-0 px-4 z-10 md:h-screen pt-24 bg-[#FF6363] transform delay-100 transition-all duration-300 ${
+          className={`fixed flex h-full w-full top-0 left-0 px-4 z-50 md:h-screen pt-24 bg-[#FF6363] transform delay-100 transition-all duration-300 ${
             navbarOpen
               ? "opacity-100 translate-x-0"
               : "opacity-0 -translate-x-full"

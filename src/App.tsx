@@ -18,6 +18,7 @@ import ImageGallery from "./pages/hackathon/gallery";
 import EventsGalleryPage from "./pages/events-gallery/events";
 import ProjectsPage from "./pages/projects/projectlist";
 import Naan from "./pages/projects/[name]";
+import Recruitment from "./pages/corporate/recruitment";
 
 import WallofFame from "./pages/walloffame";
 import InstitutionsQueryForm from "./pages/[name]/insitutionQuery";
@@ -32,7 +33,7 @@ const App = () => {
             <Route path="/" element={<Index />} />
             <Route path="/:name" element={<Name />} />
             <Route path="/:userType/services" element={<Services />} />
-            <Route path="/form" element={<QueryForm/>} />
+            <Route path="/form" element={<QueryForm />} />
             <Route
               path="/:userType/services/:serviceName"
               element={<ServiceName />}
@@ -42,7 +43,7 @@ const App = () => {
               path="/:userType/case-studies/:slug"
               element={<CaseStudyDetail />}
             />
-            <Route path="/about" element={<About />} /> 
+            <Route path="/about" element={<About />} />
             <Route path="/events" element={<Events />} />
             <Route path="/events/gallery" element={<ImageGallery />} />
             <Route path="/blog/:slug" element={<BlogDetail />} />
@@ -72,6 +73,7 @@ const App = () => {
               path="/institutions/query"
               element={<InstitutionsQueryForm />}
             />
+            <Route path="/corporate/recruitment" element={<Recruitment />} />
           </Routes>
         </Suspense>
       </DefaultLayout>
@@ -80,6 +82,3 @@ const App = () => {
 };
 
 export default App;
-
-
-

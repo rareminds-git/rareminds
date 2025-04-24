@@ -22,6 +22,7 @@ import College from "../components/landing/college";
 import Corporate from "../components/landing/corporate";
 import Govt from "../components/landing/govt";
 import School from "../components/landing/school";
+import FooterBar from "@/components/Footer/FooterBar";
 
 const Index = () => {
   const [activeBanner, setActiveBanner] = useState("corporate");
@@ -137,7 +138,7 @@ const Index = () => {
           content="Rareminds offers tailored solutions for corporate, government, institutional and school sectors. Specializing in talent acquisition, management and development."
         />
       </Helmet>
-      
+
       {!isMobile ? (
         <>
           <div className="w-full brain-container ">
@@ -151,7 +152,7 @@ const Index = () => {
                 >
                   <div className="container mx-auto text-white/90 font-bold text-3xl mt-[200px] xxl:px-[80px] flex flex-col items-center gap-5">
                     <Link
-                      to="/careers"
+                      to="https://rareminds.zohorecruit.in/jobs/Careers"
                       className="hover:text-red-600 transition-colors duration-150"
                     >
                       Careers
@@ -251,7 +252,7 @@ const Index = () => {
                 />
               </div>
             </div>
-            <div className="container flex justify-center mx-auto mt-[120px] pb-[80px]">
+            <div className="container flex justify-center mx-auto mt-[160px] pb-[80px]">
               <div className="max-w-[500px] xxl:max-w-[600px] -translate-x-[35%] xxl:-translate-x-[45%]">
                 <h1 className="text-2xl font-semibold">
                   Rareminds: Empowering Minds, Shaping Futures
@@ -305,6 +306,9 @@ const Index = () => {
           </div>
         </>
       )}
+      <>
+        <FooterBar />
+      </>
     </>
   );
 };

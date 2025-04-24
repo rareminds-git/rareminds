@@ -23,6 +23,22 @@ export default {
       colors: {
         "placeholder-red": "#D9D9D9", // or any shade of red you prefer
         "overlay-color": "#000000e6",
+        rareminds: {
+          purple: "#9b87f5",
+          "deep-purple": "#7E69AB",
+          dark: "#1A1F2C",
+          light: "#E5DEFF",
+          "light-purple": "#D6BCFA",
+          accent: "#8B5CF6",
+        },
+        corporate: {
+          primary: "#D9B23B",
+          secondary: "#E54C44",
+          accent: "#FFFCEF",
+          "primary-light": "#F1CF54",
+          black: "#000000",
+          grey: "#6B7280",
+        },
       },
     },
     screens: {
@@ -45,4 +61,3 @@ export default {
   },
   plugins: [],
 };
-

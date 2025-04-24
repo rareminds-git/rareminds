@@ -1,6 +1,6 @@
 import React from "react";
 import { GraduationCap, Rocket, Lightbulb, Target, Trophy } from "lucide-react";
-import { Card } from "../ui/card";
+import { Card } from "../ui-card/card";
 
 const InstitutionWhyRareminds = () => {
   const navigate = useNavigate();
