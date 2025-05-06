@@ -33,7 +33,7 @@ export default {
         },
         corporate: {
           primary: "#D9B23B",
-          secondary: "#E54C44",
+          secondary: "#EA660C",
           accent: "#FFFCEF",
           "primary-light": "#F1CF54",
           black: "#000000",

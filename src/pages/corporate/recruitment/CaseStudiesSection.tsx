@@ -96,7 +96,7 @@ const CaseStudiesSection = () => {
             {caseStudies.map((currentCase, idx) => (
               <CarouselItem key={`case-${idx}`}>
                 <div className="bg-white rounded-3xl overflow-hidden border border-corporate-primary/40 ">
-                  <div className="grid grid-cols-1 md:grid-cols-3 min-h-[70vh]">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 min-h-[70vh]">
                     {/* Left Panel - Image & Stats */}
                     <div className="bg-gradient-to-br from-corporate-primary-light to-corporate-primary text-corporate-black p-8 flex flex-col justify-between">
                       <div>

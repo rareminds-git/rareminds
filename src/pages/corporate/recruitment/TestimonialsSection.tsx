@@ -5,7 +5,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { MessageSquareQuote } from "lucide-react";
+import { MessageSquareQuote, Star } from "lucide-react";
 import Quotes from "./quotes";
 
 const testimonials = [
@@ -41,7 +41,7 @@ const testimonials = [
 const TestimonialsSection = () => {
   return (
     <section className="py-24 bg-gradient-to-br from-[#FFFBE5] to-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/images/corporate/recruitment/testimonials/bg.webp')] opacity-5"></div>
+      <div className="absolute inset-0 bg-[url('/images/corporate/recruitment/testimonials/bg.webp')] bg-center opacity-5"></div>
 
       <div className="container mx-auto relative z-10">
         <div className="bg-corporate-secondary text-white w-16 h-16 rounded-[25px] mx-auto mb-4 flex items-center justify-center transform rotate-6">
@@ -75,8 +75,37 @@ const TestimonialsSection = () => {
                         alt={testimonial.company + " Logo"}
                         height={200}
                         width={350}
-                        className="object-contain mx-auto max-h-[200px] mt-[50px]"
+                        className="object-contain mx-auto max-h-[200px] mt-[100px] lg:mt-[50px]"
                       />
+
+                      <div className="flex mx-auto mt-3">
+                        <Star
+                          fill={`${testimonial.rating > 0 ? "#F1CF54" : "#DBDBDB"}`}
+                          stroke="none"
+                          className=""
+                        />
+                        <Star
+                          fill={`${testimonial.rating > 1 ? "#F1CF54" : "#DBDBDB"}`}
+                          stroke="none"
+                          className=""
+                        />
+                        <Star
+                          fill={`${testimonial.rating > 2 ? "#F1CF54" : "#DBDBDB"}`}
+                          stroke="none"
+                          className=""
+                        />
+                        <Star
+                          fill={`${testimonial.rating > 3 ? "#F1CF54" : "#DBDBDB"}`}
+                          stroke="none"
+                          className=""
+                        />
+                        <Star
+                          fill={`${testimonial.rating > 4 ? "#F1CF54" : "#DBDBDB"}`}
+                          stroke="none"
+                          className=""
+                        />
+                      </div>
+
                       <p className="mt-5 w-full max-w-[950px] mx-auto text-center">
                         {testimonial.content}
                       </p>

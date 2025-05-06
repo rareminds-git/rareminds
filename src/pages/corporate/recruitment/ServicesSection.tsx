@@ -25,6 +25,18 @@ import {
   CarouselNext,
 } from "@/components/ui/carousel";
 import { useMediaQuery } from "react-responsive";
+import TechnicalHiring from "@/assets/corporate/home/services/TechnicalHiring.svg";
+import BulkHiring from "@/assets/corporate/home/services/BulkHiring.svg";
+import LeadershipHiring from "@/assets/corporate/home/services/LeadershipHiring.svg";
+import Behavioral from "@/assets/corporate/home/services/Behavioral-CultureFitAssessments.svg";
+import ProjectBasedHiring from "@/assets/corporate/home/services/Project-BasedHiring.svg";
+import RPO from "@/assets/corporate/home/services/RPO.svg";
+import Campus from "@/assets/corporate/home/services/Campus.svg";
+import psychometrictesting from "@/assets/corporate/home/services/psychometrictesting.svg";
+import DiversityHiring from "@/assets/corporate/home/services/DiversityHiring.svg";
+import TalentMapping from "@/assets/corporate/home/services/TalentMapping.svg";
+import Interview from "@/assets/corporate/home/services/Interview-as-a-Service.svg";
+import OnboardingSupport from "@/assets/corporate/home/services/OnboardingSupport.svg";
 
 const ServicesSection = () => {
   const carouselRef = useRef(null);
@@ -52,87 +64,103 @@ const ServicesSection = () => {
 
   const services = [
     {
-      icon: <Code />,
-      title: "Technical Hiring",
-      description:
-        "Access pre-screened tech professionals for IT, software, engineering & data roles.",
+      icon: TechnicalHiring,
+      title: "Technical Hiring Services",
+      heading: "Build Tech Teams That Deliver",
+      subheading:
+        "Hire top developers, engineers, and IT experts with precision.",
+      industries: "IT, Mechanical, EdTech, Energy",
     },
     {
-      icon: <Users />,
-      title: "Bulk Hiring",
-      description:
-        "Need to grow your workforce fast? We handle high-volume hiring with speed and scale.",
+      icon: BulkHiring,
+      title: "Bulk Hiring Services",
+      heading: "Scale Fast Without Compromising Quality",
+      subheading: "Volume hiring solutions for fast-paced growth.",
+      industries: "Hospitality, Agriculture, Retail, BPO",
     },
     {
-      icon: <UserPlus />,
-      title: "Leadership Hiring",
-      description:
-        "From CXOs to VPs, our executive search team secures proven leaders aligned to your vision.",
+      icon: LeadershipHiring,
+      title: "Leadership Hiring Services",
+      heading: "Hire Leaders Who Transform",
+      subheading: "Executive search for growth-driven organizations.",
+      industries: "Pharma, IT, Energy, EdTech",
     },
     {
-      icon: <Brain />,
+      icon: Behavioral,
       title: "Behavioral & Culture Fit Assessments",
-      description:
-        "Hire candidates who fit your company's mindset, not just the role.",
+      heading: "Hire for Attitude. Train for Skills.",
+      subheading: "Make data-driven hiring decisions beyond the resume.",
+      industries: "All industries",
     },
     {
-      icon: <Calendar />,
+      icon: ProjectBasedHiring,
       title: "Project-Based Hiring",
-      description:
-        "Flexible staffing for contract or short-term business needs.",
+      heading: "Agile Hiring for Agile Projects",
+      subheading: "Get skilled experts when and where you need them.",
+      industries: "IT, Pharma, EdTech, Manufacturing",
     },
     {
-      icon: <FileCheck />,
+      icon: RPO,
       title: "RPO Services",
-      description:
-        "Outsource your hiring engine to us for end-to-end recruitment management.",
+      heading: "Recruitment, Reimagined",
+      subheading: "We take charge of your hiring while you focus on growth.",
+      industries: "IT, EdTech, Hospitality, Energy",
     },
     {
-      icon: <GraduationCap />,
+      icon: Campus,
       title: "Campus Hiring",
-      description:
-        "Engage, assess, and recruit young talent through structured college hiring programs.",
+      heading: "Future-Proof Your Workforce",
+      subheading: "Recruit top campus talent from across India.",
+      industries: "IT, EdTech, Pharma, AgriTech",
     },
     {
-      icon: <LineChart />,
+      icon: psychometrictesting,
       title: "Psychometric Testing",
-      description:
-        "Use data-driven assessments to evaluate candidate fit and soft skills.",
+      heading: "Hire Smarter With Science",
+      subheading:
+        "Evaluate beyond skills with cognitive and personality assessments.",
+      industries: "All industries",
     },
     {
-      icon: <UsersRound />,
+      icon: DiversityHiring,
       title: "Diversity Hiring",
-      description:
-        "Inclusive recruitment strategies that reflect your values and expand your reach.",
+      heading: "Build Inclusive Teams That Thrive",
+      subheading: "We help you meet your DEI goals.",
+      industries: "All sectors",
     },
     {
-      icon: <Map />,
+      icon: TalentMapping,
       title: "Talent Mapping",
-      description:
-        "Gain insights into hiring trends, salary benchmarks, and competitor talent pools.",
+      heading: "See the Talent Before You Need It",
+      subheading: "Market intelligence to fuel your future workforce.",
+      industries: "Pharma, IT, Manufacturing, Energy",
     },
     {
-      icon: <MessageSquare />,
+      icon: Interview,
       title: "Interview-as-a-Service",
-      description:
-        "Streamline interview processes with our expert-managed panels and systems.",
+      heading: "Outsource Your Interviews to Experts",
+      subheading:
+        "Panel-driven, structured, and efficient candidate evaluation.",
+      industries: "IT, EdTech, Pharma",
     },
     {
-      icon: <BookOpen />,
+      icon: OnboardingSupport,
       title: "Pre-Onboarding Support",
-      description:
-        "Get candidates job-ready with essential training before their first day.",
+      heading: "From Offer to Office – Seamlessly",
+      subheading: "Keep candidates engaged until Day 1.",
+      industries: "All industries",
     },
   ];
 
   return (
-    <section id="services" className="section py-20 relative">
+    <section id="services" className="section relative">
       {/* Background elements */}
       <div className="absolute inset-0 bg-white z-0"></div>
-      {/* <div className="absolute left-0 top-0 w-64 h-64 bg-gradient-to-br from-red-100 to-transparent rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl"></div> */}
-      {/* <div className="absolute right-0 bottom-0 w-96 h-96 bg-gradient-to-tl from-red-100 to-transparent rounded-full translate-x-1/2 translate-y-1/2 blur-3xl"></div> */}
+      <div className="absolute w-full h-full bg-[url('/images/corporate/recruitment/services/bg.webp')] bg-center bg-cover opacity-[0.03]">
+        {/* <div className="h-[50px] bg-gradient-to-b from-white to-transparent"></div> */}
+      </div>
 
-      <div className="container mx-auto relative z-10">
+      <div className="max-w-[1300px] mx-auto relative z-10 py-20">
         <div className="text-center mb-12 relative">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -141,9 +169,6 @@ const ServicesSection = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="flex justify-center items-center">
-              {/* <div className="bg-red-600 rounded-full p-3 shadow-lg shadow-red-200">
-                <Briefcase className="text-white" size={28} />
-              </div> */}
               <div className="bg-corporate-secondary text-white w-16 h-16 rounded-[25px] mx-auto mb-4 flex items-center justify-center transform rotate-6">
                 <Briefcase size={32} />
               </div>
@@ -156,49 +181,54 @@ const ServicesSection = () => {
               for fast-growing companies, enterprise teams, and industry
               leaders.
             </p>
-            {/* <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-red-400 mx-auto mt-6 rounded-full"></div> */}
           </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative"
-        >
-          <Carousel
-            ref={carouselRef}
-            className="w-full"
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-          >
-            <CarouselContent className="-ml-2 md:-ml-4 pb-5">
-              {services.map((service, index) => (
-                <CarouselItem
-                  key={index}
-                  className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/3"
-                >
-                  <div className="h-full p-2">
-                    <ServiceCard
-                      icon={service.icon}
-                      title={service.title}
-                      description={service.description}
-                      className="border-none h-full bg-corporate-accent shadow-[0_4px_6px_-4px_#F1CF54] hover:shadow-[0_4px_6px_-4px_#F1CF54,0_10px_15px_-3px_#F1CF5466] transition-all duration-300"
-                    />
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-8 gap-y-10">
+          {services.map((service, index) => (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="relative"
+            >
+              <div className="relative h-[230px]" key={index}>
+                <Link to={`/corporate/${service.title}`}>
+                  <div className="mx-auto w-max relative">
+                    <div className="absolute flex items-center">
+                      <div className="h-[42px] w-[42px] p-2 bg-corporate-primary-light rounded-[15px]">
+                        <img src={service.icon} />
+                      </div>
+                      <h3 className="ml-3 font-semibold text-lg max-w-[225px]">
+                        {service.title}
+                      </h3>
+                    </div>
+                    <div className="absolute top-[80px] left-[30px] max-w-[320px]">
+                      <p className="font-[500]">{service.heading}</p>
+                      <p className="text-corporate-grey mt-1 leading-5 text-sm">
+                        {service.subheading}
+                      </p>
+                    </div>
+                    <div className="absolute bottom-[30px] left-[30px] flex leading-5 text-[12px] max-w-[320px]">
+                      <p className="min-w-max font-semibold">Key Industries:</p>
+                      <p className="ml-1">{service.industries}</p>
+                    </div>
+                    <div className="pt-1 w-max">
+                      <img
+                        src="/images/corporate/recruitment/services/service-bg.png"
+                        alt="Curved Background"
+                        className="w-"
+                        width="384"
+                        height={230}
+                      />
+                    </div>
                   </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-
-            <div className="flex justify-center mt-3">
-              <CarouselPrevious className=" translate-y-0 mr-2 bg-corporate-primary/10 border-corporate-primary text-corporate-primary hover:bg-corporate-primary hover:text-white" />
-              <CarouselNext className=" translate-y-0 ml-2 bg-corporate-primary/10 border-corporate-primary text-corporate-primary hover:bg-corporate-primary hover:text-white" />
-            </div>
-          </Carousel>
-        </motion.div>
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}

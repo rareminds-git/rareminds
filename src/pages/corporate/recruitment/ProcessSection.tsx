@@ -11,7 +11,6 @@ import {
   SquaresExclude,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const steps = [
   {
@@ -95,7 +94,47 @@ const steps = [
 ];
 
 const ProcessSection = () => {
-  const [activeStep, setActiveStep] = useState("1");
+  // const [activeStep, setActiveStep] = useState("1");
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const process = [
+    {
+      description: "",
+      x: "left-[10%]",
+      y: "top-[10%]",
+      width: "w-[13%]",
+    },
+    {
+      description: "",
+      x: "left-[10%]",
+      y: "top-[10%]",
+      width: "w-[13%]",
+    },
+    {
+      description: "",
+      x: "left-[10%]",
+      y: "top-[10%]",
+      width: "w-[13%]",
+    },
+    {
+      description: "",
+      x: "left-[10%]",
+      y: "top-[10%]",
+      width: "w-[13%]",
+    },
+    {
+      description: "",
+      x: "left-[10%]",
+      y: "top-[10%]",
+      width: "w-[13%]",
+    },
+    {
+      description: "",
+      x: "left-[10%]",
+      y: "top-[10%]",
+      width: "w-[13%]",
+    },
+  ];
 
   return (
     <section id="process" className="py-16 relative overflow-hidden">
@@ -183,14 +222,15 @@ const ProcessSection = () => {
         alt="Process Section"
         className="hidden lg:block w-full h-auto mb-12"
       /> */}
-      <div className="hidden lg:block relative h-screen">
+      <div className="hidden lg:block relative h-screen min-h-[900px]">
         <img
           src="/images/corporate/recruitment/process/bg.webp"
-          alt="Clouds"
+          alt="Modern Pop art"
           width={1920}
           height={1080}
           className="absolute top-0 h-full w-full"
         />
+        {/* <div className="relative w-full h-full bg-black/50"></div> */}
         <img
           src="/images/corporate/recruitment/process/clouds.webp"
           alt="Clouds"
@@ -205,6 +245,159 @@ const ProcessSection = () => {
           height={186}
           className="absolute bottom-0"
         />
+
+        {/* <div className="absolute top-[14%] left-[5%] w-[90%]">
+          <img
+            src="/images/corporate/recruitment/process/charactors/test.png"
+            alt="Understand your need"
+            className="w-full"
+            height={180}
+          />
+        </div> */}
+
+        <div className="absolute top-[14%] left-[5.1%] w-[19%] z-[2] hover:z-[11]">
+          <img
+            src="/images/corporate/recruitment/process/charactors/understand.webp"
+            alt="Understand your need"
+            className="w-full hover:scale-105 transition-all duration-300"
+            height={180}
+            onMouseEnter={() => setHoveredIndex(0)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          />
+        </div>
+
+        <div className="absolute top-[22%] left-[26.3%] w-[18%] group z-[2] hover:z-[11]">
+          <img
+            src="/images/corporate/recruitment/process/charactors/map.webp"
+            alt="Map the market"
+            className="w-full group-hover:scale-105 transition-all duration-300"
+          />
+        </div>
+
+        <div className="absolute top-[27.3%] left-[47.5%] w-[26%] z-[2] hover:z-[11]">
+          <img
+            src="/images/corporate/recruitment/process/charactors/source.webp"
+            alt="source & screen talent"
+            className="w-full group-hover:scale-105 transition-all duration-300"
+          />
+        </div>
+
+        <div className="absolute top-[40%] left-[68.5%] w-[26.4%] z-[2] hover:z-[11]">
+          <img
+            src="/images/corporate/recruitment/process/charactors/interview.webp"
+            alt="interview coordination"
+            className="w-full group-hover:scale-105 transition-all duration-300"
+          />
+        </div>
+
+        <div className="absolute top-[66%] left-[56.8%] w-[30.4%] z-[2] hover:z-[11]">
+          <img
+            src="/images/corporate/recruitment/process/charactors/final.webp"
+            alt="final selection & offer support"
+            className="w-full"
+          />
+        </div>
+
+        <div className="absolute top-[62%] left-[13.4%] w-[26%] z-[2] hover:z-[11]">
+          <img
+            src="/images/corporate/recruitment/process/charactors/feedback.webp"
+            alt="post-onboarding feedback"
+            className="w-full"
+          />
+        </div>
+
+        {/* lines */}
+
+        <div className="absolute top-[27%] left-[13%] w-[13%]">
+          <img
+            src="/images/corporate/recruitment/process/lines/1.webp"
+            alt="line"
+            className="w-full"
+          />
+        </div>
+
+        <div className="absolute top-[39.4%] left-[33%] w-[15%]">
+          <img
+            src="/images/corporate/recruitment/process/lines/2.webp"
+            alt="line"
+            className="w-full"
+          />
+        </div>
+
+        <div className="absolute top-[39.4%] left-[58%] w-[10.5%]">
+          <img
+            src="/images/corporate/recruitment/process/lines/3.webp"
+            alt="line"
+            className="w-full"
+          />
+        </div>
+
+        <div className="absolute top-[52.5%] left-[53.2%] w-[14.7%]">
+          <img
+            src="/images/corporate/recruitment/process/lines/4.webp"
+            alt="line"
+            className="w-full"
+          />
+        </div>
+
+        <div className="absolute top-[80%] left-[40.4%] w-[14%]">
+          <img
+            src="/images/corporate/recruitment/process/lines/5.webp"
+            alt="line"
+            className="w-full"
+          />
+        </div>
+
+        {/* clouds */}
+
+        <div className="absolute top-[33%] left-[11.8%] w-[11%]">
+          <img
+            src="/images/corporate/recruitment/process/clouds/1.webp"
+            alt="cloud"
+            className="w-full"
+          />
+        </div>
+
+        <div className="absolute top-[33.1%] left-[37.2%] w-[8.4%]">
+          <img
+            src="/images/corporate/recruitment/process/clouds/1.webp"
+            alt="cloud"
+            className="w-full"
+          />
+        </div>
+
+        <div className="absolute top-[45.6%] left-[55.7%] w-[8.8%] -rotate-12">
+          <img
+            src="/images/corporate/recruitment/process/clouds/2.webp"
+            alt="cloud"
+            className="w-full"
+          />
+        </div>
+
+        <div className="absolute top-[73.5%] left-[42%] w-[8.8%]">
+          <img
+            src="/images/corporate/recruitment/process/clouds/2.webp"
+            alt="cloud"
+            className="w-full"
+          />
+        </div>
+
+        {/* Cloud Desc */}
+        <div
+          className={`absolute z-10 top-[30%] left-[9%] w-[500px] transition-all duration-300 ${[hoveredIndex == 0 ? "opacity-100" : "opacity-0"]}`}
+        >
+          <img
+            src="/images/corporate/recruitment/process/Cloud.webp"
+            alt="Understand your need"
+            className="w-full drop-shadow-lg"
+            height={180}
+          />
+          <p className="absolute top-[30%] text-corporate-grey left-[15%] w-[350px] text-center">
+            We start by listening. Our team collaborates with your hiring
+            managers to understand your business goals, role expectations, team
+            dynamics, and success metrics.
+          </p>
+        </div>
       </div>
     </section>
   );
