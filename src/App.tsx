@@ -32,7 +32,9 @@ const App = () => {
         <Suspense fallback={<LoaderComponent />}>
           <Routes>
             <Route path="/" element={<Index />} />
+  
             <Route path="/:name" element={<Name />} />
+            <Route path="/government" element={<Govt />} />
             <Route path="/:userType/services" element={<Services />} />
             <Route path="/form" element={<QueryForm pageData={{}} />} />
             <Route
@@ -53,7 +55,7 @@ const App = () => {
               element={<EventDetail />}
             />
             
-            <Route path="/govt" element={<Govt/>} />
+            {/* <Route path="/govt" element={<Govt/>} /> */}
             <Route path="/govt/ViewGovtProject" element={<ViewGovtProject/>} />
 
             <Route path="/walloffame/" element={<WallofFame />} />
