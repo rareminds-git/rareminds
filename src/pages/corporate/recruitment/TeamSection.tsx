@@ -71,7 +71,7 @@ const TeamSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 lg:gap-8 max-w-6xl mx-auto px-5">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.name}
@@ -79,7 +79,7 @@ const TeamSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`group row-span-4 ${index % 2 == 1 ? "row-start-2" : "row-start-1"}`}
+              className={`group lg:row-span-4 ${index % 2 == 1 ? "lg:row-start-2" : "lg:row-start-1"}`}
             >
               <div
                 className={`relative ${member.bg} rounded-full flex flex-col h-[500px] overflow-hidden group`}
@@ -106,7 +106,7 @@ const TeamSection = () => {
                   <img
                     src={member.photo}
                     alt={member.name}
-                    className="lg:grayscale lg:group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110"
+                    className="grayscale group-hover:grayscale-0 transition-all duration-300 group-hover:scale-110"
                   />
                 </div>
               </div>

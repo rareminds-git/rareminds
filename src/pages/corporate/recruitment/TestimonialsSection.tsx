@@ -40,8 +40,8 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-24 bg-gradient-to-br from-[#FFFBE5] to-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/images/corporate/recruitment/testimonials/bg.webp')] bg-center opacity-5"></div>
+    <section className="py-24 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[url('/images/corporate/recruitment/testimonials/bg.webp')] bg-center opacity-[0.03]"></div>
 
       <div className="container mx-auto relative z-10">
         <div className="bg-corporate-secondary text-white w-16 h-16 rounded-[25px] mx-auto mb-4 flex items-center justify-center transform rotate-6">
@@ -66,8 +66,8 @@ const TestimonialsSection = () => {
             <CarouselContent>
               {testimonials.map((testimonial, index) => (
                 <CarouselItem key={index} className="w-full py-5">
-                  <div className="relative mt-[80px]">
-                    <Quotes className="absolute top-0" />
+                  <div className="relative">
+                    {/* <Quotes className="absolute top-0" /> */}
 
                     <div className="relative flex justify-center flex-col mx-auto">
                       <img
@@ -110,12 +110,10 @@ const TestimonialsSection = () => {
                         {testimonial.content}
                       </p>
                       <div>
-                        <p className="font-bold text-[20px] mt-4 text-corporate-primary text-center">
+                        <p className="font-bold text-[20px] mt-4 text-center">
                           {testimonial.author}
                         </p>
-                        <p className="text-corporate-secondary text-center">
-                          {testimonial.position}
-                        </p>
+                        <p className="text-center">{testimonial.position}</p>
                         <p className="text-sm text-corporate-grey text-center">
                           {testimonial.company}
                         </p>

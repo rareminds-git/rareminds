@@ -11,6 +11,8 @@ import {
   SquaresExclude,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import ProcessSVG from "@/assets/corporate/home/process/process";
+import ProcessSVGMob from "@/assets/corporate/home/process/processMobile";
 
 const steps = [
   {
@@ -137,13 +139,16 @@ const ProcessSection = () => {
   ];
 
   return (
-    <section id="process" className="py-16 relative overflow-hidden">
+    <section
+      id="process"
+      className="py-16 relative overflow-hidden min-h-screen"
+    >
       {/* Background design elements */}
       {/* <div className="absolute top-0 left-1/3 w-1/3 h-1/3 bg-gradient-to-b from-red-100 to-transparent rounded-full opacity-60 blur-3xl"></div>
       <div className="absolute bottom-0 right-1/4 w-1/4 h-1/4 bg-gradient-to-t from-red-100 to-transparent rounded-full opacity-50 blur-3xl"></div>
       <div className="absolute top-1/2 right-0 w-1/5 h-1/5 bg-gradient-to-l from-red-100 to-transparent rounded-full opacity-40 blur-3xl transform -translate-y-1/2"></div> */}
 
-      <div className="container mx-auto relative z-10">
+      <div className="mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -167,52 +172,15 @@ const ProcessSection = () => {
         </motion.div>
 
         {/* Mobile Process View - Stacked Cards */}
-        <div className="lg:hidden">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.number}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              className="mb-6 relative"
-            >
-              {index < steps.length - 1 && (
-                <div className="absolute top-full left-6 w-1 h-10 bg-gradient-to-b from-red-500 to-transparent z-0"></div>
-              )}
-
-              <Card className="overflow-hidden border-none shadow-lg bg-white">
-                <div className="bg-gradient-to-r from-red-500 to-red-700 p-4 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white">
-                    {step.icon}
-                  </div>
-                  <div>
-                    <div className="text-xs text-white/90">
-                      Step {step.number}
-                    </div>
-                    <h3 className="text-lg font-bold text-white">
-                      {step.title}
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="p-5">
-                  <p className="text-gray-600 mb-4">{step.description}</p>
-
-                  <div className="space-y-2">
-                    {step.details.slice(0, 2).map((detail, idx) => (
-                      <div key={idx} className="flex items-start gap-2">
-                        <div className="mt-1.5 min-w-4 h-4 rounded-full bg-red-100 flex items-center justify-center">
-                          <div className="w-1.5 h-1.5 rounded-full bg-red-600"></div>
-                        </div>
-                        <p className="text-gray-700 text-sm">{detail}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-          ))}
+        <div className="lg:hidden relative">
+          <img
+            src="/images/corporate/recruitment/process/bg-mobile.webp"
+            className="object-center w-full h-[852px]"
+            width={400}
+          />
+          <div className="absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%]">
+            <ProcessSVGMob className="scale-[0.8] xl:scale-110" />
+          </div>
         </div>
       </div>
 
@@ -222,15 +190,23 @@ const ProcessSection = () => {
         alt="Process Section"
         className="hidden lg:block w-full h-auto mb-12"
       /> */}
-      <div className="hidden lg:block relative h-screen min-h-[900px]">
+      <div className="hidden lg:block relative">
         <img
+          src="/images/corporate/recruitment/process/process-bg.webp"
+          className="object-center"
+          height={626}
+        />
+        <div className="absolute top-1/2 left-1/2 -translate-x-[50%] -translate-y-[50%]">
+          <ProcessSVG className="scale-[0.8] xl:scale-110" />
+        </div>
+
+        {/* <img
           src="/images/corporate/recruitment/process/bg.webp"
           alt="Modern Pop art"
           width={1920}
           height={1080}
           className="absolute top-0 h-full w-full"
         />
-        {/* <div className="relative w-full h-full bg-black/50"></div> */}
         <img
           src="/images/corporate/recruitment/process/clouds.webp"
           alt="Clouds"
@@ -245,15 +221,6 @@ const ProcessSection = () => {
           height={186}
           className="absolute bottom-0"
         />
-
-        {/* <div className="absolute top-[14%] left-[5%] w-[90%]">
-          <img
-            src="/images/corporate/recruitment/process/charactors/test.png"
-            alt="Understand your need"
-            className="w-full"
-            height={180}
-          />
-        </div> */}
 
         <div className="absolute top-[14%] left-[5.1%] w-[19%] z-[2] hover:z-[11]">
           <img
@@ -304,11 +271,11 @@ const ProcessSection = () => {
             alt="post-onboarding feedback"
             className="w-full"
           />
-        </div>
+        </div> */}
 
         {/* lines */}
 
-        <div className="absolute top-[27%] left-[13%] w-[13%]">
+        {/* <div className="absolute top-[27%] left-[13%] w-[13%]">
           <img
             src="/images/corporate/recruitment/process/lines/1.webp"
             alt="line"
@@ -346,11 +313,11 @@ const ProcessSection = () => {
             alt="line"
             className="w-full"
           />
-        </div>
+        </div> */}
 
         {/* clouds */}
 
-        <div className="absolute top-[33%] left-[11.8%] w-[11%]">
+        {/* <div className="absolute top-[33%] left-[11.8%] w-[11%]">
           <img
             src="/images/corporate/recruitment/process/clouds/1.webp"
             alt="cloud"
@@ -380,10 +347,10 @@ const ProcessSection = () => {
             alt="cloud"
             className="w-full"
           />
-        </div>
+        </div> */}
 
         {/* Cloud Desc */}
-        <div
+        {/* <div
           className={`absolute z-10 top-[30%] left-[9%] w-[500px] transition-all duration-300 ${[hoveredIndex == 0 ? "opacity-100" : "opacity-0"]}`}
         >
           <img
@@ -397,7 +364,7 @@ const ProcessSection = () => {
             managers to understand your business goals, role expectations, team
             dynamics, and success metrics.
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   );

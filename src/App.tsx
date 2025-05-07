@@ -23,6 +23,7 @@ import Recruitment from "./pages/corporate/recruitment";
 import WallofFame from "./pages/walloffame";
 import InstitutionsQueryForm from "./pages/[name]/insitutionQuery";
 import QueryForm from "./components/Program/QueryForm";
+import CorporateService from "./pages/corporate/service/service";
 
 const App = () => {
   return (
@@ -36,7 +37,7 @@ const App = () => {
             <Route path="/form" element={<QueryForm />} />
             <Route
               path="/:userType/services/:serviceName"
-              element={<ServiceName />}
+              element={<CorporateService />}
             />
             <Route path="/:userType/case-studies" element={<CaseStudies />} />
             <Route

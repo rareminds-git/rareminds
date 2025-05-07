@@ -184,7 +184,7 @@ const ServicesSection = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-8 gap-y-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-10">
           {services.map((service, index) => (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -194,7 +194,7 @@ const ServicesSection = () => {
               className="relative"
             >
               <div className="relative h-[230px]" key={index}>
-                <Link to={`/corporate/${service.title}`}>
+                <Link to={`/corporate/services/${service.title}`}>
                   <div className="mx-auto w-max relative">
                     <div className="absolute flex items-center">
                       <div className="h-[42px] w-[42px] p-2 bg-corporate-primary-light rounded-[15px]">
@@ -241,7 +241,7 @@ const ServicesSection = () => {
             <Button
               onClick={scrollToContact}
               size="lg"
-              className="bg-corporate-secondary hover:bg-red-700 text-white shadow-lg shadow-red-200 hover:shadow-red-300/50 transition-all duration-300"
+              className="bg-corporate-secondary hover:bg-red-700 text-white shadow-lg shadow-red-200 hover:shadow-red-300/50 transition-all duration-300 !rounded-full"
             >
               Try us on your toughest role
             </Button>

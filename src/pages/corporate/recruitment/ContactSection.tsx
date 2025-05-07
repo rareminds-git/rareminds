@@ -85,7 +85,7 @@ const ContactSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="container mx-auto relative z-10"
+        className="container mx-auto px-5 relative z-10"
       >
         <div className="text-center mb-16">
           <div className="bg-corporate-secondary text-white w-16 h-16 rounded-[25px] mx-auto mb-4 flex items-center justify-center transform rotate-6">
@@ -226,7 +226,7 @@ const ContactSection = () => {
                           <Link to="/contact-us">
                             <Button
                               type="submit"
-                              className="bg-corporate-secondary hover:bg-corporate-secondary/90 text-white font-medium px-8 py-6 text-lg rounded-xl"
+                              className="bg-corporate-secondary hover:bg-corporate-secondary/90 text-white font-medium px-8 py-6 text-lg rounded-full"
                               disabled={isSubmitting}
                             >
                               {isSubmitting ? (

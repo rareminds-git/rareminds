@@ -71,7 +71,7 @@ const CaseStudiesSection = () => {
     >
       <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMDAwMDAiIGZpbGwtb3BhY2l0eT0iMC4yIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00TTE2IDI0YzAtMi4yIDEuOC00IDQtNHM0IDEuOCA0IDQtMS44IDQtNCA0LTQtMS44LTQtNCIvPjwvZz48L2c+PC9zdmc+')]"></div>
 
-      <div className="container mx-auto relative z-10">
+      <div className="container px-5 mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -222,12 +222,12 @@ const CaseStudiesSection = () => {
                             </ul>
                           </div>
 
-                          <div className="mt-6">
+                          {/* <div className="mt-6">
                             <Button className="bg-corporate-secondary hover:bg-corporate-secondary/90 text-white">
                               Read Full Case Study{" "}
                               <ArrowRight size={16} className="ml-2" />
                             </Button>
-                          </div>
+                          </div> */}
                         </motion.div>
                       </div>
                     </div>
