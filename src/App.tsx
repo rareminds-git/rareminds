@@ -32,6 +32,7 @@ const App = () => {
         <Suspense fallback={<LoaderComponent />}>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/corporate" element={<Recruitment />} />
             <Route path="/:name" element={<Name />} />
             <Route path="/:userType/services" element={<Services />} />
             <Route path="/form" element={<QueryForm />} />
@@ -74,7 +75,6 @@ const App = () => {
               path="/institutions/query"
               element={<InstitutionsQueryForm />}
             />
-            <Route path="/corporate/recruitment" element={<Recruitment />} />
           </Routes>
         </Suspense>
       </DefaultLayout>
