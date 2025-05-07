@@ -17,13 +17,13 @@ const govt = () => {
 
       <HeroSection />
       <CTAButton />
-      {/* <FeaturesSection /> */}
+      <FeaturesSection />
       <GovernmentOutcomesSection />
       <PartnershipsSection />
       <DashboardSection />
-      {/* <SectorExpertise /> */}
+      <SectorExpertise />
       <PartnershipHero />
-      {/* <GovtServiceSection /> */}
+      <GovtServiceSection />
       <DeploymentSection />
     </div>
   );
