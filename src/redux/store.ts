@@ -1,3 +1,4 @@
+import { configureStore } from "@reduxjs/toolkit";
 import appReducer from "@/redux/features/appSlice";
 
 const store = configureStore({
