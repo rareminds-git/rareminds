@@ -18,6 +18,8 @@ import ImageGallery from "./pages/hackathon/gallery";
 import EventsGalleryPage from "./pages/events-gallery/events";
 import ProjectsPage from "./pages/projects/projectlist";
 import Naan from "./pages/projects/[name]";
+import Govt from "./pages/govt/govt";
+import ViewGovtProject from "./components/Govt/sections/ViewGovtProject";
 
 import WallofFame from "./pages/walloffame";
 import InstitutionsQueryForm from "./pages/[name]/insitutionQuery";
@@ -32,7 +34,7 @@ const App = () => {
             <Route path="/" element={<Index />} />
             <Route path="/:name" element={<Name />} />
             <Route path="/:userType/services" element={<Services />} />
-            <Route path="/form" element={<QueryForm/>} />
+            <Route path="/form" element={<QueryForm pageData={{}} />} />
             <Route
               path="/:userType/services/:serviceName"
               element={<ServiceName />}
@@ -50,6 +52,10 @@ const App = () => {
               path="/hackathon/:eventCategory/:slug"
               element={<EventDetail />}
             />
+            
+            <Route path="/govt" element={<Govt/>} />
+            <Route path="/govt/ViewGovtProject" element={<ViewGovtProject/>} />
+
             <Route path="/walloffame/" element={<WallofFame />} />
             <Route
               path="/careers/web-developer-intern"
