@@ -1,6 +1,6 @@
 import LoaderComponent from "@/components/LoaderComponent";
 import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import {  BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import DefaultLayout from "./layouts/DefaultLayout";
 import Index from "./pages/Index";
 import Name from "./pages/[name]";
@@ -18,10 +18,13 @@ import ImageGallery from "./pages/hackathon/gallery";
 import EventsGalleryPage from "./pages/events-gallery/events";
 import ProjectsPage from "./pages/projects/projectlist";
 import Naan from "./pages/projects/[name]";
-
+import Academy from "./components/Academy/Academy";
 import WallofFame from "./pages/walloffame";
 import InstitutionsQueryForm from "./pages/[name]/insitutionQuery";
 import QueryForm from "./components/Program/QueryForm";
+import Teacher from "./components/Academy/teacher";
+import Student from "./components/Academy/student";
+
 
 const App = () => {
   return (
@@ -30,6 +33,7 @@ const App = () => {
         <Suspense fallback={<LoaderComponent />}>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/schools" element={<Academy />} />
             <Route path="/:name" element={<Name />} />
             <Route path="/:userType/services" element={<Services />} />
             <Route path="/form" element={<QueryForm/>} />
@@ -72,6 +76,10 @@ const App = () => {
               path="/institutions/query"
               element={<InstitutionsQueryForm />}
             />
+
+            <Route path="/Academy" element={<Academy />} />
+            <Route path="/academy/teacher" element={<Teacher />} />
+           <Route path="/academy/student" element={<Student />} />
           </Routes>
         </Suspense>
       </DefaultLayout>
